@@ -1,0 +1,318 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6952,        246]*)
+(*NotebookOutlinePosition[      7909,        278]*)
+(*  CellTagsIndexPosition[      7865,        274]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Linear Algebra", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[" Assignment #4", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Theory"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"Section 4.3; Least Squares and Orthogonal Projections"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Theorem",
+    FontWeight->"Bold"],
+  ": If A is an ",
+  StyleBox["m",
+    FontSlant->"Italic"],
+  " x",
+  StyleBox[" n",
+    FontSlant->"Italic"],
+  " matrix, the equation Ax=y has a solution if and only if y is in the \
+column space of A.\nThe problem is to find an x that minimizes the errors in \
+some sense. \n\nThe ",
+  StyleBox["least-squares problem ",
+    FontWeight->"Bold"],
+  "for the inconsistent system Ax=y is to find a vector z for which \
+||e||=||y-Az|| is minimum. \n\n",
+  StyleBox["Theorem",
+    FontWeight->"Bold"],
+  ": The length ||e|| is a minimum exactly when e is perpendicular to ",
+  StyleBox["CS",
+    FontSlant->"Italic"],
+  "(A).\n\n",
+  StyleBox["Theorem",
+    FontWeight->"Bold"],
+  ": for an ",
+  StyleBox["m",
+    FontSlant->"Italic"],
+  " x 1 matrix A, the solution z to the least-squares problem Ax=y is\n       \
+z=(A.y)/(A.A)."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["a={2,4,6};y={4,5,21};\n(a.y)/(a.a)"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Definition",
+    FontWeight->"Bold"],
+  ": Suppose W is a subspace of ",
+  StyleBox["R",
+    FontWeight->"Bold"],
+  StyleBox["m",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  " and y is an arbitrary vector in ",
+  StyleBox["R",
+    FontWeight->"Bold"],
+  StyleBox["m",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  ".  Then the perpendicular projection of y into W is the unique vector p in \
+W such that y - p is perpendicular to W.  The function P, which assigns to \
+every vector y in ",
+  StyleBox["R",
+    FontWeight->"Bold"],
+  StyleBox["m",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  " its perpendicular projection p, is called the (perpendicular) projection \
+(function).\n"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Theorem:",
+    FontWeight->"Bold"],
+  " Let W be a subspace of ",
+  StyleBox["R",
+    FontWeight->"Bold"],
+  StyleBox["m ",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  "and A be an",
+  StyleBox[" m",
+    FontSlant->"Italic"],
+  " x",
+  StyleBox[" n",
+    FontSlant->"Italic"],
+  " matrix whose columns form a basis for W. (Thus the columns of A are \
+linearly independent and W = ",
+  StyleBox["CS",
+    FontSlant->"Italic"],
+  "(A).)  If y is any vector in ",
+  StyleBox["R",
+    FontWeight->"Bold"],
+  StyleBox["m",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  ", then its perpendicular projection into W is given by \n\n    p = \
+Az=A[Inverse(A",
+  StyleBox["T",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  "A) A",
+  StyleBox["T",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  " y].\n\nThus the perpendicular projection function P which projects ",
+  StyleBox["R",
+    FontWeight->"Bold"],
+  StyleBox["m",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  " onto W is given by\n\n     P = A.(Inverse(A",
+  StyleBox["T",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  ".A)).A",
+  StyleBox["T",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  "\n",
+  "\n"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"c1={1,2,0,-2};c2={3,1,1,1};y={1,1,1,1};\na=Transpose[{c1,c2}];\n\
+MatrixForm[a]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["ata=Transpose[a].a;\nMatrixForm[ata]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Inverse[ata]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["p=(a.Inverse[ata]).Transpose[a].y"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["cp=a.(Inverse[ata]).Transpose[a]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["cp.y"], "Input",
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Given the data set {(1,-1),(2,0),(3,-1),(4,-1)}, find a function of the \
+form y = a + bx + cx",
+  StyleBox["2",
+    FontSize->10,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  "\nwhich best fits the data in the least-squares sense by\n\n\t1) Solving \
+the normal equations\n\t2) Using ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "'s ",
+  StyleBox["Fit",
+    FontWeight->"Bold"],
+  " function. [Use ",
+  StyleBox["?Fit",
+    FontWeight->"Bold"],
+  " to get info on using this function]\n\t"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{"RulerBar", "EditBar"},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{237, Automatic}, {Automatic, 57}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"NeXTAutomaticEncoding",
+StyleDefinitions -> "Classroom.nb"
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 128, 4, 50, "Title"],
+Cell[1862, 57, 128, 4, 50, "Title"],
+
+Cell[CellGroupData[{
+Cell[2015, 65, 83, 2, 55, "Section"],
+
+Cell[CellGroupData[{
+Cell[2123, 71, 134, 3, 45, "Subsection"],
+Cell[2260, 76, 953, 31, 282, "Text"],
+Cell[3216, 109, 87, 1, 56, "Input"],
+Cell[3306, 112, 873, 27, 110, "Text"],
+Cell[4182, 141, 1473, 52, 230, "Text"],
+Cell[5658, 195, 133, 3, 48, "Input"],
+Cell[5794, 200, 89, 1, 36, "Input"],
+Cell[5886, 203, 77, 1, 24, "Input"],
+Cell[5966, 206, 86, 1, 24, "Input"],
+Cell[6055, 209, 85, 1, 24, "Input"],
+Cell[6143, 212, 57, 1, 24, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6249, 219, 75, 2, 35, "Section"],
+Cell[6327, 223, 597, 19, 172, "Text"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

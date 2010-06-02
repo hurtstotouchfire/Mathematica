@@ -1,0 +1,663 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     12373,        519]*)
+(*NotebookOutlinePosition[     13224,        549]*)
+(*  CellTagsIndexPosition[     13180,        545]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Introduction to\nFunction Definitions"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  FontFamily->"Arial",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell["Clear[\"Global`*\"]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorial", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->24],
+
+Cell["\<\
+On NEXTSTEP:
+   /LocalLibrary/Mathematica/Notebooks/Programming.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On Windows NT:
+  \\\\BIRD\\mathematica\\notebook\\Programm.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Making Definitions", "Section",
+  Evaluatable->False,
+  FontSize->24],
+
+Cell[TextData[
+"Review:  Replacement and assignment make temporary and permanent \
+definitions, respectively."], "Text",
+  Evaluatable->False],
+
+Cell[TextData["Replacement"], "Subsection",
+  Evaluatable->False],
+
+Cell[TextData[
+"Replacement applies a transformation rule to a specific expression, \
+representing a temporary definition.\n       expr  /.  lhs -> rhs"], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+x=.
+3*x^2 + 5*x - 2  /.  x->2\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["?x", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Assignment"], "Subsection",
+  Evaluatable->False],
+
+Cell[TextData[
+"Assignment defines a transformation rule that is applied whenever possible, \
+representing a permanent definition.\n       lhs = rhs"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["x=.\nx = 2"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["?x"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["x=.   (* Let's clear it again. *)"], "Input",
+  PageWidth->Infinity]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Immediate and Delayed Assignments", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->24],
+
+Cell[TextData[
+"Set (=) causes immediate assignment, whereas SetDelayed (:=) provides \
+delayed assignment."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+In this example, in one case the polynomial is evaluated \
+immediately, but in the other case it is delayed:\
+\>", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+x = 1;  (* give x a starting value *)
+y1 = x^2 + 1;
+y2 := x^2 + 1\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["?y1", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["?y2", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+(* Now evaluate y1 and y2 *)
+y1\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["y2", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+(* Now change value of x *)
+x=2\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+(* Now reevaluate y1 and y2 *)
+y1      (* does NOT reflect new x value *)\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["y2      (*DOES reflect new x value *)", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"Another example:  In this example, rand1 is assigned a fixed value once when \
+the definition is made; but for rand2, the rhs is not evaluated until rand2 \
+is used, resulting in a different value each time."], "Text",
+  Evaluatable->False],
+
+Cell["rand1 = Random[] (*assigns CURRENT value*)", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["rand2 := Random[] (*delayed assignment*)", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["?rand1", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["?rand2", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+rand1 (*these repeat the original value*)
+rand1
+rand1\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+rand2 (*Random[] is called new each time*)
+rand2
+rand2\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"\nAlthough unnecessary in some cases, we will ALWAYS use := when defining \
+functions."], "Text",
+  Evaluatable->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["The Use of Underscore", "Section",
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True,
+  FontSize->24],
+
+Cell["\<\
+x refers to the unique symbol x. 
+x_ means any single pattern, to be called x on the rhs.
+x__ means one or more patterns, to be called x on the rhs.
+x___ means zero or more patterns, to be called x on the rhs.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Clear[f,x]
+f[x] = x^2\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["f[y]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Clear[f,x]
+f[x_] := x^2\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["f[y]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Defining Simple Functions", "Section",
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True,
+  FontSize->24],
+
+Cell[TextData[
+"Therefore, the rules for defining your own functions are..."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Use a pattern (symbol_) to specify each argument on the lhs, giving \
+it a name to be used in the definition on the rhs; and...\
+\>", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["Use the delayed assignment operator :=   .", "Section",
+  Evaluatable->False,
+  FontFamily->"Helvetica",
+  FontSize->16],
+
+Cell["\<\
+Clear[f,x]
+f[x_] := x^2\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["?f", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["f[y]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"Since we placed no constraint on the argument pattern of f[x] (we'll see how \
+to do that later), any argument is legal (whether or not the definition makes \
+sense for that argument):"], "Text",
+  Evaluatable->False],
+
+Cell["f[{a,b}]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["More examples...", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Clear[g]
+g[x_] := x^2 + 5x + 2\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Clear[h]
+h[x_,y_] := x^2 + Sin[x y] + Exp[y]\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Type specifications on arguments", "Section",
+  Evaluatable->False,
+  FontSize->24],
+
+Cell["\<\
+When the function is invoked, the actual argument provided must \
+match the argument pattern in the function definition, since the function is \
+only defined for that argument pattern.
+
+A type specification can be applied to the argument by giving a pattern that \
+specifies a type (head) for the argument.\
+\>", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Use a qualified pattern (symbol_type) to restrict the function \
+definition to arguments of the specified type.\
+\>", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["Example:  symbol_Integer", "Section",
+  Evaluatable->False],
+
+Cell["square[x_Integer] := x^2", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["square[4]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["square[1.2]  (* not defined for reals *)", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Example: symbol_List", "Section",
+  Evaluatable->False],
+
+Cell[TextData[
+"sumList[x_List] := \n        Sum[x[[i]],{i,1,Length[x]}]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["sumList[{1,2,3}]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["sumList[5]  (* not defined for integers *)"], "Input",
+  PageWidth->Infinity],
+
+Cell["\<\
+A pattern specifying a list can explicitly specify the elements \
+also:\
+\>", "Section",
+  Evaluatable->False],
+
+Cell[TextData[
+"Suppose we store the base and height of a triangle in a list:"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["triangle = {base, height}"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData[
+"Now let's write a function that computes the area of the triangle.  We'll do \
+it two ways."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+First method:  Only the list is specified, and we use subscripting \
+to get to the elements.\
+\>", "Section",
+  Evaluatable->False],
+
+Cell["\<\
+area1[sides_List] := sides[[1]]*sides[[2]]/2
+area1[triangle]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Second method:  Give the precise pattern of the list and its \
+elements.  This example specifies the argument of the function to be a \
+two-element list and assigns argument names to the elements.\
+\>", "Section",
+  Evaluatable->False],
+
+Cell["\<\
+area2[{b_, h_}] := b*h/2
+area2[triangle]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Ordering of Definitions", "Section",
+  Evaluatable->False,
+  FontSize->24,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Mathematica tries to place and use specific definitions before more \
+general definitions.\
+\>", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Remove[g]
+g[5] = 1000;
+g[x_] := x^2;\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["?g", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Table[g[i],{i,1,10}]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 132}, {Automatic, 0}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 261, 8, 134, "Title"],
+Cell[2226, 70, 110, 3, 51, "Subtitle"],
+Cell[2339, 75, 87, 2, 24, "Input"],
+
+Cell[CellGroupData[{
+Cell[2451, 81, 91, 3, 58, "Section"],
+Cell[2545, 86, 189, 7, 46, "Text"],
+Cell[2737, 95, 184, 7, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2958, 107, 75, 2, 38, "Section"],
+Cell[3036, 111, 142, 3, 46, "Text"],
+Cell[3181, 116, 65, 1, 43, "Subsection"],
+Cell[3249, 119, 184, 3, 62, "Text"],
+Cell[3436, 124, 105, 5, 36, "Input"],
+Cell[3544, 131, 70, 2, 24, "Input"],
+Cell[3617, 135, 64, 1, 43, "Subsection"],
+Cell[3684, 138, 181, 3, 62, "Text"],
+Cell[3868, 143, 60, 1, 36, "Input"],
+Cell[3931, 146, 52, 1, 24, "Input"],
+Cell[3986, 149, 83, 1, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4106, 155, 116, 3, 38, "Section"],
+Cell[4225, 160, 140, 3, 30, "Text"],
+Cell[4368, 165, 205, 6, 46, "Text"],
+Cell[4576, 173, 141, 6, 48, "Input"],
+Cell[4720, 181, 71, 2, 24, "Input"],
+Cell[4794, 185, 71, 2, 24, "Input"],
+Cell[4868, 189, 107, 5, 36, "Input"],
+Cell[4978, 196, 70, 2, 24, "Input"],
+Cell[5051, 200, 107, 5, 36, "Input"],
+Cell[5161, 207, 149, 5, 36, "Input"],
+Cell[5313, 214, 105, 2, 24, "Input"],
+Cell[5421, 218, 256, 4, 62, "Text"],
+Cell[5680, 224, 136, 3, 24, "Input"],
+Cell[5819, 229, 134, 3, 24, "Input"],
+Cell[5956, 234, 74, 2, 24, "Input"],
+Cell[6033, 238, 74, 2, 24, "Input"],
+Cell[6110, 242, 155, 7, 48, "Input"],
+Cell[6268, 251, 156, 7, 48, "Input"],
+Cell[6427, 260, 135, 3, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6599, 268, 128, 4, 38, "Section",
+  PageBreakAbove->True],
+Cell[6730, 274, 332, 9, 78, "Text"],
+Cell[7065, 285, 123, 6, 36, "Input"],
+Cell[7191, 293, 98, 3, 24, "Input"],
+Cell[7292, 298, 125, 6, 36, "Input"],
+Cell[7420, 306, 98, 3, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7555, 314, 132, 4, 38, "Section",
+  PageBreakAbove->True],
+Cell[7690, 320, 134, 3, 30, "Text"],
+Cell[7827, 325, 230, 6, 92, "Section"],
+Cell[8060, 333, 126, 3, 52, "Section"],
+Cell[8189, 338, 125, 6, 36, "Input"],
+Cell[8317, 346, 70, 2, 24, "Input"],
+Cell[8390, 350, 98, 3, 24, "Input"],
+Cell[8491, 355, 233, 4, 46, "Text"],
+Cell[8727, 361, 76, 2, 24, "Input"],
+Cell[8806, 365, 105, 3, 30, "Text"],
+Cell[8914, 370, 132, 6, 36, "Input"],
+Cell[9049, 378, 146, 6, 36, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9232, 389, 89, 2, 38, "Section"],
+Cell[9324, 393, 403, 10, 94, "Text"],
+Cell[9730, 405, 214, 6, 72, "Section"],
+Cell[9947, 413, 65, 1, 52, "Section"],
+Cell[10015, 416, 92, 2, 24, "Input"],
+Cell[10110, 420, 77, 2, 24, "Input"],
+Cell[10190, 424, 108, 2, 24, "Input"],
+Cell[10301, 428, 61, 1, 52, "Section"],
+Cell[10365, 431, 107, 2, 36, "Input"],
+Cell[10475, 435, 66, 1, 24, "Input"],
+Cell[10544, 438, 92, 1, 24, "Input"],
+Cell[10639, 441, 120, 4, 72, "Section"],
+Cell[10762, 447, 110, 2, 30, "Text"],
+Cell[10875, 451, 75, 1, 24, "Input"],
+Cell[10953, 454, 140, 3, 30, "Text"],
+Cell[11096, 459, 141, 4, 72, "Section"],
+Cell[11240, 465, 136, 5, 36, "Input"],
+Cell[11379, 472, 245, 5, 112, "Section"],
+Cell[11627, 479, 116, 5, 36, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[11780, 489, 108, 3, 38, "Section"],
+Cell[11891, 494, 187, 6, 30, "Text"],
+Cell[12081, 502, 112, 6, 48, "Input"],
+Cell[12196, 510, 70, 2, 24, "Input"],
+Cell[12269, 514, 88, 2, 24, "Input"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

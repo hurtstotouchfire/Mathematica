@@ -1,0 +1,334 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6452,        247]*)
+(*NotebookOutlinePosition[      7304,        277]*)
+(*  CellTagsIndexPosition[      7260,        273]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData[" Conditional Functions"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  FontFamily->"Arial",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell[CellGroupData[{
+
+Cell["Tutorial", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->24],
+
+Cell["\<\
+On NEXTSTEP:
+   /LocalLibrary/Mathematica/Notebooks/Programming.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On Windows NT:
+  \\\\BIRD\\mathematica\\notebook\\Programm.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["If-Then-Else", "Section",
+  Evaluatable->False,
+  FontSize->24],
+
+Cell["\<\
+If[test, then, else , unknown]   evaluates 'then'  if 'test'  is \
+True,  'else'  if 'test' is False, or 'unknown' if test is neither True nor \
+False.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+data=9;
+If[data > 8, Print[\"yes\"], Print[\"no\"],
+\tPrint[\"I don't know\"]]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+The value obtained from If[ ] can be used like any other \
+value.\
+\>", "Text",
+  Evaluatable->False],
+
+Cell["\<\
+today=\"Thursday\";
+Plot[If[today==\"Monday\",Sin[x],Cos[x]],
+                          {x,0,2Pi}];\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["If is often used in function definitions.", "Text",
+  Evaluatable->False],
+
+Cell["absolute[x_] := If[x>0,x,-x]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["absolute[-3]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["minimum[x_,y_] := If[x<y,x,y]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["minimum[8,6]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["step[x_,a_] := If[x>=a,1,0]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["step[5,0]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Nested If's", "Section",
+  Evaluatable->False,
+  FontSize->24],
+
+Cell[TextData[
+"Here a function is defined using nested If's.  The value returned for the \
+function is the last one executed. "], "Text",
+  Evaluatable->False],
+
+Cell[TextData[
+"letterGrade[score_] :=\n   (If[score==100,Print[\"Perfect!\"]];\n    \
+If[score>90,\"A\",\n       If[score>80,\"B\",\n          If[score>70,\"C\",\n \
+            If[score>60,\"D\",\"F\"]\n          ]\n       ]\n    ]\n   )"], 
+  "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["letterGrade[75]"], "Input",
+  PageWidth->Infinity],
+
+Cell["ANDing with Nested If's", "Section",
+  Evaluatable->False],
+
+Cell["If test1 AND test2, then..., else...", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+test1=True; test2=True;
+If[test1,If[test2,then,else,unknown],else,unknown]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Equivalently,", "Text"],
+
+Cell[BoxData[{
+    \(If[And[test1, test2], then, else, unknown]\), 
+    \(If[test1\  && \ test2, then, else, unknown]\)}], "Input"],
+
+Cell[TextData[
+"If A > 0 AND B > 0, print \"Both\", else print \"Neither\"."], "Text",
+  Evaluatable->False],
+
+Cell[TextData[
+"A=1; B=1;\nIf[ A>0,\n    If[B>0,\n       Print[\"Both\"],\n       \
+Print[\"Not both\"]\n    ],\n    Print[\"Not both\"]\n]"], "Input",
+  PageWidth->Infinity],
+
+Cell["ORing with Nested If's", "Section",
+  Evaluatable->False],
+
+Cell["If test1 OR test2, then..., else...", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+test1=False; test2=False;
+If[test1,then,If[test2,then,else,unknown],unknown]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Equivalently,", "Text"],
+
+Cell[BoxData[{
+    \(If[Or[test1, test2], then, else, unknown]\), 
+    \(If[test1\  || \ test2, then, else, unknown]\)}], "Input"],
+
+Cell[TextData[
+"If A>0 OR B>0, print \"Either\", else print \"Neither\""], "Text",
+  Evaluatable->False],
+
+Cell[TextData[
+"A=1; B=1;\nIf[ A>0,\n    Print[\"Either\"],\n    If[B>0,\n       \
+Print[\"Either\"],\n       Print[\"Neither\"]\n    ]\n]"], "Input",
+  PageWidth->Infinity]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{209, Automatic}, {Automatic, 55}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 246, 8, 97, "Title"],
+Cell[2211, 70, 110, 3, 51, "Subtitle"],
+
+Cell[CellGroupData[{
+Cell[2346, 77, 91, 3, 58, "Section"],
+Cell[2440, 82, 189, 7, 46, "Text"],
+Cell[2632, 91, 184, 7, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2853, 103, 69, 2, 38, "Section"],
+Cell[2925, 107, 223, 6, 46, "Text"],
+Cell[3151, 115, 154, 6, 48, "Input"],
+Cell[3308, 123, 111, 4, 30, "Text"],
+Cell[3422, 129, 175, 6, 48, "Input"],
+Cell[3600, 137, 79, 1, 30, "Text"],
+Cell[3682, 140, 96, 2, 24, "Input"],
+Cell[3781, 144, 80, 2, 24, "Input"],
+Cell[3864, 148, 97, 2, 24, "Input"],
+Cell[3964, 152, 80, 2, 24, "Input"],
+Cell[4047, 156, 95, 2, 24, "Input"],
+Cell[4145, 160, 77, 2, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4259, 167, 68, 2, 38, "Section"],
+Cell[4330, 171, 160, 3, 46, "Text"],
+Cell[4493, 176, 277, 5, 132, "Input"],
+Cell[4773, 183, 65, 1, 24, "Input"],
+Cell[4841, 186, 64, 1, 52, "Section"],
+Cell[4908, 189, 125, 3, 30, "Text"],
+Cell[5036, 194, 150, 5, 36, "Input"],
+Cell[5189, 201, 29, 0, 30, "Text"],
+Cell[5221, 203, 131, 2, 37, "Input"],
+Cell[5355, 207, 108, 2, 30, "Text"],
+Cell[5466, 211, 174, 3, 108, "Input"],
+Cell[5643, 216, 63, 1, 52, "Section"],
+Cell[5709, 219, 124, 3, 30, "Text"],
+Cell[5836, 224, 152, 5, 36, "Input"],
+Cell[5991, 231, 29, 0, 30, "Text"],
+Cell[6023, 233, 130, 2, 37, "Input"],
+Cell[6156, 237, 104, 2, 30, "Text"],
+Cell[6263, 241, 173, 3, 108, "Input"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

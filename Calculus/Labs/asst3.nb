@@ -1,0 +1,673 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 4.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     18408,        570]*)
+(*NotebookOutlinePosition[     19129,        595]*)
+(*  CellTagsIndexPosition[     19085,        591]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Multiple Integrals", "Title",
+  TextAlignment->Center],
+
+Cell[CellGroupData[{
+
+Cell["Review of the Theory of Multiple Integrals", "Section"],
+
+Cell[TextData[{
+  "When integrating a function ",
+  Cell[BoxData[
+      \(TraditionalForm\`f(x, y)\)]],
+  " over some region ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\)]],
+  " in the ",
+  Cell[BoxData[
+      \(TraditionalForm\`xy\)]],
+  "-plane, Fubini states that there are essentially only two different \
+approaches:"
+}], "Text"],
+
+Cell[TextData[{
+  "If the region is bounded below by the function ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(y\_1\)(x)\)]],
+  ", above by the function ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(y\_2\)(x)\)]],
+  ", on the left by the line ",
+  Cell[BoxData[
+      \(TraditionalForm\`x = a\)]],
+  ", and on the right by the line ",
+  Cell[BoxData[
+      \(TraditionalForm\`x = b\)]],
+  ", then we integrate first with respect to ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\)]],
+  " and then with respect to ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " as follows:"
+}], "Text"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(Plot[{4 + Sin[x^2], 3 - Cos[x^2]}, {x, 1, 
+          1.8}, \[IndentingNewLine]PlotRange \[Rule] {2, 
+            5.5}, \[IndentingNewLine]Axes \[Rule] {Automatic, None}, 
+        AxesOrigin \[Rule] {0.0, 
+            0.0}, \[IndentingNewLine]Ticks \[Rule] {{{1.2, 
+                TraditionalForm["\<a\>"]}, \[IndentingNewLine]\ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ {1.6, TraditionalForm["\<b\>"]}}, 
+            None}, \[IndentingNewLine]Epilog \[Rule] {Line[{{1.2, 0.0}, {1.2, 
+                  5.3}}], \[IndentingNewLine]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ Line[{{1.6, 0.0}, {1.6, 5.3}}], \[IndentingNewLine]Text[
+              TraditionalForm["\<\!\(y\_1(x)\)\>"], {1.4, 
+                3.0}], \[IndentingNewLine]Text[
+              TraditionalForm["\<\!\(y\_2(x)\)\>"], {1.4, 
+                5.2}], \[IndentingNewLine]Text[
+              TraditionalForm["\<R\>"], {1.4, 4.1}]}];\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[Integral]\(\[Integral]\_R\( f(x, 
+              y)\) \[DifferentialD]A\)\  = \[Integral]\_a\%b\(\[Integral]\_\(\
+\(y\_1\)(x)\)\%\(\(y\_2\)(x)\)\(f(x, 
+              y)\) \[DifferentialD]y\ \[DifferentialD]x\)\)], "Input",
+  TextAlignment->Center],
+
+Cell[TextData[{
+  "If the region is bounded on the left by the function ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(x\_1\)(y)\)]],
+  ", on the right by the function ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(x\_2\)(y)\)]],
+  ", below by the line ",
+  Cell[BoxData[
+      \(TraditionalForm\`y = c\)]],
+  ", and above by the line ",
+  Cell[BoxData[
+      \(TraditionalForm\`y = d\)]],
+  ", then we integrate first with respect to ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " and then with respect to ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\)]],
+  " as follows:"
+}], "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[Integral]\(\[Integral]\_R\( f(x, 
+              y)\) \[DifferentialD]A\)\  = \[Integral]\_c\%d\(\[Integral]\_\(\
+\(x\_1\)(y)\)\%\(\(x\_2\)(y)\)\(f(x, 
+              y)\) \[DifferentialD]x\ \[DifferentialD]y\)\)], "Input",
+  TextAlignment->Center],
+
+Cell[TextData[{
+  "It is usually necessary to break the region ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\)]],
+  " into multiple regions ",
+  Cell[BoxData[
+      \(TraditionalForm\`R\_1, \ R\_2, \(\(...\) \(R\_n\)\)\)]],
+  " where each subregion ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(R\_i\)\(\ \)\)\)]],
+  "is either in the first or second form. Then the  original integral is \
+simply the sum of the integrals over the subregions. That is,"
+}], "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{\(\[Integral]\(\[Integral]\_R\( f(x, y)\) \[DifferentialD]A\)\),
+         " ", "=", 
+        StyleBox[" ",
+          FontSize->24], 
+        RowBox[{
+          StyleBox[
+            SubsuperscriptBox[
+              StyleBox["\[CapitalSigma]",
+                FontSize->24], \(i = 1\), "n"],
+            
+            FontSize->
+              14], \(\[Integral]\(\[Integral]\_\(R\_i\)\(f(x, 
+                  y)\) \[DifferentialD]A\)\)}]}], TraditionalForm]], "Input",
+  TextAlignment->Center],
+
+Cell[TextData[{
+  "Just as with many Calculus II integrals, it is often necessary to change \
+the coordinate system to evaluate the integral. That is, if the original \
+problem is defined over a region ",
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(R\_xy\)\(\ \)\)\)]],
+  "in the ",
+  Cell[BoxData[
+      \(TraditionalForm\`xy\)]],
+  "-plane, we introduce a change of coordinates ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\  = \ x(u, v), \ y\  = \ y(u, v)\)]],
+  ". To complete the transformation, we need the Jacobian, a determinant \
+defined by"
+}], "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{\(J(u, v)\), " ", "=", "   ", 
+        RowBox[{
+          StyleBox["|",
+            FontSize->16], 
+          "   ", \(\[PartialD]x\/\[PartialD]u\ \ \ \ \ \[PartialD]x\/\(\(\
+\[PartialD]v\)\(\ \)\)\), "  ", 
+          StyleBox["|",
+            FontSize->16], 
+          StyleBox["    ",
+            FontSize->16], "\[IndentingNewLine]", "                      ", 
+          StyleBox["|",
+            FontSize->16], 
+          "   ", \(\[PartialD]y\/\[PartialD]u\ \ \ \ \ \[PartialD]y\/\
+\[PartialD]v\), "   ", 
+          StyleBox["|",
+            FontSize->16]}]}], TraditionalForm]], "Input",
+  TextAlignment->Center],
+
+Cell["Now the integral can be written", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[Integral]\(\[Integral]\_\(R\_xy\)\(f(x, 
+              y)\) \[DifferentialD]A\)\  = \ \
+\[Integral]\(\[Integral]\_\(R\_uv\)\(f(x(u, v), y(u, v))\) \(J(u, 
+              v)\) \[DifferentialD]A\)\)], "Input",
+  TextAlignment->Center],
+
+Cell[TextData[{
+  "For example, the transformation from the ",
+  Cell[BoxData[
+      \(TraditionalForm\`xy\)]],
+  "-plane to the polar plane (",
+  Cell[BoxData[
+      \(TraditionalForm\`r\[Theta]\)]],
+  "-plane) is defined by"
+}], "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`x\  = \ \(x(r, \[Theta]) = \ r\ cos\ \[Theta]\), \ 
+    y\  = \ \(y(r, \[Theta]) = \ r\ sin\ \[Theta]\)\)], "Input",
+  TextAlignment->Center],
+
+Cell[TextData[{
+  "If we define the functions ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\)]],
+  " in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " as"
+}], "Text"],
+
+Cell[BoxData[{
+    \(x\  = \ r\ Cos[\[Theta]]\), "\[IndentingNewLine]", 
+    \(y\  = \ r\ Sin[\[Theta]]\)}], "Input"],
+
+Cell["then the Jacobian can be computed by", "Text"],
+
+Cell[BoxData[
+    \(jacobian\  = \ 
+      Det[{{D[x, r], D[x, \[Theta]]}, {D[y, r], D[y, \[Theta]]}}]\)], "Input"],
+
+Cell[TextData[{
+  "Usually, ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "  does not check all of its rules before it returns the answer. This is a \
+decision based on efficiency. However, you can always ask it to use all of \
+its rules by calling ",
+  StyleBox["Simplify",
+    FontWeight->"Bold"],
+  " after an evaluation. Now, we get the usual result."
+}], "Text"],
+
+Cell[BoxData[
+    \(Simplify[jacobian]\)], "Input"],
+
+Cell[TextData[{
+  "The Jacobian of the transformation is ",
+  Cell[BoxData[
+      \(TraditionalForm\`r\)]],
+  ". Therefore,"
+}], "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[Integral]\(\[Integral]\_\(R\_xy\)\(f(x, 
+              y)\) \[DifferentialD]x \[DifferentialD]y\)\  = \ \[Integral]\(\
+\[Integral]\_\(R\_r\[Theta]\)\(f(r, \[Theta])\) 
+            r\ \[DifferentialD]r \[DifferentialD]\[Theta]\)\)], "Input",
+  TextAlignment->Center]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Example", "Section",
+  TextAlignment->Left],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    RowBox[{\(Compute\ the\ volume\ of\ the\ region\ in\ the\ positive\ \
+octant\ bounded\ by\ the\ planes\), " "}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{
+        FormBox[\(z\_1\  = \ 1 - x\),
+          "TraditionalForm"], "and", " ", 
+        FormBox[\(z\_2\),
+          "TraditionalForm"]}], 
+      "=", \(1 - y/\(\(2\)\(.\)\)\)}]}], "Subsection",
+  TextAlignment->Center,
+  Background->RGBColor[0, 1, 1]],
+
+Cell[TextData[{
+  "First, we graph the planes using ",
+  StyleBox["ParametricPlot3D",
+    FontWeight->"Bold"],
+  ". Examine the labels to verify that we have plotted these surfaces \
+correctly. For example, the intersection of the plane ",
+  Cell[BoxData[
+      \(TraditionalForm\`z\_1\  = \ 1 - x\)]],
+  " with the plane ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\  = \ 0\)]],
+  " should be the line ",
+  Cell[BoxData[
+      \(TraditionalForm\`z\  = \ 1 - x\)]],
+  " in the ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\ z\)]],
+  "-plane."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(p1\  = \ 
+        ParametricPlot3D[{x, y, 1 - x}, {x, 0, 1}, {y, 0, 
+            2}, \[IndentingNewLine]AxesLabel \[Rule] {"\<x\>", "\<y\>", \
+"\<z\>"}, \[IndentingNewLine]Ticks \[Rule] {{0, 1}, {0, 2}, {0, 
+                1}}];\)\)], "Input"],
+
+Cell[TextData[{
+  "And the intersection of the plane ",
+  Cell[BoxData[
+      \(TraditionalForm\`z\_2\  = \ 1 - y/2\)]],
+  " with the plane ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\  = \ 0\)]],
+  " should be the line ",
+  Cell[BoxData[
+      \(TraditionalForm\`z\  = \ 1 - y/2\)]],
+  " in the ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\ z\)]],
+  "-plane."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(p2\  = \ 
+        ParametricPlot3D[{x, y, 1 - y/2}, {x, 0, 1}, {y, 0, 2}, 
+          AxesLabel \[Rule] {"\<x\>", "\<y\>", "\<z\>"}, \
+\[IndentingNewLine]Ticks \[Rule] {{0, 1}, {0, 2}, {0, 1}}];\)\)], "Input"],
+
+Cell[TextData[{
+  "Now, we must find the set of ",
+  Cell[BoxData[
+      \(TraditionalForm\`\((x, y)\)\)]],
+  " points where the two planes ",
+  Cell[BoxData[
+      \(TraditionalForm\`z\_1\  = \ 1 - x\)]],
+  " and ",
+  Cell[BoxData[
+      \(TraditionalForm\`z\_2\  = \ 1 - y/2\)]],
+  " intersect. This will be necessary when we determine the limits of \
+integration later."
+}], "Text"],
+
+Cell[BoxData[
+    \(Solve[1 - x\  \[Equal] \ 1 - y/2, y]\)], "Input"],
+
+Cell[TextData[{
+  "Here, we will plot the plane through the line ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\  = \ 2  x\)]],
+  " to make the volume easier to visualize."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(p3\  = \ 
+        ParametricPlot3D[{x, 2  x, y\ /2}, {x, 0, 1}, {y, 0, 2}, 
+          AxesLabel \[Rule] {"\<x\>", "\<y\>", "\<z\>"}, \
+\[IndentingNewLine]Ticks \[Rule] {{0, 1}, {0, 2}, {0, 1}}];\)\)], "Input"],
+
+Cell["\<\
+Now, we can put all of this graphical information together and finally see \
+the region whose volume is desired.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(Show[{p1, p2, 
+          p3}, \[IndentingNewLine]ViewPoint -> {\(-2.353\), \ \(-2.858\), \ 
+            0.073}];\)\)], "Input"],
+
+Cell[TextData[{
+  "We must compute the volume in two parts because the top surface of the \
+volume depends on which side of the line ",
+  Cell[BoxData[
+      \(TraditionalForm\`y\  = \ 2  x\)]],
+  " or equivalently ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\  = \ y/2\)]],
+  " (marked by the blue plane) we are considering. The magenta plane is the \
+top surface on one side and the red plane is the top surface on the other \
+side. Here is a top-down view of the two regions in the ",
+  Cell[BoxData[
+      \(TraditionalForm\`x\ y\)]],
+  "-plane."
+}], "Text"],
+
+Cell[BoxData[
+    \(\(Plot[2  x, {x, 0, 1}, Frame \[Rule] True, AspectRatio \[Rule] 2, 
+        FrameTicks \[Rule] {{0, 1}, {0, 
+              2}}, \[IndentingNewLine]FrameLabel \[Rule] {"\<x\>", "\<y\>"}, \
+\[IndentingNewLine]Epilog \[Rule] {Text["\<Magenta\n Region\>", { .7,  .5}], \
+\[IndentingNewLine]Text["\<Red\n Region\>", { .3, 1.4}]}];\)\)], "Input"],
+
+Cell["Under the magenta surface, we want", "Text"],
+
+Cell[BoxData[
+    \(Clear[x, y]\)], "Input"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[Integral]\_0\%1\(\[Integral]\_0\%\(2  x\)\((1 - 
+              x)\)\ \[DifferentialD]y\ \[DifferentialD]x\)\)], "Input"],
+
+Cell[BoxData[
+    \(i1\  = \ Integrate[1 - x, {x, 0, 1}, {y, 0, 2  x}]\)], "Input"],
+
+Cell["and under the red surface we want", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[Integral]\_0\%2\(\[Integral]\_0\%\(y/2\)\((1 - 
+              y/2)\) \[DifferentialD]x\ \[DifferentialD]y\)\)], "Input"],
+
+Cell[BoxData[
+    \(i2\  = \ Integrate[1 - y/2, {y, 0, 2}, {x, 0, y/2}]\)], "Input"],
+
+Cell["\<\
+WARNING:      Note the order of integration when we use the Standard Form. 
+It is reversed from the order written in Traditional (Mathematical typeset) \
+Form.\
+\>", "Text",
+  TextAlignment->Center,
+  Background->RGBColor[1, 0, 0]],
+
+Cell["The answer is then", "Text"],
+
+Cell[BoxData[
+    \(i1\  + \ i2\)], "Input"],
+
+Cell["or equivalently,", "Text"],
+
+Cell[BoxData[
+    \(TraditionalForm\`\[Integral]\_0\%1\(\[Integral]\_0\%\(2  x\)\((1 - 
+                x)\)\ \[DifferentialD]y\ \[DifferentialD]x\)\  + \ \
+\[Integral]\_0\%2\(\[Integral]\_0\%\(y/2\)\((1 - 
+                y/2)\) \[DifferentialD]x\ \[DifferentialD]y\)\)], "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Exercises", "Section"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{
+          StyleBox[\(Question\ #1\),
+            FontColor->RGBColor[0, 0, 1]], 
+          StyleBox[":",
+            FontColor->RGBColor[0, 0, 1]], 
+          StyleBox[" ",
+            FontColor->RGBColor[0, 0, 1]], 
+          RowBox[{
+          "Use", " ", "rectangular", " ", "coordinates", " ", "to", " ", 
+            "evaluate", 
+            
+            FormBox[\(\[Integral]\(\[Integral]\_E\(\@\( a\^2 + x\^2 + 
+                          y\^2\)\) \[DifferentialD]\)\),
+              "TraditionalForm"], "A"}]}], ",", " ", 
+        RowBox[{\(where\ E\ is\ the\ the\ region\ in\ the\ xy - 
+            plane\ bounded\ by\ y\), "=", 
+          RowBox[{"4", "x", " ", "and", " ", "y", 
+            RowBox[{
+              FormBox[\(\(=\)\(2  x\^2\)\),
+                "TraditionalForm"], 
+              StyleBox[".",
+                "Section"]}]}]}]}], TraditionalForm]], "Text"],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{
+          StyleBox[\(Question\ #2\),
+            FontColor->RGBColor[0, 0, 1]], 
+          StyleBox[":",
+            FontColor->RGBColor[0, 0, 1]], 
+          StyleBox[" ",
+            FontColor->RGBColor[0, 0, 
+            1]], \(Use\ cylindrical\ coordinates\ to\ evaluate\ \(\[Integral]\
+\(\[Integral]\(\[Integral]\_E\@\(\( x\^2\)\(+\)\(y\^2\)\(\ \)\)\ \
+\[DifferentialD]V\)\)\)\)}], ",", 
+        RowBox[{
+          RowBox[{
+          "where", " ", "E", " ", "is", " ", "the", " ", "solid", " ", 
+            "bounded", " ", "by", " ", "the", " ", "cylinder", 
+            FormBox[\(x\^2 + y\^2 = 4\),
+              "TraditionalForm"], "and", " ", "the", " ", "planes", " ", 
+            "z"}], "=", \(\(-1\)\ and\ z = 2. \)}]}], 
+      TraditionalForm]], "Text",
+  FontColor->GrayLevel[0.100008]],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        StyleBox[\(Question\ #3\),
+          FontColor->RGBColor[0, 0, 1]], 
+        StyleBox[":",
+          FontColor->RGBColor[0, 0, 1]], 
+        StyleBox[" ",
+          FontColor->RGBColor[0, 0, 1]], 
+        RowBox[{
+        "Use", " ", "spherical", " ", "coordinates", " ", "to", " ", 
+          "evaluate", 
+          
+          FormBox[\(\[Integral]\(\[Integral]\(\[Integral]\_E\( 
+                        e\^\(x\^2 + y\^2 + 
+                          z\^2\)\) \(\(\[DifferentialD]\)\(V\)\(\ \)\)\)\)\),
+            "TraditionalForm"], "where", " ", "E", " ", "is", " ", "the", " ",
+           "solid", " ", "unit", " ", \(\(ball\)\(.\)\)}]}], 
+      TraditionalForm]], "Text",
+  FontColor->GrayLevel[0.100008]],
+
+Cell[BoxData[
+    FormBox[
+      RowBox[{
+        RowBox[{
+          StyleBox[\(Question\ #4\),
+            FontColor->RGBColor[0, 0, 1]], 
+          StyleBox[":",
+            FontColor->RGBColor[0, 0, 1]], 
+          StyleBox[" ",
+            FontColor->RGBColor[0, 0, 1]], 
+          RowBox[{
+          "Find", " ", "the", " ", "volume", " ", "bounded", " ", "by", 
+            FormBox[\(x\  = \ 0\),
+              "TraditionalForm"]}]}], ",", 
+        FormBox[\(y\  = \ 0\),
+          "TraditionalForm"], ",", 
+        RowBox[{"the", " ", "cylinder", 
+          FormBox[\(4  z\^2\  + \ y\^2\  = \ 16\),
+            "TraditionalForm"]}], ",", 
+        RowBox[{
+          RowBox[{"and", " ", "the", " ", "plane", 
+            RowBox[{
+              FormBox[\(x\  + \ y\  = \ 4\),
+                "TraditionalForm"], ".", "\[IndentingNewLine]", "\t        ", 
+              "Consider"}], " ", "various", " ", "coordinate", " ", 
+            "systems"}], ";", " ", \(plot\ this\ \(\(volume\)\(.\)\)\)}]}], 
+      TraditionalForm]], "Text"]
+}, Closed]]
+},
+FrontEndVersion->"4.2 for Microsoft Windows",
+ScreenRectangle->{{0, 800}, {0, 527}},
+CellGrouping->Manual,
+WindowSize->{497, 495},
+WindowMargins->{{Automatic, 134}, {-4, Automatic}},
+Magnification->1,
+StyleDefinitions -> "Classroom.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 60, 1, 67, "Title"],
+
+Cell[CellGroupData[{
+Cell[1839, 56, 61, 0, 62, "Section"],
+Cell[1903, 58, 336, 12, 29, "Text"],
+Cell[2242, 72, 592, 20, 48, "Text"],
+Cell[2837, 94, 924, 15, 230, "Input"],
+Cell[3764, 111, 285, 5, 66, "Input"],
+Cell[4052, 118, 592, 20, 48, "Text"],
+Cell[4647, 140, 285, 5, 66, "Input"],
+Cell[4935, 147, 466, 12, 48, "Text"],
+Cell[5404, 161, 533, 15, 65, "Input"],
+Cell[5940, 178, 563, 14, 67, "Text"],
+Cell[6506, 194, 659, 18, 100, "Input"],
+Cell[7168, 214, 47, 0, 29, "Text"],
+Cell[7218, 216, 270, 5, 66, "Input"],
+Cell[7491, 223, 238, 8, 29, "Text"],
+Cell[7732, 233, 178, 3, 49, "Input"],
+Cell[7913, 238, 237, 11, 29, "Text"],
+Cell[8153, 251, 117, 2, 70, "Input"],
+Cell[8273, 255, 52, 0, 29, "Text"],
+Cell[8328, 257, 114, 2, 50, "Input"],
+Cell[8445, 261, 378, 10, 48, "Text"],
+Cell[8826, 273, 51, 1, 50, "Input"],
+Cell[8880, 276, 136, 5, 29, "Text"],
+Cell[9019, 283, 304, 5, 66, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9360, 293, 49, 1, 42, "Section"],
+
+Cell[CellGroupData[{
+Cell[9434, 298, 436, 11, 82, "Subsection"],
+Cell[9873, 311, 555, 18, 48, "Text"],
+Cell[10431, 331, 266, 5, 90, "Input"],
+Cell[10700, 338, 375, 14, 29, "Text"],
+Cell[11078, 354, 230, 4, 70, "Input"],
+Cell[11311, 360, 385, 12, 48, "Text"],
+Cell[11699, 374, 69, 1, 50, "Input"],
+Cell[11771, 377, 183, 5, 27, "Text"],
+Cell[11957, 384, 231, 4, 82, "Input"],
+Cell[12191, 390, 136, 3, 44, "Text"],
+Cell[12330, 395, 149, 3, 65, "Input"],
+Cell[12482, 400, 563, 14, 79, "Text"],
+Cell[13048, 416, 360, 5, 117, "Input"],
+Cell[13411, 423, 50, 0, 27, "Text"],
+Cell[13464, 425, 44, 1, 50, "Input"],
+Cell[13511, 428, 159, 2, 63, "Input"],
+Cell[13673, 432, 83, 1, 50, "Input"],
+Cell[13759, 435, 49, 0, 29, "Text"],
+Cell[13811, 437, 159, 2, 63, "Input"],
+Cell[13973, 441, 84, 1, 50, "Input"],
+Cell[14060, 444, 241, 6, 76, "Text"],
+Cell[14304, 452, 34, 0, 29, "Text"],
+Cell[14341, 454, 44, 1, 50, "Input"],
+Cell[14388, 457, 32, 0, 29, "Text"],
+Cell[14423, 459, 281, 4, 63, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[14753, 469, 28, 0, 42, "Section"],
+Cell[14784, 471, 940, 24, 61, "Text"],
+Cell[15727, 497, 860, 21, 61, "Text"],
+Cell[16590, 520, 761, 19, 60, "Text"],
+Cell[17354, 541, 1038, 26, 65, "Text"]
+}, Closed]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

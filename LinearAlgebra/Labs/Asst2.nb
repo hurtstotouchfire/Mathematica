@@ -1,0 +1,285 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6519,        227]*)
+(*NotebookOutlinePosition[      7476,        259]*)
+(*  CellTagsIndexPosition[      7432,        255]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Linear Algebra", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[" Assignment #2", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Consider the systems"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  " 4x",
+  StyleBox["1 ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " - 12x",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " +   x",
+  StyleBox["3",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " =    9\n-2x",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " + 13x",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " -   x",
+  StyleBox["3",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " =  -10\n 6x",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " + 12x",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " +  6x",
+  StyleBox["3",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " =   -3"
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell[TextData["and"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" x",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["1 ",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" +    x",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["2",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["  +   x",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["3",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["                =    3\n 3x",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["1 ",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" + 2x",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["2",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["                           =   5\n                         2x",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["3",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["  +6x",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["4",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["    =    4\n                           x",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["3",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["  +3x",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["4",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["    =    2",
+    FontFamily->"Times",
+    FontWeight->"Plain"]
+}], "Input",
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "If possible, solve each system\n\n\ta)  Using row reduction of the \
+augmented matrix.\n\tb)  Using inverses\n\tc)  Using ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "'s Solve command\n\td) Using ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "'s LinearSolve command\n\t\nWhat are your conclusions  ?"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["You may enjoy using ",
+    FontSlant->"Plain"],
+  "Mathematica's",
+  StyleBox[
+  " 3D-plotting power to graphically show what is happening in the first \
+system",
+    FontSlant->"Plain"],
+  ".",
+  StyleBox[" For example, evaluate the following cell:",
+    FontSlant->"Plain"]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontWeight->"Plain",
+  FontSlant->"Italic",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[
+"Clear[x,y]\np1 = Plot3D[{9-4x+12y,RGBColor[1,0,0]},{x,-5,5},{y,-5,5}];\np2 = \
+Plot3D[{10-2x+13y,RGBColor[0,1,0]},{x,-5,5},{y,-5,5}];\np3 = \
+Plot3D[{(-3-6x-12y)/6,RGBColor[0,0,1]},{x,-5,5},{y,-5,5}];\nShow[p1,p2,p3];"],
+   "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Can we use graphics to examine the second system ?"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{"RulerBar", "EditBar"},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 251}, {Automatic, 33}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"NeXTAutomaticEncoding",
+StyleDefinitions -> "Classroom.nb"
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 128, 4, 50, "Title"],
+Cell[1840, 55, 128, 4, 50, "Title"],
+
+Cell[CellGroupData[{
+Cell[1993, 63, 75, 2, 55, "Section"],
+Cell[2071, 67, 94, 2, 26, "Text"],
+Cell[2168, 71, 887, 32, 98, "Text"],
+Cell[3058, 105, 77, 2, 26, "Text"],
+Cell[3138, 109, 2016, 69, 120, "Input"],
+Cell[5157, 180, 403, 11, 222, "Text"],
+Cell[5563, 193, 536, 20, 46, "Text"],
+Cell[6102, 215, 274, 5, 96, "Input"],
+Cell[6379, 222, 124, 2, 30, "Text"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

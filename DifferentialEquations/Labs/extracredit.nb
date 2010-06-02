@@ -1,0 +1,521 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     12446,        400]*)
+(*NotebookOutlinePosition[     13436,        433]*)
+(*  CellTagsIndexPosition[     13392,        429]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Differential Equations", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[" Extra Credit Assignment", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell["Numerical Methods", "Title",
+  TextAlignment->Center,
+  TextJustification->0],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Numerical Methods and ODE"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Since most differential equations do not have exact solutions,  numerical \
+methods are very important. To get a list of the numerical methods built into \
+ODE, enter"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["?NumericalMethods"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "When using a numerical technique, you obtain an approximation to the \
+solution expressed as a table of the y(t",
+  StyleBox["n",
+    FontSize->10,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ")'s in terms of the t",
+  StyleBox["n",
+    FontSize->10,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "'s instead of a formula. Although this is not as desirable as a formula, \
+if the equation is well posed, numerical methods work ",
+  StyleBox["almost all",
+    FontSlant->"Italic"],
+  " of the time. For example, to integrate y' = y + 1 , y(0) = 0 on the \
+interval [0,1] using Euler's method we enter"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"approxsol = ODE[{y' == y + 1,y[0]==0},y,{t,0,1},\n\t\t\tMethod->Euler]"], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"To plot the approximate solution, we could edit the previous command and \
+evaluate"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"approxsol = ODE[{y' == y + 1,y[0]==0},y,{t,0,1},\n\t\t\t\
+Method->Euler,PlotSolution->{{t,0,1}}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "or we can simply plot the discrete output, named approxsol, using \
+ListPlot. Here ",
+  StyleBox["PlotJoined->True",
+    FontFamily->"Courier",
+    FontWeight->"Bold"],
+  " connects the \"dots\" and simulates a continuous graph."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["ListPlot[approxsol,PlotJoined->True];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"We have been using the default step size of 0.1. To define a different step \
+size, we use the StepSize option. For example, if we want a step size of .02, \
+then we write"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \(<< Calculus/ODE.m\)], "Input"],
+
+Cell[TextData[
+"ODE[{y' == y + 1,y[0]==0},y,{t,0,1},\n\tMethod->Euler,StepSize->0.02]"], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "This assignment will require that you compare the exact solution to a \
+differential equation to various numerical approximations. Since the \
+comparison will be done in terms of tables, you will eventually want to make \
+a table of values from a formula. This is very easy in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ". Suppose that we compute the exact solution to the above equation and use \
+it to define a function. ODE lets us do this in one step."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"f[t_] = ODE[{y' == y + 1,y[0]==0},y,{t,0,1},\n\t\t\
+Method->FirstOrderLinear,Form->Explicit]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Now we may table it and compare it to various numerical approximations."], 
+  "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["exactsol = Table[{t,f[t]},{t,0,1,.1}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Sometimes it is nice to see the data in column form. To do this simply use \
+one of Mathematica's column formatting commands - ColumnForm, TableForm or \
+MatrixForm. Note the difference between these commands."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Table[{t,f[t]},{t,0,1,.1}]//TableForm"], "Input",
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Graphical Comparisons"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Now that we have the exact solution as a Table, it is easy to graphically \
+compare it with the approximate solution. To do this we will make three plots \
+and then superimpose them into one final graph."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"p1 = ListPlot[approxsol,PlotStyle->{PointSize[.02]}];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["p2 = ListPlot[approxsol,PlotJoined->True];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["p3 = ListPlot[exactsol,PlotJoined->True];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Show[{p1,p2,p3}];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["This is how we made the graphs in Chapter 12."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Numerical Comparisons"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontWeight->"Bold",
+    FontSlant->"Italic"],
+  "  has several powerful commands which minipulate Lists and since we have \
+two Lists, called approxsol and exactsol, lets combine them and begin to make \
+some comparisons. First note that these Lists are actually Lists of Lists or \
+matrices, therefore we may reference individual components by row, by column \
+or by row and column. For example, lets look at the approximate solution. The \
+first row is"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["approxsol[[1]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["the number or rows is"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Length[approxsol]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["the consequently last row is"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["approxsol[[Length[approxsol]]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"To get the columns, we first transpose the matrix, making rows into columns \
+and columns into rows and proceed as before. For example, to display the \
+first column, we"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Transpose[approxsol][[1]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["and for the second and last column,"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Transpose[approxsol][[2]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"To construct a matrix which has both the exact solution and the approximate \
+solution, we can use the Join command. Here we wish to join the approximate \
+y's to the exact {t's,y's}. Therefore, we simply"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"compositesol = Transpose[Join[Transpose[exactsol],\n\t\t\t\t \
+{Transpose[approxsol][[2]]}]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Note the use of \"{\" and \"}\" in the above command. This is necessary for \
+the Join in this case. To see this table is a nice format, enter"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["TableForm[compositesol]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Actually, it is more convenient to have the individual columns than the \
+entire matrix, so lets define them now."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["ts = Transpose[compositesol][[1]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["yexacts = Transpose[compositesol][[2]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["yapproxs = Transpose[compositesol][[3]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Now it is easy to numerically compare the two solutions. For example, the \
+absolute error at each stage is given by"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Abs[yexacts - yapproxs]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"and may examine the absolute error at the last point by"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Last[Abs[yexacts - yapproxs]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["It is also easy to graphically compare them."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"ListPlot[Transpose[Join[{ts},{Abs[yexacts - yapproxs]}]],\n\t\t\
+PlotJoined->True];"], "Input",
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Consider the initial value problem"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["y'[t] = t^2 y[t] , y[0] = 1",
+  FontSize->16,
+  FontWeight->"Bold"]], "Text",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"1. Find the exact solution at t = 1. Express this value to 6 decimal \
+places."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"2. Use Euler's method with h = 1/8 to approximate the solution at t = 1. \
+Compute the absolute error. "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"3. Repeat step 2 with h = 1/16, h = 1/32, h = 1/64, h = 1/128, h = 1/256 and \
+h = 1/512. Create a table and a graph showing the absolute errors \
+corresponding to the various step sizes. A theoretical analysis for Euler's \
+method suggests a linear relationship between the absolute error and the step \
+size. Do your numbers agree with the theory?"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"4. You should observe in part 3 that the error is roughly proportional to \
+the step size. Use your data to estimate the constant of proportionality."], 
+  "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"5. Repeat steps 2 and 3 using the Runge-Kutta method. Can you guess what the \
+relationship is between the absolute error and the step size? Try \
+experimenting with various powers of the step size."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"6. You should observe in part 5 that the error is roughly proportional to \
+the forth power of the step size. Use your data to estimate the constant of \
+proportionality."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"7. What conclusions can you state between these two methods?"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+AutoGeneratedPackage->Automatic,
+WindowToolbars->{"RulerBar", "EditBar"},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{259, Automatic}, {Automatic, 32}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"NeXTAutomaticEncoding",
+StyleDefinitions -> "Classroom.nb"
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 136, 4, 50, "Title"],
+Cell[1870, 57, 128, 4, 50, "Title"],
+Cell[2001, 63, 83, 2, 50, "Title"],
+
+Cell[CellGroupData[{
+Cell[2109, 69, 102, 2, 55, "Section"],
+Cell[2214, 73, 241, 5, 42, "Text"],
+Cell[2458, 80, 70, 1, 44, "Input"],
+Cell[2531, 83, 707, 18, 96, "Text"],
+Cell[3241, 103, 127, 3, 56, "Input"],
+Cell[3371, 108, 158, 4, 26, "Text"],
+Cell[3532, 114, 150, 3, 56, "Input"],
+Cell[3685, 119, 308, 9, 42, "Text"],
+Cell[3996, 130, 90, 1, 24, "Input"],
+Cell[4089, 133, 246, 5, 46, "Text"],
+Cell[4338, 140, 50, 1, 24, "Input"],
+Cell[4391, 143, 126, 3, 36, "Input"],
+Cell[4520, 148, 549, 11, 94, "Text"],
+Cell[5072, 161, 146, 3, 36, "Input"],
+Cell[5221, 166, 149, 4, 30, "Text"],
+Cell[5373, 172, 90, 1, 24, "Input"],
+Cell[5466, 175, 284, 5, 62, "Text"],
+Cell[5753, 182, 90, 1, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5880, 188, 98, 2, 35, "Section"],
+Cell[5981, 192, 278, 5, 58, "Text"],
+Cell[6262, 199, 107, 2, 44, "Input"],
+Cell[6372, 203, 95, 1, 44, "Input"],
+Cell[6470, 206, 94, 1, 44, "Input"],
+Cell[6567, 209, 70, 1, 44, "Input"],
+Cell[6640, 212, 119, 2, 26, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6796, 219, 98, 2, 35, "Section"],
+Cell[6897, 223, 561, 12, 90, "Text"],
+Cell[7461, 237, 67, 1, 44, "Input"],
+Cell[7531, 240, 95, 2, 26, "Text"],
+Cell[7629, 244, 70, 1, 44, "Input"],
+Cell[7702, 247, 102, 2, 26, "Text"],
+Cell[7807, 251, 83, 1, 44, "Input"],
+Cell[7893, 254, 244, 5, 46, "Text"],
+Cell[8140, 261, 78, 1, 24, "Input"],
+Cell[8221, 264, 109, 2, 30, "Text"],
+Cell[8333, 268, 78, 1, 24, "Input"],
+Cell[8414, 271, 279, 5, 62, "Text"],
+Cell[8696, 278, 146, 3, 36, "Input"],
+Cell[8845, 283, 217, 4, 46, "Text"],
+Cell[9065, 289, 76, 1, 24, "Input"],
+Cell[9144, 292, 188, 4, 46, "Text"],
+Cell[9335, 298, 86, 1, 24, "Input"],
+Cell[9424, 301, 91, 1, 24, "Input"],
+Cell[9518, 304, 92, 1, 24, "Input"],
+Cell[9613, 307, 191, 4, 46, "Text"],
+Cell[9807, 313, 76, 1, 24, "Input"],
+Cell[9886, 316, 130, 3, 30, "Text"],
+Cell[10019, 321, 82, 1, 24, "Input"],
+Cell[10104, 324, 118, 2, 30, "Text"],
+Cell[10225, 328, 137, 3, 36, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[10399, 336, 75, 2, 35, "Section"],
+Cell[10477, 340, 108, 2, 26, "Text"],
+Cell[10588, 344, 174, 5, 31, "Text"],
+Cell[10765, 351, 153, 4, 26, "Text"],
+Cell[10921, 357, 178, 4, 42, "Text"],
+Cell[11102, 363, 424, 7, 74, "Text"],
+Cell[11529, 372, 227, 5, 42, "Text"],
+Cell[11759, 379, 273, 5, 62, "Text"],
+Cell[12035, 386, 245, 5, 46, "Text"],
+Cell[12283, 393, 135, 3, 30, "Text"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

@@ -1,0 +1,500 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      9754,        354]*)
+(*NotebookOutlinePosition[     10615,        384]*)
+(*  CellTagsIndexPosition[     10571,        380]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Using Packages"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell["What is a Package?", "Section",
+  Evaluatable->False,
+  FontSize->24],
+
+Cell[TextData[
+" Mathematica Packages are files written in the Mathematica language which \
+can be used to extend its basic capabilities."], "Text",
+  Evaluatable->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Using Needs to Load a Package", "Section",
+  Evaluatable->False,
+  FontSize->24],
+
+Cell[TextData[{
+  "The preferred way to read in a standard package is by using the ",
+  StyleBox["Needs",
+    FontWeight->"Bold"],
+  " command.\n\nFor example, let's load the Graphics.m package, from the \
+Graphics directory, found in the \"standard\" package directory..."
+}], "Text",
+  Evaluatable->False],
+
+Cell["Needs[\"Graphics`Graphics`\"]", "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["LogPlot[2*Exp[-4*x],{x,-2,2}];"], "Input",
+  PageWidth->Infinity],
+
+Cell["\<\
+BarChart[{{81,\"Fr\"},{101,\"So\"},
+{161,\"Jr\"},{314,\"Sr\"},{53,\"Pb\"}}];\
+\>", "Input",
+  PageWidth->Infinity]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Contexts and Directories", "Section",
+  Evaluatable->False,
+  FontSize->24],
+
+Cell["\<\
+When you begin, you are in the Global` context and Mathematica's \
+internal functions are in the System' context. EVERY VARIABLE EXISTS IN SOME \
+CONTEXT!\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["x = 3;", "Input",
+  AspectRatioFixed->True],
+
+Cell["Context[x]", "Input",
+  AspectRatioFixed->True],
+
+Cell["Global`x", "Input",
+  AspectRatioFixed->True],
+
+Cell["Context[Sin]", "Input",
+  AspectRatioFixed->True],
+
+Cell["System`Sin[Pi/4]", "Input",
+  AspectRatioFixed->True],
+
+Cell["$ContextPath", "Input",
+  AspectRatioFixed->True],
+
+Cell["The argument to Needs above is in the form", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["      context`context`...`context`package", "Text",
+  Evaluatable->False,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["which is translated in the file system as", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["      directory\\directory\\...\\directory\\file.m", "Text",
+  Evaluatable->False,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+relative to the directories in the current path.
+The current path is stored in $Path...\
+\>", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["$Path"], "Input",
+  PageWidth->Infinity],
+
+Cell["So the Needs command above...", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["Needs[\"Graphics`Graphics`\"]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[" will search for the following files, in order...", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+  .\\Graphics\\Graphics.m
+  M:\\Graphics\\Graphics.m
+  M:\\PACKAGES\\Graphics\\Graphics.m
+  M:\\PACKAGES\\PRELOAD\\Graphics\\Graphics.m\
+\>", "Text",
+  Evaluatable->False,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Where . is the \"current directory\" given by..."], "Text",
+  Evaluatable->False],
+
+Cell[TextData["Directory[]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData[
+"The third path above is where the package is finally found."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+As another example, let's load the TableIO.m package found at\
+\>", 
+  "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["/NeXTMount/Courses/MATH5037/Mathematica/tableio.m", "Text",
+  Evaluatable->False,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"First, set the current directory to the uhcourses shared directory on the \
+fish server:"], "Text",
+  Evaluatable->False],
+
+Cell["On Windows 95/NT", "Subsection"],
+
+Cell["SetDirectory[\"\\\\\\\\gauss\\\\MATH5037\"]", "Input",
+  PageWidth->Infinity],
+
+Cell["On NeXT", "Subsection"],
+
+Cell["SetDirectory[\"/NeXTMount/Courses/MATH5037\"\"]", "Input",
+  PageWidth->Infinity],
+
+Cell[TextData[
+"Now Needs will find it if you specify the rest of the path to the file:"], 
+  "Text",
+  Evaluatable->False],
+
+Cell["Needs[\"Mathematica`tableio`\"]", "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(\(?writeTable\)\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Using << to Load a Package", "Section",
+  Evaluatable->False,
+  FontSize->24],
+
+Cell["\<\
+You can use the << operator to load a package directly by writing \
+the exact file path in the correct syntax for the file system.  THE SYNTAX IS \
+SYSTEM DEPENDENT.
+
+For example, on a Windows 95/NT system, relative to the current \
+directory...\
+\>", "Text",
+  Evaluatable->False],
+
+Cell["<<Mathematica\\tableio.m", "Input",
+  PageWidth->Infinity],
+
+Cell[TextData[
+"This same file would have to be specified on a UNIX system as..."], "Text",
+  Evaluatable->False],
+
+Cell["<<Mathematica/tableio.m", "Input",
+  PageWidth->Infinity],
+
+Cell[TextData[
+"This is why Needs is normally the recommended  method for making \
+system-independent notebooks.\n\nUNFORTUNATELY, before you use the Needs \
+command, the $Path must include the correct directory, and using SetDirectory \
+or some other method to do this is back to being system-dependent!\n\n\
+Therefore, you can only be truly system-independent when...\n   1.  The \
+directories in $Path are preset to include standard directories, and\n   2.  \
+You use Needs to get packages in those directories."], "Text",
+  Evaluatable->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Be Careful of Symbol Duplication", "Section",
+  Evaluatable->False,
+  FontSize->24],
+
+Cell[TextData[
+" If you attempt to use a function defined in one of the packages BEFORE the \
+package is loaded, you will have created a conflicting reference, which \
+Mathematica will resolve by assuming you want your version and NOT the one in \
+the package! "], "Text",
+  Evaluatable->False],
+
+Cell[TextData["CrossProduct[{1,2,3},{4,5,6}]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData[
+"The \"vector\" operation of cross product is not defined in the basic \
+Mathematica system, but rather in the package Calculus`VectorAnalysis`.  So, \
+suppose we now realize we need to load the package..."], "Text",
+  Evaluatable->False],
+
+Cell[TextData["Needs[\"Calculus`VectorAnalysis`\"]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData[
+"The conflict is with the previously \"defined\" CrossProduct symbol.  We now \
+have two such symbols, one in the newly loaded context, and one in the Global \
+context."], "Text",
+  Evaluatable->False],
+
+Cell[TextData["?*`Cross*"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData[
+"Without specifying the context, the one in the Global context is the \
+default, and our function still doesn't work..."], "Text",
+  Evaluatable->False],
+
+Cell[TextData["?Cross*"], "Input",
+  PageWidth->Infinity],
+
+Cell["CrossProduct[{1,2,3},{4,5,6}]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["You have to \"remove\" the definition in the Global context...", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Remove[\"CrossProduct\"]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["Now the loaded symbol is seen..."], "Text",
+  Evaluatable->False],
+
+Cell[TextData["?Cross*"], "Input",
+  PageWidth->Infinity],
+
+Cell["CrossProduct[{1,2,3},{4,5,6}]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]]
+},
+FrontEndVersion->"Microsoft Windows 3.0",
+ScreenRectangle->{{0, 640}, {0, 424}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{612, 358},
+WindowMargins->{{2, Automatic}, {Automatic, 2}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 94, "Subtitle",
+  Evaluatable->False],
+Cell[1962, 60, 122, 3, 105, "Title",
+  Evaluatable->False],
+Cell[2087, 65, 138, 4, 80, "Subtitle",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2250, 73, 75, 2, 63, "Section",
+  Evaluatable->False],
+Cell[2328, 77, 170, 3, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2535, 85, 86, 2, 43, "Section",
+  Evaluatable->False],
+Cell[2624, 89, 307, 7, 90, "Text",
+  Evaluatable->False],
+Cell[2934, 98, 69, 1, 30, "Input"],
+Cell[3006, 101, 80, 1, 30, "Input"],
+Cell[3089, 104, 124, 4, 48, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3250, 113, 81, 2, 43, "Section",
+  Evaluatable->False],
+Cell[3334, 117, 226, 6, 52, "Text",
+  Evaluatable->False],
+Cell[3563, 125, 49, 1, 30, "Input"],
+Cell[3615, 128, 53, 1, 30, "Input"],
+Cell[3671, 131, 51, 1, 30, "Input"],
+Cell[3725, 134, 55, 1, 30, "Input"],
+Cell[3783, 137, 59, 1, 30, "Input"],
+Cell[3845, 140, 55, 1, 30, "Input"],
+Cell[3903, 143, 131, 3, 49, "Text",
+  Evaluatable->False],
+Cell[4037, 148, 152, 4, 49, "Text",
+  Evaluatable->False],
+Cell[4192, 154, 130, 3, 49, "Text",
+  Evaluatable->False],
+Cell[4325, 159, 161, 4, 49, "Text",
+  Evaluatable->False],
+Cell[4489, 165, 184, 6, 68, "Text",
+  Evaluatable->False],
+Cell[4676, 173, 55, 1, 30, "Input"],
+Cell[4734, 176, 118, 3, 49, "Text",
+  Evaluatable->False],
+Cell[4855, 181, 97, 2, 46, "Input"],
+Cell[4955, 185, 138, 3, 49, "Text",
+  Evaluatable->False],
+Cell[5096, 190, 254, 9, 106, "Text",
+  Evaluatable->False],
+Cell[5353, 201, 96, 1, 33, "Text",
+  Evaluatable->False],
+Cell[5452, 204, 61, 1, 30, "Input"],
+Cell[5516, 207, 108, 2, 33, "Text",
+  Evaluatable->False],
+Cell[5627, 211, 161, 6, 49, "Text",
+  Evaluatable->False],
+Cell[5791, 219, 160, 4, 49, "Text",
+  Evaluatable->False],
+Cell[5954, 225, 137, 3, 33, "Text",
+  Evaluatable->False],
+Cell[6094, 230, 38, 0, 47, "Subsection"],
+Cell[6135, 232, 83, 1, 30, "Input"],
+Cell[6221, 235, 29, 0, 47, "Subsection"],
+Cell[6253, 237, 87, 1, 30, "Input"],
+Cell[6343, 240, 123, 3, 33, "Text",
+  Evaluatable->False],
+Cell[6469, 245, 71, 1, 30, "Input"],
+Cell[6543, 248, 48, 1, 30, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6628, 254, 83, 2, 43, "Section",
+  Evaluatable->False],
+Cell[6714, 258, 291, 8, 90, "Text",
+  Evaluatable->False],
+Cell[7008, 268, 64, 1, 30, "Input"],
+Cell[7075, 271, 113, 2, 33, "Text",
+  Evaluatable->False],
+Cell[7191, 275, 63, 1, 30, "Input"],
+Cell[7257, 278, 547, 8, 166, "Text",
+  Evaluatable->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7841, 291, 89, 2, 43, "Section",
+  Evaluatable->False],
+Cell[7933, 295, 294, 5, 62, "Text"],
+Cell[8230, 302, 79, 1, 24, "Input"],
+Cell[8312, 305, 253, 4, 62, "Text"],
+Cell[8568, 311, 85, 1, 24, "Input"],
+Cell[8656, 314, 216, 4, 46, "Text"],
+Cell[8875, 320, 59, 1, 24, "Input"],
+Cell[8937, 323, 167, 3, 46, "Text"],
+Cell[9107, 328, 57, 1, 24, "Input"],
+Cell[9167, 331, 97, 2, 24, "Input"],
+Cell[9267, 335, 151, 3, 30, "Text"],
+Cell[9421, 340, 74, 1, 24, "Input"],
+Cell[9498, 343, 80, 1, 30, "Text"],
+Cell[9581, 346, 57, 1, 24, "Input"],
+Cell[9641, 349, 97, 2, 24, "Input"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

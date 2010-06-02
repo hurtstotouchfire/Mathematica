@@ -1,0 +1,356 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7191,        257]*)
+(*NotebookOutlinePosition[      8004,        287]*)
+(*  CellTagsIndexPosition[      7932,        281]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[TextData[{
+  "A (Very) Brief Introduction to Plotting with ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "  "
+}], "Title",
+  TextAlignment->Center],
+
+Cell[CellGroupData[{
+
+Cell["2D Plotting", "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Plot", "Subsection"],
+
+Cell[TextData[{
+  "You have already met ",
+  StyleBox["Mathematica's ",
+    FontSlant->"Italic"],
+  StyleBox["main two-dimensional plotting command",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[" Plot",
+    FontWeight->"Bold",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[". For example, to plot a single function, say ",
+    FontVariations->{"CompatibilityType"->0}],
+  Cell[BoxData[
+      \(TraditionalForm\`f(
+          x)\  = \(sin(x)\)\ on\ the\ interval\ [0, \[Pi]]\)]],
+  ", you enter"
+}], "Text"],
+
+Cell[BoxData[
+    \(Plot[Sin[x], {x, 0, Pi}]\)], "Input"],
+
+Cell[TextData[{
+  "To plot both ",
+  Cell[BoxData[
+      \(TraditionalForm\`f(
+          x)\  = \ \(\(\(sin(x)\)\ and\ \(g(
+              x)\)\)\(\ \)\(=\)\(\ \)\(x\^2\)\(\ \)\)\)]],
+  ", you enter"
+}], "Text"],
+
+Cell[BoxData[
+    \(Plot[{Sin[x], x^2}, {x, 0, Pi}]\)], "Input"],
+
+Cell["\<\
+There are  many options available within the  plotting commands. To examine \
+them, enter\
+\>", "Text"],
+
+Cell[BoxData[
+    \(Options[Plot]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["ParametricPlot", "Subsection"],
+
+Cell[TextData[{
+  "Occasionally, it is useful to plot functions whose components are \
+expressed in terms of a parameter. For example, it is possible to define the \
+circle of radius 2 centered at the origin as the vector valued function ",
+  Cell[BoxData[
+      \(TraditionalForm\`f(t)\  = \ \((2 \( cos(t)\), 2 \( sin(t)\))\)\)]],
+  ".  "
+}], "Text"],
+
+Cell[BoxData[
+    \(ParametricPlot[{Cos[t], Sin[t]}, {t, 0, 2  Pi}, 
+      AspectRatio \[Rule] 1]\)], "Input"],
+
+Cell[TextData[{
+  "Notice that we have used the option ",
+  StyleBox["AspectRatio->1",
+    FontWeight->"Bold"],
+  " to render this graph correctly. All of it's options can be examined with"
+}], "Text"],
+
+Cell[BoxData[
+    \(Options[ParametricPlot]\)], "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["3D Plotting", "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Plot3D", "Subsection"],
+
+Cell[TextData[{
+  "When viewing three-dimensional figures, there are several commands which \
+are useful to achieve a complete understanding of the surface. ",
+  StyleBox["Plot3D ",
+    FontWeight->"Bold"],
+  StyleBox["is used to obtain a ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["course",
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[" view of the surface. The overall structure can usually be seen \
+but the ",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox["fine",
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->0}],
+  StyleBox[" structure is usually seen only by generating level sets or \
+contours. For example, to plot the surface defined by ",
+    FontVariations->{"CompatibilityType"->0}],
+  Cell[BoxData[
+      \(TraditionalForm\`f(x, y)\  = \ \(x\^2\) 
+          y/\((x\^4 + y\^2)\)\ on\ the\ square\ [\(-1\), 1]\[Times]\([\(-1\), 
+            1]\)\)]],
+  ", enter",
+  StyleBox["\n",
+    FontVariations->{"CompatibilityType"->0}]
+}], "Text"],
+
+Cell[BoxData[
+    \(Plot3D[x^2*y/\((x^4\  + \ y^2)\), {x, \(-1\), 1}, {y, \(-1\), 1}, 
+      PlotPoints \[Rule] 100]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["ContourPlot", "Subsection"],
+
+Cell[TextData[{
+  "To view the same surface as a collection of level sets, we use ",
+  StyleBox["ContourPlot",
+    FontWeight->"Bold"],
+  "."
+}], "Text"],
+
+Cell[BoxData[
+    \(ContourPlot[x^2*y/\((x^4\  + \ y^2)\), {x, \(-1\), 1}, {y, \(-1\), 1}, 
+      PlotPoints \[Rule] 100, Contours \[Rule] 20]\)], "Input"],
+
+Cell[TextData[{
+  "Here, the option ",
+  StyleBox["Contours\[Rule]20 ",
+    FontWeight->"Bold"],
+  StyleBox["generates 20 level sets from the highest point on the surface \
+(white) to the lowest point (black). ",
+    FontVariations->{"CompatibilityType"->0}]
+}], "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["DensityPlot", "Subsection"],
+
+Cell[TextData[{
+  "There is another command which is similar to ",
+  StyleBox["ContourPlot",
+    FontWeight->"Bold"],
+  " except that it considers the domain as a finite set of squares rather \
+than the usual point set."
+}], "Text"],
+
+Cell[BoxData[
+    \(DensityPlot[x^2*y/\((x^4\  + \ y^2)\), {x, \(-1\), 1}, {y, \(-1\), 1}, 
+      PlotPoints \[Rule] 100]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["ParametricPlot3D", "Subsection"],
+
+Cell[TextData[{
+  StyleBox["ParametricPlot3D",
+    FontWeight->"Bold"],
+  " is useful when plotting unusual or complicated surfaces. Many of these \
+surfaces are ",
+  StyleBox["not",
+    FontSlant->"Italic"],
+  " functions but they represent important examples. For example, to plot the \
+familiar torus (donut), enter"
+}], "Text"],
+
+Cell["\<\
+ParametricPlot3D[{Cos[t] (3 + Cos[u]), Sin[t] (3 + Cos[u]), Sin[u]},{t, 0, \
+2Pi}, {u, 0, 2Pi}]\
+\>", "Input",
+  CellTags->"S1.9.10"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Section"],
+
+Cell[TextData[{
+  "Plot some of your favorite 2D and 3D functions. Experiment with some of \
+the ",
+  StyleBox["Options",
+    FontWeight->"Bold"],
+  StyleBox[", like PlotPoints, ViewPoint, etc. Then mail this notebook back \
+to me at mezzino@math.cl.uh.edu. ",
+    FontVariations->{"CompatibilityType"->0}]
+}], "Text"]
+}, Closed]]
+},
+FrontEndVersion->"4.1 for Microsoft Windows",
+ScreenRectangle->{{0, 800}, {0, 527}},
+WindowSize->{526, 500},
+WindowMargins->{{128, Automatic}, {Automatic, 0}},
+Magnification->1,
+StyleDefinitions -> "Classroom.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{
+  "S1.9.10"->{
+    Cell[6635, 234, 143, 4, 68, "Input",
+      CellTags->"S1.9.10"]}
+  }
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{
+  {"S1.9.10", 7837, 274}
+  }
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 163, 6, 119, "Title"],
+
+Cell[CellGroupData[{
+Cell[1893, 60, 30, 0, 62, "Section"],
+
+Cell[CellGroupData[{
+Cell[1948, 64, 26, 0, 46, "Subsection"],
+Cell[1977, 66, 531, 15, 48, "Text"],
+Cell[2511, 83, 57, 1, 50, "Input"],
+Cell[2571, 86, 210, 7, 29, "Text"],
+Cell[2784, 95, 64, 1, 50, "Input"],
+Cell[2851, 98, 113, 3, 29, "Text"],
+Cell[2967, 103, 46, 1, 50, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3050, 109, 36, 0, 30, "Subsection"],
+Cell[3089, 111, 352, 7, 67, "Text"],
+Cell[3444, 120, 110, 2, 70, "Input"],
+Cell[3557, 124, 201, 5, 48, "Text"],
+Cell[3761, 131, 56, 1, 50, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3866, 138, 30, 0, 42, "Section"],
+
+Cell[CellGroupData[{
+Cell[3921, 142, 28, 0, 46, "Subsection"],
+Cell[3952, 144, 1040, 26, 136, "Text"],
+Cell[4995, 172, 129, 2, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5161, 179, 33, 0, 30, "Subsection"],
+Cell[5197, 181, 153, 5, 29, "Text"],
+Cell[5353, 188, 155, 2, 70, "Input"],
+Cell[5511, 192, 270, 7, 48, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5818, 204, 33, 0, 30, "Subsection"],
+Cell[5854, 206, 232, 6, 48, "Text"],
+Cell[6089, 214, 134, 2, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6260, 221, 38, 0, 30, "Subsection"],
+Cell[6301, 223, 331, 9, 67, "Text"],
+Cell[6635, 234, 143, 4, 68, "Input",
+  CellTags->"S1.9.10"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6827, 244, 27, 0, 42, "Section"],
+Cell[6857, 246, 318, 8, 48, "Text"]
+}, Closed]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

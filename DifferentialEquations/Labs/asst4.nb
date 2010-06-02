@@ -1,0 +1,1761 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     35329,       1517]*)
+(*NotebookOutlinePosition[     36286,       1549]*)
+(*  CellTagsIndexPosition[     36242,       1545]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Differential Equations", "Title",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[" Assignment #4", "Title",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell["Second-Order Equations", "Title",
+  TextAlignment->Center,
+  TextJustification->0],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Method of Undertermined Coefficients"], "Section",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Given a linear differential equation with constant coefficients, say"], 
+  "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["y''' - y'' - 4y' + 4y = 5 - e",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox["x",
+    FontWeight->"Bold",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  StyleBox[" + e",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox["2x\ny(0) = 1 , y'(0) = 1 , y''(0) = 1",
+    FontWeight->"Bold",
+    FontVariations->{"CompatibilityType"->"Superscript"}]
+}], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "we begin by forming the ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " expressions by"
+}], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"Clear[x,y,g]\neq = y'''[x] - y''[x] - 4y'[x] + 4y[x] - g[x] == 0"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+-g[x] + 4*y[x] - 4*Derivative[1][y][x] - 
+ 
+   Derivative[2][y][x] + Derivative[3][y][x] == 0\
+\>", 
+"\<\
+                                     (3)
+-g[x] + 4 y[x] - 4 y'[x] - y''[x] + y   [x] == 0\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData[
+"To produce the characteristic equation associated with the homogeneous \
+differential equation, we let"], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[m]\ny[x_] := Exp[m x]\ng[x_] := 0"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Now, letting ",
+  StyleBox["Mathematica",
+    FontWeight->"Bold",
+    FontSlant->"Italic"],
+  " evaluate the equation, we obtain"
+}], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["eq//Simplify"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+E^(m*x)*(4 - 4*m - m^2 + m^3) == 0\
+\>", 
+"\<\
+ m x             2    3
+E    (4 - 4 m - m  + m ) == 0\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData[{
+  "What we really want is the coefficient of ",
+  StyleBox["e",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox["mx",
+    FontWeight->"Bold",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  ", so we use ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "'s ",
+  StyleBox["Coefficient",
+    FontWeight->"Bold"],
+  " function."
+}], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["cheq = Coefficient[eq[[1]],Exp[m x]] == 0"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+4 - 4*m - m^2 + m^3 == 0\
+\>", 
+"\<\
+           2    3
+4 - 4 m - m  + m  == 0\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData[{
+  "Finding the required roots, we use ",
+  StyleBox["Solve",
+    FontWeight->"Bold"],
+  " and get"
+}], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["sol = Solve[cheq,m]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+{{m -> -2}, {m -> 1}, {m -> 2}}\
+\>", 
+"\<\
+{{m -> -2}, {m -> 1}, {m -> 2}}\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData["The complimentary solution is therefore,"], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"yc[x_,c1_,c2_,c3_] := c1 Exp[-2x] + c2 Exp[x] + c3 Exp[2x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["To produce a particular solution, we set"], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["g[x_] := 5 - Exp[x] + Exp[2x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["If we try "], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["y[x_] := a + b Exp[x] + c Exp[2x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Collect[ExpandAll[eq][[1]],Exp[x]] == 0"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+-5 + 4*a + E^x - E^(2*x) == 0\
+\>", 
+"\<\
+            x    2 x
+-5 + 4 a + E  - E    == 0\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData[{
+  "we see that this will not work, since  ",
+  StyleBox["e",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox["x",
+    FontWeight->"Bold",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold"],
+  "and",
+  StyleBox[" e",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox["2x ",
+    FontWeight->"Bold",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  "are solutions to the homogeneous equation. Therefore, we adjust this form \
+to produce one which does work."
+}], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["y[x_] := a + b x Exp[x] + c x Exp[2x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Collect[ExpandAll[eq][[1]],Exp[x]] == 0"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData[
+"\<\
+-5 + 4*a + (1 - 3*b)*E^x + (-1 + 4*c)*E^(2*x) == 0\
+\>", 
+"\<\
+                      x               2 x
+-5 + 4 a + (1 - 3 b) E  + (-1 + 4 c) E    == 0\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell["We may produce the equations which must be solved by setting", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(eq1\  = \ eq\  /. \ {Exp[x]\  -> \ 0, \ Exp[2  x]\  -> \ 0}\)], "Input"],
+
+Cell[BoxData[
+    \(\(-5\) + 4\ a == 0\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(eq2\  = \ Coefficient[ExpandAll[eq[\([1]\)]], Exp[x]] == 0\)], "Input"],
+
+Cell[BoxData[
+    \(1 - 3\ b == 0\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(eq3\  = \ Coefficient[ExpandAll[eq[\([1]\)]], Exp[2  x]] == 0\)], 
+  "Input"],
+
+Cell[BoxData[
+    \(\(-1\) + 4\ c == 0\)], "Output"]
+}, Open  ]],
+
+Cell["Now, we can solve for a,b, and c..", "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["sol = Solve[{eq1,eq2,eq3},{a,b,c}]", "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    \({{a \[Rule] 5\/4, b \[Rule] 1\/3, c \[Rule] 1\/4}}\)], "Output"]
+}, Open  ]],
+
+Cell[TextData["yp[x_] := y[x]/.sol"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["yp[x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+{5/4 + (E^x*x)/3 + (E^(2*x)*x)/4}\
+\>", 
+"\<\
+      x      2 x
+ 5   E  x   E    x
+{- + ---- + ------}
+ 4    3       4\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData["Finally,"], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["yg[x_,c1_,c2_,c3_] := yc[x,c1,c2,c3] + yp[x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["yg[x,c1,c2,c3]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData[
+"\<\
+{5/4 + c1/E^(2*x) + c2*E^x + c3*E^(2*x) + (E^x*x)/3 + 
+ 
+   (E^(2*x)*x)/4}\
+\>", "\<\
+                               x      2 x
+ 5    c1        x       2 x   E  x   E    x
+{- + ---- + c2 E  + c3 E    + ---- + ------}
+ 4    2 x                      3       4
+     E\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+vals = Solve[{yg[0,c1,c2,c3][[1]]==1,
+\t\t(D[yg[x,c1,c2,c3],x]/.{x->0})[[1]] == 1,
+\t\t(D[yg[x,c1,c2,c3],{x,2}]/.{x->0})[[1]] == 1},
+\t\t{c1,c2,c3}]\
+\>", "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+{{c1 -> -29/144, c2 -> -1/9, c3 -> 1/16}}\
+\>", 
+"\<\
+          29            1         1
+{{c1 -> -(---), c2 -> -(-), c3 -> --}}
+          144           9         16\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData[
+"Now, the unique solution, yu(x), can be easily produced."], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["yu[x_] := yg[x,c1,c2,c3]/.vals"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["yu[x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData[
+"\<\
+{{5/4 - 29/(144*E^(2*x)) - E^x/9 + E^(2*x)/16 + (E^x*x)/3 + 
+ 
+    (E^(2*x)*x)/4}}\
+\>", "\<\
+                  x    2 x    x      2 x
+  5      29      E    E      E  x   E    x
+{{- - -------- - -- + ---- + ---- + ------}}
+  4        2 x   9     16     3       4
+      144 E\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Plot[yu[x]//Evaluate,{x,-5,5}];"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+%% Graphics
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.5 0.095238 0.266771 0.0002 [
+[(-4)] .11905 .26677 0 2 Msboxa
+[(-2)] .30952 .26677 0 2 Msboxa
+[(2)] .69048 .26677 0 2 Msboxa
+[(4)] .88095 .26677 0 2 Msboxa
+[(-1000)] .4875 .06727 1 0 Msboxa
+[(-500)] .4875 .16702 1 0 Msboxa
+[(500)] .4875 .36652 1 0 Msboxa
+[(1000)] .4875 .46627 1 0 Msboxa
+[(1500)] .4875 .56602 1 0 Msboxa
+[ -0.001 -0.001 0 0 ]
+[ 1.001 .61903 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+[ ] 0 setdash
+0 g
+p
+p
+.002 w
+.11905 .26677 m
+.11905 .27302 L
+s
+P
+[(-4)] .11905 .26677 0 2 Mshowa
+p
+.002 w
+.30952 .26677 m
+.30952 .27302 L
+s
+P
+[(-2)] .30952 .26677 0 2 Mshowa
+p
+.002 w
+.69048 .26677 m
+.69048 .27302 L
+s
+P
+[(2)] .69048 .26677 0 2 Mshowa
+p
+.002 w
+.88095 .26677 m
+.88095 .27302 L
+s
+P
+[(4)] .88095 .26677 0 2 Mshowa
+p
+.001 w
+.15714 .26677 m
+.15714 .27052 L
+s
+P
+p
+.001 w
+.19524 .26677 m
+.19524 .27052 L
+s
+P
+p
+.001 w
+.23333 .26677 m
+.23333 .27052 L
+s
+P
+p
+.001 w
+.27143 .26677 m
+.27143 .27052 L
+s
+P
+p
+.001 w
+.34762 .26677 m
+.34762 .27052 L
+s
+P
+p
+.001 w
+.38571 .26677 m
+.38571 .27052 L
+s
+P
+p
+.001 w
+.42381 .26677 m
+.42381 .27052 L
+s
+P
+p
+.001 w
+.4619 .26677 m
+.4619 .27052 L
+s
+P
+p
+.001 w
+.5381 .26677 m
+.5381 .27052 L
+s
+P
+p
+.001 w
+.57619 .26677 m
+.57619 .27052 L
+s
+P
+p
+.001 w
+.61429 .26677 m
+.61429 .27052 L
+s
+P
+p
+.001 w
+.65238 .26677 m
+.65238 .27052 L
+s
+P
+p
+.001 w
+.72857 .26677 m
+.72857 .27052 L
+s
+P
+p
+.001 w
+.76667 .26677 m
+.76667 .27052 L
+s
+P
+p
+.001 w
+.80476 .26677 m
+.80476 .27052 L
+s
+P
+p
+.001 w
+.84286 .26677 m
+.84286 .27052 L
+s
+P
+p
+.001 w
+.08095 .26677 m
+.08095 .27052 L
+s
+P
+p
+.001 w
+.04286 .26677 m
+.04286 .27052 L
+s
+P
+p
+.001 w
+.00476 .26677 m
+.00476 .27052 L
+s
+P
+p
+.001 w
+.91905 .26677 m
+.91905 .27052 L
+s
+P
+p
+.001 w
+.95714 .26677 m
+.95714 .27052 L
+s
+P
+p
+.001 w
+.99524 .26677 m
+.99524 .27052 L
+s
+P
+p
+.002 w
+0 .26677 m
+1 .26677 L
+s
+P
+p
+.002 w
+.5 .06727 m
+.50625 .06727 L
+s
+P
+[(-1000)] .4875 .06727 1 0 Mshowa
+p
+.002 w
+.5 .16702 m
+.50625 .16702 L
+s
+P
+[(-500)] .4875 .16702 1 0 Mshowa
+p
+.002 w
+.5 .36652 m
+.50625 .36652 L
+s
+P
+[(500)] .4875 .36652 1 0 Mshowa
+p
+.002 w
+.5 .46627 m
+.50625 .46627 L
+s
+P
+[(1000)] .4875 .46627 1 0 Mshowa
+p
+.002 w
+.5 .56602 m
+.50625 .56602 L
+s
+P
+[(1500)] .4875 .56602 1 0 Mshowa
+p
+.001 w
+.5 .08722 m
+.50375 .08722 L
+s
+P
+p
+.001 w
+.5 .10717 m
+.50375 .10717 L
+s
+P
+p
+.001 w
+.5 .12712 m
+.50375 .12712 L
+s
+P
+p
+.001 w
+.5 .14707 m
+.50375 .14707 L
+s
+P
+p
+.001 w
+.5 .18697 m
+.50375 .18697 L
+s
+P
+p
+.001 w
+.5 .20692 m
+.50375 .20692 L
+s
+P
+p
+.001 w
+.5 .22687 m
+.50375 .22687 L
+s
+P
+p
+.001 w
+.5 .24682 m
+.50375 .24682 L
+s
+P
+p
+.001 w
+.5 .28672 m
+.50375 .28672 L
+s
+P
+p
+.001 w
+.5 .30667 m
+.50375 .30667 L
+s
+P
+p
+.001 w
+.5 .32662 m
+.50375 .32662 L
+s
+P
+p
+.001 w
+.5 .34657 m
+.50375 .34657 L
+s
+P
+p
+.001 w
+.5 .38647 m
+.50375 .38647 L
+s
+P
+p
+.001 w
+.5 .40642 m
+.50375 .40642 L
+s
+P
+p
+.001 w
+.5 .42637 m
+.50375 .42637 L
+s
+P
+p
+.001 w
+.5 .44632 m
+.50375 .44632 L
+s
+P
+p
+.001 w
+.5 .48622 m
+.50375 .48622 L
+s
+P
+p
+.001 w
+.5 .50617 m
+.50375 .50617 L
+s
+P
+p
+.001 w
+.5 .52612 m
+.50375 .52612 L
+s
+P
+p
+.001 w
+.5 .54607 m
+.50375 .54607 L
+s
+P
+p
+.001 w
+.5 .04732 m
+.50375 .04732 L
+s
+P
+p
+.001 w
+.5 .02737 m
+.50375 .02737 L
+s
+P
+p
+.001 w
+.5 .00742 m
+.50375 .00742 L
+s
+P
+p
+.001 w
+.5 .58597 m
+.50375 .58597 L
+s
+P
+p
+.001 w
+.5 .60592 m
+.50375 .60592 L
+s
+P
+p
+.002 w
+.5 0 m
+.5 .61803 L
+s
+P
+P
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+p
+p
+p
+.004 w
+s
+s
+s
+s
+s
+s
+.08106 0 m
+.08333 .01347 L
+s
+.08333 .01347 m
+.10317 .09987 L
+.1131 .1313 L
+.12302 .15682 L
+.13294 .17755 L
+.14286 .19437 L
+.15278 .20803 L
+.1627 .21912 L
+.17262 .22813 L
+.18254 .23544 L
+.20238 .2462 L
+.2123 .25011 L
+.22222 .25329 L
+.23214 .25587 L
+.24206 .25796 L
+.2619 .26104 L
+.27183 .26216 L
+.28175 .26307 L
+.29167 .26381 L
+.30159 .26441 L
+.31151 .26489 L
+.32143 .26529 L
+.34127 .26587 L
+.35119 .26608 L
+.36111 .26625 L
+.37103 .26639 L
+.38095 .2665 L
+.40079 .26666 L
+.41071 .26672 L
+.42063 .26677 L
+.43056 .26681 L
+.44048 .26684 L
+.46032 .26689 L
+.48016 .26693 L
+.5 .26697 L
+.50992 .26699 L
+.51984 .26702 L
+.52976 .26705 L
+.53968 .26709 L
+.5496 .26714 L
+.55952 .2672 L
+.56944 .26728 L
+.57937 .26738 L
+.58929 .2675 L
+.59921 .26767 L
+.60913 .26788 L
+.61905 .26814 L
+.62897 .26848 L
+.63889 .26891 L
+.64881 .26947 L
+Mistroke
+.65873 .27017 L
+.66865 .27106 L
+.67857 .27219 L
+.68849 .27363 L
+.69841 .27546 L
+.70833 .27778 L
+.71825 .28071 L
+.72817 .28443 L
+.7381 .28913 L
+.74802 .29508 L
+.75794 .30261 L
+.76786 .31212 L
+.77778 .32413 L
+.7877 .3393 L
+.79762 .35844 L
+.80754 .38259 L
+.81746 .41305 L
+.82738 .45143 L
+.8373 .49979 L
+.84722 .5607 L
+Mfstroke
+.85464 .61803 m
+.84722 .5607 L
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+P
+P
+P
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  ImageSize->{282, 174},
+  ImageMargins->{{34, Inherited}, {Inherited, Inherited}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004J0000[P800@400aOo00<l07?o00<l08[o000G
+o`03?01co`03?02:o`005ol00c`0Lol00``0R_l001Oo00<l07?o00<l08[o000Ho`03?01bo`03?02:
+o`006?l00c`0L_l00c`0R_l001So00<l07;o00<l08[o000Ho`03?01bo`03302:o`006Ol00c`0LOl0
+0c`0R_l001Wo00<l077o00<l08[o000Io`03?01ao`03?02:o`006Ol00c`0LOl00c`0R_l001[o00<l
+073o00<l08[o000Jo`03?01`o`03302:o`006_l00c`0L?l00c`0R_l001[o00<l073o00<l08[o000J
+o`03?01Go`030005?`03?006l0K`1_>9o`006ol00c`0F?l7?`04?005l`03?008?hWo000Ko`03?01H
+o`Lo00@l00Gc00<l00PoROl001_o00<l053o00D0`0[l00@l00Gc00<l00Do00<l08Wo000Ko`03?01H
+o`Lo00@l00Gc00<l00PoROl001co00<l05Go00<000Kl00@l00Gc00<l00PoROl001co00<l05Oo00<l
+00K`1_06l0KcROl001co00<l06ko00<l08[o000Lo`03?01^o`03302:o`007?l00c`0K_l00c`0R_l0
+01go00<l06go00<l08[o000Mo`03?01]o`03?02:o`007Ol00c`0KOl00c`0R_l001ko00<l06co00<l
+08[o000No`03?01/o`03302:o`007_l00c`0K?l00c`0R_l001ko00<l06co00<l08[o000Oo`03?01[
+o`03?02:o`007ol00c`0Jol00c`0R_l001oo00<l06_o00<<08[o000Po`03?01Zo`03?02:o`008?l0
+0c`0J_l00c`0R_l0023o00<l06[o00<l08[o000Qo`03?01Yo`03?02:o`008Ol00c`0JOl00c`0R_l0
+02;o00<l06So00<<08[o000Ro`03?01Xo`03?02:o`008_l00c`0J?l00c`0R_l002?o00<l05Co00D3
+`0K`1_06lhWo000So`03?01Go`04?005l`03?008?hWo000To`03?01Fo`04?005l`03?008?hWo000T
+o`03?01=o`030005?0Lo00@l00Oc00<l08Wo000Uo`03?01Bo`03?006o004?00:lhWo000Uo`03?01B
+o`03?006o004?00:lhWo000Uo`03301Bo`030005?`03?006l0KcROl002Ko00<l06Co00<l08[o000W
+o`03?01So`03302:o`009ol00c`0Hol00c`0R_l002So00<l06;o00<l08[o000Yo`03?01Qo`03?02:
+o`00:Ol00c`0HOl00c`0R_l002[o00<l063o00<l08[o000[o`03?01Oo`03302:o`00;?l00c`0G_l0
+0c`0R_l002go00<l05go00<l08[o000^o`03?01Lo`03?02:o`00;ol00c`0Fol00c`0R_l0033o00<l
+05[o00<<08[o000ao`03?01Io`03?02:o`00<_l00c`0F?l00c`0R_l002Go00<l00_o00<<02?o00@0
+033o00<l037o00@003?o00<l01oo000Uo`03?00=o`03300Qo`03?00ao`03?00ao`03?00do`03?00O
+o`008_l5013o00<<023o00<l033o00<l03;o00<l033o1@0Po`007Ol01P3000Kc4?l00``05ol01@30
+1o`^o`03300co`03?00_o`04?00Qo`008ol00c005Ol00`007_l00c`0;_l00c`0=?l00c`0;ol00c00
+8Ol002Co00<<01Oo00@001Oo00@l033o00<l037o00@l03;o00<<023o000Uo`03?00Io`H04ol00``0
+<?l00c`0<_l00``0<ol00c`07ol004Oo200no`03?02:o`00ColH02Ko00<l08[o003o01/00006l`Ko
+00<l00So00<l00So00<l00Oo00<l00So00<l00So00<l00Oo00<l00So00<l00So00<l00Oo00<l00So
+00<l00So00<l00So00<l00Oo00<l00So00<l00So00<l00Oo2P05c`Oo00<l00Oo00<l00So00<l00So
+00<l00Oo00<l00So00<l00So00<l00Oo00<l0000SOl00c`0<Ol505Co002=o`03?00fo`04001@o`00
+SOl00c`0>_l00`00COl008go00<<03go00<<04[o002=o`03?00oo`033018o`00SOl00c`0@Ol00c`0
+A_l008go00<l04;o00<<04Go002=o`03?014o`03?013o`00SOl00c`0AOl00c`0@_l008go00<<04Ko
+00<l047o002=o`03?017o`033010o`00SOl00c`0B?l00c`0?ol008go00<l04Wo00<l03ko002=o`03
+?01:o`03?00mo`00SOl00``0B_l00``0?Ol008go00<l04_o00<l03co002=o`03?01<o`03?00ko`00
+SOl00c`0COl00c`0>_l008go00<l04go00<l03[o002=o`03?01>o`03?00io`00SOl00``0C_l00c`0
+>Ol008go00<l04oo00<l03So002=o`03?01?o`03?00ho`00N_l01@?01_06l0KcCol00c`0=ol007go
+00@l00Gc00<l00PoCol00c`0=ol007go00@l00Gc00<l00PoD?l00c`0=_l007[o00<000Kl00@l00Oc
+00<l053o00<l03Ko001jo`03?006o004?00:le7o00<l03Go001jo`03?006o004?00:le7o00<l03Go
+001jo`030005?`03?006l0KcDOl00c`0=Ol008go00<l05?o00<l03Co002=o`03301Co`03?00do`00
+SOl00c`0Dol00c`0=?l008go00<l05Co00<l03?o002=o`03?01Do`03?00co`00SOl00c`0E?l00c`0
+<ol008go00<l05Go00<l03;o002=o`03301Eo`03?00bo`00SOl00c`0EOl00c`0<_l008go00<l05Ko
+00<l037o002=o`03?01Fo`03?00ao`00SOl00c`0E_l00c`0<Ol008go00<<05Ko00<l037o002=o`03
+?01Go`03?00`o`00SOl00c`0Eol00c`0<?l008go00<l05Oo00<l033o002=o`03?01Go`03?00`o`00
+SOl00c`0F?l00c`0;ol008go00<<05So00<l02oo002=o`03?01Ho`03?00_o`00SOl00c`0F?l00c`0
+;ol007Co00<000Do00<l00K`1_06leSo00<l02ko001fo`Lo00@l00Gc00<l00PoF?l00c`0;_l007Ko
+1cl013`01O<00c`023mHo`03?00^o`00M_l7?`04?005l`03?005?`03?01Ho`03?00^o`00M_l7?`04
+?005l`03?008?eWo00<l02go001do`030006o004?005l`03?008?eWo00<l02go001fo`03?006l0K`
+1_06leWo00<l02go002=o`03?01Jo`03?00]o`00SOl00``0F_l00c`0;Ol008go00<l05_o00<l02co
+002=o`03?01Ko`03?00/o`00SOl00c`0Fol00c`0;?l008go00<l05_o00<l02co002=o`03?01Ko`03
+?00/o`00SOl00``0Fol00c`0;?l008go00<l05co00<l02_o002=o`03?01Lo`03?00[o`00SOl00c`0
+G?l00c`0:ol008go00<l05co00<l02_o002=o`03301Lo`03?00[o`00SOl00c`0G?l00c`0:ol008go
+00<l05go00<l02[o002=o`03?01Mo`03?00Zo`00SOl00c`0GOl00c`0:_l008go00<l05go00<l02[o
+002=o`03301Mo`03?00Zo`00SOl00c`0GOl00c`0:_l008go00<l05ko00<l02Wo001do`030005?003
+?006l0K`1_=Mo`03?00Yo`00M_l013l01_`013`01O<8?ego00<l02Wo001fo`04?`06o004?005l`Po
+GOl00c`0:Ol007Ko1Cl00``01O<013`01o<00c`0GOl00c`0:Ol007Ko23l5l`04?00:lego00<l02Wo
+001do`030007o0Gc00@l00[cGOl00c`0:Ol007Ko1Cl010<01_06l0KcG_l00c`0:?l008go00<l05oo
+00<l02So002=o`03301Oo`03?00Xo`00SOl00c`0Gol00c`0:?l008go00<l05oo00<l02So002=o`03
+?01Oo`03?00Xo`00SOl00c`0Gol00c`0:?l008go00<l05oo00<l02So002=o`03301Po`03?00Wo`00
+SOl00c`0H?l00c`09ol008go00<l063o00<l02Oo002=o`03?01Po`03?00Wo`00\
+\>"],
+  ImageRangeCache->{{{0, 281}, {173, 0}} -> {-5.275605, -1321.037842, 
+  0.037416, 17.816954}}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Method of Variation of Parameters"], "Section",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Method Detail"], "Subsection",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Using the same equation, variation of parameters leads to the following \
+result. First we define the three linearly independent solutions to the \
+homogeneous equation, which we must find as before."], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"Clear[x,y,g]\neq = y'''[x] - y''[x] - 4y'[x] + 4y[x] - g[x] == 0"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData[
+"\<\
+-g[x] + 4*y[x] - 4*Derivative[1][y][x] - Derivative[2][y][x] + 
+ 
+   Derivative[3][y][x] == 0\
+\>", 
+"\<\
+                                     (3)
+-g[x] + 4 y[x] - 4 y'[x] - y''[x] + y   [x] == 0\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData["g[x_] := 5 - Exp[x] + Exp[2x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"y1[x_] := Exp[-2x]\ny2[x_] := Exp[x]\ny3[x_] := Exp[2x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Next, we define the Wronskian's  we will need."], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"w = Det[{{y1[x],y2[x],y3[x]},\n\t\t {D[y1[x],x],D[y2[x],x],D[y3[x],x]},\n\t\t\
+ {D[y1[x],{x,2}],D[y2[x],{x,2}],D[y3[x],{x,2}]}}\n\t]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+12*E^x\
+\>", "\<\
+    x
+12 E\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"w1 = Det[{{0,y2[x],y3[x]},\n\t\t {0,D[y2[x],x],D[y3[x],x]},\n\t\t \
+{g[x],D[y2[x],{x,2}],D[y3[x],{x,2}]}}\n\t]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+5*E^(3*x) - E^(4*x) + E^(5*x)\
+\>", 
+"\<\
+   3 x    4 x    5 x
+5 E    - E    + E\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"w2 = Det[{{y1[x],0,y3[x]},\n\t\t {D[y1[x],x],0,D[y3[x],x]},\n\t\t \
+{D[y1[x],{x,2}],g[x],D[y3[x],{x,2}]}}\n\t]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+-20 + 4*E^x - 4*E^(2*x)\
+\>", 
+"\<\
+         x      2 x
+-20 + 4 E  - 4 E\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"w3 = Det[{{y1[x],y2[x],0},\n\t\t {D[y1[x],x],D[y2[x],x],0},\n\t\t \
+{D[y1[x],{x,2}],D[y2[x],{x,2}],g[x]}}\n\t]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+-3 + 15/E^x + 3*E^x\
+\>", "\<\
+     15      x
+-3 + -- + 3 E
+      x
+     E\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData["Now, solving the resulting equations, we obtain"], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"u1[x_] := Integrate[w1/w,x]\nu2[x_] := Integrate[w2/w,x]\nu3[x_] := \
+Integrate[w3/w,x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["yp[x_] := u1[x] y1[x] + u2[x] y2[x] + u3[x] y3[x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["yp[x]//Simplify"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData[
+"\<\
+5/4 + (2*E^x)/9 - (5*E^(2*x))/16 + (E^x*x)/3 + (E^(2*x)*x)/4\
+\>", 
+"\<\
+       x      2 x    x      2 x
+5   2 E    5 E      E  x   E    x
+- + ---- - ------ + ---- + ------
+4    9       16      3       4\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData[{
+  "You will notice that this approach produces a different form for the \
+particular solution. Here we get the additional terms  ",
+  StyleBox["2/9",
+    FontWeight->"Bold"],
+  " ",
+  StyleBox["e",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox["x",
+    FontWeight->"Bold",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold"],
+  "and",
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox["-5/16",
+    FontWeight->"Bold"],
+  StyleBox[" e",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox["2x",
+    FontWeight->"Bold",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  ", which can be combined with the complimentary solution introducing new \
+arbitrary constants."
+}], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "A Single ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " Function"
+}], "Subsection",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "'s programming language is so powerful, that the above script can be \
+encoded into a single function. To use it, however, you must know about pure \
+functions. "
+}], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+vp[y1_,y2_,y3_,g_][x_] := Module[{w,w1,w2,w3},
+\tw = Det[{{y1[x],y2[x],y3[x]},
+\t\t  {D[y1[x],x],D[y2[x],x],D[y3[x],x]},
+\t\t  {D[y1[x],{x,2}],D[y2[x],{x,2}],D[y3[x],{x,2}]}}
+\t\t]//Simplify;
+\tw1 = Det[{{0,y2[x],y3[x]},
+\t\t   {0,D[y2[x],x],D[y3[x],x]},
+\t\t   {g[x],D[y2[x],{x,2}],D[y3[x],{x,2}]}}
+\t\t ]//Simplify;\t\t\t\t\t\t
+\tw2 = Det[{{y1[x],0,y3[x]},
+\t\t   {D[y1[x],x],0,D[y3[x],x]},
+\t\t   {D[y1[x],{x,2}],g[x],D[y3[x],{x,2}]}}
+\t\t ]//Simplify;
+\tw3 = Det[{{y1[x],y2[x],0},
+\t\t   {D[y1[x],x],D[y2[x],x],0},
+\t\t   {D[y1[x],{x,2}],D[y2[x],{x,2}],g[x]}}
+\t\t ]//Simplify;
+\tIntegrate[w1/w,x] y1[x] +
+\tIntegrate[w2/w,x] y2[x] +
+\tIntegrate[w3/w,x] y3[x]//Simplify
+]\
+\>", "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "To use this function, you must be able to encode an arbitrary function \
+into a pure ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " function. Here is an example:"
+}], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "To write 3 + 2x + x^2 as a pure function, whose name will be f, use ",
+  StyleBox["Function",
+    FontWeight->"Bold"],
+  " and write"
+}], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Clear[x,y]\nf = Function[x,3 + 2x + x^2]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+Function[x, 3 + 2*x + x^2]\
+\>", 
+"\<\
+                       2
+Function[x, 3 + 2 x + x ]\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData["Now we can use f the way we use functions. "], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["f[x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+3 + 2*x + x^2\
+\>", "\<\
+           2
+3 + 2 x + x\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["f[y]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+3 + 2*y + y^2\
+\>", "\<\
+           2
+3 + 2 y + y\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["f[2]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+11\
+\>", "\<\
+11\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData[
+"Other functions are encoded in a similar way. Therefore, to encode the  \
+functions from the above problem, we write"], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"g = Function[x,5 - Exp[x] + Exp[2x]];\ny1 = Function[x,Exp[-2x]];\ny2 = \
+Function[x,Exp[x]];\ny3 = Function[x,Exp[2x]];"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Hence,"], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["vp[y1,y2,y3,g][x]"], "Input",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[OutputFormData[
+"\<\
+5/4 + (2*E^x)/9 - (5*E^(2*x))/16 + (E^x*x)/3 + (E^(2*x)*x)/4\
+\>", 
+"\<\
+       x      2 x    x      2 x
+5   2 E    5 E      E  x   E    x
+- + ---- - ------ + ---- + ------
+4    9       16      3       4\
+\>"], "Output",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData["Bingo!"], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Section",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Solve the following initial value problem:"], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["\ty''''- y''' - 39y'' + 199y' - 520y = e",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox["t",
+    FontWeight->"Bold",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  StyleBox[" +  e",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox["2t",
+    FontWeight->"Bold",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  StyleBox[
+  " sin(3t) + sin(3t)\n\ty(0) = 1 , y'(0) = 1 , y''(0) = 1 ,  y'''(0) = 0",
+    FontSize->16,
+    FontWeight->"Bold"]
+}], "Text",
+  CellMargins->{{Inherited, -50}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["1) Manually, as indicated above"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "2) Using ODE. (Remember to enter    ",
+  StyleBox["<<Calculus/ODE.m",
+    FontWeight->"Bold"],
+  "      before using ODE. )"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["3) Explain any differences"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["4) Plot the solution", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{"RulerBar", "EditBar"},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{250, Automatic}, {Automatic, 10}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"NeXTAutomaticEncoding",
+StyleDefinitions -> "Classroom.nb"
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 195, 5, 50, "Title"],
+Cell[1907, 56, 187, 5, 50, "Title"],
+Cell[2097, 63, 88, 2, 50, "Title"],
+
+Cell[CellGroupData[{
+Cell[2210, 69, 172, 3, 55, "Section"],
+Cell[2385, 74, 205, 5, 26, "Text"],
+Cell[2593, 81, 541, 17, 70, "Text"],
+Cell[3137, 100, 236, 8, 26, "Text"],
+
+Cell[CellGroupData[{
+Cell[3398, 112, 177, 3, 56, "Input"],
+Cell[3578, 117, 344, 11, 48, "Output"]
+}, Open  ]],
+Cell[3937, 131, 236, 5, 26, "Text"],
+Cell[4176, 138, 151, 2, 68, "Input"],
+Cell[4330, 142, 267, 9, 26, "Text"],
+
+Cell[CellGroupData[{
+Cell[4622, 155, 124, 2, 44, "Input"],
+Cell[4749, 159, 249, 9, 48, "Output"]
+}, Open  ]],
+Cell[5013, 171, 486, 18, 34, "Text"],
+
+Cell[CellGroupData[{
+Cell[5524, 193, 153, 2, 44, "Input"],
+Cell[5680, 197, 226, 9, 48, "Output"]
+}, Open  ]],
+Cell[5921, 209, 233, 8, 26, "Text"],
+
+Cell[CellGroupData[{
+Cell[6179, 221, 131, 2, 44, "Input"],
+Cell[6313, 225, 224, 8, 44, "Output"]
+}, Open  ]],
+Cell[6552, 236, 173, 3, 26, "Text"],
+Cell[6728, 241, 171, 3, 44, "Input"],
+Cell[6902, 246, 173, 3, 26, "Text"],
+Cell[7078, 251, 141, 2, 44, "Input"],
+Cell[7222, 255, 143, 3, 26, "Text"],
+Cell[7368, 260, 145, 2, 44, "Input"],
+
+Cell[CellGroupData[{
+Cell[7538, 266, 151, 2, 44, "Input"],
+Cell[7692, 270, 237, 9, 48, "Output"]
+}, Open  ]],
+Cell[7944, 282, 678, 23, 50, "Text"],
+Cell[8625, 307, 149, 2, 44, "Input"],
+
+Cell[CellGroupData[{
+Cell[8799, 313, 151, 2, 44, "Input"],
+Cell[8953, 317, 301, 10, 48, "Output"]
+}, Open  ]],
+Cell[9269, 330, 76, 0, 26, "Text"],
+
+Cell[CellGroupData[{
+Cell[9370, 334, 92, 1, 45, "Input"],
+Cell[9465, 337, 52, 1, 44, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9554, 343, 91, 1, 45, "Input"],
+Cell[9648, 346, 47, 1, 44, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9732, 352, 97, 2, 45, "Input"],
+Cell[9832, 356, 52, 1, 44, "Output"]
+}, Open  ]],
+Cell[9899, 360, 157, 3, 26, "Text"],
+
+Cell[CellGroupData[{
+Cell[10081, 367, 136, 2, 44, "Input"],
+Cell[10220, 371, 84, 1, 61, "Output"]
+}, Open  ]],
+Cell[10319, 375, 131, 2, 44, "Input"],
+
+Cell[CellGroupData[{
+Cell[10475, 381, 117, 2, 44, "Input"],
+Cell[10595, 385, 266, 11, 58, "Output"]
+}, Open  ]],
+Cell[10876, 399, 141, 3, 26, "Text"],
+Cell[11020, 404, 156, 2, 44, "Input"],
+
+Cell[CellGroupData[{
+Cell[11201, 410, 126, 2, 44, "Input"],
+Cell[11330, 414, 414, 14, 63, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[11781, 433, 258, 7, 80, "Input"],
+Cell[12042, 442, 314, 10, 53, "Output"]
+}, Open  ]],
+Cell[12371, 455, 190, 4, 26, "Text"],
+Cell[12564, 461, 142, 2, 44, "Input"],
+
+Cell[CellGroupData[{
+Cell[12731, 467, 117, 2, 44, "Input"],
+Cell[12851, 471, 424, 14, 63, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[13312, 490, 143, 2, 44, "Input"],
+Cell[13458, 494, 9748, 565, 182, 4730, 498, "GraphicsData", 
+"PostScript", "Graphics"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[23255, 1065, 169, 3, 35, "Section"],
+
+Cell[CellGroupData[{
+Cell[23449, 1072, 152, 3, 45, "Subsection"],
+Cell[23604, 1077, 333, 6, 42, "Text"],
+
+Cell[CellGroupData[{
+Cell[23962, 1087, 177, 3, 56, "Input"],
+Cell[24142, 1092, 345, 12, 48, "Output"]
+}, Open  ]],
+Cell[24502, 1107, 141, 2, 44, "Input"],
+Cell[24646, 1111, 168, 3, 68, "Input"],
+Cell[24817, 1116, 179, 3, 26, "Text"],
+
+Cell[CellGroupData[{
+Cell[25021, 1123, 245, 4, 80, "Input"],
+Cell[25269, 1129, 177, 8, 48, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[25483, 1142, 223, 4, 80, "Input"],
+Cell[25709, 1148, 229, 9, 48, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[25975, 1162, 223, 4, 80, "Input"],
+Cell[26201, 1168, 221, 9, 48, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[26459, 1182, 223, 4, 80, "Input"],
+Cell[26685, 1188, 223, 10, 58, "Output"]
+}, Open  ]],
+Cell[26923, 1201, 180, 3, 26, "Text"],
+Cell[27106, 1206, 200, 4, 68, "Input"],
+Cell[27309, 1212, 161, 2, 44, "Input"],
+
+Cell[CellGroupData[{
+Cell[27495, 1218, 127, 2, 44, "Input"],
+Cell[27625, 1222, 353, 12, 58, "Output"]
+}, Open  ]],
+Cell[27993, 1237, 905, 32, 66, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[28935, 1274, 221, 8, 45, "Subsection"],
+Cell[29159, 1284, 352, 9, 42, "Text"],
+Cell[29514, 1295, 785, 24, 284, "Input"],
+Cell[30302, 1321, 312, 9, 42, "Text"],
+Cell[30617, 1332, 271, 8, 26, "Text"],
+
+Cell[CellGroupData[{
+Cell[30913, 1344, 152, 2, 56, "Input"],
+Cell[31068, 1348, 238, 9, 48, "Output"]
+}, Open  ]],
+Cell[31321, 1360, 176, 3, 26, "Text"],
+
+Cell[CellGroupData[{
+Cell[31522, 1367, 116, 2, 44, "Input"],
+Cell[31641, 1371, 198, 8, 48, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[31876, 1384, 116, 2, 44, "Input"],
+Cell[31995, 1388, 198, 8, 48, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[32230, 1401, 116, 2, 44, "Input"],
+Cell[32349, 1405, 165, 7, 44, "Output"]
+}, Open  ]],
+Cell[32529, 1415, 250, 5, 42, "Text"],
+Cell[32782, 1422, 233, 4, 80, "Input"],
+Cell[33018, 1428, 139, 3, 26, "Text"],
+
+Cell[CellGroupData[{
+Cell[33182, 1435, 129, 2, 44, "Input"],
+Cell[33314, 1439, 353, 12, 58, "Output"]
+}, Open  ]],
+Cell[33682, 1454, 139, 3, 26, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[33870, 1463, 134, 3, 35, "Section"],
+Cell[34007, 1468, 175, 3, 26, "Text"],
+Cell[34185, 1473, 624, 20, 67, "Text"],
+Cell[34812, 1495, 105, 2, 26, "Text"],
+Cell[34920, 1499, 203, 7, 26, "Text"],
+Cell[35126, 1508, 100, 2, 26, "Text"],
+Cell[35229, 1512, 84, 2, 26, "Text"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

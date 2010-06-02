@@ -1,0 +1,560 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 4.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     10629,        426]*)
+(*NotebookOutlinePosition[     11609,        458]*)
+(*  CellTagsIndexPosition[     11565,        454]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Differential Equations", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[" Assignment #1", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell["Simple First-Order Equations", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Theory"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Theorem ",
+    FontWeight->"Bold",
+    FontSlant->"Italic"],
+  " ",
+  StyleBox["Let  g",
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["t",
+    FontSlant->"Italic"],
+  ")",
+  StyleBox[" be a continuous function on the interval ",
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["a,b",
+    FontSlant->"Italic"],
+  ")",
+  StyleBox[" and let t",
+    FontSlant->"Italic"],
+  StyleBox["0",
+    FontSize->8,
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" be some point in this interval. Then the simple equation y' = g",
+    
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["t",
+    FontSlant->"Italic"],
+  ")",
+  StyleBox[" has a unique solution which satisfies the condition that y",
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["t",
+    FontSlant->"Italic"],
+  StyleBox["0",
+    FontSize->8,
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ")",
+  StyleBox[" = y",
+    FontSlant->"Italic"],
+  StyleBox["0",
+    FontSize->8,
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" for any real number y",
+    FontSlant->"Italic"],
+  StyleBox["0",
+    FontSize->8,
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[".",
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->"Subscript"}]
+}], "Text",
+  CellFrame->True,
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Example", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "In this case we have the equation ",
+  StyleBox["y' = g",
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["t",
+    FontSlant->"Italic"],
+  ")",
+  StyleBox[", ",
+    FontSlant->"Italic"],
+  "whose solution can be obtained immediately with the indefinite integral."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Example ",
+  FontWeight->"Bold",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Solve the equation ",
+  StyleBox["y' = ",
+    FontSlant->"Italic"],
+  "2",
+  StyleBox["t + ",
+    FontSlant->"Italic"],
+  "1",
+  StyleBox["/t",
+    FontSlant->"Italic"],
+  " on the interval (0,1)."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Solution:",
+  FontWeight->"Bold",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "We first clear the variables we are going to use (always a good habit) and \
+then define the equation and name it (",
+  StyleBox["eq",
+    FontWeight->"Bold"],
+  ") for later use."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Clear[t,y]
+eq = y'[t] == 2t + 1/t\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Using ",
+  StyleBox["Mathematica's",
+    FontSlant->"Italic"],
+  " symbolic indefinite integrator ",
+  StyleBox["Integrate",
+    FontFamily->"Courier",
+    FontWeight->"Bold"],
+  ", we compute the solution and use it to define ",
+  StyleBox["y",
+    FontSlant->"Italic"],
+  " as a proper ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " function of",
+  StyleBox[" t.",
+    FontSlant->"Italic"]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["y[t_] := Integrate[2t + 1/t,t] + C", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Remember that when you define a function using",
+  StyleBox[" :=(SetDelayed)",
+    FontWeight->"Bold"],
+  ", ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " does not echo the result.  If you want to display ",
+  StyleBox["y",
+    FontWeight->"Bold",
+    FontSlant->"Italic"],
+  ", simply enter"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["y[t]", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Finally, we check this solution by asking ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " to evaluate the equation and simplify the result, if necessary. During \
+this step, ",
+  StyleBox["y'[t] ",
+    FontWeight->"Bold"],
+  "is automatically computed and substituted into the equation."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Simplify[eq]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "We can also compute the derivative of y(t) directly using ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "'s command for the derivative, named ",
+  StyleBox["D",
+    FontWeight->"Bold"],
+  ". This is actually the partial derivative but it is the most useful when \
+parameters are present."
+}], "Text"],
+
+Cell[BoxData[
+    \(D[y[t], t]\)], "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Using DSolve", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["To solve this equation using DSolve, simply enter", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Clear[y]
+DSolve[y'[t] == 2t + 1/t,y[t],t]\
+\>", "Input",
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Using ODE"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["The ODE.m package can be loaded with the command"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["<<F:\\ODE.m", "Input",
+  AspectRatioFixed->True],
+
+Cell["\<\
+where \"F:\" is the drive on which you have mounted the \
+\"MATH4131\" files. Double click  \"MyComputer\"  to determine the correct \
+drive letter if \"F:\" does not work. If you did this right, you wild get the \
+following message:\
+\>", "Text"],
+
+Cell[TextData[StyleBox["To get more information type ?ODE",
+  FontSize->14,
+  FontSlant->"Italic"]], "Text",
+  TextAlignment->Center,
+  TextJustification->0],
+
+Cell[TextData[
+"This package was written to provide pedagogical information and provide \n\
+helpful tools as you work through the book. To use it on the  initial value \n\
+problem  y' + t y =  sin(t), y(0) = 3, we could enter the equations exactly \
+as\n we did for DSolve"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["ODE[y'[t] == 2t + 1/t,y[t],t,Method -> DSolve]", "Input",
+  AspectRatioFixed->True],
+
+Cell["\<\
+or we may specify a particular solver to be used on the problem. \
+For example, 
+If we think the equation is homogeneous, we could write\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["ODE[y'[t] == 2t + 1/t,y[t],t,Method->FirstOrderHomogeneous]", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"If you try a solver which is not appropriate, then ODE will tell you. \
+However,\n if you guess correctly, then"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+ODE[y'[t] == 2t + 1/t,y,t,
+Method->FirstOrderLinear,Form -> Equation]\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell["\<\
+If yo have an initial condition,then you simply include it in the \
+list of equations as follows:\
+\>", "Text"],
+
+Cell["\<\
+ODE[{y'[t] == 2t + 1/t,y[1] == 1},y,t,
+Method->FirstOrderLinear,PlotSolution->{{t,-1,1}}]\
+\>", "Input",
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Exercise"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["1. Reread Chapter 1 in your book.", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "2. Using ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ", solve the following equation 3 different ways."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  " y'  = ",
+  Cell[BoxData[
+      \(TraditionalForm\`3  t\^2\)]],
+  " - sec(t)."
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"That is, use Integrate, DSolve and ODE. Remember to include"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["<<F:\\ODE.m", "Input",
+  AspectRatioFixed->True],
+
+Cell["to invoke the ODE package.", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+3. Then consider the particular solution satisfying y(0) = 1.\
+\>", \
+"Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+4. Finally, plot this solution over several different \
+intervals.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+5. Do you notice anything interesting about this particular \
+solution?\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]]
+},
+FrontEndVersion->"4.2 for Microsoft Windows",
+ScreenRectangle->{{0, 800}, {0, 527}},
+WindowToolbars->{"RulerBar", "EditBar"},
+CellGrouping->Automatic,
+WindowSize->{500, 487},
+WindowMargins->{{123, Automatic}, {Automatic, 2}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"NeXTAutomaticEncoding",
+Magnification->1,
+StyleDefinitions -> "Classroom.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 136, 4, 67, "Title",
+  Evaluatable->False],
+Cell[1893, 57, 128, 4, 67, "Title",
+  Evaluatable->False],
+Cell[2024, 63, 142, 4, 67, "Title",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2191, 71, 83, 2, 62, "Section",
+  Evaluatable->False],
+Cell[2277, 75, 1456, 58, 74, "Text",
+  Evaluatable->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3770, 138, 74, 2, 42, "Section",
+  Evaluatable->False],
+Cell[3847, 142, 338, 13, 29, "Text",
+  Evaluatable->False],
+Cell[4188, 157, 137, 4, 29, "Text",
+  Evaluatable->False],
+Cell[4328, 163, 276, 13, 29, "Text",
+  Evaluatable->False],
+Cell[4607, 178, 138, 4, 29, "Text",
+  Evaluatable->False],
+Cell[4748, 184, 259, 8, 29, "Text",
+  Evaluatable->False],
+Cell[5010, 194, 84, 4, 62, "Input"],
+Cell[5097, 200, 482, 19, 79, "Text",
+  Evaluatable->False],
+Cell[5582, 221, 77, 1, 62, "Input"],
+Cell[5662, 224, 384, 14, 78, "Text",
+  Evaluatable->False],
+Cell[6049, 240, 47, 1, 47, "Input"],
+Cell[6099, 243, 377, 11, 96, "Text",
+  Evaluatable->False],
+Cell[6479, 256, 65, 1, 47, "Input"],
+Cell[6547, 259, 330, 9, 95, "Text"],
+Cell[6880, 270, 43, 1, 47, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6960, 276, 79, 2, 42, "Section",
+  Evaluatable->False],
+Cell[7042, 280, 113, 2, 29, "Text",
+  Evaluatable->False],
+Cell[7158, 284, 92, 4, 68, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7287, 293, 86, 2, 42, "Section",
+  Evaluatable->False],
+Cell[7376, 297, 122, 2, 29, "Text",
+  Evaluatable->False],
+Cell[7501, 301, 54, 1, 50, "Input"],
+Cell[7558, 304, 257, 5, 48, "Text"],
+Cell[7818, 311, 157, 4, 30, "Text"],
+Cell[7978, 317, 331, 6, 122, "Text",
+  Evaluatable->False],
+Cell[8312, 325, 89, 1, 50, "Input"],
+Cell[8404, 328, 208, 6, 60, "Text",
+  Evaluatable->False],
+Cell[8615, 336, 102, 1, 50, "Input"],
+Cell[8720, 339, 186, 4, 60, "Text",
+  Evaluatable->False],
+Cell[8909, 345, 120, 4, 68, "Input"],
+Cell[9032, 351, 121, 3, 29, "Text"],
+Cell[9156, 356, 140, 4, 68, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9333, 365, 85, 2, 42, "Section",
+  Evaluatable->False],
+Cell[9421, 369, 97, 2, 29, "Text",
+  Evaluatable->False],
+Cell[9521, 373, 195, 7, 29, "Text",
+  Evaluatable->False],
+Cell[9719, 382, 182, 8, 29, "Text",
+  Evaluatable->False],
+Cell[9904, 392, 134, 3, 29, "Text",
+  Evaluatable->False],
+Cell[10041, 397, 54, 1, 50, "Input"],
+Cell[10098, 400, 90, 2, 29, "Text",
+  Evaluatable->False],
+Cell[10191, 404, 135, 5, 29, "Text",
+  Evaluatable->False],
+Cell[10329, 411, 138, 5, 29, "Text",
+  Evaluatable->False],
+Cell[10470, 418, 143, 5, 29, "Text",
+  Evaluatable->False]
+}, Closed]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

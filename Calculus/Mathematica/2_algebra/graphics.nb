@@ -1,0 +1,299 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5565,        222]*)
+(*NotebookOutlinePosition[      6416,        252]*)
+(*  CellTagsIndexPosition[      6372,        248]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Graphics"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  FontFamily->"Arial",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell[TextData["Clear[\"Global`*\"]"], "Input",
+  PageWidth->Infinity],
+
+Cell[CellGroupData[{
+
+Cell["Tutorial", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+On NEXTSTEP:
+   /LocalLibrary/Mathematica/Notebooks/2-DGraphics.ma
+   /LocalLibrary/Mathematica/Notebooks/3-DGraphics.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On Windows NT:
+   \\\\BIRD\\mathematica\\notebook\\2-DGraph.ma
+   \\\\BIRD\\mathematica\\notebook\\3-DGraph.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Frequently Used Plotting Commands", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["Plot[f, {x,xmin,xmax}] plots a single function...", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Clear[x];
+p1=Plot[Csc[x],{x,-4,4}];\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Plot[{f1,f2,..},{x,xmin,xmax}] plots several..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+Clear[x];
+y1=x^2+x-4; y2=2x+20;
+p2=Plot[{y1,y2},{x,-10,10}];\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Show[graphics] displays a graphics object..."], "Text",
+  Evaluatable->False],
+
+Cell["Show[p1];", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Show[g1,g2,...] displays several...", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["Show[p1,p2];", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Plot3D plots in 3 dimensions..."], "Text",
+  Evaluatable->False],
+
+Cell["Plot3D[Sin[x+Sin[y]],{x,-Pi,Pi},{y,-Pi,Pi}];", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Some Options", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["Plot[Sin[1/x],{x,-.1,.1},PlotPoints -> 100];", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Plot[Sin[x]/x,{x,-4Pi,4Pi},
+     PlotLabel->\"Sin(x)/x\",
+     AxesLabel->{\"x\",\"y\"}];\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Plot[Sin[5x]Exp[-x],{x,0,Pi},
+     PlotStyle->RGBColor[1,0,0]];\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+dataList={1,4,3,5,6,-2,0,7};
+p3=ListPlot[dataList,
+     PlotStyle->{PointSize[.05],
+                 RGBColor[0,.5,1]}];\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+p4=ListPlot[dataList,PlotJoined->True,
+              PlotStyle->RGBColor[0,1,0]];\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Show[p3,p4];", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Plot3D[Sin[x+Sin[y]],{x,-Pi,Pi},{y,-Pi,Pi},
+\tViewPoint->{10,1,10}];\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 130}, {Automatic, 2}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 232, 8, 97, "Title"],
+Cell[2197, 70, 110, 3, 51, "Subtitle"],
+Cell[2310, 75, 69, 1, 24, "Input"],
+
+Cell[CellGroupData[{
+Cell[2404, 80, 114, 4, 57, "Section"],
+Cell[2521, 86, 243, 8, 62, "Text"],
+Cell[2767, 96, 233, 8, 62, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3037, 109, 139, 4, 37, "Section"],
+Cell[3179, 115, 164, 4, 30, "Text"],
+Cell[3346, 121, 137, 6, 36, "Input"],
+Cell[3486, 129, 95, 1, 30, "Text"],
+Cell[3584, 132, 136, 6, 48, "Input"],
+Cell[3723, 140, 92, 1, 30, "Text"],
+Cell[3818, 143, 77, 2, 24, "Input"],
+Cell[3898, 147, 124, 3, 30, "Text"],
+Cell[4025, 152, 80, 2, 24, "Input"],
+Cell[4108, 156, 79, 1, 30, "Text"],
+Cell[4190, 159, 138, 3, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4365, 167, 118, 4, 37, "Section"],
+Cell[4486, 173, 138, 3, 24, "Input"],
+Cell[4627, 178, 165, 6, 48, "Input"],
+Cell[4795, 186, 139, 5, 36, "Input"],
+Cell[4937, 193, 196, 7, 60, "Input"],
+Cell[5136, 202, 157, 5, 36, "Input"],
+Cell[5296, 209, 80, 2, 24, "Input"],
+Cell[5379, 213, 170, 6, 36, "Input"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

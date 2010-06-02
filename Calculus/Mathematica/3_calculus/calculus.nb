@@ -1,0 +1,372 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6100,        267]*)
+(*NotebookOutlinePosition[      6952,        297]*)
+(*  CellTagsIndexPosition[      6908,        293]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Calculus"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  FontFamily->"Arial",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell[TextData["Clear[\"Global`*\"]"], "Input",
+  PageWidth->Infinity],
+
+Cell[CellGroupData[{
+
+Cell["Tutorial", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->24,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On NEXTSTEP (NeXT computer):
+   /LocalLibrary/Mathematica/Notebooks/Calculus_D.E.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On Windows NT:
+  \\\\BIRD\\mathematica\\notebook\\Calculus.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Frequently Used Commands", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->24,
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell["Dt and D", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Clear[x,y]
+f = x^2 + x y + y^3\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["Dt[f]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["Dt[f,x]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["D[f,x]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Integrate", "Section",
+  Evaluatable->False],
+
+Cell["Integrate[1/(1-3x^2)^3,x]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["D[%,x]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["Simplify[%]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["Integrate[Sin[x],{x,0,2Pi}]", "Input",
+  PageWidth->Infinity],
+
+Cell["\<\
+Integrate[1,{x,-r,r},{y,-Sqrt[r^2-x^2],
+   Sqrt[r^2-x^2]}]\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Limit", "Section",
+  Evaluatable->False],
+
+Cell[TextData["Sin[x]/x /. x->0"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["Limit[Sin[x]/x,x->0]"], "Input",
+  PageWidth->Infinity]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Numerical Commands", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->24,
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell["NIntegrate", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["NIntegrate[Sin[Sin[x]],{x,0,1}]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["FindRoot", "Section",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+FindRoot numerically finds a single root.  A polynomial equation is \
+not required.\
+\>", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["Plot[{x,Cos[x]},{x,0,2}];", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["NSolve[Cos[x] == x, x] (* Won't work *)", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["FindRoot[Cos[x] == x,{x,1}]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+FindRoot finds different roots depending on the starting point \
+chosen.\
+\>", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Clear[x,y];
+y = Sin[x]+ 0.1x;
+Plot[y,{x,-15,15}];\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+FindRoot[y == 0, {x,-5}]
+Chop[FindRoot[y == 0, {x,1}]]
+FindRoot[y == 0, {x,+5}]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 132}, {Automatic, 30}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 232, 8, 97, "Title"],
+Cell[2197, 70, 110, 3, 51, "Subtitle"],
+Cell[2310, 75, 69, 1, 24, "Input"],
+
+Cell[CellGroupData[{
+Cell[2404, 80, 119, 4, 58, "Section"],
+Cell[2526, 86, 206, 7, 46, "Text"],
+Cell[2735, 95, 184, 7, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2956, 107, 135, 4, 38, "Section"],
+
+Cell[CellGroupData[{
+Cell[3116, 115, 75, 2, 52, "Section"],
+Cell[3194, 119, 132, 6, 36, "Input"],
+Cell[3329, 127, 99, 3, 24, "Input"],
+Cell[3431, 132, 101, 3, 24, "Input"],
+Cell[3535, 137, 100, 3, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3672, 145, 50, 1, 52, "Section"],
+Cell[3725, 148, 119, 3, 24, "Input"],
+Cell[3847, 153, 100, 3, 24, "Input"],
+Cell[3950, 158, 105, 3, 24, "Input"],
+Cell[4058, 163, 67, 1, 24, "Input"],
+Cell[4128, 166, 160, 6, 36, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4325, 177, 46, 1, 52, "Section"],
+Cell[4374, 180, 66, 1, 24, "Input"],
+Cell[4443, 183, 70, 1, 24, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4562, 190, 129, 4, 38, "Section"],
+
+Cell[CellGroupData[{
+Cell[4716, 198, 77, 2, 52, "Section"],
+Cell[4796, 202, 125, 3, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4958, 210, 49, 1, 52, "Section"],
+
+Cell[CellGroupData[{
+Cell[5032, 215, 180, 6, 30, "Text"],
+Cell[5215, 223, 119, 3, 24, "Input"],
+Cell[5337, 228, 107, 2, 24, "Input"],
+Cell[5447, 232, 121, 3, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5605, 240, 169, 6, 30, "Text"],
+Cell[5777, 248, 125, 6, 48, "Input"],
+Cell[5905, 256, 155, 6, 48, "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

@@ -1,0 +1,960 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     17387,        751]*)
+(*NotebookOutlinePosition[     18238,        781]*)
+(*  CellTagsIndexPosition[     18194,        777]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+ Introduction, Syntax,
+and Basic Operations\
+\>", "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell[CellGroupData[{
+
+Cell[TextData["History of Mathematica "], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->24,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Stephen Wolfram - Eaton, Oxford, California
+      Institute of Technology (Ph.D. in Physics), 
+      Institute for Advanced Study,
+      MacArthur Fellow, 
+      Director - Center for Complex Systems,
+\tUniv. of Illinois
+      President - Wolfram Research, Inc.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Symbolic Manipulation Program (SMP)
+\t(1977 - 1984)
+Mathematica (1985 - present)\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Kernel Design"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->24,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Tutorial"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On NEXTSTEP):
+   /LocalLibrary/Mathematica/Notebooks/GettingStarted.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On Windows NT:
+   \\\\BIRD\\mathematica\\notebook\\GettingS.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The Kernel", "Subsection",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->22],
+
+Cell[TextData[
+"The Mathematica kernel is the heart of Mathematica, where all of the \
+computation takes place.  It should function identically on any machine."], 
+  "Text",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Launching Option"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On NEXTSTEP, the kernel can be used from the terminal interface, or \
+via remote terminal emulation over the network, by entering \"math\" at the \
+command line prompt.
+
+On NT, the kernel can be used from the DOS prompt by typing m:math.\
+\>", 
+  "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Interpreter vs Compiler"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Mathematica programs are interpreted.  Output is automatically and \
+immediately produced.  Dynamic construction and evaluation of expressions is \
+performed.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Aborting Calculations"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["Control-c at the command line.", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Notebook Interface Design"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->24,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell["The Notebook", "Section",
+  Evaluatable->False],
+
+Cell[TextData[
+"Some platforms have a GUI \"notebook\" interface to the Mathematica kernel.  \
+It is called the \"frontend\" to the kernel.  This notebook is an example."], 
+  "Text",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Cells and Cell Styles"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+The noteboook is divided into cells.  A few of the styles of cells \
+are:
+title, subtitle, section, subsection, text, input, output, message
+
+Attributes that cells can have are:
+Formatted, Inactive, Initialization, Locked\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Cut, Copy and Paste for Cells"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+You may cut, copy and paste cells just like characters in a word \
+processor.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Command Keys"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Frequently used menu selections usually have Command key \
+equivalents.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+\tCtrl-s/Cmd-s\tSave
+\tCtrl-x/Cmd-x\tCut
+\tCtrl-c/Cmd-c\tCopy
+\tCtrl-v/Cmd-v\tPaste
+\tAlt-7\t\tMake a text cell\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\"Return\" vs \"Enter\" vs \"Command-Return\" vs \"Shift-Return\"", 
+  "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Mathematica input is terminated with \"Shift-Return.\" \"Return\" \
+simply takes you to the next line.
+
+Note:  In NEXTSTEP you can also use \"Command-Return\" or the \"Enter\" \
+key.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Shell Escape"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+In Unix environments you may execute some operating system commands \
+from a Notebook.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["!ls > listing.txt", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Aborting Calculations"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+In a Notebook:
+\tCtrl-. (Windows)
+\tCmd-. (NEXTSTEP)\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+From the Menu:
+\tAction->Interrupt->Continue
+\tAction->Interrupt->Abort
+\tAction->Interrupt->Quit Kernel\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Help"], "Section",
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->24,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+All of Mathematica's commands and options are internally \
+documented.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["? vs ??"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["?Plot", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["??Plot", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Wildcards - * and ?"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["?P*", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["GUI Help"], "Subsection",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Via the Help menu, use the Windows or NEXTSTEP hypertext help.\
+\>",
+   "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Syntax"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->24,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Capitalization"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Sin is different from sin; the former is Mathematica's sine \
+function and the latter is just a symbol. Mathematica recommends that all of \
+your own symbols begin with a lowercase letter, since all of its internal \
+functions begin with an uppercase letter. This will prevent naming conflicts.\
+\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Parentheses ( )"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["Parentheses are only used for grouping. For example, ... ", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData["(a+b)c"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["is not the same as ..."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Plain",
+  FontSlant->"Plain",
+  FontTracking->"Plain",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1],
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell["a+(bc)", "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Braces { }"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["Braces are used to define lists. ", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["\t{1,2,3,4} - a set or list defining a vector in 4-space.", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData["{1,2,3,4}"], "Input",
+  PageWidth->Infinity],
+
+Cell["\<\
+\t{{1,2,p},{4,q,5}} - a list of lists defining a 2 by 3 \
+matrix.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData["{{1,2,p},{4,q,5}}"], "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Brackets [ ]"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+A single pair of brackets is used to group function arguments.\
+\>",
+   "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["Sin[1.1]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Parts of Lists [[ ]]"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["A pair of double brackets is used to select parts of a list.", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["v = {1,2,3,4,5}", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["v[[2]]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Comment (*  *)"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["(* This sentence is not evaluated *)", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"Supressing Output and Sequencing Operations with Semicolon"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["1 + 2", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["1 + 2;", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData["The following is a compound expression."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Plain",
+  FontSlant->"Plain",
+  FontTracking->"Plain",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1],
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell["1 + 1 ; 2 + 2", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Referencing Prior Output with %n"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["% refers to the previous Output line. ", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData["%"], "Input",
+  PageWidth->Infinity],
+
+Cell["%n refers to Output line number n.", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Data Types"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->24,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Symbol\t\tz123xy  \t( The first character must be a letter,
+     \t\t\t\t\t preferably lower case)
+List\t\t\t{1,2,3}
+String\t\t\t\"Hello world!\"
+Integer\t\t\t3
+Real\t\t\t3.
+Rational\t\t2/3
+Complex\t\t2 + 4 I\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 179}, {Automatic, 8}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 291, 12, 134, "Title"],
+Cell[2256, 74, 110, 3, 51, "Subtitle"],
+
+Cell[CellGroupData[{
+Cell[2391, 81, 216, 7, 57, "Section"],
+Cell[2610, 90, 361, 11, 126, "Text"],
+Cell[2974, 103, 180, 7, 62, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3191, 115, 206, 7, 37, "Section"],
+
+Cell[CellGroupData[{
+Cell[3422, 126, 204, 7, 52, "Subsection"],
+Cell[3629, 135, 170, 6, 46, "Text"],
+Cell[3802, 143, 162, 6, 46, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4001, 154, 93, 3, 52, "Subsection"],
+Cell[4097, 159, 195, 4, 46, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4329, 168, 212, 7, 52, "Subsection"],
+Cell[4544, 177, 340, 10, 78, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4921, 192, 219, 7, 52, "Subsection"],
+Cell[5143, 201, 258, 7, 46, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5438, 213, 217, 7, 52, "Subsection"],
+Cell[5658, 222, 122, 3, 30, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5829, 231, 218, 7, 37, "Section"],
+
+Cell[CellGroupData[{
+Cell[6072, 242, 53, 1, 52, "Section"],
+Cell[6128, 245, 205, 4, 46, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6370, 254, 217, 7, 52, "Subsection"],
+Cell[6590, 263, 321, 10, 94, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6948, 278, 225, 7, 52, "Subsection"],
+Cell[7176, 287, 177, 6, 30, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7390, 298, 208, 7, 52, "Subsection"],
+Cell[7601, 307, 171, 6, 30, "Text"],
+Cell[7775, 315, 211, 9, 94, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8023, 329, 154, 4, 76, "Subsection"],
+Cell[8180, 335, 282, 9, 78, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8499, 349, 208, 7, 52, "Subsection"],
+Cell[8710, 358, 186, 6, 30, "Text"],
+Cell[8899, 366, 111, 3, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9047, 374, 217, 7, 52, "Subsection"],
+Cell[9267, 383, 152, 7, 62, "Text"],
+Cell[9422, 392, 204, 8, 78, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9675, 406, 221, 8, 37, "Section",
+  PageBreakAbove->True],
+Cell[9899, 416, 170, 6, 30, "Text"],
+
+Cell[CellGroupData[{
+Cell[10094, 426, 203, 7, 52, "Subsection"],
+Cell[10300, 435, 99, 3, 24, "Input"],
+Cell[10402, 440, 100, 3, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10539, 448, 215, 7, 52, "Subsection"],
+Cell[10757, 457, 71, 2, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10865, 464, 178, 6, 52, "Subsection"],
+Cell[11046, 472, 139, 5, 30, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[11234, 483, 199, 7, 37, "Section"],
+
+Cell[CellGroupData[{
+Cell[11458, 494, 210, 7, 52, "Subsection"],
+Cell[11671, 503, 396, 9, 78, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[12104, 517, 211, 7, 52, "Subsection"],
+Cell[12318, 526, 149, 3, 30, "Text"],
+Cell[12470, 531, 56, 1, 24, "Input"],
+Cell[12529, 534, 339, 12, 40, "Text"],
+Cell[12871, 548, 46, 1, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[12954, 554, 206, 7, 52, "Subsection"],
+Cell[13163, 563, 125, 3, 30, "Text"],
+Cell[13291, 568, 149, 3, 30, "Text"],
+Cell[13443, 573, 59, 1, 24, "Input"],
+Cell[13505, 576, 165, 6, 30, "Text"],
+Cell[13673, 584, 67, 1, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[13777, 590, 208, 7, 52, "Subsection"],
+Cell[13988, 599, 165, 6, 30, "Text"],
+Cell[14156, 607, 102, 3, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[14295, 615, 216, 7, 52, "Subsection"],
+Cell[14514, 624, 152, 3, 30, "Text"],
+Cell[14669, 629, 109, 3, 24, "Input"],
+Cell[14781, 634, 100, 3, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[14918, 642, 210, 7, 52, "Subsection"],
+Cell[15131, 651, 130, 3, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[15298, 659, 255, 8, 76, "Subsection"],
+Cell[15556, 669, 99, 3, 24, "Input"],
+Cell[15658, 674, 100, 3, 24, "Input"],
+Cell[15761, 679, 356, 12, 40, "Text"],
+Cell[16120, 693, 107, 3, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[16264, 701, 228, 7, 52, "Subsection"],
+Cell[16495, 710, 130, 3, 30, "Text"],
+Cell[16628, 715, 51, 1, 24, "Input"],
+Cell[16682, 718, 126, 3, 30, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[16857, 727, 203, 7, 37, "Section"],
+Cell[17063, 736, 308, 12, 142, "Text"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

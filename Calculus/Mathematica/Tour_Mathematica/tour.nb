@@ -1,0 +1,2893 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     60458,       2204]*)
+(*NotebookOutlinePosition[     61391,       2235]*)
+(*  CellTagsIndexPosition[     61347,       2231]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "\n",
+  StyleBox["(Concepts and Principles)",
+    FontSize->24]
+}], "Title",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell["by", "Subsubtitle",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Michael J. Mezzino, Jr.
+University of Houston - Clear Lake
+(mezzino@gauss.cl.uh.edu)\
+\>", "Subtitle",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "History of ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " "
+}], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Stephen Wolfram - Eaton, Oxford, 
+\t\t       California Institute of Technology (Ph.D. in Physics)
+\t\t        Institute for Advanced Study, MacArthur Fellow, 
+\t\t        University of Illinois
+\t\t            Director - Center for Complex Systems
+\t\t            Professor of Physics, Mathematics and Computer Science
+\t\t        President - Wolfram Research, Inc.\
+\>", "Text",
+  CellMargins->{{23, 67}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Symbolic Manipulation Program (SMP)\t(1977 - 1984)\nMathematica \t\t\t\t\t\
+(1985 - present)"], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Kernel Design"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Interpreter vs Compiler"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Output is automatically produced. Dynamic construction and evaluation of \
+expressions."], "Text",
+  CellMargins->{{25, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Launching Option"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The kernel can be used from a simple terminal device by entering \"math\" at \
+the prompt."], "Text",
+  CellMargins->{{25, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Aborting Calculations"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Control-c"], "Text",
+  CellMargins->{{24, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Notebook Interface Design"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Cells and Cell Types"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Formatted, Inactive, Initialization, Locked, Fixed Height"], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Cut, Copy and Paste for Cells"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"You may cut, copy and paste cells just like characters in a word \
+processor."], "Text",
+  CellMargins->{{24, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Command Keys"], "Subsection",
+  CellMargins->{{24, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Frequently used menu selections usually have Command key equivalents."], 
+  "Text",
+  CellMargins->{{24, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"\tCommand-s\tSave\n\tCommand-x\tCut\n\tCommand-c\tCopy\n\tCommand-v\tPaste"],
+   "Text",
+  CellMargins->{{26, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["\"Return\" vs \"Enter\" vs \"Command-Return\""], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " input is terminated with the \"Enter\" key, which is equivalent to \
+\"Command-Return.\" \"Return\" simply takes you to the next line."
+}], "Text",
+  CellMargins->{{25, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Shell Escape"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"In Unix environments you may execute some operating system commands from a \
+Notebook frontend."], "Text",
+  CellMargins->{{26, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["!pwd"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Aborting Calculations"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["In a Notebook:\t\tCommand-."], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"From the Menu:\tAction->Interrupt->Interrupt Calculation\n\t\t\t\
+Action->Interrupt->Abort Calculation\n\t\t\tAction->Kernels->Quit/Disconnect \
+Kernel"], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Help"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "All of ",
+  StyleBox["Mathematica's",
+    FontSlant->"Italic"],
+  " commands and options are internally documented."
+}], "Text",
+  CellMargins->{{24, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["? vs ??"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["?Factor"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["??Factor"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Wildcards - * and @"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["?Factor*"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Syntax"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Capitalization"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Sin is different from sin; the former is ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "'s",
+  StyleBox[" sine",
+    FontSlant->"Italic"],
+  " function and the latter is just a symbol. ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " recommends that all of your own symbols begin with a lowercase letter, \
+since all of its internal functions begin with an uppercase letter. This will \
+prevent naming conflicts."
+}], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Parentheses ( )"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Parentheses are only used for grouping. For example, ",
+  StyleBox["(a + b)c",
+    FontSlant->"Italic"],
+  " is not the same as \n",
+  StyleBox["a + (bc)",
+    FontSlant->"Italic"],
+  ", when ",
+  StyleBox["a,b,c",
+    FontSlant->"Italic"],
+  " are real numbers."
+}], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Braces { }"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Braces are used to define lists. "], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"\t{1,2,3,4} - a set or list defining a vector in 4-space."], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"\t{{1,2,p},{4,q,5}} - a list of lists defining a 2 by 3 matrix."], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+\t{n,1,20,2} - an iterator where n goes from 1 to 20 in steps of \
+2\
+\>", "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Brackets [ ]"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakWithin->Automatic,
+  PageBreakBelow->Automatic,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"A single pair of brackets is used to group function arguments."], "Text",
+  CellMargins->{{23, 101}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Sin[1.1]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  PageBreakWithin->Automatic,
+  PageBreakBelow->Automatic,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Parts of Expressions [[ ]]"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"A pair of double brackets is used to select parts of expressions."], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["v = {1,2,3,4,5}"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["v[[2]]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Comment (* *)"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["(* This sentence is not evaluated *)"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData[
+"Some Special Constants - E, Pi, I, Degree, GoldenRatio, Infinity, etc."], 
+  "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"Supressing Output and Sequencing Operations with Semicolon"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["1 + 2"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["1 + 2;"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["The following is a compound expression."], "Text",
+  CellMargins->{{24, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["1 + 1 ; 2 + 2"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Referencing Prior Output with %n"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"% refers to the previous Output line. %n refers to Output line number n."], 
+  "Text",
+  CellMargins->{{25, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Data Types"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Symbol\t\tz123xy\t\t( The first character must be a letter,
+\t\t\t\t\t   preferably lower case)
+List\t\t\t{1,2,3}
+String\t\t\t\"Hello world!\"
+Integer\t\t\t3
+Real\t\t\t3.
+Rational\t\t2/3
+Complex\t\t2 + 4 I
+\
+\>", "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Arithmetic Operations"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Addition \t\t\t+ \nSubtraction \t\t\t-\nMultiplication \t\t\t* or  \"space\"\
+\nDivision\t\t \t/\nExponentiation \t\t^\nMatrix Multiply\t\t.\n\
+Non-commutative Multiply \t **\nn-factorial\t\t\tn!"], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Matrix Operations"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Addition \t\t\t+ 
+Subtraction \t\t\t-
+Scalar Multiplication \t\t* or  \"space\"
+Matrix Multiply\t\t.
+Inner Product\t\t\t.
+Outer Product\t\t\tOuter
+Transpose\t\t\tTranspose
+Inverse\t\t\t\tInverse
+Determinant\t\t\tDet
+Exponential of Matrix\t\tMatrixExp\
+\>", "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Algebraic Relations"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Less Than \t\t\t<\nLess Than or Equal\t\t<=\nGreater Than\t\t\t>\nGreater \
+Than or Equal\t\t>=\nSet \t\t\t\t=\nSetDelayed\t\t\t:=\nReplace\t\t\t->\n\
+ReplaceDelayed\t\t:>\nEquivalent\t\t\t==\nNot Equivalent \t\t!="], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Logical Operations"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["And \t\t\t\t&&\nOr \t\t\t\t||\nNot \t\t\t\t!"], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["The \"N\" Function", "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"N[expr] gives the numerical value of expr. N[expr, n] does computations to \
+n-digit precision."], "Text",
+  CellMargins->{{23, 100}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["Sin[1]", "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell["N[Sin[1]]", "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell["N[1000!]", "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["N[Pi,800]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Removing Values and Variables", "Section",
+  PageWidth->WindowWidth,
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["Clear, Remove", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData["x"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["x = 3"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["x"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[x]"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["x"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Timing and Compressed Output"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["Timing, Short", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData["Timing[FactorInteger[12345678901234]]"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Short[Expand[(1+x)^100]]"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Precision and Accuracy"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Precision, Accuracy, Rationalize, Chop, SetPrecision, SetAccuracy\
+\
+\>", "Text",
+  CellFrame->True,
+  CellMargins->{{24, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData[
+"Precision or relative error is the total number of significant digits.\n\
+Accuracy or absolute error is the position of the decimal point within these \
+digits. Accuracy can be negative."], "Text",
+  CellMargins->{{25, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Low Precision  "], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Low precision calculations use the computer's floating point hardware."], 
+  "Text",
+  CellMargins->{{25, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["{Precision[1.5],Accuracy[1.5]}"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["High Precision"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "High precision calculations use ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "'s floating point software."
+}], "Text",
+  CellMargins->{{25, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["{Precision[N[3/2,40]],Accuracy[N[3/2,40]]}"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Infinite Precision"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Infinite precision calculations are exact and do not include a decimal \
+point."], "Text",
+  CellMargins->{{25, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["{Precision[3/2],Accuracy[3/2]}"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Precision and Accuracy",
+  FontFamily->"Times"]], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Helvetica"],
+
+Cell[TextData[
+"a = N[1,20] - N[1 - 10^-18,20]\n{Precision[a],Accuracy[a]}"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Racheting "], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["a = N[Sqrt[17],20]"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Table[a = 2a - a,{60}]"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Rationalize and Chop"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Rationalize[1.3]"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Chop[10.0^-14]"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Expressions"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Everything in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " is an expression. "
+}], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[a,b,c];\nf[a + b*c]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["FullForm"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["FullForm[f[a+b*c]]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Functions"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Some Intrinsic Functions"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Abs[expr], Sin[expr], Cosh[expr], Exp[expr], Log[expr], \
+Log[base,expr], ArcSin[expr], BesselJ[order,z], Random[type,range], \
+FactorInteger[n], LegendreP[n,x],Beta[a,b], Gamma[z], Erf[x], \
+Hypergeometric0F1[a,z], Zeta[s],...\
+\>", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Defining Your Own Functions"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"The Difference Between Set (=) and SetDelayed (:=)"], "Subsubsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Although unecessary in some cases, := should always be used when defining \
+functions."], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["rand1 = Random[];\nrand2 := Random[]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["rand1\nrand1\nrand2\nrand2"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "The Use of Underscore (_) in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "."
+}], "Subsubsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "x refers to the unique symbol ",
+  StyleBox["x",
+    FontSlant->"Italic"],
+  ". \nx_ means any single expression referred to as ",
+  StyleBox["x",
+    FontSlant->"Italic"],
+  ", sometimes called \"generic\" ",
+  StyleBox["x",
+    FontSlant->"Italic"],
+  "."
+}], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[f,x]\nf[x] = x^2"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["f[y]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[f,x]\nf[x_] := x^2"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["f[y]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Simple Functions"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["g[x_] := x^2 + 5x + 2"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["h[x_,y_] := x^2 + Sin[x y] + Exp[y]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Functions on Partitioned Domains"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The notation /; is used to specify a condition on an expression."], "Text",
+  CellMargins->{{23, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"step[x_,a_] := 0 /; x < a\nstep[x_,a_] := 1 /; x >= a"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Recursive Functions"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[f]\nf[0] = f[1] = 1\nf[n_Integer?Positive] := f[n] = f[n-1] + f[n-2]"],
+   "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Pure Functions"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["g[x_] := x^2 + 5x + 2"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["g[2]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Function[x,x^2 + 5x + 2][2]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["(#^2 + 5# + 2)&[2]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["h[x_,y_] := x^2 + y^3"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["h[2,3]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["(#1^2 + #2^3)&[2,3]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Plot3D[Sin[x y],{x,0,3},{y,0,3},\n\t\tColorFunction->(Hue[1.0-#]&)];"], 
+  "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Advanced Techniques"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Map[#^3&,{1,2,3,4}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"mean[x_List] := Apply[Plus,x]/Length[x] /; \n\t\t\t\t\tVectorQ[x] && \
+Length[x] > 0"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["mean[{1,2,3,4}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Nest[f,x,4]"], "Input",
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Rules and Replacement"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Adding Your Own Rules"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "You may add your own rules or you may redefine any of ",
+  StyleBox["Mathematica's",
+    FontSlant->"Italic"],
+  " rules."
+}], "Text",
+  CellMargins->{{23, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Log[a b c]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Unprotect[Log];\nLog[x_ y_] := Log[x] + Log[y]\nProtect[Log];"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Log[a b c]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Replacement"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Replacement is substitution in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ". "
+}], "Text",
+  CellMargins->{{23, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["x^2 + 3x y + y /. {x -> 1 , y -> 2}"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Setting Conditions"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Setting x to be real:               \t\t x /: Im[x] = 0\nSetting y's \
+derivative to be zero:  \t y /: Dt[y,x] = 0"], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Graphics"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Tutorial"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "/LocalLibrary/",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "/Notebooks/KernelHelp/2-DGraphics.ma",
+  StyleBox["\n",
+    FontFamily->"Courier",
+    FontWeight->"Bold"],
+  "/LocalLibrary/",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "/Notebooks/KernelHelp/2-DGraphics.ma"
+}], "Text",
+  CellMargins->{{23, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Frequently Used Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Plot, ParametricPlot, ListPlot, ContourPlot, DensityPlot, Plot3D, \
+ListPlot3D, ParametricPlot3D, ListContourPlot, ListDensityPlot, Show\
+\>", 
+  "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData["Plot[Csc[x],{x,-4,4}];"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot3D[Sin[x + Sin[y]],{x,-Pi,Pi},{y,-Pi,Pi}];"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Some Options"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "PlotPoints - >n, ViewPoint -> {x0,y0,z0}, Epilog -> ",
+  StyleBox["graphics_object",
+    FontSlant->"Italic"]
+}], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[Sin[1/x],{x,-.1,.1},PlotPoints -> 100];"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["External Packages"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell["\<\
+LogLogPlot,PolarPlot, BarChart, PlotVectorField, \
+SphericalPlot,...\
+\>", "Text",
+  CellFrame->True,
+  CellMargins->{{25, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData[{
+  "The ",
+  StyleBox["Needs",
+    FontWeight->"Bold"],
+  " command is the recommended way to access external functions, since the \
+syntax is independent of the operating system. The apostrophe character is at \
+the upper left-hand corner of the numeric keypad. A very common mistake is to \
+attempt to use an external command, say ",
+  StyleBox["PolarPlot",
+    FontWeight->"Bold"],
+  ", before it is added to the running kernel. If this occurs, you should "
+}], "Text",
+  CellMargins->{{24, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "\t1)  ",
+  StyleBox["Remove",
+    FontWeight->"Bold"],
+  " the command from your Global context \n\t2)  Load the package or library\n\
+\t3)  Re-evaluate the original command"
+}], "Text",
+  CellMargins->{{24, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["For example:"], "Text",
+  CellMargins->{{25, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["PolarPlot[4Cos[t] - 2,{t,0,2Pi}];"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Remove[PolarPlot]"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Needs[\"Graphics`Master`\"]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["PolarPlot[4Cos[t] - 2,{t,0,2Pi}];"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Algebra"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Tutorial"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "/LocalLibrary/",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "/Notebooks/KernelHelp/AlgebraTrig.ma"
+}], "Text",
+  CellMargins->{{23, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Frequently Used Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Simplify, Expand, ExpandAll, Apart, Together, Numerator, \
+Denominator, Factor, Cancel, Collect, Coefficient, ComplexExpand\
+\>", "Text",\
+
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData["Expand[(1+x)^10]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Some Options"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Trig -> True, Modulus -> 2"], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Expand[Sin[x]^2,Trig->True]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["External Packages"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Needs[\"Algebra`Master`\"]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell["TrigReduce, TrigToComplex, ComplexToTrig,...", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData["Clear[x,y]\nComplexToTrig[Exp[x + I y]]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Solving Equations"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Tutorial"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "/LocalLibrary/",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "/Notebooks/KernelHelp/SolvingEquations.ma"
+}], "Text",
+  CellMargins->{{21, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Frequently Used Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["Solve, Roots, Reduce, Eliminate", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData["sols = Solve[x^2 + 2x + 5 == 0,x]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["x^2 + 2x + 5 == 0 /. sols"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"eq = x^5 + 2x^4 + x^3 + x^2 + x + 1 == 0;\nSolve[eq,x]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["sols = NSolve[eq,x]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["eq /. sols"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["x^5 + 2x^4 + x^3 + x^2 + x + 1 /. sols"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Chop[%]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Numerical Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["NSolve, FindRoot", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData["Plot[{x,Cos[x]},{x,0,2}];"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["FindRoot[Cos[x] == x,{x,1}]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Calculus"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Tutorial"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "/LocalLibrary/",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "/Notebooks/KernelHelp/Calculus_D.E.ma"
+}], "Text",
+  CellMargins->{{21, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Frequently Used Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["Limit, D, Dt, Integrate, Sum, Series, InverseSeries, Normal", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData["Clear[x,y];\nf[x_,y_] := x^2 + x y + y^3"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Limit[(f[x+h,y] - f[x,y])/h,h -> 0]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Dt[f[x,y]]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Dt[f[x,y],x]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["D[f[x,y],x]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Solve[{D[f[x,y],x]==0,D[f[x,y],y]==-0},{x,y}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Integrate[1/(1-3x^2)^3,x]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["D[%,x]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Simplify[%]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Integrate[1,{x,-r,r},{y,-Sqrt[r^2-x^2],Sqrt[r^2-x^2]}]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Numerical Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["NIntegrate, NSum", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData["NIntegrate[Sin[Sin[x]],{x,0,1}]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Some Options"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[TextData["GaussPoints->n, MinRecursion->n"], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"NIntegrate[Exp[-x^2/2],{x,-1000,1000},\n\t\t\t\
+MinRecursion->3,MaxRecursion->10]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["External Packages"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Needs[\"Calculus`Master`\"]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell["\<\
+SymbolicSum, JacobianDeterminant, Grad, Div, Curl, Laplacian, \
+Spherical, ParabolicCylindrical, ConfocalEllipsoidal,...\
+\>", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData["SetCoordinates[Spherical[r,theta,phi]]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Curl[{r^2 Sin[theta],r^2 Cos[theta], Tan[phi]}]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Linear Algebra"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Tutorial"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "/LocalLibrary/",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "/Notebooks/KernelHelp/LinearAlgebra.ma"
+}], "Text",
+  CellMargins->{{21, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Defining Vectors and Matrices"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+b = {4,-7}
+x = {x1,x2}
+a  = {{1,2},{3,4}}\
+\>", "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[a]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Frequently Used Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Addition (+), Scalar Multiplication(* or \"space\"),  Matrix \
+Multiplication (.), MatrixForm, IdentityMatrix, Transpose, Determinant, \
+RowReduce, NullSpace, Inverse, Eigenvalues, Eigenvectors, Eigensystem, \
+MatrixPower, MatrixExp, LogicalExpand, ColumnForm, LinearSolve, \
+QRDecomposition, Inner, Outer \
+\>", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell["a.x == b", "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell["ColumnForm[LogicalExpand[a.x == b]]", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["LinearSolve[a,b]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["RowReduce[a]//MatrixForm"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"charpoly[a_,x_] := Det[x IdentityMatrix[Length[a]] - a]"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Solve[charpoly[a,z]==0,z]"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Eigenvalues[a]"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["JordanDecomposition[a]"], "Input",
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Numerical Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["Eigenvalues, Eigenvectors, SingularValues, LinearProgramming", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["External Packages"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Needs[\"LinearAlgebra`Master`\"]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell["CrossProduct, LUFactor, AppendColumns, GramSchmidt,...", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Differential Equations"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Frequently Used Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["DSolve", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData[
+"Clear[x,y];\neq = y'[x] + y[x] == 1;\nsol = DSolve[eq,y,x]\neq /. sol"], 
+  "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"DSolve[{y''[x] + 2y'[x] - 3y[x] == 0,y[0]==0,y'[0]==2},\n\ty[x],x]"], "Input",\
+
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"DSolve[{x'[t] == 2y[t],y'[t] == -x[t]},{x[t],y[t]},t]"], "Input",
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Numerical Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["NDSolve", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData[
+"sol = NDSolve[{x'[t] == -y[t] - x[t]^2, \n\t\t\t   y'[t] == 2 x[t] - y[t],\n\
+\t\t\t   x[0] == y[0] == 1},{x,y},{t,10}]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[Evaluate[x[t]/.sol],{t,0,10}];"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"ParametricPlot[Evaluate[{x[t],y[t]}/.sol],{t,0,10},\n\t\t\t\tPlotRange -> \
+All];"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["External Packages"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[TextData["Needs[\"Calculus`Master`\"]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell["\<\
+DSolve, LaplaceTransform, InverseLaplaceTransform, \
+FourierTransform, InverseFourierTransform,...\
+\>", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell["\<\
+algeq = LaplaceTransform[
+\t\t\ty''[t] + 4y'[t] + 7y[t] == 0,t,s]\
+\>", "Input",
+  CellMargins->{{36, 73}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["algsol = Solve[algeq,LaplaceTransform[y[t],t,s]]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"sol = Map[InverseLaplaceTransform[#,s,t]&,algsol,{3}]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell["\<\
+y''[t] + 4y'[t] + 7y[t] == 0 /. sol /. 
+\tD[sol,t] /. D[sol,{t,2}] // Simplify\
+\>", "Input",
+  CellMargins->{{36, 56}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Curve Fitting"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Tutorial"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "/LocalLibrary/",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "/Notebooks/KernelHelp/NumericalOperations.ma"
+}], "Text",
+  CellMargins->{{21, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Frequently Used Numerical Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Fit, Interpolation, InterpolatingPolynomial, Fourier, \
+InverseFourier\
+\>", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData["data = Table[{n,Prime[n]},{n,1,100}];"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["dp = ListPlot[data];"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["approx = Fit[data,{1,x},x]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["fp = Plot[approx,{x,1,100}];"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Show[dp,fp];"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["f = Interpolation[data]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[f[x],{x,1,100}];"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["External Packages"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Needs[\"Statistics`Master`\"]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell["NonlinearFit,...", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Generating Code"], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell["FortranForm, CForm, TeXForm", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell["ans = Integrate[x^2/(1 + 2x^2)^6,x]", "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["FortranForm[ans]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["CForm[ans]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["TeXForm[ans]"], "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Procedural Programming in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"]
+}], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Tutorial"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "/LocalLibrary/",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "/Notebooks/KernelHelp/Programming.ma"
+}], "Text",
+  CellMargins->{{21, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Frequently Used Numerical Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["If, For, Do, While, Switch, Print", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData[
+"For[i = 0 , i < 10 , i++ ,\n\tIf[Mod[i,2] == 0 , \n\t\t(* then *) Print[i,\" \
+is even.\"] ,\n\t\t(* else *) Print[i,\" is odd.\"]\n\t]\n]"], "Input",
+  CellMargins->{{36, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Importing Data"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontWeight->"Bold",
+    FontSlant->"Italic"],
+  " has a rich set of commands for importing data into a notebook. Suppose \
+that we have a file called \"mydata\" consisting of the following:\n\n\t1\t2\t\
+3\n\t4\t-2\t6\n\t9\t8\t5"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["stream = OpenRead[\"mydata\"]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["a = ReadList[stream,{Number,Number,Number}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["ai = Inverse[a]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Close[stream]"], "Input",
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Structure of Packages in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " "
+}], "Section",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Frequently Used Numerical Commands"], "Subsection",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["BeginPackage, EndPackage, Begin, End, Block, Module, Return", "Text",
+  CellFrame->True,
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[0.900008]],
+
+Cell[TextData[{
+  "The following routine is a complete package, including documentation, for \
+calculating the condition number of a matrix. It is a fully encapsulated ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " object."
+}], "Text",
+  CellMargins->{{23, 106}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"BeginPackage[\"ConditionNumber`\"]\n\nConditionNumber::usage = \
+\"ConditionNumber[m]\ncomputes the condition number of the matrix m.\"\n\n\
+Begin[\"`Private`\"]\n\nConditionNumber[m_?MatrixQ] :=\n  Module[{v,d,u},\n   \
+ {v,d,u} = SingularValues[N[m]];\n    Return[Max[N[d]]/Min[N[d]]]\n  ]\n  \n\
+End[]  (* End of Private section *)\n\nEndPackage[]  (* End of Package *)"], 
+  "Input",
+  CellMargins->{{35, 106}, {Inherited, Inherited}},
+  AspectRatioFixed->True],
+
+Cell[TextData["?ConditionNumber"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["ConditionNumber[{{1,2},{3,4}}]"], "Input",
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Making Movies"], "Section",
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Tutorial"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "/LocalLibrary/",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "/Notebooks/KernelHelp/Animation_Sound.ma"
+}], "Text",
+  CellMargins->{{21, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["A Simple Movie"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Do[\n\tPlot[Sin[n x],{x,0,2Pi}],\n  {n,1,5}\n]"], "Input",
+  CellMargins->{{36, Inherited}, {Inherited, Inherited}},
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Advanced Animation"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "/LocalLibrary/",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "/Packages/Graphics/Animation.m"
+}], "Text",
+  CellMargins->{{21, Inherited}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{"RulerBar", "EditBar"},
+WindowSize->{533, 600},
+WindowMargins->{{Automatic, -23}, {Automatic, 18}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->False,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"NeXTAutomaticEncoding",
+StyleDefinitions -> "Classroom.nb"
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 295, 11, 72, "Title"],
+Cell[2007, 62, 174, 5, 56, "Subsubtitle"],
+Cell[2184, 69, 261, 9, 79, "Subtitle"],
+
+Cell[CellGroupData[{
+Cell[2470, 82, 205, 8, 55, "Section"],
+Cell[2678, 92, 489, 11, 194, "Text"],
+Cell[3170, 105, 219, 5, 54, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3426, 115, 142, 3, 35, "Section"],
+
+Cell[CellGroupData[{
+Cell[3593, 122, 155, 3, 45, "Subsection"],
+Cell[3751, 127, 220, 5, 26, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4008, 137, 148, 3, 45, "Subsection"],
+Cell[4159, 142, 223, 5, 26, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4419, 152, 153, 3, 45, "Subsection"],
+Cell[4575, 157, 141, 3, 26, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4765, 166, 154, 3, 35, "Section"],
+
+Cell[CellGroupData[{
+Cell[4944, 173, 152, 3, 45, "Subsection"],
+Cell[5099, 178, 184, 4, 26, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5320, 187, 161, 3, 45, "Subsection"],
+Cell[5484, 192, 210, 5, 26, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5731, 202, 144, 3, 45, "Subsection"],
+Cell[5878, 207, 205, 5, 26, "Text"],
+Cell[6086, 214, 210, 5, 110, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6333, 224, 177, 3, 45, "Subsection"],
+Cell[6513, 229, 325, 8, 42, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6875, 242, 144, 3, 45, "Subsection"],
+Cell[7022, 247, 228, 5, 42, "Text"],
+Cell[7253, 254, 109, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7399, 261, 153, 3, 45, "Subsection"],
+Cell[7555, 266, 153, 3, 26, "Text"],
+Cell[7711, 271, 278, 6, 82, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[8038, 283, 157, 4, 35, "Section",
+  PageBreakAbove->True],
+Cell[8198, 289, 253, 8, 26, "Text"],
+
+Cell[CellGroupData[{
+Cell[8476, 301, 139, 3, 45, "Subsection"],
+Cell[8618, 306, 112, 2, 44, "Input"],
+Cell[8733, 310, 113, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8883, 317, 151, 3, 45, "Subsection"],
+Cell[9037, 322, 113, 2, 44, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9199, 330, 135, 3, 35, "Section"],
+
+Cell[CellGroupData[{
+Cell[9359, 337, 146, 3, 45, "Subsection"],
+Cell[9508, 342, 565, 16, 74, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10110, 363, 147, 3, 45, "Subsection"],
+Cell[10260, 368, 394, 14, 70, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10691, 387, 142, 3, 45, "Subsection"],
+Cell[10836, 392, 159, 3, 26, "Text"],
+Cell[10998, 397, 184, 4, 26, "Text"],
+Cell[11185, 403, 190, 4, 26, "Text"],
+Cell[11378, 409, 192, 6, 26, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[11607, 420, 203, 5, 45, "Subsection",
+  PageBreakWithin->Automatic,
+  PageBreakBelow->Automatic],
+Cell[11813, 427, 189, 4, 26, "Text"],
+Cell[12005, 433, 172, 4, 44, "Input",
+  PageBreakWithin->Automatic,
+  PageBreakBelow->Automatic]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[12214, 442, 158, 3, 45, "Subsection"],
+Cell[12375, 447, 192, 4, 26, "Text"],
+Cell[12570, 453, 120, 2, 44, "Input"],
+Cell[12693, 457, 111, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[12841, 464, 145, 3, 45, "Subsection"],
+Cell[12989, 469, 141, 2, 44, "Input"]
+}, Open  ]],
+Cell[13145, 474, 206, 5, 62, "Subsection"],
+
+Cell[CellGroupData[{
+Cell[13376, 483, 191, 4, 62, "Subsection"],
+Cell[13570, 489, 110, 2, 44, "Input"],
+Cell[13683, 493, 111, 2, 44, "Input"],
+Cell[13797, 497, 171, 3, 26, "Text"],
+Cell[13971, 502, 118, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[14126, 509, 164, 3, 45, "Subsection"],
+Cell[14293, 514, 208, 5, 26, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[14550, 525, 139, 3, 35, "Section"],
+Cell[14692, 530, 330, 13, 250, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[15059, 548, 150, 3, 35, "Section"],
+Cell[15212, 553, 322, 6, 222, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[15571, 564, 146, 3, 35, "Section"],
+Cell[15720, 569, 374, 14, 278, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[16131, 588, 148, 3, 35, "Section"],
+Cell[16282, 593, 341, 6, 278, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[16660, 604, 147, 3, 35, "Section"],
+Cell[16810, 609, 170, 3, 82, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[17017, 617, 161, 4, 35, "Section",
+  PageBreakAbove->True],
+Cell[17181, 623, 222, 5, 42, "Text"],
+Cell[17406, 630, 107, 2, 44, "Input"],
+Cell[17516, 634, 110, 2, 44, "Input"],
+Cell[17629, 638, 103, 2, 44, "Input"],
+Cell[17735, 642, 114, 2, 44, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[17886, 649, 122, 3, 35, "Section"],
+Cell[18011, 654, 183, 5, 42, "Text"],
+Cell[18197, 661, 112, 2, 44, "Input"],
+Cell[18312, 665, 116, 2, 44, "Input"],
+Cell[18431, 669, 112, 2, 44, "Input"],
+Cell[18546, 673, 119, 2, 44, "Input"],
+Cell[18668, 677, 112, 2, 44, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[18817, 684, 105, 2, 35, "Section"],
+Cell[18925, 688, 183, 5, 42, "Text"],
+Cell[19111, 695, 148, 2, 44, "Input"],
+Cell[19262, 699, 135, 2, 44, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[19434, 706, 175, 4, 35, "Section",
+  PageBreakAbove->True],
+Cell[19612, 712, 251, 8, 42, "Text"],
+Cell[19866, 722, 319, 6, 70, "Text"],
+
+Cell[CellGroupData[{
+Cell[20210, 732, 147, 3, 45, "Subsection"],
+Cell[20360, 737, 206, 5, 26, "Text"],
+Cell[20569, 744, 135, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[20741, 751, 146, 3, 45, "Subsection"],
+Cell[20890, 756, 255, 8, 26, "Text"],
+Cell[21148, 766, 147, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[21332, 773, 150, 3, 45, "Subsection"],
+Cell[21485, 778, 212, 5, 26, "Text"],
+Cell[21700, 785, 135, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[21872, 792, 214, 5, 44, "Subsection"],
+Cell[22089, 799, 164, 3, 56, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[22290, 807, 90, 2, 45, "Subsection"],
+Cell[22383, 811, 129, 2, 44, "Input"],
+Cell[22515, 815, 133, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[22685, 822, 100, 2, 45, "Subsection"],
+Cell[22788, 826, 127, 2, 44, "Input"],
+Cell[22918, 830, 125, 2, 44, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[23092, 838, 164, 4, 35, "Section",
+  PageBreakAbove->True],
+Cell[23259, 844, 223, 8, 26, "Text"],
+Cell[23485, 854, 130, 2, 56, "Input"],
+
+Cell[CellGroupData[{
+Cell[23640, 860, 140, 3, 45, "Subsection"],
+Cell[23783, 865, 123, 2, 44, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[23955, 873, 138, 3, 35, "Section"],
+
+Cell[CellGroupData[{
+Cell[24118, 880, 156, 3, 45, "Subsection"],
+Cell[24277, 885, 405, 10, 90, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[24719, 900, 159, 3, 45, "Subsection"],
+
+Cell[CellGroupData[{
+Cell[24903, 907, 186, 4, 36, "Subsubsection"],
+Cell[25092, 913, 213, 5, 42, "Text"],
+Cell[25308, 920, 141, 2, 56, "Input"],
+Cell[25452, 924, 131, 2, 80, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[25620, 931, 253, 9, 37, "Subsubsection",
+  PageBreakAbove->True],
+Cell[25876, 942, 388, 14, 54, "Text"],
+Cell[26267, 958, 127, 2, 56, "Input"],
+Cell[26397, 962, 109, 2, 44, "Input"],
+Cell[26509, 966, 129, 2, 56, "Input"],
+Cell[26641, 970, 109, 2, 44, "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[26799, 978, 148, 3, 45, "Subsection"],
+Cell[26950, 983, 126, 2, 44, "Input"],
+Cell[27079, 987, 140, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[27256, 994, 188, 4, 45, "Subsection",
+  PageBreakAbove->True],
+Cell[27447, 1000, 197, 4, 26, "Text"],
+Cell[27647, 1006, 159, 3, 56, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[27843, 1014, 151, 3, 45, "Subsection"],
+Cell[27997, 1019, 183, 4, 68, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[28217, 1028, 146, 3, 45, "Subsection"],
+Cell[28366, 1033, 126, 2, 44, "Input"],
+Cell[28495, 1037, 109, 2, 44, "Input"],
+Cell[28607, 1041, 132, 2, 44, "Input"],
+Cell[28742, 1045, 123, 2, 44, "Input"],
+Cell[28868, 1049, 74, 1, 44, "Input"],
+Cell[28945, 1052, 59, 1, 44, "Input"],
+Cell[29007, 1055, 72, 1, 44, "Input"],
+Cell[29082, 1058, 177, 4, 56, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[29296, 1067, 151, 3, 45, "Subsection"],
+Cell[29450, 1072, 72, 1, 44, "Input"],
+Cell[29525, 1075, 190, 4, 56, "Input"],
+Cell[29718, 1081, 68, 1, 44, "Input"],
+Cell[29789, 1084, 64, 1, 44, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[29902, 1091, 174, 4, 35, "Section",
+  PageBreakAbove->True],
+
+Cell[CellGroupData[{
+Cell[30101, 1099, 153, 3, 45, "Subsection"],
+Cell[30257, 1104, 259, 8, 26, "Text"],
+Cell[30519, 1114, 115, 2, 44, "Input"],
+Cell[30637, 1118, 167, 3, 68, "Input"],
+Cell[30807, 1123, 115, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[30959, 1130, 143, 3, 45, "Subsection"],
+Cell[31105, 1135, 229, 8, 26, "Text"],
+Cell[31337, 1145, 140, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[31514, 1152, 150, 3, 45, "Subsection"],
+Cell[31667, 1157, 241, 5, 54, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[31957, 1168, 161, 4, 35, "Section",
+  PageBreakAbove->True],
+
+Cell[CellGroupData[{
+Cell[32143, 1176, 88, 2, 45, "Subsection"],
+Cell[32234, 1180, 429, 15, 54, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[32700, 1200, 156, 3, 45, "Subsection"],
+Cell[32859, 1205, 317, 9, 58, "Text"],
+Cell[33179, 1216, 127, 2, 44, "Input"],
+Cell[33309, 1220, 151, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[33497, 1227, 144, 3, 45, "Subsection"],
+Cell[33644, 1232, 240, 7, 26, "Text"],
+Cell[33887, 1241, 149, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[34073, 1248, 173, 4, 45, "Subsection",
+  PageBreakAbove->True],
+Cell[34249, 1254, 252, 8, 42, "Text"],
+Cell[34504, 1264, 593, 14, 74, "Text"],
+Cell[35100, 1280, 311, 9, 82, "Text"],
+Cell[35414, 1291, 144, 3, 26, "Text"],
+Cell[35561, 1296, 144, 2, 44, "Input"],
+Cell[35708, 1300, 128, 2, 44, "Input"],
+Cell[35839, 1304, 132, 2, 44, "Input"],
+Cell[35974, 1308, 144, 2, 44, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[36167, 1316, 160, 4, 35, "Section",
+  PageBreakAbove->True],
+
+Cell[CellGroupData[{
+Cell[36352, 1324, 88, 2, 45, "Subsection"],
+Cell[36443, 1328, 246, 8, 26, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[36726, 1341, 156, 3, 45, "Subsection"],
+Cell[36885, 1346, 303, 9, 58, "Text"],
+Cell[37191, 1357, 121, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[37349, 1364, 144, 3, 45, "Subsection"],
+Cell[37496, 1369, 152, 3, 26, "Text"],
+Cell[37651, 1374, 132, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[37820, 1381, 149, 3, 45, "Subsection"],
+Cell[37972, 1386, 131, 2, 44, "Input"],
+Cell[38106, 1390, 214, 5, 42, "Text"],
+Cell[38323, 1397, 144, 2, 56, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[38516, 1405, 170, 4, 35, "Section",
+  PageBreakAbove->True],
+
+Cell[CellGroupData[{
+Cell[38711, 1413, 88, 2, 45, "Subsection"],
+Cell[38802, 1417, 251, 8, 26, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[39090, 1430, 156, 3, 45, "Subsection"],
+Cell[39249, 1435, 201, 5, 42, "Text"],
+Cell[39453, 1442, 138, 2, 44, "Input"],
+Cell[39594, 1446, 130, 2, 44, "Input"],
+Cell[39727, 1450, 160, 3, 56, "Input"],
+Cell[39890, 1455, 124, 2, 44, "Input"],
+Cell[40017, 1459, 115, 2, 44, "Input"],
+Cell[40135, 1463, 143, 2, 44, "Input"],
+Cell[40281, 1467, 112, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[40430, 1474, 150, 3, 45, "Subsection"],
+Cell[40583, 1479, 186, 5, 42, "Text"],
+Cell[40772, 1486, 130, 2, 44, "Input"],
+Cell[40905, 1490, 132, 2, 44, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[41086, 1498, 161, 4, 35, "Section",
+  PageBreakAbove->True],
+
+Cell[CellGroupData[{
+Cell[41272, 1506, 88, 2, 45, "Subsection"],
+Cell[41363, 1510, 247, 8, 26, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[41647, 1523, 156, 3, 45, "Subsection"],
+Cell[41806, 1528, 229, 5, 42, "Text"],
+Cell[42038, 1535, 145, 2, 56, "Input"],
+Cell[42186, 1539, 88, 1, 44, "Input"],
+Cell[42277, 1542, 115, 2, 44, "Input"],
+Cell[42395, 1546, 117, 2, 44, "Input"],
+Cell[42515, 1550, 116, 2, 44, "Input"],
+Cell[42634, 1554, 98, 1, 44, "Input"],
+Cell[42735, 1557, 130, 2, 44, "Input"],
+Cell[42868, 1561, 111, 2, 44, "Input"],
+Cell[42982, 1565, 116, 2, 44, "Input"],
+Cell[43101, 1569, 160, 3, 56, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[43298, 1577, 150, 3, 45, "Subsection"],
+Cell[43451, 1582, 186, 5, 42, "Text"],
+Cell[43640, 1589, 136, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[43813, 1596, 168, 4, 45, "Subsection",
+  PageBreakAbove->True],
+Cell[43984, 1602, 157, 3, 26, "Text"],
+Cell[44144, 1607, 187, 4, 56, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[44368, 1616, 149, 3, 45, "Subsection"],
+Cell[44520, 1621, 132, 2, 44, "Input"],
+Cell[44655, 1625, 298, 8, 58, "Text"],
+Cell[44956, 1635, 143, 2, 44, "Input"],
+Cell[45102, 1639, 152, 2, 44, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[45303, 1647, 167, 4, 35, "Section",
+  PageBreakAbove->True],
+
+Cell[CellGroupData[{
+Cell[45495, 1655, 88, 2, 45, "Subsection"],
+Cell[45586, 1659, 248, 8, 26, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[45871, 1672, 161, 3, 45, "Subsection"],
+Cell[46035, 1677, 144, 6, 68, "Input"],
+Cell[46182, 1685, 118, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[46337, 1692, 156, 3, 45, "Subsection"],
+Cell[46496, 1697, 484, 11, 106, "Text"],
+Cell[46983, 1710, 103, 2, 44, "Input"],
+Cell[47089, 1714, 78, 1, 44, "Input"],
+Cell[47170, 1717, 121, 2, 44, "Input"],
+Cell[47294, 1721, 77, 1, 44, "Input"],
+Cell[47374, 1724, 167, 3, 44, "Input"],
+Cell[47544, 1729, 136, 2, 44, "Input"],
+Cell[47683, 1733, 125, 2, 44, "Input"],
+Cell[47811, 1737, 75, 1, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[47923, 1743, 150, 3, 45, "Subsection"],
+Cell[48076, 1748, 230, 5, 42, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[48343, 1758, 149, 3, 45, "Subsection"],
+Cell[48495, 1763, 137, 2, 44, "Input"],
+Cell[48635, 1767, 224, 5, 42, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[48908, 1778, 175, 4, 35, "Section",
+  PageBreakAbove->True],
+
+Cell[CellGroupData[{
+Cell[49108, 1786, 156, 3, 45, "Subsection"],
+Cell[49267, 1791, 176, 5, 42, "Text"],
+Cell[49446, 1798, 178, 4, 80, "Input"],
+Cell[49627, 1804, 122, 3, 56, "Input"],
+Cell[49752, 1809, 107, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[49896, 1816, 150, 3, 45, "Subsection"],
+Cell[50049, 1821, 177, 5, 42, "Text"],
+Cell[50229, 1828, 225, 4, 68, "Input"],
+Cell[50457, 1834, 140, 2, 44, "Input"],
+Cell[50600, 1838, 187, 4, 68, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[50824, 1847, 173, 4, 45, "Subsection",
+  PageBreakAbove->True],
+Cell[51000, 1853, 132, 2, 44, "Input"],
+Cell[51135, 1857, 276, 8, 58, "Text"],
+Cell[51414, 1867, 167, 5, 56, "Input"],
+Cell[51584, 1874, 153, 2, 44, "Input"],
+Cell[51740, 1878, 159, 3, 56, "Input"],
+Cell[51902, 1883, 180, 5, 56, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[52131, 1894, 166, 4, 35, "Section",
+  PageBreakAbove->True],
+
+Cell[CellGroupData[{
+Cell[52322, 1902, 88, 2, 45, "Subsection"],
+Cell[52413, 1906, 254, 8, 26, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[52704, 1919, 166, 3, 45, "Subsection"],
+Cell[52873, 1924, 248, 8, 42, "Text"],
+Cell[53124, 1934, 142, 2, 44, "Input"],
+Cell[53269, 1938, 125, 2, 44, "Input"],
+Cell[53397, 1942, 131, 2, 44, "Input"],
+Cell[53531, 1946, 133, 2, 44, "Input"],
+Cell[53667, 1950, 117, 2, 44, "Input"],
+Cell[53787, 1954, 128, 2, 44, "Input"],
+Cell[53918, 1958, 126, 2, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[54081, 1965, 149, 3, 45, "Subsection"],
+Cell[54233, 1970, 134, 2, 44, "Input"],
+Cell[54370, 1974, 186, 5, 42, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[54605, 1985, 168, 4, 35, "Section",
+  PageBreakAbove->True],
+Cell[54776, 1991, 197, 5, 42, "Text"],
+Cell[54976, 1998, 130, 2, 44, "Input"],
+Cell[55109, 2002, 121, 2, 44, "Input"],
+Cell[55233, 2006, 115, 2, 44, "Input"],
+Cell[55351, 2010, 117, 2, 44, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[55505, 2017, 213, 7, 35, "Section"],
+
+Cell[CellGroupData[{
+Cell[55743, 2028, 88, 2, 45, "Subsection"],
+Cell[55834, 2032, 246, 8, 26, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[56117, 2045, 166, 3, 45, "Subsection"],
+Cell[56286, 2050, 203, 5, 42, "Text"],
+Cell[56492, 2057, 244, 4, 104, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[56785, 2067, 91, 2, 35, "Section"],
+Cell[56879, 2071, 334, 9, 154, "Text"],
+Cell[57216, 2082, 82, 1, 44, "Input"],
+Cell[57301, 2085, 96, 1, 44, "Input"],
+Cell[57400, 2088, 68, 1, 44, "Input"],
+Cell[57471, 2091, 66, 1, 44, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[57574, 2097, 243, 9, 35, "Section",
+  PageBreakAbove->True],
+
+Cell[CellGroupData[{
+Cell[57842, 2110, 166, 3, 45, "Subsection"],
+Cell[58011, 2115, 229, 5, 42, "Text"],
+Cell[58243, 2122, 347, 9, 58, "Text"],
+Cell[58593, 2133, 481, 8, 236, "Input"],
+Cell[59077, 2143, 69, 1, 44, "Input"],
+Cell[59149, 2146, 83, 1, 44, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[59281, 2153, 114, 3, 35, "Section",
+  PageBreakAbove->True],
+
+Cell[CellGroupData[{
+Cell[59420, 2160, 88, 2, 45, "Subsection"],
+Cell[59511, 2164, 250, 8, 26, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[59798, 2177, 94, 2, 45, "Subsection"],
+Cell[59895, 2181, 157, 2, 80, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[60089, 2188, 98, 2, 45, "Subsection"],
+Cell[60190, 2192, 240, 8, 26, "Text"]
+}, Open  ]]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

@@ -1,0 +1,757 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     17195,        637]*)
+(*NotebookOutlinePosition[     18137,        669]*)
+(*  CellTagsIndexPosition[     18093,        665]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Linear Algebra", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell["Assignment #5", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Theory"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["A Brief Introduction to Determinants"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Definition",
+    FontWeight->"Bold"],
+  ": The ",
+  StyleBox["determinant function",
+    FontWeight->"Bold"],
+  " is denoted by ",
+  StyleBox["det",
+    FontWeight->"Bold"],
+  ".  It is a function that associates with every square matrix A a number, \
+denoted by \"det(A).\"\n\n",
+  StyleBox["Theorem",
+    FontWeight->"Bold"],
+  ": If A is any square matrix, then \n       A is singular        if and \
+only if    det(A)=",
+  StyleBox["0",
+    FontWeight->"Bold"],
+  "\n Equivalently,\n       A is nonsingular  if and only if    det(A) is not \
+equal to ",
+  StyleBox["0",
+    FontWeight->"Bold"],
+  "."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Definition",
+    FontWeight->"Bold"],
+  ": Suppose in a 3 x 3 matrix A we delete the ",
+  StyleBox["i",
+    FontSlant->"Italic"],
+  "th row and the ",
+  StyleBox["j",
+    FontSlant->"Italic"],
+  "th column to obtain a 2 x 2 submatrix.  The determinant of this submatrix \
+is called the (",
+  StyleBox["i",
+    FontSlant->"Italic"],
+  ",",
+  StyleBox["j",
+    FontSlant->"Italic"],
+  ")th ",
+  StyleBox["minor",
+    FontWeight->"Bold"],
+  " of A and is denoted by M",
+  StyleBox["ij",
+    FontSize->11,
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ".  The number (-1)",
+  StyleBox["i+j",
+    FontSize->11,
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  "M",
+  StyleBox["ij",
+    FontSize->11,
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " is called the (",
+  StyleBox["i,j",
+    FontSlant->"Italic"],
+  ")th ",
+  StyleBox["cofactor ",
+    FontWeight->"Bold"],
+  "of A and is denoted by C",
+  StyleBox["ij",
+    FontSize->11,
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Definition",
+    FontWeight->"Bold"],
+  ": Let A=(a",
+  StyleBox["ij",
+    FontSize->11,
+    FontSlant->"Italic",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ") be a 3 x 3 matrix.  Then the ",
+  StyleBox["determinant",
+    FontWeight->"Bold"],
+  " of A, |A| is defined by\n   |A|=a",
+  StyleBox["11",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "C",
+  StyleBox["11",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " + a",
+  StyleBox["12",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "C",
+  StyleBox["12",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " + a",
+  StyleBox["13",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "C",
+  StyleBox["13",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Theorem",
+    FontWeight->"Bold"],
+  ":  Let i be the index of any row of A and j be the index of any column of \
+A.  Then\n                 |A|=a",
+  StyleBox["i1",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "C",
+  StyleBox["i1",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " + a",
+  StyleBox["i2",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "C",
+  StyleBox["i2 ",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "+ a",
+  StyleBox["i3",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "C",
+  StyleBox["i3",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "\n                 |A|=a",
+  StyleBox["1j",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "C",
+  StyleBox["1j ",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "+ a",
+  StyleBox["2j",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "C",
+  StyleBox["2j",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " + a",
+  StyleBox["3j",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "C",
+  StyleBox["3j",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "\nThus the determinant of A can be evaluated by expanding along any row or \
+column."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The following example computes the determinant of a matrix by using \
+expansion of cofactors  on the first column, and then by using the \
+Mathematica function Det."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"a={{3,4,-1,0},{4,-1,0,3},{-6,4,8,-2},{-1,1,2,7}};\n\
+m11=Det[a[[Range[2,4],Range[2,4]]]];\nm21=Det[a[[{1,3,4},{2,3,4}]]];\n\
+m31=Det[a[[{1,2,4},{2,3,4}]]];\nm41=Det[a[[Range[1,3],Range[2,4]]]];\n\
+deta=(3*m11)+(4*(-1)*m21)+(-6*m31)+(-1*(-1)*m41)\nDet[a]"], "Input",
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Eigenvalues and Eigenvectors"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "\n",
+  StyleBox["Definition",
+    FontWeight->"Bold"],
+  ":  Let A be an ",
+  StyleBox["n",
+    FontSlant->"Italic"],
+  " x ",
+  StyleBox["n",
+    FontSlant->"Italic"],
+  " matrix.  Suppose x is a nonzero vector in ",
+  StyleBox["R",
+    FontWeight->"Bold"],
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  " and ",
+  StyleBox["lamda",
+    FontSlant->"Italic"],
+  " is a number (possible zero) such that:    Ax=(",
+  StyleBox["lambda",
+    FontSlant->"Italic"],
+  ")x\nthat is, Ax is a scalar multiple of x.  Then x is called an ",
+  StyleBox["eigenvector",
+    FontWeight->"Bold"],
+  " of A, and ",
+  StyleBox["lambda",
+    FontSlant->"Italic"],
+  " is called an ",
+  StyleBox["eigenvalue",
+    FontWeight->"Bold"],
+  " of A.  We say that ",
+  StyleBox["lambda",
+    FontSlant->"Italic"],
+  " is the eigenvalue ",
+  StyleBox["associated with",
+    FontWeight->"Bold"],
+  " or ",
+  StyleBox["corresponding to x",
+    FontWeight->"Bold"],
+  ", and x is an eigenvector ",
+  StyleBox["associated with",
+    FontWeight->"Bold"],
+  " or ",
+  StyleBox["corresponding to ",
+    FontWeight->"Bold"],
+  StyleBox["lambda",
+    FontSlant->"Italic"],
+  ".                            "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Solving for eigenvalues: First find g*I-a where g represents the eigenvalue \
+and I the identity matrix."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"a={{2,3},{4,3}};\nm=g*IdentityMatrix[2] - a;\nMatrixForm[m]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Then, determine the characteristic polynomial of a.",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["cp=Det[m]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Factor[cp]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Now, find the roots of the equation."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Roots[cp==0,g]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Solve[cp==0,g]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"Another way of finding eigenvalues with Mathematica, is to use the \
+eigenvalue function.",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Eigenvalues[a]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Find the eigenvalues of b.",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["b={{5,-7,7},{4,-3,4},{4,-1,2}};\nEigenvalues[b]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "\n",
+  StyleBox["Theorem",
+    FontWeight->"Bold"],
+  ": The eigenvectors of A associated with ",
+  StyleBox["g",
+    FontSlant->"Italic"],
+  " are the nonzero vectors in the null space of (",
+  StyleBox["g",
+    FontSlant->"Italic"],
+  "I-A) and hence, together with the zero vector, form a subspace of ",
+  StyleBox["R",
+    FontWeight->"Bold"],
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  "."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"Find the eigenvectors of a.  We will first use the method described in \
+section 5.2.",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"\ng=.;\na={{4,2},{-1,1}};m=(g*IdentityMatrix[2]) - a;\ncp=Det[m];\n\
+ev=Solve[cp==0,g]\n"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"Now, form the matrices with the appropriate eigenvalues, and determine the \
+null space of each, the eigenvalues being 2 and 3.",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"g=2;MatrixForm[m]\nNullSpace[m]\ng=3;MatrixForm[m]\nNullSpace[m]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"Using Mathematica, you can also determine the eigenvectors of a matrix, \
+using the Eigenvector function.",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Eigenvectors[a]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"You can use the Eigensystem function to compute the eigenvalues and the \
+eigenvectors at the same time. The eigenvalues are listed as the first \
+vector, contained in a pair of braces, and the eigenvectors listed second.",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["a={{-1,-2},{1,2}};\nEigensystem[a]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["a={{2,3,0},{4,3,0},{0,0,6}};\nEigensystem[a]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "The ",
+  StyleBox["trace",
+    FontWeight->"Bold"],
+  " of A, denoted by tr(A) is the sum of the diagonal entries: tr(A)=a",
+  StyleBox["11",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "+a",
+  StyleBox["22",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "+...+a",
+  StyleBox["nn",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ".\n",
+  StyleBox["Theorem",
+    FontWeight->"Bold"],
+  ": Let A be an ",
+  StyleBox["n ",
+    FontSlant->"Italic"],
+  "x ",
+  StyleBox["n",
+    FontSlant->"Italic"],
+  " matrix with eigenvalues g",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",g",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",...,g",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ", then \n                  (a) det(A)=g",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "g",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "...g",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "\n\n                   (b) tr(A) =g",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "+g",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "+ ... + g",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Find the trace of the matrix a defined below.",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"a={{5,-7,7},{4,-3,4},{4,-1,2}};\nSum[ a[[i,i]],{i,3}]"], "Input",
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Diagonalization"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Theorem",
+    FontWeight->"Bold"],
+  ": Suppose the ",
+  StyleBox["n",
+    FontSlant->"Italic"],
+  " x ",
+  StyleBox["n",
+    FontSlant->"Italic"],
+  " matrix A has n linearly independent eigenvectors v",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",...,v",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ".  Form an",
+  StyleBox[" n",
+    FontSlant->"Italic"],
+  " x",
+  StyleBox[" n",
+    FontSlant->"Italic"],
+  " matrix S whose ith column is v",
+  StyleBox["i",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ".  The S is invertible and S",
+  StyleBox["-1",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  "AS is a diagonal matrix."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"a={{2,3,0},{4,3,0},{0,0,6}};\ns=Transpose[Eigenvectors[a]]\n\
+g=Inverse[s].a.s;MatrixForm[g]\ns.g.Inverse[s]//MatrixForm\n"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Definition",
+    FontWeight->"Bold"],
+  ": An",
+  StyleBox[" n x n",
+    FontSlant->"Italic"],
+  " matrix A is ",
+  StyleBox["diagonalizable",
+    FontWeight->"Bold"],
+  " if there is an invertible matrix S such that S",
+  StyleBox["-1",
+    FontSize->11,
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  "AS is a diagonal matrix.   We say such a matrix S ",
+  StyleBox["diagonalizes",
+    FontWeight->"Bold"],
+  " A."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Determine if the following matrices are diagonalizable."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"a={{5,-7,7},{4,-3,4},{4,-1,2}};\nb={{-6,12,-1},{-6,11,0},{0,0,2}};\n\
+Eigenvalues[a]\nEigenvalues[b]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"The matrix a has 3 distinct eigenvalues and is, therefore, diagonalizable.  \
+The matrix b has a double root at 2, so more computations are necessary.",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Eigenvectors[b]"], "Input",
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["1", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Let A = {{4,2},{-1,1}}."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["a) Find the characteristic polynomial for A."], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["b) Find the eigenvalues for A."], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["c) Find a basis for each eigenspace"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"d) If possible, find a matrix S which diagonalizes A."], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["2"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Show that B = {{1,2,3},{0,1,2},{0,0,1}} cannot be diagonalized."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->"EditBar",
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 250}, {Automatic, 7}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"NeXTAutomaticEncoding",
+StyleDefinitions -> "Classroom.nb"
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 128, 4, 50, "Title"],
+Cell[1840, 55, 127, 4, 50, "Title"],
+
+Cell[CellGroupData[{
+Cell[1992, 63, 83, 2, 55, "Section"],
+
+Cell[CellGroupData[{
+Cell[2100, 69, 116, 2, 45, "Subsection"],
+Cell[2219, 73, 64, 2, 26, "Text"],
+Cell[2286, 77, 692, 24, 182, "Text"],
+Cell[2981, 103, 1217, 48, 90, "Text"],
+Cell[4201, 153, 978, 37, 66, "Text"],
+Cell[5182, 192, 1541, 56, 70, "Text"],
+Cell[6726, 250, 239, 5, 70, "Text"],
+Cell[6968, 257, 307, 5, 70, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7312, 267, 108, 2, 70, "Subsection"],
+Cell[7423, 271, 1280, 50, 70, "Text"],
+Cell[8706, 323, 179, 4, 70, "Text"],
+Cell[8888, 329, 113, 2, 70, "Input"],
+Cell[9004, 333, 158, 3, 70, "Text"],
+Cell[9165, 338, 62, 1, 70, "Input"],
+Cell[9230, 341, 63, 1, 70, "Input"],
+Cell[9296, 344, 110, 2, 70, "Text"],
+Cell[9409, 348, 67, 1, 70, "Input"],
+Cell[9479, 351, 67, 1, 70, "Input"],
+Cell[9549, 354, 197, 5, 70, "Text"],
+Cell[9749, 361, 67, 1, 70, "Input"],
+Cell[9819, 364, 133, 3, 70, "Text"],
+Cell[9955, 369, 100, 1, 70, "Input"],
+Cell[10058, 372, 507, 18, 70, "Text"],
+Cell[10568, 392, 193, 5, 70, "Text"],
+Cell[10764, 399, 142, 3, 84, "Input"],
+Cell[10909, 404, 235, 5, 46, "Text"],
+Cell[11147, 411, 118, 2, 60, "Input"],
+Cell[11268, 415, 213, 5, 46, "Text"],
+Cell[11484, 422, 68, 1, 24, "Input"],
+Cell[11555, 425, 329, 6, 62, "Text"],
+Cell[11887, 433, 87, 1, 36, "Input"],
+Cell[11977, 436, 97, 1, 36, "Input"],
+Cell[12077, 439, 1455, 52, 126, "Text"],
+Cell[13535, 493, 152, 3, 30, "Text"],
+Cell[13690, 498, 107, 2, 36, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[13834, 505, 95, 2, 43, "Subsection"],
+Cell[13932, 509, 827, 31, 78, "Text"],
+Cell[14762, 542, 176, 3, 72, "Input"],
+Cell[14941, 547, 518, 19, 54, "Text"],
+Cell[15462, 568, 130, 3, 30, "Text"],
+Cell[15595, 573, 154, 3, 60, "Input"],
+Cell[15752, 578, 258, 5, 46, "Text"],
+Cell[16013, 585, 68, 1, 24, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[16130, 592, 75, 2, 35, "Section"],
+
+Cell[CellGroupData[{
+Cell[16230, 598, 71, 2, 45, "Subsection"],
+Cell[16304, 602, 97, 2, 26, "Text"],
+Cell[16404, 606, 127, 2, 36, "Subsubsection"],
+Cell[16534, 610, 113, 2, 36, "Subsubsection"],
+Cell[16650, 614, 118, 2, 36, "Subsubsection"],
+Cell[16771, 618, 137, 3, 36, "Subsubsection"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[16945, 626, 81, 2, 45, "Subsection"],
+Cell[17029, 630, 138, 3, 26, "Text"]
+}, Open  ]]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

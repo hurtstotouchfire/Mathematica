@@ -1,0 +1,531 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     10084,        394]*)
+(*NotebookOutlinePosition[     10935,        424]*)
+(*  CellTagsIndexPosition[     10891,        420]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Iteration using\nMap and Listable"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  FontFamily->"Arial",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell[TextData["Clear[\"Global`*\"]"], "Input",
+  PageWidth->Infinity],
+
+Cell[CellGroupData[{
+
+Cell["Tutorial", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+On NEXTSTEP:
+   /LocalLibrary/Mathematica/Notebooks/Numbers_Lists.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Iterating over a List", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+A task we often face is to take a list of values and produce \
+another list with each element of the first list modified in some fashion.  \
+In other words we must \"iterate\" a function over the list.
+
+When we worked with spreadsheets, we put the input list in one column, and \
+then we copied the function down in a second column.   The second column was \
+the modified \"list\" we wanted. 
+\tA\t\tB
+1\t5\t\tsqrt(A1)
+2\t2\t\tsqrt(A2)
+3\t9\t\tsqrt(A3)
+...
+
+In Mathematica, let's look at four ways of doing this: 
+\t- using Table
+\t- using Do
+\t- using Map
+\t- using a Listable function
+
+Let's start with a list of numbers and produce a list containing its square \
+roots.\
+\>", "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell[TextData["data = {1,2,3,4,5}"], "Input",
+  PageWidth->Infinity],
+
+Cell[CellGroupData[{
+
+Cell["Iteration with Table", "Section",
+  Evaluatable->False],
+
+Cell[TextData[
+"Table will automatically produce the output list, so we just have to use the \
+function in the body:"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["sqroots=\n  Table[Sqrt[data[[i]]],{i,Length[data]}]"], "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Iteration with Do", "Section",
+  Evaluatable->False],
+
+Cell[TextData[
+"Do does not produce a new table, so we'll have to use AppendTo:"], "Text",
+  Evaluatable->False],
+
+Cell[TextData[
+"sqroots = {};\nDo[AppendTo[sqroots,Sqrt[data[[i]]]],\n                       \
+ {i,Length[data]}]\nsqroots"], "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Iteration with Map", "Section",
+  Evaluatable->False,
+  PageBreakAbove->True,
+  AspectRatioFixed->True],
+
+Cell["\<\
+The Map function applies a function to each argument in a list, \
+returning a modified list.  The argument type of the function must match the \
+type of element in the list.  The form for functions of a single argument is:\
+\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["Map[f,{a,b,c}]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["Map[Cos,{1,2,3,4}]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"\nSo our task of creating the list of square roots is solved by mapping Sqrt \
+over the list:"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["sqroots = Map[Sqrt,data]"], "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Iteration with a Listable Function", "Section",
+  Evaluatable->False],
+
+Cell["\<\
+A function that has the Listable attribute automatically maps \
+(threads) the function over lists that appear as its argument.\
+\>", "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["?Listable", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Most of the built-in functions are Listable:", "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["??Sin", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Attributes[Sin]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Map[Sin,{a,b,c}]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Sin[{a,b,c}]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"So if Sqrt is Listable, it will automatically map over our list of \
+numbers:"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["Attributes[Sqrt]\nsqroots = Sqrt[data]"], "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Summary", "Section",
+  Evaluatable->False],
+
+Cell[TextData["Here are all four solutions again:"], "Text",
+  Evaluatable->False],
+
+Cell["Table", "Subsection",
+  Evaluatable->False],
+
+Cell[TextData["sqroots=\n  Table[Sqrt[data[[i]]],{i,Length[data]}]"], "Input",
+  PageWidth->Infinity],
+
+Cell["Do", "Subsection",
+  Evaluatable->False],
+
+Cell["\<\
+sqroots = {};
+Do[AppendTo[sqroots,Sqrt[data[[i]]]],
+                        {i,Length[data]}]
+sqroots\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Map", "Subsection",
+  Evaluatable->False],
+
+Cell["sqroots = Map[Sqrt,data]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Listable", "Subsection",
+  Evaluatable->False],
+
+Cell["sqroots = Sqrt[data]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Multiple Arguments", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell["Listable", "Section",
+  Evaluatable->False],
+
+Cell["\<\
+For functions of more than one argument, if only one argument is a \
+list, mapping takes place over that argument:\
+\>", "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["Attributes[Power]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Power[{a,b,c},2]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Power[3,{x,y,z}]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Or, all arguments can be lists of the same length, and mapping is \
+between corresponding elements:\
+\>", "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["Power[{a,b,c},{x,y,z}]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Map", "Section",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell[TextData[{
+  "When using Map with functions that have multiple arguments, use two \
+special operators:\n    #\tfor the single argument to come \n\tfrom the list. \
+ Other arguments\n\tmust be provided in the call.\n    &\tto indicate a \
+function\n\n",
+  StyleBox[
+  "Example 1:  Here, Power takes two arguments, but the second is provided \
+and only the first must come from the list.",
+    FontSlant->"Italic"]
+}], "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Map[Power[#,2]&,{a,b,c}]"], "Input",
+  PageWidth->Infinity],
+
+Cell["\<\
+
+Example 2:  This time, the first argument is provided and only the second \
+must come from the list.\
+\>", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Map[Power[3,#]&,{x,y,z}]"], "Input",
+  PageWidth->Infinity]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Example: Map", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData[
+"Suppose we have a list of sublists, where each sublist is a pair of values \
+representing the base and height of a triangle.  The list has this form:\n\n  \
+{{base1, height2},{base2,height2},...}\n\nWe want to produce a list of the \
+areas of the corresponding triangles:\n\n  {area1, area2, ... }\n\nThe data \
+we'll use is:"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["tris={{5,6},{4,7},{2,8}}"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["And we'll define our function to compute area:"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["area[{b_,h_}] := b*h/2"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["Now Let's map is over the list of triangles:"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["triangleAreas = Map[area,tris]"], "Input",
+  PageWidth->Infinity]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 129}, {Automatic, 8}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 257, 8, 134, "Title"],
+Cell[2222, 70, 110, 3, 51, "Subtitle"],
+Cell[2335, 75, 69, 1, 24, "Input"],
+
+Cell[CellGroupData[{
+Cell[2429, 80, 114, 4, 57, "Section"],
+Cell[2546, 86, 191, 7, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2774, 98, 101, 3, 37, "Section"],
+Cell[2878, 103, 746, 24, 302, "Text"],
+Cell[3627, 129, 68, 1, 24, "Input"],
+
+Cell[CellGroupData[{
+Cell[3720, 134, 61, 1, 52, "Section"],
+Cell[3784, 137, 149, 3, 46, "Text"],
+Cell[3936, 142, 101, 1, 36, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4074, 148, 58, 1, 52, "Section"],
+Cell[4135, 151, 112, 2, 30, "Text"],
+Cell[4250, 155, 157, 3, 60, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4444, 163, 109, 3, 52, "Section",
+  PageBreakAbove->True],
+Cell[4556, 168, 324, 8, 62, "Text"],
+Cell[4883, 178, 108, 3, 24, "Input"],
+Cell[4994, 183, 112, 3, 24, "Input"],
+Cell[5109, 188, 142, 3, 46, "Text"],
+Cell[5254, 193, 74, 1, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5365, 199, 75, 1, 52, "Section"],
+Cell[5443, 202, 200, 5, 46, "Text"],
+Cell[5646, 209, 77, 2, 24, "Input"],
+Cell[5726, 213, 110, 2, 30, "Text"],
+Cell[5839, 217, 73, 2, 24, "Input"],
+Cell[5915, 221, 83, 2, 24, "Input"],
+Cell[6001, 225, 84, 2, 24, "Input"],
+Cell[6088, 229, 80, 2, 24, "Input"],
+Cell[6171, 233, 126, 3, 30, "Text"],
+Cell[6300, 238, 88, 1, 36, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6425, 244, 48, 1, 52, "Section"],
+Cell[6476, 247, 82, 1, 30, "Text"],
+Cell[6561, 250, 49, 1, 43, "Subsection"],
+Cell[6613, 253, 101, 1, 36, "Input"],
+Cell[6717, 256, 46, 1, 43, "Subsection"],
+Cell[6766, 259, 177, 7, 60, "Input"],
+Cell[6946, 268, 47, 1, 43, "Subsection"],
+Cell[6996, 271, 92, 2, 24, "Input"],
+Cell[7091, 275, 52, 1, 43, "Subsection"],
+Cell[7146, 278, 88, 2, 24, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7283, 286, 98, 3, 37, "Section"],
+
+Cell[CellGroupData[{
+Cell[7406, 293, 49, 1, 52, "Section"],
+Cell[7458, 296, 188, 5, 46, "Text"],
+Cell[7649, 303, 85, 2, 24, "Input"],
+Cell[7737, 307, 84, 2, 24, "Input"],
+Cell[7824, 311, 84, 2, 24, "Input"],
+Cell[7911, 315, 173, 5, 46, "Text"],
+Cell[8087, 322, 90, 2, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8214, 329, 72, 2, 52, "Section"],
+Cell[8289, 333, 479, 11, 142, "Text"],
+Cell[8771, 346, 74, 1, 24, "Input"],
+Cell[8848, 349, 198, 7, 62, "Text"],
+Cell[9049, 358, 74, 1, 24, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9172, 365, 92, 3, 37, "Section"],
+Cell[9267, 370, 374, 6, 174, "Text"],
+Cell[9644, 378, 74, 1, 24, "Input"],
+Cell[9721, 381, 94, 1, 30, "Text"],
+Cell[9818, 384, 72, 1, 24, "Input"],
+Cell[9893, 387, 92, 1, 30, "Text"],
+Cell[9988, 390, 80, 1, 24, "Input"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

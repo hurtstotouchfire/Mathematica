@@ -1,0 +1,787 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     18439,        682]*)
+(*NotebookOutlinePosition[     19123,        706]*)
+(*  CellTagsIndexPosition[     19079,        702]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Arc Length & Curvature", "Title",
+  TextAlignment->Center,
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[StyleBox["Arc Length",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0, 0, 1]]], "Subtitle"],
+
+Cell[TextData[{
+  "Let ",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) be a vector valued function whose graph is a space curve\n\t",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) = x(t) ",
+  StyleBox["i",
+    FontWeight->"Bold"],
+  " + y(t) ",
+  StyleBox["j",
+    FontWeight->"Bold"],
+  " + z(t) ",
+  StyleBox["k\n",
+    FontWeight->"Bold"],
+  "Then the length of the space curve over the interval a \[LessEqual] t \
+\[LessEqual] b (assuming the curved is traced only once from t = a to t = b) \
+is given by:\n\tL = ",
+  Cell[BoxData[
+      \(TraditionalForm
+      \`\[Integral]\_a\%b
+          \(\@\(\((dx\/dt)\)\^2 + \ \((dy\/dt)\)\^2\  + \((dz\/dt)\)\^2\ \)\) 
+          \[DifferentialD]t\)]],
+  "\n\t\n\tor\n\t\n\tL = ",
+  Cell[BoxData[
+      FormBox[
+        RowBox[{
+          RowBox[{\(\[Integral]\_a\%b\), 
+            RowBox[{
+              RowBox[{"|", 
+                StyleBox["r",
+                  FontWeight->"Bold"], 
+                StyleBox["'",
+                  FontWeight->"Bold"]}], \((t)\)}]}], "|", 
+          \(\[DifferentialD]t\)}], TraditionalForm]]],
+  "\nUsually, it is very difficult to find this definite integral, unless the \
+space curve is a simple curve (like a line or a circular helix).  ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " helps greatly in performing the integtation for arc length of more \
+complex space curves."
+}], "Subtitle",
+  FontSize->18],
+
+Cell[TextData[{
+  "Example 1\nFind the arc length of the circular helix with vector valued \
+equation ",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) = 3cos t ",
+  StyleBox["i",
+    FontWeight->"Bold"],
+  " + 5t ",
+  StyleBox["j",
+    FontWeight->"Bold"],
+  " + 3sin t",
+  StyleBox[" k",
+    FontWeight->"Bold"],
+  " from t = 0 to t = 2."
+}], "Subtitle",
+  FontSize->18],
+
+Cell[BoxData[
+    \(First\ define\ the\ components\ of\ the\ vector\ \(function.\)\)], 
+  "Input"],
+
+Cell[BoxData[
+    \(x[t_] = 3  Cos[t]\)], "Input"],
+
+Cell[BoxData[
+    \(y[t_] = \ 5  t\)], "Input"],
+
+Cell[BoxData[
+    \(z[t_] = 3  Sin[t]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{
+      \(Since\  | r' \((t)\) | \ \ is\ the\ length\ of\ the\ vector\ r'\), 
+        ",", " ", 
+        RowBox[{
+          RowBox[{
+          "I", " ", "have", " ", "given", " ", "the", " ", "name", " ", 
+            StyleBox["lrprime",
+              FontSize->16], " ", "to", " ", "the", " ", "function"}], " ", 
+          "|", \(r' \((t)\)\), "|", "."}]}], "  "}]], "Input"],
+
+Cell[BoxData[
+    \(lrprime[t] = 
+      \@\(\((\(x'\)[t])\)\^2 + \((\(y'\)[t])\)\^2 + \((\(z'\)[t])\)\^2\)\)], 
+  "Input"],
+
+Cell[BoxData[
+    \(\[Integral]\_0\%2 lrprime[t] \[DifferentialD]t\)], "Input"],
+
+Cell[BoxData[
+    \(N[%]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "\nIn Example 1, the integrand was actually very simple.  Using the trig. \
+identity ",
+  Cell[BoxData[
+      \(TraditionalForm
+      \`\(9 \( cos\^2\) t\  + \ 9 \( sin\^\(2\ \)\) t\  = \ 9, \)\)]],
+  "we could have simplified the integrand and found ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Integral]\_0\%2\(\@ 34\) \[DifferentialD]t\)]],
+  "rather quickly without ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ".  In the next example the integral is more difficult and ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " helps a great deal."
+}], "Subtitle",
+  FontSize->18],
+
+Cell[TextData[{
+  "Example 2\nFind the arc length of the elliptical helix with vector valued \
+equation ",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) = 3cos t ",
+  StyleBox["i",
+    FontWeight->"Bold"],
+  " + 5t ",
+  StyleBox["j",
+    FontWeight->"Bold"],
+  " + 8sin t",
+  StyleBox[" k ",
+    FontWeight->"Bold"],
+  "from t = 0 to t = 2.  "
+}], "Subtitle",
+  FontSize->18],
+
+Cell[BoxData[
+    \(x[t_] = 3  Cos[t]\)], "Input"],
+
+Cell[BoxData[
+    \(y[t_] = \ 5  t\)], "Input"],
+
+Cell[BoxData[
+    \(z[t_] = 8  Sin[t]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{
+      \(Since\  | r' \((t)\) | \ \ is\ the\ length\ of\ the\ vector\ r'\), 
+        ",", " ", 
+        RowBox[{
+          RowBox[{
+          "I", " ", "have", " ", "given", " ", "the", " ", "name", " ", 
+            StyleBox["lrprime",
+              FontSize->16], " ", "to", " ", "the", " ", "function"}], " ", 
+          "|", \(r' \((t)\)\), "|", "."}]}], "  "}]], "Input"],
+
+Cell[BoxData[
+    \(lrprime[t] = 
+      \@\(\((\(x'\)[t])\)\^2 + \((\(y'\)[t])\)\^2 + \((\(z'\)[t])\)\^2\)\)], 
+  "Input"],
+
+Cell[BoxData[
+    \(\[Integral]\_0\%2 lrprime[t] \[DifferentialD]t\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Mathematica is finding the exact value of the definite integral \
+using an elliptic integral with which you are unfamiliar, but we can still \
+find a numeric approximation:\
+\>", "Subtitle",
+  FontSize->18],
+
+Cell[BoxData[
+    \(N[%]\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Unit Tangent vector", "Subtitle",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[{
+  "If ",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) is a vector valued function, ",
+  StyleBox["r'",
+    FontWeight->"Bold"],
+  "(t) is a vector tangent to the curve which points in the direction the \
+curve is being drawn. If we divide ",
+  StyleBox["r'",
+    FontWeight->"Bold"],
+  "(t) by its length we get the Unit Tangent vector, ",
+  StyleBox["T",
+    FontWeight->"Bold"],
+  "(t), which points in the same direction.  \n\t",
+  StyleBox["T",
+    FontWeight->"Bold"],
+  " (t)  = ",
+  Cell[BoxData[
+      FormBox[
+        StyleBox[
+          FractionBox[
+            RowBox[{
+              StyleBox[\(r'\),
+                FontWeight->"Bold",
+                FontSlant->"Plain"], 
+              StyleBox[\((t)\),
+                FontSlant->"Plain"]}], 
+            RowBox[{
+              RowBox[{
+                RowBox[{"|", 
+                  StyleBox["r",
+                    FontSlant->"Plain"], 
+                  StyleBox["'",
+                    FontSlant->"Plain"]}], 
+                StyleBox[\((t)\),
+                  FontSlant->"Plain"]}], "|"}]],
+          FontSize->24,
+          FontSlant->"Italic"], TraditionalForm]]]
+}], "Subtitle",
+  FontSize->18],
+
+Cell[TextData[{
+  "Example 3\nFind the unit Tangent vector to the circular helix with vector \
+valued equation ",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) = 3cos t ",
+  StyleBox["i",
+    FontWeight->"Bold"],
+  " + 5t ",
+  StyleBox["j",
+    FontWeight->"Bold"],
+  " + 3sin t",
+  StyleBox[" k ",
+    FontWeight->"Bold"],
+  "at t = \[Pi].  "
+}], "Subtitle",
+  FontSize->18],
+
+Cell[BoxData[
+    \(x[t_] = 3  Cos[t]\)], "Input"],
+
+Cell[BoxData[
+    \(y[t_] = \ 5  t\)], "Input"],
+
+Cell[BoxData[
+    \(z[t_] = 3  Sin[t]\)], "Input"],
+
+Cell[BoxData[
+    \(rprime[t_]\  = \ {\(x'\)[t], \(y'\)[t], \(z'\)[t]}\)], "Input"],
+
+Cell[BoxData[
+    \(rprime[\[Pi]]\)], "Input"],
+
+Cell[BoxData[
+    \(lrprime[t_] = 
+      \@\(\((\(x'\)[t])\)\^2 + \((\(y'\)[t])\)\^2 + \((\(z'\)[t])\)\^2\)\)], 
+  "Input"],
+
+Cell[BoxData[
+    \(lrprime[\[Pi]]\)], "Input"],
+
+Cell[BoxData[
+    \(T[\[Pi]]\  = rprime[\[Pi]]\/lrprime[\[Pi]]\)], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Curvature", "Subtitle",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[{
+  "The curvature of a curve at a given point is a measure of how quickly the \
+curve changes direction at that point. For instance, a straight line has \
+curvature of zero, and a circle of radius a has a constant curvature of 1/a.  \
+ The symbol for curvature is \[Kappa]  and it is defined to be the magnitude \
+of the rate of change of the Unit Tangent vector with respect to the arc \
+length.   \n\n\t\[Kappa] = |",
+  Cell[BoxData[
+      FormBox[
+        FractionBox[
+          StyleBox[
+            RowBox[{"d", 
+              StyleBox["T",
+                FontWeight->"Bold"]}]], "ds"], TraditionalForm]]],
+  "|    where T is the unit Tangent vector"
+}], "Subtitle",
+  FontSize->18],
+
+Cell[TextData[{
+  "This definition of curvature has the advantage that the curvature is \
+independent of the parameter t, but it requires that we parametrize the \
+vector valued function with respect to the arc length - something we will not \
+cover in this class.  So we need other ways to express the curvature.  Below \
+you will find two more useful expressions for curvature: \n\n\t\[Kappa] (t) = \
+",
+  Cell[BoxData[
+      FormBox[
+        StyleBox[
+          FractionBox[
+            RowBox[{
+              RowBox[{
+                RowBox[{"|", 
+                  StyleBox["T",
+                    FontWeight->"Bold",
+                    FontSlant->"Plain"], 
+                  StyleBox["'",
+                    FontSlant->"Plain"]}], 
+                StyleBox[\((t)\),
+                  FontSlant->"Plain"]}], 
+              StyleBox["|",
+                FontSlant->"Plain"]}], 
+            RowBox[{
+              RowBox[{
+                RowBox[{"|", 
+                  StyleBox["r",
+                    FontWeight->"Bold",
+                    FontSlant->"Plain"], 
+                  StyleBox["'",
+                    FontSlant->"Plain"]}], 
+                StyleBox[\((t)\),
+                  FontSlant->"Plain"]}], "|"}]],
+          FontSize->24,
+          FontSlant->"Italic"], TraditionalForm]]],
+  "  \n\t\nor to express curvature in terms of the original vector function \
+r(t) and its derivatives \n\t\n\t\[Kappa] (t) = ",
+  Cell[BoxData[
+      FormBox[
+        StyleBox[
+          FractionBox[
+            RowBox[{
+              RowBox[{
+                RowBox[{"|", 
+                  StyleBox["r",
+                    FontWeight->"Bold",
+                    FontSlant->"Plain"], 
+                  StyleBox["'",
+                    FontSlant->"Plain"]}], 
+                RowBox[{
+                  StyleBox[\((t)\),
+                    FontSlant->"Plain"], 
+                  StyleBox[" ",
+                    FontWeight->"Bold"], 
+                  StyleBox["\[Cross]",
+                    FontWeight->"Bold",
+                    FontSlant->"Plain"], 
+                  StyleBox[" ",
+                    FontSlant->"Plain"], 
+                  RowBox[{
+                    RowBox[{
+                      StyleBox["r",
+                        FontWeight->"Bold",
+                        FontSlant->"Plain"], 
+                      StyleBox["'",
+                        FontSlant->"Plain"]}], 
+                    StyleBox["'",
+                      FontSlant->"Plain"]}]}], 
+                StyleBox[\((t)\),
+                  FontSlant->"Plain"]}], 
+              StyleBox["|",
+                FontSlant->"Plain"]}], 
+            RowBox[{
+              RowBox[{
+                RowBox[{"|", 
+                  StyleBox["r",
+                    FontWeight->"Bold",
+                    FontSlant->"Plain"], 
+                  StyleBox["'",
+                    FontSlant->"Plain"]}], 
+                StyleBox[\((t)\),
+                  FontSlant->"Plain"]}], 
+              SuperscriptBox["|", 
+                StyleBox["3",
+                  FontSlant->"Plain"]]}]],
+          FontSize->24,
+          FontSlant->"Italic"], TraditionalForm]]],
+  "  \n\t\nThis last formula is actually the easiest of the three to use when \
+you only know r(t)."
+}], "Subtitle",
+  FontSize->18],
+
+Cell[TextData[{
+  "Example 4\nFind the curvature of the circular helix with vector valued \
+equation ",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) = 3cos t ",
+  StyleBox["i",
+    FontWeight->"Bold"],
+  " + 5t ",
+  StyleBox["j",
+    FontWeight->"Bold"],
+  " + 3sin t",
+  StyleBox[" k ",
+    FontWeight->"Bold"],
+  "at t = \[Pi].  "
+}], "Subtitle",
+  FontSize->18],
+
+Cell[BoxData[
+    \(x[t_] = 3  Cos[t]\)], "Input"],
+
+Cell[BoxData[
+    \(y[t_] = \ 5  t\)], "Input"],
+
+Cell[BoxData[
+    \(z[t_] = 3  Sin[t]\)], "Input"],
+
+Cell[BoxData[
+    \(\(r'\)[t_]\  = \ {\(x'\)[t], \(y'\)[t], \(z'\)[t]}\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(r'\)'\)[t_]\  = 
+      \ {\(\(x'\)'\)[t], \(\(y'\)'\)[t], \(\(z'\)'\)[t]}\)], "Input"],
+
+Cell[BoxData[
+    \(Cross[\(r'\)[t], \(\(r'\)'\)[t]]\)], "Input"],
+
+Cell[BoxData[
+    \(Simplify[%]\)], "Input"],
+
+Cell[BoxData[
+    \(\(The\ curvature, \ \[Kappa], \ 
+    is\ the\ length\ of\ the\ cross\ product\ vector\ divided\ by\ the\ length
+      \ of \(\((\ r' \((t)\))\)\^3.\)\n\t\)\)], "Input"],
+
+Cell[BoxData[
+    \(Curvature[t]\  = \ 
+      \@\(\((\(-15\)\ Sin[t])\)\^2 + \((\(-9\)\ )\)\^2 + 
+            \((15\ Cos[t])\)\^2\)\/\((
+            \@\(\((\(-3\)\ Sin[t])\)\^2 + 5\^2 + \((3  Cos[t])\)\^2\))\)\^3
+          \)], "Input"],
+
+Cell[BoxData[
+    \(Simplify[%]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  StyleBox["Assignment for Lab 4",
+    FontSize->16,
+    FontWeight->"Bold"],
+  "\n1.  Find the length of ",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) over the given interval:\n\t\n\t",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) = ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          StyleBox["t",
+            FontSlant->"Plain"], "3"], TraditionalForm]]],
+  " ",
+  StyleBox["i",
+    FontWeight->"Bold"],
+  " + t ",
+  StyleBox["j",
+    FontWeight->"Bold"],
+  " + ",
+  Cell[BoxData[
+      \(TraditionalForm\`\@6\/2\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          StyleBox["t",
+            FontSlant->"Plain"], "2"], TraditionalForm]]],
+  StyleBox[" k      ",
+    FontWeight->"Bold"],
+  " 1 \[LessEqual] t \[LessEqual] 3"
+}], "Subsubtitle",
+  FontWeight->"Plain",
+  FontSlant->"Plain"],
+
+Cell[TextData[{
+  "2.  Find the length of ",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) over the given interval:\n\t\n\t",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) = ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox["\[ExponentialE]", 
+          StyleBox["t",
+            FontSlant->"Plain"]], TraditionalForm]]],
+  " ",
+  StyleBox["i",
+    FontWeight->"Bold"],
+  " +",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"-", 
+            StyleBox["t",
+              FontSlant->"Plain"]}]], TraditionalForm]]],
+  " ",
+  StyleBox["j",
+    FontWeight->"Bold"],
+  " + ",
+  Cell[BoxData[
+      \(TraditionalForm\`\@2\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        StyleBox["t",
+          FontSlant->"Plain"], TraditionalForm]]],
+  StyleBox[" k      ",
+    FontWeight->"Bold"],
+  " 0 \[LessEqual] t \[LessEqual] 1"
+}], "Subsubtitle",
+  FontWeight->"Plain",
+  FontSlant->"Plain"],
+
+Cell[TextData[{
+  "3.  Find the Unit Tangent vector ",
+  StyleBox["T",
+    FontWeight->"Bold"],
+  " for the given value of t.\n\t\n\t",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) = ",
+  Cell[BoxData[
+      FormBox[
+        StyleBox["t",
+          FontSlant->"Plain"], TraditionalForm]]],
+  " ",
+  StyleBox["i",
+    FontWeight->"Bold"],
+  " + ",
+  Cell[BoxData[
+      FormBox[
+        RowBox[{
+          FormBox[\(1\/2\),
+            "TraditionalForm"], 
+          SuperscriptBox[
+            StyleBox["t",
+              FontSlant->"Plain"], "2"]}], TraditionalForm]]],
+  " ",
+  StyleBox["j",
+    FontWeight->"Bold"],
+  " + ",
+  Cell[BoxData[
+      \(TraditionalForm\`1\/3\)]],
+  " ",
+  Cell[BoxData[
+      FormBox[
+        SuperscriptBox[
+          StyleBox["t",
+            FontSlant->"Plain"], "3"], TraditionalForm]]],
+  StyleBox[" k      ",
+    FontWeight->"Bold"],
+  "at  t =0"
+}], "Subsubtitle",
+  FontSlant->"Plain"],
+
+Cell[TextData[{
+  "4.  Find the curvature of the same circular helix as is used in the \
+example\n     \t\n     \t",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) = 3cos t ",
+  StyleBox["i",
+    FontWeight->"Bold"],
+  " + 5t ",
+  StyleBox["j",
+    FontWeight->"Bold"],
+  " + 3sin t",
+  StyleBox[" k       ",
+    FontWeight->"Bold"],
+  "at t = ",
+  Cell[BoxData[
+      \(TraditionalForm\`\[Pi]\/4\)]]
+}], "Subsubtitle",
+  FontWeight->"Plain",
+  FontSlant->"Plain"],
+
+Cell[TextData[{
+  "5.  Show that the curvature of the circular helix\n      ",
+  StyleBox["r",
+    FontWeight->"Bold"],
+  "(t) = a cos t ",
+  StyleBox["i",
+    FontWeight->"Bold"],
+  " + c t ",
+  StyleBox["j",
+    FontWeight->"Bold"],
+  " + a sin t",
+  StyleBox[" k",
+    FontWeight->"Bold"],
+  " (where a and c \n      are positive constants) is",
+  StyleBox[" ",
+    FontWeight->"Bold"],
+  " is constant and \n      does not depend on t by showing ",
+  StyleBox["\[Kappa] = ",
+    FontWeight->"Bold"],
+  Cell[BoxData[
+      FormBox[
+        StyleBox[\(a\/\(a\^2 + c\^2\)\),
+          FontSize->16,
+          FontWeight->"Plain"], TraditionalForm]],
+    FontWeight->"Bold"],
+  ".  "
+}], "Subsubtitle",
+  FontWeight->"Plain",
+  FontSlant->"Plain"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"4.1 for Microsoft Windows",
+ScreenRectangle->{{0, 800}, {0, 527}},
+CellGrouping->Manual,
+WindowSize->{531, 436},
+WindowMargins->{{Automatic, 79}, {Automatic, 26}},
+Magnification->1
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1727, 52, 96, 2, 115, "Title"],
+Cell[1826, 56, 104, 2, 66, "Subtitle"],
+Cell[1933, 60, 1413, 43, 427, "Subtitle"],
+Cell[3349, 105, 373, 16, 104, "Subtitle"],
+Cell[3725, 123, 98, 2, 30, "Input"],
+Cell[3826, 127, 50, 1, 30, "Input"],
+Cell[3879, 130, 47, 1, 30, "Input"],
+Cell[3929, 133, 50, 1, 30, "Input"],
+Cell[3982, 136, 417, 10, 50, "Input"],
+Cell[4402, 148, 122, 3, 33, "Input"],
+Cell[4527, 153, 79, 1, 42, "Input"],
+Cell[4609, 156, 37, 1, 30, "Input"],
+
+Cell[CellGroupData[{
+Cell[4671, 161, 616, 17, 203, "Subtitle"],
+Cell[5290, 180, 377, 16, 104, "Subtitle"],
+Cell[5670, 198, 50, 1, 30, "Input"],
+Cell[5723, 201, 47, 1, 30, "Input"],
+Cell[5773, 204, 50, 1, 30, "Input"],
+Cell[5826, 207, 417, 10, 50, "Input"],
+Cell[6246, 219, 122, 3, 33, "Input"],
+Cell[6371, 224, 79, 1, 42, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6487, 230, 216, 5, 104, "Subtitle"],
+Cell[6706, 237, 37, 1, 30, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6780, 243, 93, 2, 66, "Subtitle"],
+Cell[6876, 247, 1190, 40, 162, "Subtitle"],
+Cell[8069, 289, 377, 16, 104, "Subtitle"],
+Cell[8449, 307, 50, 1, 30, "Input"],
+Cell[8502, 310, 47, 1, 30, "Input"],
+Cell[8552, 313, 50, 1, 30, "Input"],
+Cell[8605, 316, 83, 1, 30, "Input"],
+Cell[8691, 319, 46, 1, 30, "Input"],
+Cell[8740, 322, 123, 3, 33, "Input"],
+Cell[8866, 327, 47, 1, 30, "Input"],
+Cell[8916, 330, 75, 1, 44, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9028, 336, 83, 2, 66, "Subtitle"],
+Cell[9114, 340, 703, 16, 245, "Subtitle"],
+Cell[9820, 358, 3294, 90, 427, "Subtitle"],
+Cell[13117, 450, 367, 16, 104, "Subtitle"],
+Cell[13487, 468, 50, 1, 30, "Input"],
+Cell[13540, 471, 47, 1, 30, "Input"],
+Cell[13590, 474, 50, 1, 30, "Input"],
+Cell[13643, 477, 83, 1, 30, "Input"],
+Cell[13729, 480, 110, 2, 30, "Input"],
+Cell[13842, 484, 65, 1, 30, "Input"],
+Cell[13910, 487, 44, 1, 30, "Input"],
+Cell[13957, 490, 188, 3, 90, "Input"],
+Cell[14148, 495, 236, 5, 62, "Input"],
+Cell[14387, 502, 44, 1, 30, "Input"],
+
+Cell[CellGroupData[{
+Cell[14456, 507, 854, 36, 117, "Subsubtitle"],
+Cell[15313, 545, 937, 39, 90, "Subsubtitle"],
+Cell[16253, 586, 928, 40, 93, "Subsubtitle"],
+Cell[17184, 628, 465, 19, 93, "Subsubtitle"],
+Cell[17652, 649, 747, 28, 112, "Subsubtitle"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

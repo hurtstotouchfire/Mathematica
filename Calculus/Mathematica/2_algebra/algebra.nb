@@ -1,0 +1,281 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4961,        198]*)
+(*NotebookOutlinePosition[      5811,        228]*)
+(*  CellTagsIndexPosition[      5767,        224]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Algebra, Calculus"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  FontFamily->"Arial",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell[TextData["Clear[\"Global`*\"]"], "Input",
+  PageWidth->Infinity],
+
+Cell[CellGroupData[{
+
+Cell["Tutorial", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->24,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On NEXTSTEP (NeXT computer):
+   /LocalLibrary/Mathematica/Notebooks/AlgebraTrig.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On Windows NT:
+  \\\\BIRD\\mathematica\\notebook\\AlgebraT.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Frequently Used Commands", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->24,
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell["Clear, Expand,Factor, Apart, Together, Simplify", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Clear[x]
+Expand[(1+x)^10]\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+y=x^2-4x-5;
+Factor[y]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Apart[3/y]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Together[%]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Simplify[%]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Trig -> True", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["Expand[Sin[x]^2,Trig->True]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Iterators: Sum, Product", "Section",
+  Evaluatable->False,
+  FontFamily->"Helvetica",
+  FontSize->16,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"Iterators repeat an operation for successive values of an index variable.\n\
+"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["Sum[expr,{index,end}]"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["Sum[n,{n,5}] (*sum of first 5 integers*)"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["\nSum[expr,{index,start,end}]"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["x=1;\nSum[x^n/n!,{n,0,100}]; (*Start with 0*)\nN[%]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["\nSum[expr,{index,start,end,incr}]"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["Sum[k,{k,1,5,2}] (*Increment by 2*)"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["\nProduct[...]"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["Product[x,{x,3,5}] (*Product of 3,4,5*)"], "Input",
+  PageWidth->Infinity]
+}, Open  ]]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 85}, {Automatic, 2}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 241, 8, 97, "Title"],
+Cell[2206, 70, 110, 3, 51, "Subtitle"],
+Cell[2319, 75, 69, 1, 24, "Input"],
+
+Cell[CellGroupData[{
+Cell[2413, 80, 119, 4, 58, "Section"],
+Cell[2535, 86, 205, 7, 46, "Text"],
+Cell[2743, 95, 184, 7, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2964, 107, 135, 4, 38, "Section"],
+
+Cell[CellGroupData[{
+Cell[3124, 115, 114, 2, 52, "Section"],
+Cell[3241, 119, 127, 6, 36, "Input"],
+Cell[3371, 127, 97, 5, 36, "Input"],
+Cell[3471, 134, 78, 2, 24, "Input"],
+Cell[3552, 138, 79, 2, 24, "Input"],
+Cell[3634, 142, 79, 2, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3750, 149, 79, 2, 52, "Section"],
+Cell[3832, 153, 121, 3, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3990, 161, 135, 4, 52, "Section"],
+Cell[4128, 167, 126, 3, 46, "Text"],
+Cell[4257, 172, 69, 1, 30, "Text"],
+Cell[4329, 175, 90, 1, 24, "Input"],
+Cell[4422, 178, 77, 1, 46, "Text"],
+Cell[4502, 181, 101, 1, 48, "Input"],
+Cell[4606, 184, 82, 1, 46, "Text"],
+Cell[4691, 187, 85, 1, 24, "Input"],
+Cell[4779, 190, 62, 1, 46, "Text"],
+Cell[4844, 193, 89, 1, 24, "Input"]
+}, Open  ]]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

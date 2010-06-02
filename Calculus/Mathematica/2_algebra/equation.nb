@@ -1,0 +1,419 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7482,        307]*)
+(*NotebookOutlinePosition[      8334,        337]*)
+(*  CellTagsIndexPosition[      8290,        333]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Solving Equations"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell["Clear[\"Global`*\"]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorial", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+On NEXTSTEP:
+   /LocalLibrary/Mathematica/Notebooks/SolvingEquations.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On Windows NT:
+   \\\\BIRD\\mathematica\\notebook\\SolvingE.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Exact Solutions", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Solve - finds exact solutions to polynomial equations of 4th order \
+or less.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell["Example 1:  Quadratic polynomial", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Clear[x];
+y=x^2 + 2x + 5;
+Plot[y,{x,-5,5}];\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["soln1 = Solve[y == 0,x]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Replacement can check the solution..."], "Text",
+  Evaluatable->False],
+
+Cell["x^2 + 2x + 5 == 0 /. soln1", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Example 2: Intersection of two functions.", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Clear[x,y,y1,y2];
+y1=x^2 + 2x + 5; y2=x +10;
+Plot[{y1,y2},{x,-10,5}];\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["soln2=Solve[y1==y2,x]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["N[soln2]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"Replacement can also give solution assignments.  Suppose we want posX to be \
+assigned the value of the positive solution, which is the second one in the \
+solution list."], "Text",
+  Evaluatable->False],
+
+Cell[TextData["posX = x /. soln2[[2]]  (* learn this *)"], "Input",
+  PageWidth->Infinity]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solve - can find solutions to simultaneous equations.", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Clear[x,y];
+eq1= x-2y-4==0;
+eq2= x+y+2==0;
+soln=Solve[{eq1,eq2},{x,y}]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Replacement can check the equations...", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["eq1 /. soln", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["eq2 /. soln", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Again, replacement can give solution assignments..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+xSoln=x /. soln[[1]]  (* learn this! *)
+ySoln=y /. soln[[1]]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Let's turn off those spelling warnings..."], "Text",
+  Evaluatable->False],
+
+Cell[TextData["Off[General::spell1]"], "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"Eliminate - can eliminate a variable from a set of simultaneous equations."],
+   "Text",
+  Evaluatable->False],
+
+Cell["Eliminate[{eq1,eq2},y]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Eliminate[{eq1,eq2},x]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Numerical Approximations", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"NSolve - Finds numerical solution to polynomial equations."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Clear[x];
+eq = x^5 + 2x^4 + x^3 + x^2 + x + 1 == 0;
+Solve[eq,x]  (* Won't work, 5th order*)\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["sols = NSolve[eq,x]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Make an assignment for the real solution..."], "Text",
+  Evaluatable->False],
+
+Cell[TextData["realX = x /. sols[[1]]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["Now let's check all of the solutions..."], "Text",
+  Evaluatable->False],
+
+Cell["eq /. sols", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"Actually, all of the solutions ARE correct; we just have round-off error \
+problems because of the approximate solution.  To see this..."], "Text",
+  Evaluatable->False],
+
+Cell["x^5 + 2x^4 + x^3 + x^2 + x + 1 /. sols", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["Chop[%]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Open  ]]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 134}, {Automatic, 26}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 125, 3, 98, "Title"],
+Cell[2090, 65, 110, 3, 51, "Subtitle"],
+Cell[2203, 70, 87, 2, 24, "Input"],
+
+Cell[CellGroupData[{
+Cell[2315, 76, 114, 4, 57, "Section"],
+Cell[2432, 82, 194, 7, 46, "Text"],
+Cell[2629, 91, 185, 7, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2851, 103, 121, 4, 37, "Section"],
+
+Cell[CellGroupData[{
+Cell[2997, 111, 200, 7, 30, "Text"],
+
+Cell[CellGroupData[{
+Cell[3222, 122, 121, 3, 30, "Text"],
+Cell[3346, 127, 145, 7, 48, "Input"],
+Cell[3494, 136, 117, 3, 24, "Input"],
+Cell[3614, 141, 85, 1, 30, "Text"],
+Cell[3702, 144, 120, 3, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3859, 152, 130, 3, 30, "Text"],
+Cell[3992, 157, 145, 6, 48, "Input"],
+Cell[4140, 165, 89, 2, 24, "Input"],
+Cell[4232, 169, 76, 2, 24, "Input"],
+Cell[4311, 173, 219, 4, 46, "Text"],
+Cell[4533, 179, 90, 1, 24, "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4672, 186, 142, 3, 30, "Text"],
+Cell[4817, 191, 146, 7, 60, "Input"],
+Cell[4966, 200, 127, 3, 30, "Text"],
+Cell[5096, 205, 79, 2, 24, "Input"],
+Cell[5178, 209, 79, 2, 24, "Input"],
+Cell[5260, 213, 99, 1, 30, "Text"],
+Cell[5362, 216, 136, 5, 36, "Input"],
+Cell[5501, 223, 89, 1, 30, "Text"],
+Cell[5593, 226, 70, 1, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5700, 232, 126, 3, 30, "Text"],
+Cell[5829, 237, 90, 2, 24, "Input"],
+Cell[5922, 241, 90, 2, 24, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6061, 249, 130, 4, 37, "Section"],
+
+Cell[CellGroupData[{
+Cell[6216, 257, 133, 3, 30, "Text"],
+Cell[6352, 262, 193, 7, 48, "Input"],
+Cell[6548, 271, 113, 3, 24, "Input"],
+Cell[6664, 276, 91, 1, 30, "Text"],
+Cell[6758, 279, 72, 1, 24, "Input"],
+Cell[6833, 282, 87, 1, 30, "Text"],
+Cell[6923, 285, 104, 3, 24, "Input"],
+Cell[7030, 290, 185, 3, 46, "Text"],
+Cell[7218, 295, 132, 3, 24, "Input"],
+Cell[7353, 300, 101, 3, 24, "Input"]
+}, Open  ]]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

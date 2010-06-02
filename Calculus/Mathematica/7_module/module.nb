@@ -1,0 +1,470 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      9721,        363]*)
+(*NotebookOutlinePosition[     10573,        393]*)
+(*  CellTagsIndexPosition[     10529,        389]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Module & Local Variables"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  FontFamily->"Arial",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell[TextData["Clear[\"Global`*\"]"], "Input",
+  PageWidth->Infinity],
+
+Cell[CellGroupData[{
+
+Cell["Tutorial", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+On NEXTSTEP:
+   /LocalLibrary/Mathematica/Notebooks/Programming.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On Windows NT:
+  \\\\BIRD\\mathematica\\notebook\\Programm.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Module", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData[
+"Module allows defining \"local variables\" in a function, that is, variables \
+that are defined only within the module.\n\nThis can be extremely useful, \
+allowing the definition of functions that do not conflict with global \
+variables in the rest of the notebook."], "Text",
+  Evaluatable->False],
+
+Cell["Not using Module...", "Section",
+  Evaluatable->False],
+
+Cell[TextData[
+"First, let's look at the problem when we don't use Module:"], "Text",
+  Evaluatable->False],
+
+Cell[TextData[
+"Clear[average]\naverage[data_List] :=\n\t(\n\ttotal = Sum[data[[i]],\n\t\t\t\
+\t{i,1,Length[data]}];\n\ttotal/Length[data]\n\t)"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["total=3"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["average[{1,2,3}]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["total     (* value has changed *)"], "Input",
+  PageWidth->Infinity],
+
+Cell["Using Module...", "Section",
+  Evaluatable->False],
+
+Cell[TextData[
+"But if we use Module, and declare total as a \"local variable\", then total \
+outside the Module is unaffected."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+Clear[average]
+average[data_List] :=
+\tModule[{total},
+\t\ttotal = Sum[data[[i]],
+\t\t\t\t\t{i,1,Length[data]}];
+\t    total/Length[data]
+\t]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["total=3"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["average[{1,2,3}]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["total"], "Input",
+  PageWidth->Infinity]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Example", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData[
+"Here is a function to  compute the median value of the numbers in a list.  \
+Two local variables, len and sl, are needed to define this function."], "Text",\
+
+  Evaluatable->False],
+
+Cell[TextData[
+"Remove[median]\nmedian[list_List] :=\n  Module[{len=Length[list],\n          \
+sl = Sort[list]},\n    If[OddQ[len],\n       sl[[(len+1)/2]],\n       \
+(sl[[len/2]]+sl[[len/2+1]])/2\n    ]\n  ]"], "Input",
+  PageWidth->Infinity],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+
+(* before the call *)
+sl=0          \
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["len=0", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell["\<\
+
+(* Now call the function *)
+data={4,3,9,8};
+Print[\"Median is: \",median[data]]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+
+(* After the call *)
+sl\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["len", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Use of Return", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData[
+"Normally we say that a function returns the last value evaluated.  However, \
+sometimes that is not adequate.\n\nIf Return[expr] is executed in a function, \
+expr is immediately returned as the value of the function."], "Text",
+  Evaluatable->False],
+
+Cell["Example 1", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+This is a function to sum the values in a list.  It uses Module to \
+provide some local variables, and Do to provide the loop structure.  \
+Return[expr] is used to return the final calculated sum.\
+\>", "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Remove[moneySum]
+moneySum[array_List, american_] :=\t
+  Module[ {total=0},
+\tDo[total = total + array[[i]],
+\t   {i,1,Length[array]}
+\t];
+\tIf[american,Return[total*dollars],
+\t\t\t    Return[total*pounds]];
+  ]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Testing the function...", "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+data={1,5,3,0,6};
+moneySum[data,True]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Example 2", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Here is a function for finding the next prime integer.  Again, \
+Return[expr] is used to return if the \"exit\" argument is exceeded before \
+the next prime is found.\
+\>", "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Remove[nextPrime]
+nextPrime[n_Integer,exit_Integer] := 
+   Module[{k = n}, 
+      While[!PrimeQ[k],
+        (k++; If[k>=exit,Return[\"Exit!\"]])
+      ];
+      Return[k];
+   ]\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["Testing the function...", "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["nextPrime[24,200]", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Numerical Integration Revisited", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+
+We will now use Module and write a new Mathematica function which performs \
+numerical integration using the trapezoid rule.\
+\>", "Text"],
+
+Cell[BoxData[{
+    \(Clear[nintegrate]\), 
+    \(nintegrate[f_, xlo_, xhi_, dx_]\  := \ \n\t
+      Module[{x, integral = 0., \ xyPts = {}}, \n\t\n\t
+        If[N[xlo]\  >= \ N[xhi], \n\t\t
+          Print["\<Input error: xlo > xhi: xlo = \>", xlo, "\< , xhi = \>", 
+            xhi]; Return[]]; \n\t
+        If[N[dx]\  <= \ 0, \n\t\t
+          Print["\<Input error: dx <= 0: dx = \>", dx]; Return[]]; \n\n
+         (*The\ main\ integration\ loop...*) \n\t
+        Do[\ \((integral\  += \ \((f[x] + f[x + dx])\)/2.\ dx; \n\ \ \ \ \t
+            AppendTo[xyPts, {x, integral}])\), \n
+          \ \ \ \ \t{x, \ N[xlo], \ N[xhi], \ N[dx]}\n\t]; \n\n
+         (*Present\ the\ results...*) \n\t
+        Print[TraditionalForm[
+            \\!\\(HoldForm[Integrate[\ f[t]\ , {t, xlo, xhi}]]\\)], 
+          "\< \[TildeTilde] \>", integral, 
+          \*"\"\<  ,    \!\(\[CapitalDelta]\_i\)t = \>\"", dx]; \n\t
+        ListPlot[xyPts, PlotJoined -> True, Frame -> True, \n\t\t\t
+          PlotStyle -> {RGBColor[1, 0, 0]}, \n\t\t
+          PlotLabel -> 
+            StyleForm[\ 
+              "\<The Trapezoid Rule \n\>" 
+                HoldForm[
+                  Sum[\ \((f[t\_i]\  + \ f[t\_\(i + 1\)])\) 
+                      \(\(\[CapitalDelta]\_i\) t\)\/2, {i, 1, n}]], 
+              "\<TraditionalForm\>", FontWeight -> "\<Bold\>", 
+              FontSize -> 12], \n\t\t
+          FrameLabel -> 
+            \t{\n\t\t\t\tTraditionalForm[\\!\\(t\\)], \ \n\t\t\t\t\t
+              TraditionalForm[
+                \\!\\(HoldForm[Integrate[\ f[t]\ , {t, xlo, t}]]\\)]}, \n
+          \t\t\tRotateLabel -> False]; \n\t]\ \)}], "Input"]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 211}, {Automatic, 22}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 248, 8, 97, "Title"],
+Cell[2213, 70, 110, 3, 51, "Subtitle"],
+Cell[2326, 75, 69, 1, 24, "Input"],
+
+Cell[CellGroupData[{
+Cell[2420, 80, 114, 4, 57, "Section"],
+Cell[2537, 86, 189, 7, 46, "Text"],
+Cell[2729, 95, 184, 7, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2950, 107, 86, 3, 37, "Section"],
+Cell[3039, 112, 314, 5, 94, "Text"],
+Cell[3356, 119, 60, 1, 52, "Section"],
+Cell[3419, 122, 107, 2, 30, "Text"],
+Cell[3529, 126, 178, 3, 96, "Input"],
+Cell[3710, 131, 57, 1, 24, "Input"],
+Cell[3770, 134, 66, 1, 24, "Input"],
+Cell[3839, 137, 83, 1, 24, "Input"],
+Cell[3925, 140, 56, 1, 52, "Section"],
+Cell[3984, 143, 160, 3, 46, "Text"],
+Cell[4147, 148, 217, 10, 96, "Input"],
+Cell[4367, 160, 57, 1, 24, "Input"],
+Cell[4427, 163, 66, 1, 24, "Input"],
+Cell[4496, 166, 55, 1, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4588, 172, 87, 3, 37, "Section"],
+Cell[4678, 177, 196, 4, 46, "Text"],
+Cell[4877, 183, 243, 4, 120, "Input"],
+
+Cell[CellGroupData[{
+Cell[5145, 191, 113, 6, 48, "Input"],
+Cell[5261, 199, 73, 2, 24, "Input"]
+}, Open  ]],
+Cell[5349, 204, 156, 7, 60, "Input"],
+
+Cell[CellGroupData[{
+Cell[5530, 215, 100, 6, 48, "Input"],
+Cell[5633, 223, 71, 2, 24, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5753, 231, 93, 3, 37, "Section"],
+Cell[5849, 236, 265, 4, 94, "Text"],
+Cell[6117, 242, 76, 2, 52, "Section"],
+Cell[6196, 246, 270, 6, 46, "Text"],
+Cell[6469, 254, 287, 12, 120, "Input"],
+Cell[6759, 268, 89, 2, 30, "Text"],
+Cell[6851, 272, 113, 5, 36, "Input"],
+Cell[6967, 279, 76, 2, 52, "Section"],
+Cell[7046, 283, 240, 6, 46, "Text"],
+Cell[7289, 291, 277, 12, 108, "Input"],
+Cell[7569, 305, 89, 2, 30, "Text"],
+Cell[7661, 309, 111, 3, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7809, 317, 111, 3, 37, "Section"],
+Cell[7923, 322, 149, 4, 62, "Text"],
+Cell[8075, 328, 1630, 32, 530, "Input"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

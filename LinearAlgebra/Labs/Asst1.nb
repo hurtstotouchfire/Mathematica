@@ -1,0 +1,648 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 4.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     14601,        506]*)
+(*NotebookOutlinePosition[     15582,        538]*)
+(*  CellTagsIndexPosition[     15538,        534]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Applied Linear Algebra", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[" Assignment #1", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[" Theory", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"Linear equations and systems of linear equations"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "In general a linear equation in the variables x",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",x",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",...,x",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " is one that can be put in the form\n                                      \
+      a",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "x",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " + a",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "x",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " + ... + a",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "x",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " = b\nwhere a",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",a",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",...,a",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " and b are constants, a",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",..,a",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " not all zero.  Note that all of the variables appear only to the first \
+power and are not arguments for logarithmic, trigonometric, or other kinds of \
+functions.\n\nAn example of a linear equation is:  2x - 3y = 4. \n An example \
+of an equation which is not linear is:  x",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  " + y",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  "  = 1.\n"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "A solution of a linear equation a",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "x",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " + ... + a",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "x",
+  StyleBox["n ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "= b is a sequence of numbers t",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",t",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",...,t",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " such that if we substitute x",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "=t",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",x",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "=t",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",...,x",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "=t",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " into the equation, we obtain a true statement.  The set of solutions of \
+all solutions of an equation is called the \"solution set\".\n"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "A finite collection of linear equations in the variables x",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",x",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",...,x",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " is called a \"system of linear equations\", or a \"linear system\".  A \
+solution of a linear system is a sequence of\nnumbers t",
+  StyleBox["1",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",t",
+  StyleBox["2",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  ",...,t",
+  StyleBox["n",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  " that is a solution of each of the linear equations simultaneously.  A \
+linear system of two equations in two unknowns may have no solutions, one \
+solution, or infintely many solutions.  A system with no solutions is called \
+\"inconsistent\"; a system with at least one solution is called \
+\"consistent\"."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Example 3"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[
+  "The following are examples of inconsistent and consistent linear systems:\n\
+",
+    FontSlant->"Italic"],
+  "    a.) 2x + y = 8\n          2x + y = 4"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["Plot[{-2x + 8,-2x + 4},{x,-1,4.5}]", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "\n",
+  StyleBox[
+  "The lines are parallel and distinct and do not intersect.  The system has \
+no solutions and is inconsistent.\n",
+    FontSlant->"Italic"],
+  "\n    b.) 2x + y =  8\n         x - y = -2"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+
+Plot[{-2x+8,x+2},{x,-2,4.5}]
+\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[
+  "The lines intersect in one point, (2,4).  Therefore the system has one \
+solution and is consistent.",
+    FontSlant->"Italic"],
+  "\n\n     c.) 2x + y  = 8\n          4x + 2y = 16\n "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["Plot[{-2x+8,-2x+8},{x,-1,4.5}]", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The two lines coincide and hence intersect in infinitely many points.  Thus \
+the system has infinitely many solutions."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Matrices and Linear Systems"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "\nGaussian elimination is used to reduce a general system to triangular \
+form, which can then be solved by backsubstitution.  A matrix is a \
+rectangular array of constants which makes the reduction process quicker and \
+easier.   Consider the following linear system of equations:\n\n              \
+                                    2x - 3y - z    = 4\n                      \
+                            7x + y          = 3\n                             \
+                    -3x - 2y + 9z = 0\n                                       \
+          \nthere are three different matrices associated with the system \
+which are shown below as output from ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " functions:\n\nIn Mathematica, an input matrix is represented by a list of \
+rows, each row being enclosed in braces, {}, delimited by a comma.  The \
+entire matrix is then enclosed in braces. "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["MatrixForm[{{2,3,-1},{7,1,0},{7,1,0}}]", "Input",
+  AspectRatioFixed->True],
+
+Cell["MatrixForm[{{4},{3},{0}}]", "Input",
+  AspectRatioFixed->True],
+
+Cell["MatrixForm[{{2,-3,-1,4},{7,1,0,3},{-3,-2,9,0}}]", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The first matrix is called the  \"matrix of coefficients\" of the system and \
+the last, the \"augmented matrix of the system\".  Note that when finding the \
+matrices, the variables must be written in the same order in each equation \
+and zeros must be inserted for \"missing\" variables (as in the second \
+equation). "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"Elementary Operations on a Linear System and Elementary Row Operations on a \
+Matrix:"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"A linear system can be reduced to triangular form by applying the following \
+three types of operations in a systematic way.  These operations are \
+reversible and therefore no solutions are introduced or lost when these \
+operations are applied to a system.\n\n                          a.) Add a \
+multiple of one equation to another.\n                          b.) \
+Interchange two equations.\n                          c.) Multiply an \
+equation by a nonzero constant.\n                          \n Since the \
+equations of a system correspond to rows of the augmented matrix, elementary \
+operations on a linear system correspond to the following:\n \n               \
+           a.)  Add a multiple of one row to another.\n                       \
+   b.)  Interchange two rows.\n                          c.)  Multiply a row \
+by a nonzero constant.\n"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[
+  "The following instructions reduce a system to triangular form using \
+elementary row operations",
+    FontSlant->"Italic"],
+  ". In the input commands, a row of m is denoted m[[i]] where i is the ith \
+row of the matrix m. (i.e. Row 1 would be denoted m[[1]].) "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+m={{0,3,2,7},{1,4,-4,3},{3,3,8,1}};
+MatrixForm[m]\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Interchange the first and second rows."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+mtemp=m[[1]];
+m[[1]]=m[[2]];
+m[[2]]=mtemp;
+MatrixForm[m]\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Add -3 times the first row to the third."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+m[[3]]=-3 m[[1]] + m[[3]];
+MatrixForm[m]\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Add 3 times the second row to the third",
+    FontSlant->"Italic"],
+  "."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+m[[3]]=3 m[[2]] + m[[3]];
+MatrixForm[m]\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"To perform these steps with elementary matrices, we first define the  \
+elementary matrices and use matrix multiplication. First we redefine the \
+matrix m."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["m={{0,3,2,7},{1,4,-4,3},{3,3,8,1}};", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[" The first elementary matrix is"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+e1 = {{0,1,0},{1,0,0},{0,0,1}};
+MatrixForm[e1]\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Now we multiply m by e",
+  StyleBox["1 ",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "using the \".\" for matrix multiplication"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+e1.m;
+MatrixForm[e1.m]\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["The other steps are done similarly. For example,"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+e2 = {{1,0,0},{0,1,0},{-3,0,1}};
+MatrixForm[e2]\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell["\<\
+e3 = {{1,0,0},{0,1,0},{0,3,1}};
+MatrixForm[e3]\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell["\<\
+e3.e2.e1.m;
+MatrixForm[e3.e2.e1.m]\
+\>", "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"From now on, we will use elementary matrices for all computations."], "Text",\
+
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Exercise"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"First, plot the solution to each equation in the linear system"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+ 18x + 6y =  12
+     4x  - 3y  =  -3  \
+\>", "Text",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell["\<\
+Second, use elementary matrices  to solve the system completely. \
+That is, reduce the augmented matrix until it has the form \
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[BoxData[
+    RowBox[{"\t\t\t\t\t\t\t\t\t", 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {"1", "0", "a"},
+            {"0", "1", "b"}
+            }], "\[NoBreak]", ")"}]}]], "Input",
+  TextAlignment->Left,
+  TextJustification->0],
+
+Cell["\<\
+
+Then check your results.\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Finally, use ",
+  StyleBox["RowReduce",
+    FontWeight->"Bold"],
+  " on the augmented matrix and observe what happens."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]]
+},
+FrontEndVersion->"4.2 for Microsoft Windows",
+ScreenRectangle->{{0, 800}, {0, 527}},
+WindowToolbars->{"RulerBar", "EditBar"},
+CellGrouping->Automatic,
+WindowSize->{452, 503},
+WindowMargins->{{163, Automatic}, {Automatic, -1}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"NeXTAutomaticEncoding",
+Magnification->1,
+StyleDefinitions -> "Classroom.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 136, 4, 67, "Title",
+  Evaluatable->False],
+Cell[1893, 57, 128, 4, 67, "Title",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2046, 65, 74, 2, 62, "Section",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2145, 71, 132, 3, 45, "Subsubsection",
+  Evaluatable->False],
+Cell[2280, 76, 1840, 56, 254, "Text",
+  Evaluatable->False],
+Cell[4123, 134, 1371, 44, 87, "Text",
+  Evaluatable->False],
+Cell[5497, 180, 1066, 27, 129, "Text",
+  Evaluatable->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6600, 212, 92, 2, 45, "Subsubsection",
+  Evaluatable->False],
+Cell[6695, 216, 241, 8, 91, "Text",
+  Evaluatable->False],
+Cell[6939, 226, 77, 1, 50, "Input"],
+Cell[7019, 229, 285, 9, 153, "Text",
+  Evaluatable->False],
+Cell[7307, 240, 81, 5, 86, "Input"],
+Cell[7391, 247, 275, 8, 153, "Text",
+  Evaluatable->False],
+Cell[7669, 257, 73, 1, 50, "Input"],
+Cell[7745, 260, 194, 4, 29, "Text",
+  Evaluatable->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7976, 269, 110, 2, 45, "Subsubsection",
+  Evaluatable->False],
+Cell[8089, 273, 986, 17, 346, "Text",
+  Evaluatable->False],
+Cell[9078, 292, 81, 1, 50, "Input"],
+Cell[9162, 295, 68, 1, 50, "Input"],
+Cell[9233, 298, 90, 1, 50, "Input"],
+Cell[9326, 301, 395, 7, 48, "Text",
+  Evaluatable->False]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9758, 313, 169, 4, 45, "Subsubsection",
+  Evaluatable->False],
+Cell[9930, 319, 933, 14, 389, "Text",
+  Evaluatable->False],
+Cell[10866, 335, 353, 9, 48, "Text",
+  Evaluatable->False],
+Cell[11222, 346, 100, 4, 68, "Input"],
+Cell[11325, 352, 112, 2, 29, "Text",
+  Evaluatable->False],
+Cell[11440, 356, 107, 6, 104, "Input"],
+Cell[11550, 364, 114, 2, 29, "Text",
+  Evaluatable->False],
+Cell[11667, 368, 91, 4, 68, "Input"],
+Cell[11761, 374, 161, 6, 29, "Text",
+  Evaluatable->False],
+Cell[11925, 382, 90, 4, 68, "Input"],
+Cell[12018, 388, 231, 5, 29, "Text",
+  Evaluatable->False],
+Cell[12252, 395, 78, 1, 50, "Input"],
+Cell[12333, 398, 105, 2, 29, "Text",
+  Evaluatable->False],
+Cell[12441, 402, 97, 4, 68, "Input"],
+Cell[12541, 408, 223, 7, 37, "Text",
+  Evaluatable->False],
+Cell[12767, 417, 73, 4, 68, "Input"],
+Cell[12843, 423, 122, 2, 29, "Text",
+  Evaluatable->False],
+Cell[12968, 427, 98, 4, 68, "Input"],
+Cell[13069, 433, 97, 4, 68, "Input"],
+Cell[13169, 439, 85, 4, 68, "Input"],
+Cell[13257, 445, 143, 4, 29, "Text",
+  Evaluatable->False]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[13449, 455, 85, 2, 42, "Section",
+  Evaluatable->False],
+Cell[13537, 459, 137, 3, 29, "Text",
+  Evaluatable->False],
+Cell[13677, 464, 159, 7, 60, "Text",
+  Evaluatable->False],
+Cell[13839, 473, 198, 5, 29, "Text",
+  Evaluatable->False],
+Cell[14040, 480, 244, 7, 61, "Input"],
+Cell[14287, 489, 97, 5, 60, "Text",
+  Evaluatable->False],
+Cell[14387, 496, 198, 7, 29, "Text",
+  Evaluatable->False]
+}, Closed]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

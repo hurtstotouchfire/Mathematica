@@ -1,0 +1,809 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     17128,        659]*)
+(*NotebookOutlinePosition[     18085,        691]*)
+(*  CellTagsIndexPosition[     18041,        687]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Differential Equations", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[" Assignment #5", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell["Laplace Transforms", "Title",
+  TextAlignment->Center,
+  TextJustification->0],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Theory"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Introduction"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Non-homogeneous, linear differential equations are often tractable using \
+Laplace transforms. To use Laplace transforms, we must first import the \
+package."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Needs[\"Calculus`LaplaceTransform`\"]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["The syntax for this transform can be obtained with"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["?LaplaceTransform"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Every elementary book on differential equations includes a table of \
+familiar Laplace transforms. We can produce our own with ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[a,s,t,y]\nfns = {1,t,t^n,Exp[a t],Sin[a t],Cos[a t],Sinh[a t],Cosh[a \
+t]};\nTableForm[Transpose[{fns,LaplaceTransform[fns,t,s]}]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"However, the following relationships indicate why the Laplace transform is \
+so useful for solving many differential equations."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"fns = {y[t],y'[t],y''[t]};\n\
+TableForm[Transpose[{fns,LaplaceTransform[fns,t,s]}]]"], "Input",
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Using Laplace Transforms",
+  FontSlant->"Italic"]], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The Laplace transform is ideally suited to differential equations with \
+constant coefficients whose right hand side admits a closed form transform. \
+In addition, if the initial conditions are known, they are incorporated into \
+the solution automatically. "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Example 7.2.1",
+  FontWeight->"Bold",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Suppose we wish to solve"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "                                              ",
+  StyleBox["y'' + ",
+    FontSlant->"Italic"],
+  "4",
+  StyleBox[" y    =",
+    FontSlant->"Italic"],
+  " 4",
+  StyleBox["t , y",
+    FontSlant->"Italic"],
+  "(0) = 1",
+  StyleBox[" , y'",
+    FontSlant->"Italic"],
+  "(0) = 5"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Solution:",
+  FontWeight->"Bold",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["We begin, as before, by defining the equation as"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[s,t,y]\ndiffeq = y''[t] + 4 y[t] == 4 t;\ninitconds = ToRules[y[0] == \
+1 && y'[0] == 5];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "The Laplace transform turns this differential equation into an algebraic \
+equation for the Laplace transform of ",
+  StyleBox["y",
+    FontSlant->"Italic"],
+  "."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["algeq = LaplaceTransform[diffeq,t,s]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Since we have initial conditions, we may apply them here; otherwise, we \
+may continue to develop the general solution in terms of ",
+  StyleBox["y",
+    FontSlant->"Italic"],
+  "(0) and ",
+  StyleBox["y'(0).",
+    FontSlant->"Italic"]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["algeq = algeq /. initconds"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Next, we solve this equation for ",
+  StyleBox["LaplaceTransform[y[t],t,s]",
+    FontWeight->"Bold"],
+  "."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["algsol = Solve[algeq,LaplaceTransform[y[t],t,s]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Finally, we want the inverse Laplace transform of this rule."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["?InverseLaplaceTransform"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "To obtain the solution ",
+  StyleBox["y",
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["t",
+    FontSlant->"Italic"],
+  "), we must apply the inverse Laplace transform to both sides of this rule. \
+One of the options for ",
+  StyleBox["Map",
+    FontWeight->"Bold"],
+  " accomplishes this task easily."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"sol = Map[InverseLaplaceTransform[#,s,t]&,algsol,{3}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "It is unfortunate that we are unable to obtain a pure function for ",
+  StyleBox["y",
+    FontSlant->"Italic"],
+  ", as we did from ",
+  StyleBox["DSolve",
+    FontWeight->"Bold"],
+  ". Therefore, we must help ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " check these solutions by computing the necessary derivatives explicitly."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"diffeq /. sol /. D[sol,t] /. D[sol,{t,2}] // Simplify"], "Input",
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[
+"7.2.1 Linear Differential Equations with Non-Constant Coefficients"], 
+  "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Certain differential equations with non-constant coefficients can be solved \
+with Laplace transforms."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Example 7.2.2",
+  FontWeight->"Bold",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Consider the following differential equation"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "                                                      ",
+  StyleBox["t y",
+    FontSlant->"Italic"],
+  "''(",
+  StyleBox["t",
+    FontSlant->"Italic"],
+  ") - ",
+  StyleBox["t y",
+    FontSlant->"Italic"],
+  "'(",
+  StyleBox["t",
+    FontSlant->"Italic"],
+  ") - ",
+  StyleBox["t",
+    FontSlant->"Italic"],
+  " = 0"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Solution:",
+  FontWeight->"Bold",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[s,t,y]\ndiffeq = t y''[t] - t y'[t] - t == 0;"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["newdiffeq = LaplaceTransform[diffeq,t,s]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Notice that  the terms ",
+  StyleBox["LaplaceTransform^(0,0,1)[y[t],t,s]",
+    FontWeight->"Bold"],
+  " represent the derivative of ",
+  StyleBox["LaplaceTransform[y[t],t,s]",
+    FontWeight->"Bold"],
+  " with respect to ",
+  StyleBox["s",
+    FontWeight->"Bold",
+    FontSlant->"Italic"],
+  ". Therefore, we have a first order differential equation for the Laplace \
+transform of ",
+  StyleBox["y",
+    FontSlant->"Italic"],
+  ". If we replace ",
+  StyleBox["LaplaceTransform[y[t],t,s]",
+    FontWeight->"Bold"],
+  " and its derivative with a simpler notation, we will see what has to be \
+done."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"altdiffeq = newdiffeq //.\n  LaplaceTransform[y[t],t,s] -> g[s] //.\n  \
+Derivative[0,0,1][LaplaceTransform][y[t],t,s] -> g'[s]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "We may now try to use ",
+  StyleBox["DSolve ",
+    FontWeight->"Bold"],
+  "to solve for ",
+  StyleBox["g",
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["s",
+    FontSlant->"Italic"],
+  ")."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["DSolve[altdiffeq,g[s],s]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Now, substituting ",
+  StyleBox["LaplaceTransform[y[t],t,s]",
+    FontWeight->"Bold"],
+  " for ",
+  StyleBox["g",
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["s",
+    FontSlant->"Italic"],
+  ")",
+  ", we are able to produce an algebraic equation representing the solution \
+of this problem in ",
+  StyleBox["s-space",
+    FontSlant->"Italic"],
+  "."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["algsol = % /. g[s] -> LaplaceTransform[y[t],t,s]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Finally, we apply the inverse Laplace transform, as before, and obtain"], 
+  "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"sol = Map[InverseLaplaceTransform[#,s,t]&,algsol,{3}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["and we check it as before."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"diffeq /. sol /. D[sol,t] /. D[sol,{t,2}] // Simplify"], "Input",
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["7.2.2 Systems of Linear Differential Equations"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The real power of the Laplace transform can be seen when it is applied to \
+systems of linear ordinary differential equations with constant coefficients. \
+"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Example 7.2.3",
+  FontWeight->"Bold",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Consider the following system of linear ordinary differential equations"], 
+  "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"                                                            x''(t) = k(y(t) \
+- 2x(t))\n                                                            y''(t) \
+= k(x(t) - 2y(t))"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Solution:",
+  FontWeight->"Bold",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[s,t,x,y]\nsys = {x''[t] == k (y[t] - 2 x[t]),\n\t   y''[t] == k (x[t] \
+- 2 y[t])};"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Currently, ",
+  StyleBox["DSolve ",
+    FontWeight->"Bold"],
+  "is unable to handle this system. Therefore, let's try Laplace transforms."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["algeq = LaplaceTransform[sys,t,s]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"algsol = Solve[algeq,\n\t\
+{LaplaceTransform[x[t],t,s],LaplaceTransform[y[t],t,s]}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"sol = Map[InverseLaplaceTransform[#,s,t]&,algsol,{3}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Pretty complicated, but we have success."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["7.2.3 Integral Equations"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Certain integral equations can be solved with Laplace transforms. "], "Text",\
+
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Example 7.2.4",
+  FontWeight->"Bold",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Consider the following example"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "                                                                           \
+ ",
+  StyleBox["x",
+    FontSlant->"Italic"],
+  "\n                                                          ",
+  StyleBox["y",
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["x",
+    FontSlant->"Italic"],
+  ") = 1 - ",
+  StyleBox["\[Integral]",
+    FontFamily->"Symbol",
+    FontSize->18],
+  StyleBox["0 ",
+    FontSize->9,
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  "(",
+  StyleBox["x - t",
+    FontSlant->"Italic"],
+  ")",
+  StyleBox[" y",
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["t",
+    FontSlant->"Italic"],
+  ") ",
+  StyleBox["dt",
+    FontSlant->"Italic"]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Solution:",
+  FontWeight->"Bold",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[s,t,x,y]\ninteq = y[x] == 1 - Integrate[(x - t) y[t],{t,0,x}]"], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"You must know enough of the theory of Laplace transforms to recognize that \
+the convolution theorem can be applied, here. Therefore, we may write"], 
+  "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"algeq = LaplaceTransform[y[x],x,s] == \n\t\tLaplaceTransform[1,x,s] - \n\t\t\
+LaplaceTransform[x,x,s] LaplaceTransform[y[x],x,s]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Next, we solve this equation for ",
+  StyleBox["LaplaceTransform[y[t],t,s]",
+    FontWeight->"Bold"],
+  "."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["algsol = Solve[algeq,LaplaceTransform[y[x],x,s]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "To obtain the solution ",
+  StyleBox["y",
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["x",
+    FontSlant->"Italic"],
+  "), we must apply the inverse Laplace transform to both sides of this rule. \
+One of the options for ",
+  StyleBox["Map",
+    FontWeight->"Bold"],
+  " accomplishes this task easily."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"sol = Map[InverseLaplaceTransform[#,s,x]&,algsol,{3}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Checking this solution requires a rule for ",
+  StyleBox["y",
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["x",
+    FontSlant->"Italic"],
+  ") and ",
+  StyleBox["y",
+    FontSlant->"Italic"],
+  "(",
+  StyleBox["t",
+    FontSlant->"Italic"],
+  ")",
+  ", so we make one \"on the fly.\""
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["inteq /. sol /. (sol/. x -> t) // Simplify"], "Input",
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Solve"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["y'''(t)+y''(t) + y'(t)",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox[" + y",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox["(t)",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox[" = t e",
+    FontSize->16,
+    FontWeight->"Bold"],
+  StyleBox["t ",
+    FontWeight->"Bold",
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  StyleBox[",  y(0) = 0 , y'(0) = 1 , y''(0) = 0",
+    FontWeight->"Bold",
+    FontVariations->{"CompatibilityType"->"Superscript"}]
+}], "Text",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell[TextData["using the Laplace transform and plot  the solution."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{"RulerBar", "EditBar"},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 240}, {Automatic, 41}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"NeXTAutomaticEncoding",
+StyleDefinitions -> "Classroom.nb"
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 136, 4, 50, "Title"],
+Cell[1870, 57, 128, 4, 50, "Title"],
+Cell[2001, 63, 84, 2, 50, "Title"],
+
+Cell[CellGroupData[{
+Cell[2110, 69, 83, 2, 55, "Section"],
+
+Cell[CellGroupData[{
+Cell[2218, 75, 92, 2, 45, "Subsection"],
+Cell[2313, 79, 232, 5, 42, "Text"],
+Cell[2548, 86, 90, 1, 44, "Input"],
+Cell[2641, 89, 124, 2, 26, "Text"],
+Cell[2768, 93, 70, 1, 44, "Input"],
+Cell[2841, 96, 266, 8, 42, "Text"],
+Cell[3110, 106, 190, 3, 80, "Input"],
+Cell[3303, 111, 202, 4, 42, "Text"],
+Cell[3508, 117, 137, 3, 70, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3682, 125, 137, 3, 70, "Subsection"],
+Cell[3822, 130, 333, 6, 70, "Text"],
+Cell[4158, 138, 142, 4, 70, "Text"],
+Cell[4303, 144, 98, 2, 70, "Text"],
+Cell[4404, 148, 354, 16, 70, "Text"],
+Cell[4761, 166, 138, 4, 70, "Text"],
+Cell[4902, 172, 122, 2, 70, "Text"],
+Cell[5027, 176, 149, 3, 70, "Input"],
+Cell[5179, 181, 242, 8, 70, "Text"],
+Cell[5424, 191, 89, 1, 70, "Input"],
+Cell[5516, 194, 314, 10, 70, "Text"],
+Cell[5833, 206, 79, 1, 70, "Input"],
+Cell[5915, 209, 186, 7, 70, "Text"],
+Cell[6104, 218, 101, 1, 70, "Input"],
+Cell[6208, 221, 135, 3, 70, "Text"],
+Cell[6346, 226, 77, 1, 70, "Input"],
+Cell[6426, 229, 380, 14, 70, "Text"],
+Cell[6809, 245, 107, 2, 70, "Input"],
+Cell[6919, 249, 421, 13, 70, "Text"],
+Cell[7343, 264, 107, 2, 70, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7487, 271, 150, 4, 70, "Subsection"],
+Cell[7640, 277, 177, 4, 70, "Text"],
+Cell[7820, 283, 142, 4, 70, "Text"],
+Cell[7965, 289, 118, 2, 70, "Text"],
+Cell[8086, 293, 395, 19, 70, "Text"],
+Cell[8484, 314, 138, 4, 70, "Text"],
+Cell[8625, 320, 104, 1, 70, "Input"],
+Cell[8732, 323, 93, 1, 70, "Input"],
+Cell[8828, 326, 676, 22, 70, "Text"],
+Cell[9507, 350, 181, 3, 70, "Input"],
+Cell[9691, 355, 267, 13, 30, "Text"],
+Cell[9961, 370, 77, 1, 24, "Input"],
+Cell[10041, 373, 428, 18, 46, "Text"],
+Cell[10472, 393, 101, 1, 24, "Input"],
+Cell[10576, 396, 148, 4, 30, "Text"],
+Cell[10727, 402, 107, 2, 24, "Input"],
+Cell[10837, 406, 100, 2, 30, "Text"],
+Cell[10940, 410, 107, 2, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[11084, 417, 126, 2, 43, "Subsection"],
+Cell[11213, 421, 231, 5, 46, "Text"],
+Cell[11447, 428, 142, 4, 30, "Text"],
+Cell[11592, 434, 149, 4, 30, "Text"],
+Cell[11744, 440, 249, 5, 46, "Text"],
+Cell[11996, 447, 138, 4, 30, "Text"],
+Cell[12137, 453, 143, 3, 48, "Input"],
+Cell[12283, 458, 217, 7, 30, "Text"],
+Cell[12503, 467, 86, 1, 24, "Input"],
+Cell[12592, 470, 137, 3, 48, "Input"],
+Cell[12732, 475, 107, 2, 24, "Input"],
+Cell[12842, 479, 114, 2, 30, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[12993, 486, 104, 2, 43, "Subsection"],
+Cell[13100, 490, 143, 4, 30, "Text"],
+Cell[13246, 496, 142, 4, 30, "Text"],
+Cell[13391, 502, 104, 2, 30, "Text"],
+Cell[13498, 506, 736, 32, 59, "Text"],
+Cell[14237, 540, 138, 4, 30, "Text"],
+Cell[14378, 546, 124, 3, 36, "Input"],
+Cell[14505, 551, 224, 5, 46, "Text"],
+Cell[14732, 558, 182, 3, 60, "Input"],
+Cell[14917, 563, 186, 7, 30, "Text"],
+Cell[15106, 572, 101, 1, 24, "Input"],
+Cell[15210, 575, 380, 14, 46, "Text"],
+Cell[15593, 591, 107, 2, 24, "Input"],
+Cell[15703, 595, 362, 17, 30, "Text"],
+Cell[16068, 614, 95, 1, 24, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[16212, 621, 75, 2, 35, "Section"],
+Cell[16290, 625, 79, 2, 26, "Text"],
+Cell[16372, 629, 600, 22, 34, "Text"],
+Cell[16975, 653, 125, 2, 26, "Text"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

@@ -1,0 +1,841 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     13165,        619]*)
+(*NotebookOutlinePosition[     14016,        649]*)
+(*  CellTagsIndexPosition[     13972,        645]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Lists"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Clear[\"Global`*\"]"], "Input",
+  PageWidth->Infinity],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Tutorial"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->24,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On NEXTSTEP:
+   /LocalLibrary/Mathematica/Notebooks/LinearAlgebra.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On Windows NT:
+   \\\\BIRD\\mathematica\\notebook\\LinearAl.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["List Definition", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell["Using { }", "Section",
+  Evaluatable->False],
+
+Cell["u={5,2,3}", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["v={{2,1,2},{a,b,c}}", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["{base,height} = {12,5}"], "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Iterators: Table, Range", "Section",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["Table[expr,{index,start,end,incr}]", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["table1 = Table[n^2,{n,1,5,2}]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["table2 = Table[Random[],{4}]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Range[imin,imax,di]", "Text",
+  Evaluatable->False,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["table3 = Range[-1,1,.2]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Chop[%]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Displaying Lists"], "Section",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->24,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["TableForm: rows and columns", "Section",
+  Evaluatable->False,
+  FontFamily->"Helvetica",
+  FontSize->16,
+  FontWeight->"Roman",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+TableForm[list]
+In the following example, each item is displayed in a row:\
+\>", "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+data={1,5,4,2,3};
+TableForm[data]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Here, there is only one item in the list, and it is displayed as a \
+single row.\
+\>", "Text",
+  Evaluatable->False],
+
+Cell["\<\
+data2={{1,5,4,2,3}};
+TableForm[data2]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Here are rows and columns.", "Text",
+  Evaluatable->False],
+
+Cell[TextData["pairs = {{1,a},{2,b},{3,c}}\nTableForm[pairs]"], "Input",
+  PageWidth->Infinity],
+
+Cell["TableForm[list,options]", "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+TableForm[data,
+  TableHeadings->{{\"M\",\"T\",\"W\",\"TH\",\"F\"},
+                  {\"Data\"}}]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+best=TableForm[data,
+  TableHeadings->{{\"M\",\"T\",\"W\",\"TH\",\"F\"},
+                  {\"Data\"}},
+  TableSpacing->{0,5}]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Printing the TableForm output changes the way it looks...", "Text",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["Print[best]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Pieces of a List", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell["Number of elements", "Section",
+  Evaluatable->False],
+
+Cell[TextData["u\nLength[u]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["v\nLength[v]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["flatv = Flatten[v]\nLength[Flatten[v]]"], "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Using [[ ]] or the element name", "Section",
+  Evaluatable->False,
+  FontFamily->"Helvetica",
+  FontSize->16],
+
+Cell["\<\
+u
+element = u[[1]]
+fromTheEnd = u[[-1]]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+v
+row2 = v[[2]]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+{row1,row2} = v
+row1
+row2\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["element = v[[2,3]]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["base*height"], "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part[ ]", "Section",
+  Evaluatable->False,
+  FontFamily->"Helvetica",
+  FontSize->16,
+  Background->GrayLevel[1]],
+
+Cell["v", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Part[v,2]
+v[[2]]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Part[v,2,1]
+v[[2,1]]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution rules", "Section",
+  Evaluatable->False,
+  FontFamily->"Helvetica",
+  FontSize->16,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+soln = NSolve[x^2 -3x -1 == 0, x]
+x1 = x /. soln[[1]]
+x2 = x /. soln[[2]]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["First, Last, Rest", "Section",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["The first element...", "Subsection",
+  Evaluatable->False],
+
+Cell["\<\
+w = {4, 2, -3, 6, 7}
+First[w]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["The last element..."], "Subsection",
+  Evaluatable->False],
+
+Cell[TextData["w\nLast[w]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["All except the first element..."], "Subsection",
+  Evaluatable->False],
+
+Cell[TextData["w\nallButFirst = Rest[w]"], "Input",
+  PageWidth->Infinity]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Take, Drop", "Section",
+  Evaluatable->False,
+  FontFamily->"Helvetica",
+  FontSize->16],
+
+Cell[TextData["Take the first 2..."], "Subsection",
+  Evaluatable->False],
+
+Cell[TextData["w\nTake[w,2]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["Take the last 3..."], "Subsection",
+  Evaluatable->False],
+
+Cell[TextData["w\nTake[w,-3]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["Take elements 2 through 4..."], "Subsection",
+  Evaluatable->False],
+
+Cell[TextData["w\nTake[w,{2,4}]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["Drop first 1..."], "Subsection",
+  Evaluatable->False],
+
+Cell[TextData["w\nDrop[w,1]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["Drop the last 2..."], "Subsection",
+  Evaluatable->False],
+
+Cell[TextData["w\nDrop[w,-2]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["Drop elements 2 through 4..."], "Subsection",
+  Evaluatable->False],
+
+Cell[TextData["w\nDrop[w,{2,4}]"], "Input",
+  PageWidth->Infinity]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Adding and Removing Elements", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell["Append & Prepend: do NOT change the list", "Section",
+  Evaluatable->False],
+
+Cell["x = {a, 4, 6}", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Append[x,b]
+Prepend[x,c]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["x", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["AppendTo & PrependTo: CHANGE the list", "Section",
+  Evaluatable->False,
+  Background->GrayLevel[1]],
+
+Cell["x = {a, 4, 6}", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+AppendTo[x,b]
+x\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+PrependTo[x,c]
+x\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Insert & Delete: do NOT change the list", "Section",
+  Evaluatable->False],
+
+Cell[TextData["x\nInsert[x,hello,2]\nx"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["x\nDelete[x,4]\nx"], "Input",
+  PageWidth->Infinity]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Combining Lists", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell["Join: concatenates contents of lists", "Section",
+  Evaluatable->False],
+
+Cell[TextData["r = {a, 1, 3}\ns = {{6,4}, a}\nJoin[r, s]"], "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Union: merges, removes duplicates, & sorts", "Section",
+  Evaluatable->False],
+
+Cell["\<\
+r = {a, 1, 3}
+s = {{6,4}, a }
+Union[r, s]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Intersection: intersects lists", "Section",
+  Evaluatable->False],
+
+Cell["\<\
+r = {a, 1, 3}
+s = {{6,4}, a }
+Intersection[r, s]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Rearranging Lists", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell["Reverse", "Section",
+  Evaluatable->False],
+
+Cell[TextData["x\nReverse[x]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["xx = {{4,3,a},b,1,{5,2}}\nReverse[xx]"], "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Sort: sorts only the first level elements", "Section",
+  Evaluatable->False],
+
+Cell[TextData["x\nSort[x]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["xx = {{4,3,a},b,1,{5,2}}\nSort[xx]"], "Input",
+  PageWidth->Infinity]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Transpose: swaps columns and rows", "Section",
+  Evaluatable->False],
+
+Cell[TextData["pairs = {{1,a},{2,b},{3,c}}\nTableForm[pairs]"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData["trans = Transpose[pairs]\nTableForm[trans]"], "Input",
+  PageWidth->Infinity]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Plotting Lists", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData["ListPlot[{y1,y2,...}] plots a list of values..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+dataList={1,4,3,5,6,-2,0,7};
+p3=ListPlot[dataList,
+     PlotStyle->{PointSize[.05],
+                 RGBColor[0,.5,1]}];\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["\n"], "Input",
+  PageWidth->Infinity],
+
+Cell[TextData[
+"ListPlot[{{x1,y1},{x2,y2},...}] plots a list of x-y coordinate pairs..."], 
+  "Text",
+  Evaluatable->False],
+
+Cell["\<\
+pairs={{2,5},{4,7},{6,1},{8,-2},{10,3}};
+TableForm[pairs,
+\tTableHeadings->{{},{\"X\",\"Y\"}}]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+ListPlot[pairs,
+PlotStyle->{PointSize[.1],
+                 RGBColor[1,0,0]}];\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 74}, {Automatic, 32}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 113, 3, 98, "Title"],
+Cell[2078, 65, 138, 4, 51, "Subtitle"],
+Cell[2219, 71, 69, 1, 24, "Input"],
+
+Cell[CellGroupData[{
+Cell[2313, 76, 201, 7, 57, "Section"],
+Cell[2517, 85, 191, 7, 46, "Text"],
+Cell[2711, 94, 185, 7, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2933, 106, 95, 3, 37, "Section"],
+
+Cell[CellGroupData[{
+Cell[3053, 113, 50, 1, 52, "Section"],
+Cell[3106, 116, 77, 2, 24, "Input"],
+Cell[3186, 120, 87, 2, 24, "Input"],
+Cell[3276, 124, 72, 1, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3385, 130, 92, 2, 52, "Section"],
+Cell[3480, 134, 123, 3, 30, "Text"],
+Cell[3606, 139, 97, 2, 24, "Input"],
+Cell[3706, 143, 96, 2, 24, "Input"],
+Cell[3805, 147, 108, 3, 30, "Text"],
+Cell[3916, 152, 91, 2, 24, "Input"],
+Cell[4010, 156, 75, 2, 24, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4134, 164, 183, 6, 37, "Section"],
+Cell[4320, 172, 162, 5, 52, "Section"],
+Cell[4485, 179, 148, 5, 46, "Text"],
+Cell[4636, 186, 109, 5, 36, "Input"],
+Cell[4748, 193, 126, 4, 30, "Text"],
+Cell[4877, 199, 113, 5, 36, "Input"],
+Cell[4993, 206, 64, 1, 30, "Text"],
+Cell[5060, 209, 95, 1, 36, "Input"],
+Cell[5158, 212, 89, 2, 30, "Text"],
+Cell[5250, 216, 174, 6, 48, "Input"],
+Cell[5427, 224, 202, 7, 60, "Input"],
+Cell[5632, 233, 123, 2, 30, "Text"],
+Cell[5758, 237, 79, 2, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5874, 244, 96, 3, 37, "Section"],
+
+Cell[CellGroupData[{
+Cell[5995, 251, 59, 1, 52, "Section"],
+Cell[6057, 254, 62, 1, 36, "Input"],
+Cell[6122, 257, 62, 1, 36, "Input"],
+Cell[6187, 260, 88, 1, 36, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6312, 266, 115, 3, 52, "Section"],
+Cell[6430, 271, 115, 6, 48, "Input"],
+Cell[6548, 279, 91, 5, 36, "Input"],
+Cell[6642, 286, 101, 6, 48, "Input"],
+Cell[6746, 294, 86, 2, 24, "Input"],
+Cell[6835, 298, 61, 1, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6933, 304, 119, 4, 52, "Section"],
+Cell[7055, 310, 69, 2, 24, "Input"],
+Cell[7127, 314, 92, 5, 36, "Input"],
+Cell[7222, 321, 96, 5, 36, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7355, 331, 126, 4, 52, "Section"],
+Cell[7484, 337, 149, 6, 48, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7670, 348, 86, 2, 52, "Section"],
+Cell[7759, 352, 64, 1, 43, "Subsection"],
+Cell[7826, 355, 105, 5, 36, "Input"],
+Cell[7934, 362, 73, 1, 43, "Subsection"],
+Cell[8010, 365, 60, 1, 36, "Input"],
+Cell[8073, 368, 85, 1, 43, "Subsection"],
+Cell[8161, 371, 74, 1, 36, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[8272, 377, 94, 3, 32, "Section"],
+Cell[8369, 382, 73, 1, 43, "Subsection"],
+Cell[8445, 385, 62, 1, 36, "Input"],
+Cell[8510, 388, 72, 1, 43, "Subsection"],
+Cell[8585, 391, 63, 1, 36, "Input"],
+Cell[8651, 394, 82, 1, 43, "Subsection"],
+Cell[8736, 397, 66, 1, 36, "Input"],
+Cell[8805, 400, 69, 1, 43, "Subsection"],
+Cell[8877, 403, 62, 1, 36, "Input"],
+Cell[8942, 406, 72, 1, 43, "Subsection"],
+Cell[9017, 409, 63, 1, 36, "Input"],
+Cell[9083, 412, 82, 1, 43, "Subsection"],
+Cell[9168, 415, 66, 1, 36, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9283, 422, 108, 3, 37, "Section"],
+
+Cell[CellGroupData[{
+Cell[9416, 429, 81, 1, 52, "Section"],
+Cell[9500, 432, 81, 2, 24, "Input"],
+Cell[9584, 436, 100, 5, 36, "Input"],
+Cell[9687, 443, 69, 2, 24, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9793, 450, 106, 2, 52, "Section"],
+Cell[9902, 454, 81, 2, 24, "Input"],
+Cell[9986, 458, 91, 5, 36, "Input"],
+Cell[10080, 465, 92, 5, 36, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10209, 475, 80, 1, 52, "Section"],
+Cell[10292, 478, 73, 1, 48, "Input"],
+Cell[10368, 481, 67, 1, 48, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[10484, 488, 95, 3, 37, "Section"],
+
+Cell[CellGroupData[{
+Cell[10604, 495, 77, 1, 52, "Section"],
+Cell[10684, 498, 91, 1, 48, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10812, 504, 83, 1, 52, "Section"],
+Cell[10898, 507, 117, 6, 48, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[11052, 518, 71, 1, 52, "Section"],
+Cell[11126, 521, 124, 6, 48, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[11299, 533, 97, 3, 37, "Section"],
+
+Cell[CellGroupData[{
+Cell[11421, 540, 48, 1, 52, "Section"],
+Cell[11472, 543, 63, 1, 36, "Input"],
+Cell[11538, 546, 87, 1, 36, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[11662, 552, 82, 1, 52, "Section"],
+Cell[11747, 555, 60, 1, 36, "Input"],
+Cell[11810, 558, 84, 1, 36, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[11931, 564, 74, 1, 52, "Section"],
+Cell[12008, 567, 95, 1, 36, "Input"],
+Cell[12106, 570, 92, 1, 36, "Input"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[12247, 577, 94, 3, 37, "Section"],
+Cell[12344, 582, 95, 1, 30, "Text"],
+Cell[12442, 585, 196, 7, 60, "Input"],
+Cell[12641, 594, 52, 1, 36, "Input"],
+Cell[12696, 597, 123, 3, 30, "Text"],
+Cell[12822, 602, 170, 6, 48, "Input"],
+Cell[12995, 610, 154, 6, 48, "Input"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

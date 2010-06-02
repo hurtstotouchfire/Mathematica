@@ -1,0 +1,855 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     15083,        675]*)
+(*NotebookOutlinePosition[     15968,        706]*)
+(*  CellTagsIndexPosition[     15924,        702]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData[" Matrices"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  FontFamily->"Arial",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorial", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+On NEXTSTEP:
+   /LocalLibrary/Mathematica/Notebooks/LinearAlgebra.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On Windows NT:
+   \\\\BIRD\\mathematica\\notebook\\LinearAl.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Matrix Definition", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["A matrix is defined as a list of lists  (list of vectors).", "Text",
+  Evaluatable->False],
+
+Cell["\<\
+m={{1,2,3},{4,3,2}}
+MatrixForm[m]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+n={{2,1},{-2,3},{3,0}}
+MatrixForm[n]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"Matrices are equal if corresponding elements are  equal."], "Text",
+  Evaluatable->False],
+
+Cell["{{1,2},{3,4}}=={{1,2},{3,4}}", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["The zero matrix has all elements zero."], "Text",
+  Evaluatable->False],
+
+Cell["MatrixForm[{{0,0,0},{0,0,0}}]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Elements of a Matrix", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData["The [i,j] element is in row i, column j."], "Text",
+  Evaluatable->False],
+
+Cell["MatrixForm[n]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["n[[3,1]]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Matrix Addition & Subtraction", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData["Element by element, same as for a vector."], "Text",
+  Evaluatable->False],
+
+Cell[TextData["In general..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+r={{a,b},{c,d}};
+s={{e,f},{g,h}};
+MatrixForm[r]
+MatrixForm[s]
+MatrixForm[r+s]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"But we cannot add matrices which do not have the same dimensions..."], "Text",\
+
+  Evaluatable->False],
+
+Cell["\<\
+m
+n
+m+n   (* Won't work *)\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Scalar Multiplication", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData["Element by element, same as for a vector."], "Text",
+  Evaluatable->False],
+
+Cell[TextData["In general..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+MatrixForm[2 r]
+MatrixForm[k r]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Example..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+MatrixForm[m]
+MatrixForm[2 m]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Matrix Multiplication (Inner Product)", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData[
+"If number of columns of the first matrix equals the number of rows of the \
+second matrix, the inner product is defined."], "Text",
+  Evaluatable->False],
+
+Cell[TextData["In general..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+MatrixForm[r]
+MatrixForm[s]
+MatrixForm[r.s] (* r times s *)\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[s.r] (* reverse order *)", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Examples..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+MatrixForm[m]
+MatrixForm[n]
+MatrixForm[m.n]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+MatrixForm[n]
+MatrixForm[m]
+MatrixForm[n.m]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+MatrixForm[r]
+MatrixForm[m]
+MatrixForm[r.m]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"If the columns and rows don't match properly, you will get an error."], 
+  "Text",
+  Evaluatable->False],
+
+Cell["\<\
+MatrixForm[m]
+MatrixForm[r]
+m.r     \t\t(* Sizes don't match! *)\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Transpose of a Matrix", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData[
+"Taking the transpose interchanges the rows and columns."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+MatrixForm[m]
+MatrixForm[Transpose[m]]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+m
+Transpose[m]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Square Matrices", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Examples..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[r]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[s]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Diagonal matrix..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+dia=DiagonalMatrix[{a,b,1,2}]
+MatrixForm[dia]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Identity matrix..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+ident=IdentityMatrix[4]
+MatrixForm[ident]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"Scalar matrix...has diagonal elements equal, is equivalent to a scalar times \
+the identity matrix."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+smat={{3,0},{0,3}};
+MatrixForm[smat]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[smat.r]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["smat.r==3.r", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Inverse of a Square Matrix", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Example..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["mat={{1,-2},{2,-1}}", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["inv=Inverse[mat]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[ mat.inv ]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["In general, for a 2 x 2..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[r]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[Inverse[r]]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Denominator is the \"determinant\" of r..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["Det[r]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["If determinant is zero, matrix is not invertible..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+non={{1,2},{2,4}};
+MatrixForm[non]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Det[non]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Inverse[non]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Matrices and Systems of Equations", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData["Consider a system of simultaneous equations..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+eq1=  x1 +  x2 - 3x3 ==  0;
+eq2= -x1 +       5x3 == 10;
+eq3= 2x1 - 4x2 +  x3 == -1;\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["Solve[{eq1,eq2,eq3}]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"Matrices and vectors are often used to represent a system of simultaneous \
+equations..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+Clear[x1,x2,x3];
+xVec={x1,x2,x3};
+Coeffs={{1,1,-3},{-1,0,5},{2,-4,1}};
+rhs={0,10,-1};
+TableForm[Coeffs.xVec]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["xSoln=Solve[Coeffs.xVec==rhs]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Replacement can give a vector of solution values..."], "Text",
+  Evaluatable->False],
+
+Cell["realX=xVec /. xSoln[[1]]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Column and Row Vectors vs. Lists", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24,
+  Background->GrayLevel[1]],
+
+Cell[TextData["A vector has been defined as a list..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["v={1,2,3}", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["In MatrixForm, Mathematica displays it as a column..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[v]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"But it will actually flip it to be a row or a column, whatever works.\nHere \
+v is used as a column..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["v", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[m]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[m.v]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Here v is used as a row..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["v", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[r]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[v.n]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"This way of defining a vector is not really a matrix.  For example, there is \
+no transpose..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["Transpose[v]  (* Won't work *)", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"If you want a true column vector or row vector (enforced as such), define as \
+a column or row matrix..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["rowVector={{1,2,3}}", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[rowVector]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["colVector={{1},{2},{3}}", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[colVector]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"Now the row/column orientation must match for multiplication with a \
+matrix..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MatrixForm[m]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["m.colVector", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["m.rowVector (* Won't work *)", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 85}, {Automatic, 24}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+StyleDefinitions -> "Default.nb"
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 233, 8, 97, "Title"],
+Cell[2198, 70, 138, 4, 51, "Subtitle"],
+
+Cell[CellGroupData[{
+Cell[2361, 78, 114, 4, 57, "Section"],
+Cell[2478, 84, 191, 7, 46, "Text"],
+Cell[2672, 93, 185, 7, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2894, 105, 97, 3, 37, "Section"],
+Cell[2994, 110, 96, 1, 30, "Text"],
+Cell[3093, 113, 109, 5, 36, "Input"],
+Cell[3205, 120, 112, 5, 36, "Input"],
+Cell[3320, 127, 105, 2, 30, "Text"],
+Cell[3428, 131, 96, 2, 24, "Input"],
+Cell[3527, 135, 86, 1, 30, "Text"],
+Cell[3616, 138, 97, 2, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3750, 145, 100, 3, 37, "Section"],
+Cell[3853, 150, 88, 1, 30, "Text"],
+Cell[3944, 153, 81, 2, 24, "Input"],
+Cell[4028, 157, 76, 2, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4141, 164, 109, 3, 37, "Section"],
+Cell[4253, 169, 89, 1, 30, "Text"],
+Cell[4345, 172, 178, 6, 40, "Text"],
+Cell[4526, 180, 153, 8, 72, "Input"],
+Cell[4682, 190, 118, 3, 30, "Text"],
+Cell[4803, 195, 102, 6, 48, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4942, 206, 101, 3, 37, "Section"],
+Cell[5046, 211, 89, 1, 30, "Text"],
+Cell[5138, 214, 61, 1, 30, "Text"],
+Cell[5202, 217, 107, 5, 36, "Input"],
+Cell[5312, 224, 58, 1, 30, "Text"],
+Cell[5373, 227, 105, 5, 36, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5515, 237, 117, 3, 37, "Section"],
+Cell[5635, 242, 169, 3, 46, "Text"],
+Cell[5807, 247, 61, 1, 30, "Text"],
+Cell[5871, 250, 135, 6, 48, "Input"],
+Cell[6009, 258, 103, 2, 24, "Input"],
+Cell[6115, 262, 59, 1, 30, "Text"],
+Cell[6177, 265, 119, 6, 48, "Input"],
+Cell[6299, 273, 119, 6, 48, "Input"],
+Cell[6421, 281, 119, 6, 48, "Input"],
+Cell[6543, 289, 120, 3, 30, "Text"],
+Cell[6666, 294, 140, 6, 48, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6843, 305, 101, 3, 37, "Section"],
+Cell[6947, 310, 104, 2, 30, "Text"],
+Cell[7054, 314, 114, 5, 36, "Input"],
+Cell[7171, 321, 90, 5, 36, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7298, 331, 123, 4, 37, "Section"],
+Cell[7424, 337, 176, 6, 40, "Text"],
+Cell[7603, 345, 81, 2, 24, "Input"],
+Cell[7687, 349, 81, 2, 24, "Input"],
+Cell[7771, 353, 183, 6, 40, "Text"],
+Cell[7957, 361, 121, 5, 36, "Input"],
+Cell[8081, 368, 183, 6, 40, "Text"],
+Cell[8267, 376, 117, 5, 36, "Input"],
+Cell[8387, 383, 148, 3, 30, "Text"],
+Cell[8538, 388, 112, 5, 36, "Input"],
+Cell[8653, 395, 86, 2, 24, "Input"],
+Cell[8742, 399, 79, 2, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[8858, 406, 134, 4, 37, "Section"],
+Cell[8995, 412, 175, 6, 40, "Text"],
+Cell[9173, 420, 87, 2, 24, "Input"],
+Cell[9263, 424, 84, 2, 24, "Input"],
+Cell[9350, 428, 89, 2, 24, "Input"],
+Cell[9442, 432, 191, 6, 40, "Text"],
+Cell[9636, 440, 81, 2, 24, "Input"],
+Cell[9720, 444, 90, 2, 24, "Input"],
+Cell[9813, 448, 207, 6, 40, "Text"],
+Cell[10023, 456, 74, 2, 24, "Input"],
+Cell[10100, 460, 216, 6, 40, "Text"],
+Cell[10319, 468, 110, 5, 36, "Input"],
+Cell[10432, 475, 76, 2, 24, "Input"],
+Cell[10511, 479, 80, 2, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[10628, 486, 113, 3, 37, "Section"],
+Cell[10744, 491, 94, 1, 30, "Text"],
+Cell[10841, 494, 159, 6, 48, "Input"],
+Cell[11003, 502, 88, 2, 24, "Input"],
+Cell[11094, 506, 254, 8, 66, "Text"],
+Cell[11351, 516, 184, 8, 72, "Input"],
+Cell[11538, 526, 97, 2, 24, "Input"],
+Cell[11638, 530, 99, 1, 30, "Text"],
+Cell[11740, 533, 92, 2, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[11869, 540, 140, 4, 37, "Section"],
+Cell[12012, 546, 203, 6, 40, "Text"],
+Cell[12218, 554, 77, 2, 24, "Input"],
+Cell[12298, 558, 218, 6, 66, "Text"],
+Cell[12519, 566, 81, 2, 24, "Input"],
+Cell[12603, 570, 268, 8, 92, "Text"],
+Cell[12874, 580, 69, 2, 24, "Input"],
+Cell[12946, 584, 81, 2, 24, "Input"],
+Cell[13030, 588, 83, 2, 24, "Input"],
+Cell[13116, 592, 191, 6, 40, "Text"],
+Cell[13310, 600, 69, 2, 24, "Input"],
+Cell[13382, 604, 81, 2, 24, "Input"],
+Cell[13466, 608, 83, 2, 24, "Input"],
+Cell[13552, 612, 260, 8, 66, "Text"],
+Cell[13815, 622, 98, 2, 24, "Input"],
+Cell[13916, 626, 270, 8, 92, "Text"],
+Cell[14189, 636, 87, 2, 24, "Input"],
+Cell[14279, 640, 89, 2, 24, "Input"],
+Cell[14371, 644, 91, 2, 24, "Input"],
+Cell[14465, 648, 89, 2, 24, "Input"],
+Cell[14557, 652, 245, 8, 66, "Text"],
+Cell[14805, 662, 81, 2, 24, "Input"],
+Cell[14889, 666, 79, 2, 24, "Input"],
+Cell[14971, 670, 96, 2, 24, "Input"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

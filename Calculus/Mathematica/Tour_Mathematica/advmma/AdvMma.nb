@@ -1,0 +1,4562 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[    146126,       4017]*)
+(*NotebookOutlinePosition[    147070,       4052]*)
+(*  CellTagsIndexPosition[    147026,       4048]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[CellGroupData[{Cell[TextData[{
+  "\nAdvanced ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " \n "
+}], "Title",
+  CellFrame->True,
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell[TextData["by"], "Subsubtitle",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Michael J. Mezzino, Jr."], "Subtitle",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["University of Houston - Clear Lake\n"], "Subtitle",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Patterns"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Patterns Everyone Should Know"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x + y,a_ + b_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x - y,a_ - b_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x y,a_ b_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x/y,a_/b_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["FullForm[x/y]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x/y,a_ b_^(-1)]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[2/3,a_/b_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[2/3,a_ b_^(-1)]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[2/3,_Rational]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["FullForm[x/y]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["TreeForm[x + y^z]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[1 + 0,a_ + b_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[1 + 0,a_ + b_.]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Simple Expressions"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,x^2]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,x^_Integer]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,x^_Real]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,x^_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,x^y_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,_Symbol^2]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,_Symbol^_Integer]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,_^_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,_Power]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,_]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Sequence Matching"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,__]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,___]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[{a,b,c},__]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[{a,b,c},{___}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[{a,b,c},x__]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[{a,b,c},{x___}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["f[a,b,c,d,e] /. f[x__,y__] :> q /; Print[{x},{y}]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Conditional Pattern matching"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[{a,b,c},_?ListQ]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[{a,b,c},_?NumberQ]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[{a,b,c},_List?(Length[#] > 2&)]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[{a,b,c},_List?(Length[#] > 4&)]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,_^y_ /; EvenQ[y]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2,_^y_ /; OddQ[y]]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Subtleties"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Matching {a,b,c} with x_ is different from matching it with {x___}."], "Text",\
+
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[{1,2,3},x_ /; Length[x] > 4]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[{1,2,3},{x__} /; Length[x] > 4]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[{1,2,3},{x__} /; Plus[x] > 4]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[1 a,n_Integer x_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[1 a,(n_Integer:1) x_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[1 a,n_. x_]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Alternatives"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2, x^_Real | x^_Integer]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatchQ[x^2, x^(_Real | _Integer)]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Naming patterns"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["v[x:{{_,_}..}] := Transpose[x]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["v[{{1,2},{3,4}}]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Typical Uses"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"f[0] = f[1] = 1;\nf[n_Integer?Positive] := f[n] = f[n-1] + f[n-2]"], "Input",\
+
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["f[5]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+8
+
+
+
+\
+\>", "\<\
+8\
+\>"], "Output",
+  Evaluatable->False,
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["f[-2]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+f[-2]
+
+
+
+\
+\>", "\<\
+f[-2]\
+\>"], "Output",
+  Evaluatable->False,
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["f[1.]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+f[1.]
+
+
+
+\
+\>", "\<\
+f[1.]\
+\>"], "Output",
+  Evaluatable->False,
+  AspectRatioFixed->True]}, Open]]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Transformation Rules"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Making a Difference Table"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Generating the Data"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Take a list of {x,y} pairs and produce a list of pairs \napproximating the \
+first derivative at the midpoints."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontWeight->"Bold",
+  FontSlant->"Plain",
+  FontTracking->"Plain",
+  Background->GrayLevel[1],
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[
+"ls = Table[{Subscripted[x[i]],Subscripted[y[i]]},{i,1,5}]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Recursive Solution "], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[f]\nf[{a_}] := {}\nf[{a_,b_,c___}] := \n\t\
+Union[{Apply[{(#1+#3)/2,((#4-#2)/(#3-#1))}&,\n\tFlatten[{a,b}]]},f[{b,c}]]"], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["f[ls]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Replacement Solution"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[f]\nf[l_List] := \n  Module[{t={}},\n\tl //. {a_,b_,c___} /; Length[b] \
+> 1 :> \n\tRest[{AppendTo[t,Flatten[{Apply[\n\t\
+{(#1+#3)/2,((#4-#2)/(#3-#1))}&,Flatten[{a,b}]]}]],b,c}];\n\tt\n  ]"], "Input",\
+
+  AspectRatioFixed->True],
+
+Cell[TextData["f[ls]"], "Input",
+  AspectRatioFixed->True]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData[
+"Implementing a Generalized Chain Rule for Derivatives"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"dy[0] = f[u[t]];\ndy[1] = D[f[u[t]],t];\ndy[n_] := dy[n] = D[dy[n-1],t];"], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Table[D[y[t],{t,k}] /. \n\tD[y[t],{t,n_}] :> dy[n] /. y[t] -> dy[0],\n\t\
+{k,0,3}]//ColumnForm"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData[
+"Modeling a Noncommutative Algebra on the Set {a,b,c}"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"(This example is from \"Applied Mathematica\" by Shaw and Tigg, \
+Addison-Wesley)"], "SmallText",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Rule 1: aa = bb = cc = 1"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"opmult[x___,y_,y_,z___] := opmult[x,z]\nopmult[] = 1;"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Rule 2: ab - ba = c , ac - ca = b , bc - cb = a"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"commutator[a,b] = c;\ncommutator[b,c] = a;\ncommutator[a,c] = b;\n\
+commutator[x_,y_] := -commutator[y,x];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Rule 3: (-a)bc = a(-b)c = ab(-c) = -abc"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["opmult[x___,-y_,z___] := -opmult[x,y,z]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Rule 4: abcdbe = a(bc-cb)dbe + acbdbe"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"opmult[u___,x_,y_,v___,x_,z___] := \n\topmult[u,commutator[x,y],v,x,z] + \
+opmult[u,y,x,v,x,z]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Formatting the Output"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Format[opmult[x_]] := x\nFormat[opmult[x___]] := HoldForm[Times[x]]"], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["A Calculation"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["opmult[a,b,c,b,c,c,a,b,c,a,b]"], "Input",
+  AspectRatioFixed->True]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Modules and Variable Scoping"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Global vs Local Variables"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Here, x is a global variable."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["x = 3"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"However, when used as a formal parameter in the definition of a function, a \
+dummy variable is created and treated as a local variable. "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["f[x_] := x^2"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["f[3]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Similarly, when x is used as an iterator which is internal to a function, it \
+is considered a local variable."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Sum[x,{x,1,5}]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Variable Collision"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[x,i];\nsum5[x_] := Sum[x^(1/i),{i,1,5}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["sum5[x]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["sum5[i]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Note that the argument i collides with the internal coding of the function, \
+assuming a numerical value rather than maintaining its original symbolic \
+state. Module was created to solve this kind of problem."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["newsum5[x_] := Module[{i},Sum[x^(1/i),{i,1,5}]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["newsum5[i]"], "Input",
+  AspectRatioFixed->True]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Evaluation"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Some Common Mistakes"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["When Hold Must be Removed with Evaluate"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["a = Table[Sin[n x],{n,3}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[a,{x,0,Pi}];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Attributes[Plot]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[a//Evaluate,{x,0,Pi}];"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["When Hold Must Not be Removed with Evaluate"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["step[x_] := If[x < 0 , -1 , 1 , 0]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[step[x],{x,-1,1}];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[step[x]//Evaluate,{x,-1,1}];"], "Input",
+  AspectRatioFixed->True]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["When to Use Hold"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The following does not work because D[y[t],t] is evaluate prior to the \
+application of the rule."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["x[t] D[y[t],t] /. {x[t] -> t , y[t] -> t^2}"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"You must use Hold and then Release it to accomplish your task. Evaluate will \
+not work here! "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"ReleaseHold[Hold[x[t] D[y[t],t]] /. {x[t] -> t , y[t] -> t^2}]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["When to Use Literal"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The following does not work because Dt[y_,t] is evaluate prior to the \
+application of the rule."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Dt[f,t] + Dt[g,t] /. Dt[y_,t] -> Dt[y,r]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["You must use Literal to accomplish your task."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Dt[f,t] + Dt[g,t] /. Literal[Dt[y_,t]] -> Dt[y,r]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["When to SetDelayed (:=)"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The following delayed replacement is required because \"n\" is not defined \
+initially. "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["f[n_] := Plot[Sin[n x],{x,0,2Pi}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["f[2]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["When to Use RuleDelayed (:>)"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The following delayed replacement is required because \"n\" is not defined \
+initially. "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"dy[0] = Exp[u[t]];\ndy[1] = y[t] u'[t];\ndy[n_] := dy[n] = D[dy[n-1],t] /. \
+y'[t] -> y[t] u'[t];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["y'''[t] /. D[y[t],{t,n_}] :> dy[n]"], "Input",
+  AspectRatioFixed->True]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Structure of Graphics"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Display Form of a Graph"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"(This example is from \"Exploring Mathematics with Mathematica\" by Gray and \
+Glynn, Addison-Wesley)"], "SmallText",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["p = Plot[Sin[x],{x,0,2Pi}];"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Internal Form of a Graph"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Short[InputForm[p],5]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Getting the Points"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["pts = Nest[First[#]&,p,4];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Short[pts,2]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Adding Lines for Effect"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["newlines = Map[{Line[{{First[#],0.},#}]}&,pts];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Short[newlines,3]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Completing the New Graph"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Show[{p,Graphics[{Thickness[.0001],newlines}]}];"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Using Epilog"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"p1 = Plot[{x^2,-x^2},{x,-1,1},\n\t\
+PlotStyle->{{GrayLevel[0]},{GrayLevel[.8]}},\n\t\
+PlotRange->All,Axes->False];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"p2 = DensityPlot[x^2 y/(x^4 + y^2),{x,-1,1},{y,-1,1},\n\t\
+PlotPoints->100,Mesh->False,Epilog->p1[[1]]];"], "Input",
+  AspectRatioFixed->True]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Contexts and Packages"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Contexts and the Context Path"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"When you begin, you are in the Global` context and Mathematica's internal \
+functions are in the System' context. EVERY VARIABLE EXISTS IN SOME \
+CONTEXT!"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["x = 3;"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Context[x]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Global`x"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Context[Sin]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["System`Sin[Pi/4]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["$ContextPath"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["A Complete package"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"You may artifically change to another context, but this is normally done by \
+packages.  For example, consider the following complete package and note the \
+context and the search path through the contexts after each line is \
+executed."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["{$Context,$ContextPath}"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["BeginPackage[\"ConditionNumber`\"]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["{$Context,$ContextPath}"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"\nConditionNumber::usage = \"ConditionNumber[m]\ncomputes the condition \
+number of the matrix m.\""], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Context[ConditionNumber]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["\nBegin[\"`Private`\"]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["{$Context,$ContextPath}"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"\nConditionNumber[m_?MatrixQ] :=\n  Module[{v,d,u},\n    {v,d,u} = \
+SingularValues[N[m]];\n    Return[Max[N[d]]/Min[N[d]]]\n  ]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["  \nEnd[]  (* End of Private section *)"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["{$Context,$ContextPath}"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["EndPackage[]  (* End of Package *)"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["{$Context,$ContextPath}"], "Input",
+  AspectRatioFixed->True]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Reading Data from Files"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Finding the File"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Directory[]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Complement[FileNames[],FileNames[\".*\"]]//ColumnForm"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Reading the Data File into Mathematica  "], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"rawdata = ReadList[\"WellTests\",{{Word,Word},{Word,Word,Word},\n\t\t\t\
+Number,Number,Number},WordSeparators->{\" \",\"-\"}];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Short[rawdata,3]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Convert the Date Using a Mathematica Rule"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"dates = ToExpression[Map[First[Rest[#]]&,rawdata]] /. \n\t\t\t{{d_,m_,y_} -> \
+1.y + 1.m + (d-1)/300.};"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Short[dates,3]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData[
+"Construct a List of Ordered Pairs {{date1,rate1},{date2,rate2},...}"], 
+  "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["oilrate = Map[First[Rest[Rest[#]]]&,rawdata]/1000.;"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["oilvstime = N[Transpose[Join[{dates,oilrate}]]];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Short[oilvstime,3]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Select a Subset of the Data"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"tmp = Select[oilvstime,(First[#] >=88 && First[#] <=94)&];\nt0 = \
+First[First[tmp]];"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Perform a Linear Regression on the Data"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"linearfit[t_] = Fit[Map[{First[#],Log[Last[#]]}&,tmp],{1,t},t]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Plot the Results"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"BPRatePlot[oilvstime,{0,0},\"Well C-02 Oil Rate (from Well Tests)\"];"], 
+  "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Another Example"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"stream = OpenRead[\"mike.pxm\"];\n{id1,id2,width1,width2,width3,width4,\n\
+height1,height2,height3,height4,depth} = \nRead[stream,Table[Byte,{11}]];\n\
+Read[stream,Table[Byte,{14}]];\npicdata = ReadList[stream,Byte];\n\
+Close[stream];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"pic = Partition[picdata,width4];\nListDensityPlot[Reverse[pic],\n\t\
+Frame->False,Mesh->False,AspectRatio->Automatic];"], "Input",
+  AspectRatioFixed->True]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Formatting Output"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Global Commands"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"$Pre  = N[#]&;\n$Post = If[MatrixQ[#] , MatrixForm[#] , #]&;"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["{1,2}"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["{{1,2},{3,4}}"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["$Pre  =.\n$Post =. "], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Specific Formatting Commands"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Format[pow[x_,y_]] := HoldForm[x^y]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["pow[2,3]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Format[a[x__]] := Subscripted[a[x]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["a[2,3]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["newmult[x_,y_] := {x,y}"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Infix[newmult[x,y],\"@\"]"], "Input",
+  AspectRatioFixed->True]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["The Compile Function"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Using Compile"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["data = Table[Random[],{1000}];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["f[x_] := x^2/(x+x^3)"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Timing[Map[f,data];]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["g = Compile[x,x^2/(x+x^3)]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["?g"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Timing[Map[g,data];]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Options[NIntegrate]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Options[Plot]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["A More Interesting Example"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"mandelbrot = Compile[{x,y,n},\n\t\t\t\tModule[{z,ct=0},\n\t\t\t\t\tz = x + I \
+y;\n\t\t\t\t\tWhile[Abs[z] < 2.0 && ct <= n,\n\t\t\t\t\t\tz = z^2 + (x + I \
+y);\n\t\t\t\t\t\tct++\n\t\t\t\t\t];\n\t\t\t\t\tct\n\t\t\t\t]\n\t\t\t  ];"], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData[
+"DensityPlot[-mandelbrot[x,y,50],{x,-2.,1.},{y,-1.5,1.5},\n\tMesh -> \
+False,PlotPoints -> 200];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1 
+MathPictureStart
+%% DensityGraphics
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.660256 0.320513 0.5 0.320513 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+[ ] 0 setdash
+0 g
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+% Start of gray image
+p
+.01923 .01923 translate
+.96154 .96154 scale
+200 string
+200 200 8 [200 0 0 200 0 0] {
+\tcurrentfile
+\t1 index
+\treadhexstring
+\tpop
+}  Mimage
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0EBEB
+EBEBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBE1DC
+E6E6E6EBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBE6DCC3
+DCE1D7E1EBEBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBE6E1DC
+CDCDD2E1E6E6EBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F0F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBE6E6E6DC
+D7B9D7DCE1E6E6E6EBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F0
+F0F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBE6E6E6E1
+D7C3D2D7E1E6E6E6E6E6E6EBEBEBF0F0F0F0F0F0F0F0F0F0
+F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBE6E6E6E1
+D7C391B9DCE1E6E6E6E6E6E6E6EBEBF0F0F0F0F0F0F0F0F0
+F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBE6E6E6E1
+D7C800BED2DCE1E1E1E1E1DCD7E6EBF0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBE6E6E6E1
+DCC8B9B496D7DCDCE1E1DCD2D2E1E6EBF0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBE6E6E6E1
+DCD7D2C8BED2D7D7D2D2D2C8C8DCE6EBEBF0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBE6E6E6E1E1
+DCD7D7C850B4CDD2C8B45AB4D7E1E6E6EBEBF0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5FA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBE6E6E6E1E1
+DCDCD7CDC39BC3B99BC3B9D7E1E1E6E6EBEBEBF0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBE6E6E1E1E1
+DCDCD7D2C8B98CB4C8D2D7DCE1E1E6E6EBEBEBEBF0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBE6E6E1E1E1DC
+DCDCD2D2CDBE8CC3CDD2D7DCE1E1E6E6E6EBEBEBEBF0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFA
+FAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBE6E6E1E1E1E1DC
+DCD7D2CDC34B7DBECDD2D7DCE1E1E1E6E6EBEBEBEBEBF0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFA
+FAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBE6E6E1E1E1DCDC
+D7D2C3BEBE7391BEC8CDD7DCDCE1E1E6E6EBEBEBEBEBEBF0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFA
+FAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBE6E6E1E1DCD7D7D7
+D2AF87A0A05F73AFAAB4D7DCDCDCE1E6E6E6EBEBEBEBEBEB
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFA
+FAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBE6E6E1DCDCC8C8D2D2
+CDC3B4913200004682A5D2D7DCDCDCE1E6E6EBEBEBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFA
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0EBEBEBEBEBEBEBEBEBE6E6E6E1DCDCD7C88CC8C8
+C8BEA00000000050AAC3CDD2D2D7CDD7E6E6EBEBEBEBEBEB
+EBEBEBF0F0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAF5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0EBEBEBEBEBEBEBEBEBE6E6E6E6E1D2C3879B55B9BE
+8778A0820000003CAAB9C8CDC88CA0D7E1E6E6EBEBEBEBEB
+EBEBEBEBF0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAF5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0EBEBEBEBEBEBEBEBE6E6E6E6E6E1DCCD37B4B48CAFA5
+0000000000000000788CAAC3B4A5C8D7DCE1E6E6EBEBEBEB
+EBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAF5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+EBEBEBEBEBEBEBEBE6E6E6E6E6E6E1E1DCD7CDC8B92D4664
+00000000000000000000A5AFAA919BCDDCE1E6E6EBEBEBEB
+EBEBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAF5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EB
+EBEBEBEBEBEBE6E6E6E6E6E6E6E1E1E1DCD7D2CD5F960000
+00000000000000000000500023AABEC3DCE1E1E6E6EBEBEB
+EBEBEBEBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAF5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEB
+EBEBEBEBE6E6E6E6E6E6E6E6E1E1E1E1DCDCD2CDC3A56400
+00000000000000000000000082B4CDD7DCE1E1E6E6E6E6EB
+EBEBEBEBEBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAF5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEB
+EBEBE6E6E6E6E6E6E6E6E6E1E1E1E1DCDCDCD2BE14A50000
+000000000000000000000073AAC3CDD7DCE1E1E1E6E6E6E6
+EBEBEBEBEBEBEBEBEBEBEBEBF0F0F0F0F0F0F0F0F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAF5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEB
+E6E6E6E6E6E6E6E6E6E6E1E1E1E1E1DCDCD7D2871E7D0A00
+000000000000000000000000A573B4D7DCDCE1E1E1E6E6E6
+E6E6EBEBEBEBEBEBEBEBEBEBEBF0F0F0F0F0F0F0F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAF5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBE6E6
+E6E6E6E6E6E6E6E6E1E1E1E1E1E1DCDCDCD7CDBEAF050000
+0000000000000000000000001E91CDD7DCDCE1E1E1E1E6E6
+E6E6E6E6E6EBEBEBEBEBEBEBEBEBF0F0F0F0F0F0F0F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAF5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBE6E6E6E6
+E6E6E6E6E6E6E1E1E1E1E1E1E1DCDCDCD7D7D2C8B98C0000
+00000000000000000000004B9BC3CDD7DCDCDCDCE1E1E1E6
+E6E6E6E6E6E6E6E6E6E6EBEBEBEBEBF0F0F0F0F0F0F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBE6E6E1E1E1
+E1E1E1E1E1E1E1E1E1E1E1E1DCDCD7D7D7D2D2CDA0190000
+00000000000000000000002300C8CDD2D7DCDCDCDCE1E1E1
+E6E6E6E6E6E6E6E6E6E6E6E6E6E6EBEBF0F0F0F0F0F0F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBE6E1E1E1E1DC
+DCD7C3D7DCDCDCDCDCDCDCDCD7D7D7D7D2D2CDC8C3B45500
+000000000000000000000091B9C8CDD2D7D7D7D7D7DCDCE1
+E1E1E6E6E6E6E6E6E6E6E1E1C8E1E6EBEBF0F0F0F0F0F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBE6E6E1B4B9CDD7D7
+D2C873A5D7DCDCDCDCD7D2CDCDC8D2D2D2CDC8C8C3B9A500
+0000000000000000000028AABEC3C8CDD2D2D7D7D2C869D7
+DCE1E1E1E1E6E6E1E1E1E1DCD2D2AFE6EBEBF0F0F0F0F0F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBE6E6E6E1D2B9B9C8AF
+C3AA82CDD2D7D7D7D7D2CD008C9BC8C8B9BEBEBEB9B4AA96
+00000000000000000064A0AFB9BEC3C378C8CDCDC8BEB4CD
+D7DCDCE1E1E1E1E1E1E1DCDCD2AAD2E6E6EBEBF0F0F0F0F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0EBEBEBEBEBEBEBEBEBEBE6E6E6E1E1D7D2B423A5
+A082B9C8CDD2D7D7D2D2B98C0000B4BE9B00AA8C4B009182
+78550000000000056482919B6E0073B40573C3C8B44600AA
+D2D7DCDCDCE1E1E1E1DCDCD7B9C8D7E1E6E6EBF0F0F0F0F0
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0EBEBEBEBEBEBEBEBEBEBEBE6E6E6E6E1E1DCD2C8AF7D
+87AAB9BEBE69CDCDCDC80091000000AA7D004B0000000000
+000000000000000000000000000000780078B4B47800004B
+AFD7D7DCDCDCDCDCD7D7D7CD96BED7E1E1E6EBEBF0F0F0F0
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0EB
+EBEBEBEBEBEBEBEBEBEBEBEBE6E6E6E6E6E1E1D796AF8CA0
+008750AA460073C8C8C3B900000000000500000000000000
+00000000000000000000000000000000007300A000005AAF
+C8D2D7D7D7CDC8C8D2D2D2CDBEAFD2D7D7E6EBEBEBF0F0F0
+F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEB
+EBEBEBEBEBEBEBEBEBEBEBE6E6E6E6E6E1E1E1D7B4AAB9AA
+78000041000FAFBEBEAAAA91000000000000000000000000
+0000000000000000000000000000000000000000000000A5
+C3CDD2D2D2C8785078C8CDC3AAAAC3C3B4E1EBEBEBF0F0F0
+F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEB
+EBEBEBEBEBEBEBEBEBEBE6E6E6E6E6E6E1E1E1D7D2CDC3AF
+78000000000000B4AA0A0000000000000000000000000000
+0000000000000000000000000000000000000000000082AA
+058CC8CDC8C3A537AAB9A5B4AF91AACDD7E1EBEBEBEBF0F0
+F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEB
+EBEBEBEBEBEBEBEBEBE6E6E6E6E6E6E6E1E1DCD7D7CDB9A5
+14000000000000A0004B0000000000000000000000000000
+00000000000000000000000000000000000000000000004B
+0037B9C3AF377D000091001900AAAFD2DCE1E6EBEBEBF0F0
+F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEB
+EBEBEBEBEBEBEBEBE6E6E6E6E6E6E6E1E1E1DCD7D7D2B900
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+008269B4A500000000000000A5BE5AB4DCE6E6EBEBEBF0F0
+F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBEB
+EBEBEBEBEBEBEBE6E6E6E6E6E6E6E6E1E1DCDCD7D7D2B987
+000000000000230000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000A05000000000000000A5CDD2D7E1E6E6EBEBEBEBF0
+F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBEBEB
+EBEBEBEBEBEBE6E6E6E6E6E6E6E6E1E1DCDCDCD7D2CDC8B9
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000006E00000000000000BECDD7DCE1E6E6EBEBEBEBF0
+F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0
+F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEB
+EBEBEBEBEBE6E6E6E6E6E6E6E6E1E1DCDCDCD7D2D2CDC8BE
+AF9600320000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000000003C91DCE1E1E6E6EBEBEBEBF0
+F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0
+F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEB
+EBEBEBEBE6E6E6E6E6E6E6E6E6E1DCDCD7D2CDCDCDC8C3AF
+A58C00000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000416491CDDCE1E1E6E6EBEBEBEBEB
+F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0
+F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEB
+EBEBEBE6E6E6E6E6E6E6E6E6E1E1D7D7D2AFA0C3C3BE0000
+780000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000502DB9CDD7DCE1E1E6E6E6EBEBEBEB
+F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5FAFAFAFAFAFAFA
+FFFFFFFFFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0
+EBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEB
+EBE6E6E6E6E6E6E6E6E6E1E1E1DCB4C3AF5A8CB4B9B40000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000096AFBECDD2D7DCE1E1E6E6E6EBEBEBEB
+F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5FAFAFAFAFAFAFA
+FFFFFFFFFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0EBEB
+EBE6E6E6E6E6E6E6EBEBEBEBEBEBEBEBEBEBEBEBEBEBEBE6
+E6E6E6E6E6E6E6E6E6E1E1E1DCD7C8A528733C0000A55F00
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000050AABEC8D2D7DCE1E1E1E6E6EBEBEBEB
+F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5FAFAFAFAFAFAFA
+FFFFFFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0EBEBE1
+E1E6E6E6E6E6E6E6E6E6E6E6EBEBEBEBEBEBEBEBE6E6E6E6
+E6E6E6E6E6E6E6E1E1E1E1DCDCD7C88700370000007D0000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000006EC3B4D7DCDCE1E1E6E6E6EBEBEB
+F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5FAFAFAFAFAFA
+FFFFFFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0EBEBE6E1D7
+D7DCE1E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6
+E6E6E6E6E1E1E1E1E1E1DCDCDCD7D2C3A07D0000001E0000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000969600CDD7DCDCE1E1E6E6EBEBEB
+F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5FAFAFAFAFAFA
+FFFFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBE6E1DC
+A0CDA0DCE1E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E1
+E1E1E1E1E1E1E1E1E1E1DCDCDCD7D2C8BE00000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000CDD2D7DCDCD7E1E6EBEBEB
+F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5FAFAFAFAFA
+FFFFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBE6E6E1DC
+D7C8C8DCDCE1E1E1E1E1E1E1E1E1E1E1E1DCE1E1E1E1E1E1
+E1E1E1E1E1E1E1E1E1DCDCDCD7D2D2C8BEAF005500000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000078B4C8CDD2D7D7CDC8E1E6EBEB
+F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5FAFAFAFAFA
+FFFFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBE6E6E6E6DC
+DCAAC3DCDCDCE1E1E1E1E1E1E1E1DCDC96D2DCDCE1E1E1E1
+E1E1E1E1E1E1E1E1DCDCDCDCD7D2BE73B9A57D0000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000BEB9BECDCD9B91E1E6EBEB
+F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5FAFAFAFAFA
+FFFFFFFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBE6E6E6E6DC
+D2B9C8D2DCDCDCE1E1E1E1E1DCDCDCD2C873D2DCDCDCE1E1
+E1E1E1E1E1E1DCDCDCDCDCD7D2C8A591A58C000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000969164BEBE87D2DCE6EBEB
+EBF0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5FAFAFAFA
+FFFFFFFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBE6E6E6E6C8
+82A0C3D2D7D7D7D7DCDCDCDCDCDCD7BE9BC8D2D7D7DCDCDC
+E1E1E1E1DCDCDCDCDCDCD7D7C80000000064000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000000000000000064AAA5C8D7E6EBEB
+EBF0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5FAFAFAFA
+FFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBE6E6E6E6E1DC
+D2B9B4C8CDD2D7D2C8D2D7D7D7D7D2AAB4C3CDD2D7D7D7D7
+DCDCDCDCDCDCDCDCD7D7D7D2CD5000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000000000003C00CDDCE6EBEB
+EBF0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5FAFAFAFA
+FFFFFAF5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBE6E6E6E6E1DC
+DCC3AABEB9B9C3C8AAC8D2D7D7D2CDC88C5F6496CDD2D2CD
+C8D2D7D7D7D7D7D7D7D7D2D2CDC3AF000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000000000A0B9BED2E1E6EBEB
+EBF0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5FAFAFA
+FFFFFAF5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBE6E6E6E6E1DC
+DCD2CDC3BEAA87B487B4C3BECDCDCDC3B9A5000069CDC878
+6ED2D2D7D7D7D7D7D7D2D2D2C8A5A0000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000004B417300CDD7E1E1E6EBEB
+EBF0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5FAFAFA
+FFFFFAF5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBE6E6E6E1E1DC
+DCD7D2CDC8B49B5A8773AAB9C3C8C3C3B4A57D64AAC3B94B
+B9CDCDD2D7D7D7D2D2D2D2CD643C00000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000000000000A0C3CDD7DCE1E6E6EBEB
+EBF0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5FAFAFA
+FFFFFAF5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBE6E6E6E1E1E1E1
+DCD7D7D2CDBEB496006E4632B9AAAFB4554100003CB4AFA5
+37B9C8C8CDD2D2D2D2D2CDC89B3200000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000009B64D2D7DCE1E6E6EBEB
+EBF0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5FAFAFA
+FFFFF5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBE6E6E6E1E1E1E1
+DCD7D7D2C8C3AF8700000046AAA55000910000007D64963C
+0F19B496C3CDCDCDCDCDC8C8B99B5A000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000B4D2D7DCE1E6E6EBEB
+EBF0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5FAFA
+FFFFF5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBE6E6E1E1E1E1E1
+DCD7D7D278B96E050000000091000A000000000000000000
+008CA06EB4C3CDCDCDC8C8C37D0000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000B9C8CD96E1E6E6EBEB
+EBF0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5FAFA
+FFFAF5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBE6E6E1E1E1E1E1DC
+D7D7D7CDB9A5A01900000000000000000000000000000000
+00006400008CBEC3C8C8C3B90A0000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000006E1E3CB98CDCE6E6EBEB
+EBF0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5FAFA
+FFFAF5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBEBE6E6E1E1E1E1E1DC
+D7D2D2CDC3B9738200000000000000000000000000000000
+000000005F73B4BEC3C3BEB9000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000CDE1E6EBEBEB
+EBF0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5FAFA
+FFFAF5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0EBEBEBEBEBEBEBEBEBEBEBEBEBEBE6E6E1E1E1E1E1DCD7
+D2CDCDC8C3B4A5914B000000000000000000000000000000
+0000000000009696B9BEB9AF000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000004173D2E1E6EBEBEB
+EBF0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5FAFA
+FFF5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+EBEBEBEBEBEBEBEBEBEBEBEBEBEBE6E6E1E1E1E1DCDCD7D2
+1EC3C3A0AFA0001E00000000000000000000000000000000
+0000000000000000B4B9B4AA140000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000BECDD7DCE1E6EBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EB
+EBEBEBEBEBEBEBEBEBEBEBEBE6E6E1DCDCDCDCDCDCD7D7D2
+C38C1E5A00871E0000000000000000000000000000000000
+000000000000005AA5AFAFA54B0000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000C8D2DCE1E6E6EBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEB
+EBEBEBEBEBEBEBEBEBEBE6E6E6E1CDD7DCDCDCD7D7D7D7D2
+C8C3A5690000000000000000000000000000000000000000
+00000000000000003CA5A59B000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000BEB4DCE1E6E6EBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEB
+EBEBEBEBEBEBE6E6E6E6E6E6E1DCD7AACDD2D7D7D7D7D2CD
+CDC3AF000000000000000000000000000000000000000000
+000000000000000000919B91000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000000091C3E1E1E6EBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEB
+EBE6E6E6E6E6E6E6E6E6E1E1E1DCD79BB9D2D2D2D2D2CDCD
+C3B49B820000000000000000000000000000000000000000
+000000000000000000009182000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000009164D7E1E6E6EBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBE6E6
+E6E6E6E6E6E6E6E6E1E1E1E1DCDCD7CD82C8CDCDC841C8C3
+BEAA0F000000000000000000000000000000000000000000
+000000000000000000007D69000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000009BC3D7DCE1E6E6EBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBE6E6E6E6
+E6E6E6E6E6E6E6E1E1E1E1E1DCDCD7D2C8730FC3BEA0B9BE
+B9AA7D000000000000000000000000000000000000000000
+000000000000000000005A5A000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000091DCE1E6E6E6EBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF0F0F0F0F0EBEBEBEBF0F0F0F0F0F0EBEBE6E6E6E6E6E6
+E6E6E6E6E6E1E1E1E1E1E1E1DCD7D7CDC8AF9BAAAF4BAAA0
+AFA000000000000000000000000000000000000000000000
+00000000000000000000002D000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000091C3D7DCE1E6E6E6EBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF0F0EBEBEBEBEBEBEBEBEBEBEBEBE6E1E1E1E6E6E6E6E6
+E6E6E6E6E1E1E1E1E1E1E1DCD7D7D7CDC3B9871978003737
+8C9123000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000055D2DCE1E1E6E6EBEBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF0EBEBEBEBEBEBE6E6E6E6E6E1E1D7DCE1E1E1E1E1E1E6
+E6E6E1E1E1DCDCE1DCDCD7D2D7D2C3C3C3AA910000000000
+007300000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000007DD2DCE1E1E6E6E6EBEBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFEBEBEBEBEBEBE6E6E6E6E6E1E1E1D7D2DCE1E1E1DCDCDC
+DCD7DCDCDCDCDCD7D7D2B4CDCDCDC39BAFA5000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000000CDD7DCE1E1E6E6E6EBEBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFEBEBEBEBEBE1E1E6E6E6E1E1E1DCD2BEAFD7D7DCDCDCD7
+D79BD7D7DCD7D7D7D7CDBEC3C3C3C3AF7373000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000032CDD7DCDCE1E1E6E6E6EBEBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFE6E1DCD7DCE1DCDCD2D7DCD7D2C88C00B4CDD2D2CDCDD2
+C8B4C8C8BEC8CDC8BE919187AFAFAA643700000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000BEC8D2D7DCDCE1E1E6E6E6EBEBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFE6E1DCD7DCE1DCDCD2D7DCD7D2C88C00B4CDD2D2CDCDD2
+C8B4C8C8BEC8CDC8BE919187AFAFAA643700000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000BEC8D2D7DCDCE1E1E6E6E6EBEBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFEBEBEBEBEBE1E1E6E6E6E1E1E1DCD2BEAFD7D7DCDCDCD7
+D79BD7D7DCD7D7D7D7CDBEC3C3C3C3AF7373000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000032CDD7DCDCE1E1E6E6E6EBEBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFEBEBEBEBEBEBE6E6E6E6E6E1E1E1D7D2DCE1E1E1DCDCDC
+DCD7DCDCDCDCDCD7D7D2B4CDCDCDC39BAFA5000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000000CDD7DCE1E1E6E6E6EBEBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF0EBEBEBEBEBEBE6E6E6E6E6E1E1D7DCE1E1E1E1E1E1E6
+E6E6E1E1E1DCDCE1DCDCD7D2D7D2C3C3C3AA910000000000
+007300000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000007DD2DCE1E1E6E6E6EBEBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF0F0EBEBEBEBEBEBEBEBEBEBEBEBE6E1E1E1E6E6E6E6E6
+E6E6E6E6E1E1E1E1E1E1E1DCD7D7D7CDC3B9871978003737
+8C9123000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000055D2DCE1E1E6E6EBEBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF0F0F0F0F0EBEBEBEBF0F0F0F0F0F0EBEBE6E6E6E6E6E6
+E6E6E6E6E6E1E1E1E1E1E1E1DCD7D7CDC8AF9BAAAF4BAAA0
+AFA000000000000000000000000000000000000000000000
+00000000000000000000002D000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000091C3D7DCE1E6E6E6EBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBE6E6E6E6
+E6E6E6E6E6E6E6E1E1E1E1E1DCDCD7D2C8730FC3BEA0B9BE
+B9AA7D000000000000000000000000000000000000000000
+000000000000000000005A5A000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000091DCE1E6E6E6EBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBE6E6
+E6E6E6E6E6E6E6E6E1E1E1E1DCDCD7CD82C8CDCDC841C8C3
+BEAA0F000000000000000000000000000000000000000000
+000000000000000000007D69000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000009BC3D7DCE1E6E6EBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEB
+EBE6E6E6E6E6E6E6E6E6E1E1E1DCD79BB9D2D2D2D2D2CDCD
+C3B49B820000000000000000000000000000000000000000
+000000000000000000009182000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000009164D7E1E6E6EBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEB
+EBEBEBEBEBEBE6E6E6E6E6E6E1DCD7AACDD2D7D7D7D7D2CD
+CDC3AF000000000000000000000000000000000000000000
+000000000000000000919B91000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000000091C3E1E1E6EBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEB
+EBEBEBEBEBEBEBEBEBEBE6E6E6E1CDD7DCDCDCD7D7D7D7D2
+C8C3A5690000000000000000000000000000000000000000
+00000000000000003CA5A59B000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000BEB4DCE1E6E6EBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EB
+EBEBEBEBEBEBEBEBEBEBEBEBE6E6E1DCDCDCDCDCDCD7D7D2
+C38C1E5A00871E0000000000000000000000000000000000
+000000000000005AA5AFAFA54B0000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000C8D2DCE1E6E6EBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFF5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+EBEBEBEBEBEBEBEBEBEBEBEBEBEBE6E6E1E1E1E1DCDCD7D2
+1EC3C3A0AFA0001E00000000000000000000000000000000
+0000000000000000B4B9B4AA140000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000BECDD7DCE1E6EBEBEB
+EBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FA
+FFFAF5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0EBEBEBEBEBEBEBEBEBEBEBEBEBEBE6E6E1E1E1E1E1DCD7
+D2CDCDC8C3B4A5914B000000000000000000000000000000
+0000000000009696B9BEB9AF000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000004173D2E1E6EBEBEB
+EBF0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5FAFA
+FFFAF5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBEBE6E6E1E1E1E1E1DC
+D7D2D2CDC3B9738200000000000000000000000000000000
+000000005F73B4BEC3C3BEB9000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000CDE1E6EBEBEB
+EBF0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5FAFA
+FFFAF5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBE6E6E1E1E1E1E1DC
+D7D7D7CDB9A5A01900000000000000000000000000000000
+00006400008CBEC3C8C8C3B90A0000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000006E1E3CB98CDCE6E6EBEB
+EBF0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5FAFA
+FFFFF5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBE6E6E1E1E1E1E1
+DCD7D7D278B96E050000000091000A000000000000000000
+008CA06EB4C3CDCDCDC8C8C37D0000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000B9C8CD96E1E6E6EBEB
+EBF0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5FAFA
+FFFFF5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBE6E6E6E1E1E1E1
+DCD7D7D2C8C3AF8700000046AAA55000910000007D64963C
+0F19B496C3CDCDCDCDCDC8C8B99B5A000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000B4D2D7DCE1E6E6EBEB
+EBF0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5FAFA
+FFFFFAF5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBE6E6E6E1E1E1E1
+DCD7D7D2CDBEB496006E4632B9AAAFB4554100003CB4AFA5
+37B9C8C8CDD2D2D2D2D2CDC89B3200000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000009B64D2D7DCE1E6E6EBEB
+EBF0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5FAFAFA
+FFFFFAF5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBE6E6E6E1E1DC
+DCD7D2CDC8B49B5A8773AAB9C3C8C3C3B4A57D64AAC3B94B
+B9CDCDD2D7D7D7D2D2D2D2CD643C00000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000000000000A0C3CDD7DCE1E6E6EBEB
+EBF0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5FAFAFA
+FFFFFAF5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBE6E6E6E6E1DC
+DCD2CDC3BEAA87B487B4C3BECDCDCDC3B9A5000069CDC878
+6ED2D2D7D7D7D7D7D7D2D2D2C8A5A0000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000004B417300CDD7E1E1E6EBEB
+EBF0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5FAFAFA
+FFFFFAF5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBE6E6E6E6E1DC
+DCC3AABEB9B9C3C8AAC8D2D7D7D2CDC88C5F6496CDD2D2CD
+C8D2D7D7D7D7D7D7D7D7D2D2CDC3AF000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000000000A0B9BED2E1E6EBEB
+EBF0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5FAFAFA
+FFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBE6E6E6E6E1DC
+D2B9B4C8CDD2D7D2C8D2D7D7D7D7D2AAB4C3CDD2D7D7D7D7
+DCDCDCDCDCDCDCDCD7D7D7D2CD5000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000000000003C00CDDCE6EBEB
+EBF0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5FAFAFAFA
+FFFFFFFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBE6E6E6E6C8
+82A0C3D2D7D7D7D7DCDCDCDCDCDCD7BE9BC8D2D7D7DCDCDC
+E1E1E1E1DCDCDCDCDCDCD7D7C80000000064000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000000000000000064AAA5C8D7E6EBEB
+EBF0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5FAFAFAFA
+FFFFFFFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBE6E6E6E6DC
+D2B9C8D2DCDCDCE1E1E1E1E1DCDCDCD2C873D2DCDCDCE1E1
+E1E1E1E1E1E1DCDCDCDCDCD7D2C8A591A58C000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000969164BEBE87D2DCE6EBEB
+EBF0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5FAFAFAFA
+FFFFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBE6E6E6E6DC
+DCAAC3DCDCDCE1E1E1E1E1E1E1E1DCDC96D2DCDCE1E1E1E1
+E1E1E1E1E1E1E1E1DCDCDCDCD7D2BE73B9A57D0000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000BEB9BECDCD9B91E1E6EBEB
+F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5FAFAFAFAFA
+FFFFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBE6E6E1DC
+D7C8C8DCDCE1E1E1E1E1E1E1E1E1E1E1E1DCE1E1E1E1E1E1
+E1E1E1E1E1E1E1E1E1DCDCDCD7D2D2C8BEAF005500000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000078B4C8CDD2D7D7CDC8E1E6EBEB
+F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5FAFAFAFAFA
+FFFFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBE6E1DC
+A0CDA0DCE1E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E1
+E1E1E1E1E1E1E1E1E1E1DCDCDCD7D2C8BE00000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000000000CDD2D7DCDCD7E1E6EBEBEB
+F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5FAFAFAFAFA
+FFFFFFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0EBEBE6E1D7
+D7DCE1E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6E6
+E6E6E6E6E1E1E1E1E1E1DCDCDCD7D2C3A07D0000001E0000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000969600CDD7DCDCE1E1E6E6EBEBEB
+F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5FAFAFAFAFAFA
+FFFFFFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0EBEBE1
+E1E6E6E6E6E6E6E6E6E6E6E6EBEBEBEBEBEBEBEBE6E6E6E6
+E6E6E6E6E6E6E6E1E1E1E1DCDCD7C88700370000007D0000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000006EC3B4D7DCDCE1E1E6E6E6EBEBEB
+F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5FAFAFAFAFAFA
+FFFFFFFFFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0EBEB
+EBE6E6E6E6E6E6E6EBEBEBEBEBEBEBEBEBEBEBEBEBEBEBE6
+E6E6E6E6E6E6E6E6E6E1E1E1DCD7C8A528733C0000A55F00
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000050AABEC8D2D7DCE1E1E1E6E6EBEBEBEB
+F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5FAFAFAFAFAFAFA
+FFFFFFFFFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0
+EBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEB
+EBE6E6E6E6E6E6E6E6E6E1E1E1DCB4C3AF5A8CB4B9B40000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000096AFBECDD2D7DCE1E1E6E6E6EBEBEBEB
+F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5FAFAFAFAFAFAFA
+FFFFFFFFFFFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0
+F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEB
+EBEBEBE6E6E6E6E6E6E6E6E6E1E1D7D7D2AFA0C3C3BE0000
+780000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000502DB9CDD7DCE1E1E6E6E6EBEBEBEB
+F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5FAFAFAFAFAFAFA
+FFFFFFFFFFFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0
+F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEB
+EBEBEBEBE6E6E6E6E6E6E6E6E6E1DCDCD7D2CDCDCDC8C3AF
+A58C00000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+00000000000000000000416491CDDCE1E1E6E6EBEBEBEBEB
+F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0
+F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEBEB
+EBEBEBEBEBE6E6E6E6E6E6E6E6E1E1DCDCDCD7D2D2CDC8BE
+AF9600320000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000000003C91DCE1E1E6E6EBEBEBEBF0
+F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBEBEBEB
+EBEBEBEBEBEBE6E6E6E6E6E6E6E6E1E1DCDCDCD7D2CDC8B9
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000006E00000000000000BECDD7DCE1E6E6EBEBEBEBF0
+F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEBEBEB
+EBEBEBEBEBEBEBE6E6E6E6E6E6E6E6E1E1DCDCD7D7D2B987
+000000000000230000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000A05000000000000000A5CDD2D7E1E6E6EBEBEBEBF0
+F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBEB
+EBEBEBEBEBEBEBEBE6E6E6E6E6E6E6E1E1E1DCD7D7D2B900
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+008269B4A500000000000000A5BE5AB4DCE6E6EBEBEBF0F0
+F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEB
+EBEBEBEBEBEBEBEBEBE6E6E6E6E6E6E6E1E1DCD7D7CDB9A5
+14000000000000A0004B0000000000000000000000000000
+00000000000000000000000000000000000000000000004B
+0037B9C3AF377D000091001900AAAFD2DCE1E6EBEBEBF0F0
+F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEB
+EBEBEBEBEBEBEBEBEBEBE6E6E6E6E6E6E1E1E1D7D2CDC3AF
+78000000000000B4AA0A0000000000000000000000000000
+0000000000000000000000000000000000000000000082AA
+058CC8CDC8C3A537AAB9A5B4AF91AACDD7E1EBEBEBEBF0F0
+F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEB
+EBEBEBEBEBEBEBEBEBEBEBE6E6E6E6E6E1E1E1D7B4AAB9AA
+78000041000FAFBEBEAAAA91000000000000000000000000
+0000000000000000000000000000000000000000000000A5
+C3CDD2D2D2C8785078C8CDC3AAAAC3C3B4E1EBEBEBF0F0F0
+F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0EB
+EBEBEBEBEBEBEBEBEBEBEBEBE6E6E6E6E6E1E1D796AF8CA0
+008750AA460073C8C8C3B900000000000500000000000000
+00000000000000000000000000000000007300A000005AAF
+C8D2D7D7D7CDC8C8D2D2D2CDBEAFD2D7D7E6EBEBEBF0F0F0
+F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0EBEBEBEBEBEBEBEBEBEBEBE6E6E6E6E1E1DCD2C8AF7D
+87AAB9BEBE69CDCDCDC80091000000AA7D004B0000000000
+000000000000000000000000000000780078B4B47800004B
+AFD7D7DCDCDCDCDCD7D7D7CD96BED7E1E1E6EBEBF0F0F0F0
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0EBEBEBEBEBEBEBEBEBEBE6E6E6E1E1D7D2B423A5
+A082B9C8CDD2D7D7D2D2B98C0000B4BE9B00AA8C4B009182
+78550000000000056482919B6E0073B40573C3C8B44600AA
+D2D7DCDCDCE1E1E1E1DCDCD7B9C8D7E1E6E6EBF0F0F0F0F0
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBE6E6E6E1D2B9B9C8AF
+C3AA82CDD2D7D7D7D7D2CD008C9BC8C8B9BEBEBEB9B4AA96
+00000000000000000064A0AFB9BEC3C378C8CDCDC8BEB4CD
+D7DCDCE1E1E1E1E1E1E1DCDCD2AAD2E6E6EBEBF0F0F0F0F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBE6E6E1B4B9CDD7D7
+D2C873A5D7DCDCDCDCD7D2CDCDC8D2D2D2CDC8C8C3B9A500
+0000000000000000000028AABEC3C8CDD2D2D7D7D2C869D7
+DCE1E1E1E1E6E6E1E1E1E1DCD2D2AFE6EBEBF0F0F0F0F0F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBE6E1E1E1E1DC
+DCD7C3D7DCDCDCDCDCDCDCDCD7D7D7D7D2D2CDC8C3B45500
+000000000000000000000091B9C8CDD2D7D7D7D7D7DCDCE1
+E1E1E6E6E6E6E6E6E6E6E1E1C8E1E6EBEBF0F0F0F0F0F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBE6E6E1E1E1
+E1E1E1E1E1E1E1E1E1E1E1E1DCDCD7D7D7D2D2CDA0190000
+00000000000000000000002300C8CDD2D7DCDCDCDCE1E1E1
+E6E6E6E6E6E6E6E6E6E6E6E6E6E6EBEBF0F0F0F0F0F0F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAF5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBE6E6E6E6
+E6E6E6E6E6E6E1E1E1E1E1E1E1DCDCDCD7D7D2C8B98C0000
+00000000000000000000004B9BC3CDD7DCDCDCDCE1E1E1E6
+E6E6E6E6E6E6E6E6E6E6EBEBEBEBEBF0F0F0F0F0F0F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAF5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBE6E6
+E6E6E6E6E6E6E6E6E1E1E1E1E1E1DCDCDCD7CDBEAF050000
+0000000000000000000000001E91CDD7DCDCE1E1E1E1E6E6
+E6E6E6E6E6EBEBEBEBEBEBEBEBEBF0F0F0F0F0F0F0F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAF5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEB
+E6E6E6E6E6E6E6E6E6E6E1E1E1E1E1DCDCD7D2871E7D0A00
+000000000000000000000000A573B4D7DCDCE1E1E1E6E6E6
+E6E6EBEBEBEBEBEBEBEBEBEBEBF0F0F0F0F0F0F0F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAF5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEB
+EBEBE6E6E6E6E6E6E6E6E6E1E1E1E1DCDCDCD2BE14A50000
+000000000000000000000073AAC3CDD7DCE1E1E1E6E6E6E6
+EBEBEBEBEBEBEBEBEBEBEBEBF0F0F0F0F0F0F0F0F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAF5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEB
+EBEBEBEBE6E6E6E6E6E6E6E6E1E1E1E1DCDCD2CDC3A56400
+00000000000000000000000082B4CDD7DCE1E1E6E6E6E6EB
+EBEBEBEBEBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAF5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EB
+EBEBEBEBEBEBE6E6E6E6E6E6E6E1E1E1DCD7D2CD5F960000
+00000000000000000000500023AABEC3DCE1E1E6E6EBEBEB
+EBEBEBEBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAF5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+EBEBEBEBEBEBEBEBE6E6E6E6E6E6E1E1DCD7CDC8B92D4664
+00000000000000000000A5AFAA919BCDDCE1E6E6EBEBEBEB
+EBEBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAF5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0EBEBEBEBEBEBEBEBE6E6E6E6E6E1DCCD37B4B48CAFA5
+0000000000000000788CAAC3B4A5C8D7DCE1E6E6EBEBEBEB
+EBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAF5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0EBEBEBEBEBEBEBEBEBE6E6E6E6E1D2C3879B55B9BE
+8778A0820000003CAAB9C8CDC88CA0D7E1E6E6EBEBEBEBEB
+EBEBEBEBF0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFA
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0EBEBEBEBEBEBEBEBEBE6E6E6E1DCDCD7C88CC8C8
+C8BEA00000000050AAC3CDD2D2D7CDD7E6E6EBEBEBEBEBEB
+EBEBEBF0F0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFA
+FAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBE6E6E1DCDCC8C8D2D2
+CDC3B4913200004682A5D2D7DCDCDCE1E6E6EBEBEBEBEBEB
+EBF0F0F0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFA
+FAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBE6E6E1E1DCD7D7D7
+D2AF87A0A05F73AFAAB4D7DCDCDCE1E6E6E6EBEBEBEBEBEB
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFA
+FAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBEBE6E6E1E1E1DCDC
+D7D2C3BEBE7391BEC8CDD7DCDCE1E1E6E6EBEBEBEBEBEBF0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFA
+FAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBE6E6E1E1E1E1DC
+DCD7D2CDC34B7DBECDD2D7DCE1E1E1E6E6EBEBEBEBEBF0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBE6E6E1E1E1DC
+DCDCD2D2CDBE8CC3CDD2D7DCE1E1E6E6E6EBEBEBEBF0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBE6E6E1E1E1
+DCDCD7D2C8B98CB4C8D2D7DCE1E1E6E6EBEBEBEBF0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBEBE6E6E6E1E1
+DCDCD7CDC39BC3B99BC3B9D7E1E1E6E6EBEBEBF0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBE6E6E6E1E1
+DCD7D7C850B4CDD2C8B45AB4D7E1E6E6EBEBF0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5FA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBEBE6E6E6E1
+DCD7D2C8BED2D7D7D2D2D2C8C8DCE6EBEBF0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBEBE6E6E6E1
+DCC8B9B496D7DCDCE1E1DCD2D2E1E6EBF0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBE6E6E6E1
+D7C800BED2DCE1E1E1E1E1DCD7E6EBF0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBEBE6E6E6E1
+D7C391B9DCE1E6E6E6E6E6E6E6EBEBF0F0F0F0F0F0F0F0F0
+F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBEBE6E6E6E1
+D7C3D2D7E1E6E6E6E6E6E6EBEBEBF0F0F0F0F0F0F0F0F0F0
+F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBE6E6E6DC
+D7B9D7DCE1E6E6E6EBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F0
+F0F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBEBE6E1DC
+CDCDD2E1E6E6EBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F0F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBEBE6DCC3
+DCE1D7E1EBEBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0EBEBE1DC
+E6E6E6EBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0F0EBEB
+EBEBEBEBEBEBEBF0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F0F0F0F0F0F0F0
+F0F0F0F0F0F0F0F0F0F0F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAF5F5F5F5F5F5F5F5F5F5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5F5FAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF5F5F5F5
+F5F5F5F5F5F5F5F5F5F5F5F5FAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFA
+FAFAFAFAFAFAFAFA
+pop
+P
+% End of image
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  ImageSize->{281, 281},
+  ImageMargins->{{33, Inherited}, {Inherited, Inherited}},
+  ImageCacheValid->False]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["The Structure of a Compiled Function"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["The Complete List of Valid Operations"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Table[opCodes[[n]],{n,1,Length[opCodes]}]//ColumnForm"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["The Test Function"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["g = Compile[x,x^2/(4+Sin[x])]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["?g"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["A Disassembler for Compiled Functions"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Disassemble[g]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData[
+"Execution Sequence for Compile[x,x^2/(4+Sin[x])]"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1.04
+MathPictureStart
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0 1 0 1 [
+[ 14 87 0 0 ]
+[ 564 659 0 0 ]
+] MathScale
+% Start of Graphics
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: 
+%%Creator: Diagram
+%%CreationDate: Sat Aug 13 13:50:47 1994
+%%For: mezzino
+%%DocumentFonts: (atend)
+%%Pages: 0 0
+%%BoundingBox: 14 87 564 659
+%%NXNextStepVersion: 3.0
+%%EndComments
+
+%%BeginProcSet: /usr/lib/NextStep/printPackage.ps 3.0
+%!
+% NeXT Printing Package
+% Version: 3.1
+% Copyright: 1988, NeXT, Inc.
+
+/__NXdef{1 index where{pop pop pop}{def}ifelse}bind def
+/__NXbdef{1 index where{pop pop pop}{bind def}ifelse}bind def
+/UserObjects 10 array __NXdef
+/defineuserobject{
+\texch dup 1 add dup UserObjects length gt{
+\t\tarray dup 0 UserObjects putinterval
+\t\t/UserObjects exch def
+\t}{pop}ifelse UserObjects exch 3 -1 roll put
+}__NXbdef
+/undefineuserobject{UserObjects exch null put}__NXbdef
+/execuserobject{UserObjects exch get exec}__NXbdef
+/__NXRectPath{4 2 roll moveto 1 index 0 rlineto
+0 exch rlineto neg 0 rlineto closepath}__NXbdef
+/__NXProcessRectArgs{
+\t1 index type /arraytype eq{
+\t\texch 0 4 2 index length 1 sub{
+\t\t\tdup 3 add 1 exch{1 index exch get exch}for
+\t\t\t5 1 roll 5 index exec
+\t\t}for pop pop
+\t}{exec}ifelse
+}__NXbdef
+/rectfill{gsave newpath {__NXRectPath fill} __NXProcessRectArgs \
+grestore}__NXbdef
+/rectclip{newpath {__NXRectPath} __NXProcessRectArgs clip newpath}__NXbdef
+/rectstroke{
+\tgsave newpath dup type /arraytype eq{dup length 6 eq}{false}ifelse{
+\t\t{gsave __NXRectPath null concat stroke grestore}
+\t\tdup length array cvx copy dup 2 4 -1 roll put __NXProcessRectArgs
+\t}{{__NXRectPath stroke} __NXProcessRectArgs}ifelse grestore
+}__NXbdef
+/_NXLevel2 systemdict /languagelevel known {languagelevel 2 ge}{false}ifelse \
+__NXdef
+/xyshow{
+\t0 1 3 index length 1 sub{
+\t\tcurrentpoint 4 index 3 index 1 getinterval show
+\t\t3 index 3 index 2 mul 1 add get add exch
+\t\t3 index\t3 index 2 mul get add exch moveto pop
+\t}for pop pop
+}__NXbdef
+/xshow{
+\t0 1 3 index length 1 sub{
+\t\tcurrentpoint 4 index 3 index 1 getinterval show
+\t\texch 3 index 3 index get add exch moveto pop
+\t}for pop pop
+}__NXbdef
+/yshow{
+\t0 1 3 index length 1 sub{
+\t\tcurrentpoint 4 index 3 index 1 getinterval show
+\t\t3 index 3 index get add moveto pop
+\t}for pop pop
+}__NXbdef
+/arct{arcto pop pop pop pop}__NXbdef
+/setbbox{pop pop pop pop}__NXbdef
+/ucache{}__NXbdef
+/ucachestatus{mark 0 0 0 0 0}__NXbdef
+/setucacheparams{cleartomark}__NXbdef
+/uappend{systemdict begin cvx exec end}__NXbdef
+/ueofill{gsave newpath uappend eofill grestore}__NXbdef
+/ufill{gsave newpath uappend fill grestore}__NXbdef
+/ustroke{
+\tgsave newpath dup length 6 eq
+\t{exch uappend concat}{uappend}ifelse
+\tstroke grestore
+}__NXbdef
+/__NXustrokepathMatrix dup where {pop pop}{matrix def}ifelse
+/ustrokepath{
+\tnewpath dup length 6 eq{
+\t\texch uappend __NXustrokepathMatrix currentmatrix exch concat
+\t\tstrokepath setmatrix
+\t}{uappend strokepath}ifelse
+} __NXbdef
+/upath{
+\t[exch {/ucache cvx}if pathbbox /setbbox cvx
+\t {/moveto cvx}{/lineto cvx}{/curveto cvx}{/closepath cvx}pathforall]cvx
+} __NXbdef
+/setstrokeadjust{pop}__NXbdef
+/currentstrokeadjust{false}__NXbdef
+/selectfont{exch findfont exch
+dup type /arraytype eq {makefont}{scalefont}ifelse setfont}__NXbdef
+/_NXCombineArrays{
+\tcounttomark dup 2 add index dup length 3 -1 roll {
+\t\t2 index length sub dup 4 1 roll 1 index exch 4 -1 roll putinterval exch
+\t}repeat pop pop pop
+}__NXbdef
+/flushgraphics{}def
+/setwindowtype{pop pop}def
+/currentwindowtype{pop 0}def
+/setalpha{pop}def
+/currentalpha{1.0}def
+/hidecursor{}def
+/obscurecursor{}def
+/revealcursor{}def
+/setcursor{4 {pop}repeat}bind def
+/showcursor{}def
+/NextStepEncoding where not{
+/NextStepEncoding StandardEncoding 256 array copy def
+0 [129/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/Ccedilla/Egrave
+/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/mu/multiply/divide/copyright
+176/registered 181/brokenbar 190/logicalnot 192/onesuperior 201/twosuperior
+204/threesuperior 209/plusminus/onequarter/onehalf/threequarters/agrave
+/aacute/acircumflex/atilde/adieresis/aring/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave 226/iacute 228/icircumflex/idieresis/eth
+/ntilde 236/ograve/oacute/ocircumflex/otilde/odieresis 242/ugrave/uacute
+/ucircumflex 246/udieresis/yacute 252/thorn/ydieresis]
+{dup type /nametype eq
+ {NextStepEncoding 2 index 2 index put pop 1 add}{exch pop}ifelse
+}forall pop
+/NextStepEncoding NextStepEncoding readonly def
+/_NXfstr 128 string dup 0 (_NX) putinterval def
+/_NXfindfont /findfont load def
+/findfont{
+ % Because we can never let NextStepEncoding get into
+ % SharedFontDirectory, we cannot reencode a font to NextStepEncoding
+ % if we are in shared mode.  So if currentshared is true,
+ % we call the normal findfont and return that
+ /currentshared where {pop currentshared} {false} ifelse
+ {_NXfindfont}
+ {dup _NXfstr 3 125 getinterval cvs length 3 add _NXfstr 0 3 -1 roll
+  getinterval cvn exch FontDirectory 2 index known 
+  {pop FontDirectory exch get}
+  {_NXfindfont dup /Encoding get StandardEncoding eq
+   {\tdup length dict exch
+\t{1 index /FID ne {2 index 3 1 roll put}{pop pop}ifelse}forall
+\t dup /Encoding NextStepEncoding put definefont
+\t}{exch pop} ifelse
+   }ifelse
+ }ifelse
+}bind def
+}{pop}ifelse
+/_NXImageString {/__NXImageString where{pop}{/__NXImageString 4000 string \
+__NXdef}ifelse __NXImageString}__NXbdef
+/_NXDoImageOp{
+\t3 dict begin /parr 5 array def 1 index{dup}{1}ifelse /chans exch def
+\tchans 2 add 2 roll parr 0 chans getinterval astore pop
+\t5 index 4 index mul 2 index{1 sub 8 idiv 1 add mul}{mul 1 sub 8 idiv 1 \
+add}ifelse
+\t4 index mul /totbytes exch def pop exch pop
+\tgsave matrix invertmatrix concat 0.5 setgray 0 0 4 2 roll rectfill grestore
+\t{0 1 chans 1 sub{parr exch get exec length totbytes exch sub /totbytes exch \
+def}for totbytes 0 le{exit}if}loop end
+}__NXbdef
+/alphaimage{1 add _NXDoImageOp}def
+_NXLevel2{ 
+\t/NXCalibratedRGBColorSpace where{pop}{
+\t\t/NXCalibratedRGBColorSpace
+\t\t{mark /NXCalibratedRGB /ColorSpace findresource exch pop}stopped
+\t\t{cleartomark /NXCalibratedRGB[/CIEBasedABC 2 dict dup begin 
+\t\t/MatrixLMN[.4124 .2126 .0193 .3576 .7152 .1192 .1805 .0722 .9505]def
+\t\t/WhitePoint[.9505 1 1.089] def end] /ColorSpace defineresource}if \
+def}ifelse
+\t/nxsetrgbcolor{NXCalibratedRGBColorSpace setcolorspace setcolor}__NXbdef
+\t/nxsetgray{dup dup nxsetrgbcolor}__NXbdef
+\t/_NXCalibratedImage{exch{array astore dup length true}{false}ifelse
+\t\t8 -1 roll{NXCalibratedRGBColorSpace setcolorspace}if
+\t\t8 dict dup 9 1 roll begin /ImageType 1 def /MultipleDataSources exch def
+\t\tcurrentcolorspace 0 get /Indexed eq{pop /Decode[0 2 6 index exp 1 \
+sub]def}
+\t\t{2 mul dup array /Decode exch def 1 sub 0 1 3 -1 roll{Decode exch dup 2 \
+mod put}for}ifelse
+\t\t/DataSource exch def /ImageMatrix exch def 
+\t\t/BitsPerComponent exch def /Height exch def /Width exch def end \
+image}__NXbdef
+} {
+\t/setcmykcolor{
+\t\t1.0 exch sub dup dup 6 -1 roll sub dup 0 lt{pop 0}if 5 1 roll
+\t\t4 -1 roll sub dup 0 lt{pop 0}if 3 1 roll exch sub dup 0 lt{pop 0}if \
+setrgbcolor}__NXbdef
+\t/currentcmykcolor{currentrgbcolor 3{1.0 exch sub 3 1 roll}repeat 0}__NXbdef
+\t/colorimage{2 copy 3 ne or{_NXDoImageOp}{4 index dup 8 ne exch 4 ne \
+and{_NXDoImageOp}{
+\t\tpop pop save 6 1 roll 12 dict begin/Proc exch def/Res 0 string def
+\t\t/Alloc{2 index length mul 2 add dup 2 index load length gt{1.2 mul round \
+cvi string def}{pop pop}ifelse}def
+\t\t1 index 8 eq{/Unpack{.34 Alloc}def}{
+\t\t\t/Wid 4 index 3 mul def exch pop 8 exch/Str1 0 string def/Lim Wid def
+\t\t\t/Unpack{.67 Alloc/Str1 2 Alloc 0 exch Lim exch
+\t\t\t\t{dup -4 bitshift 17 mul Str1 exch 4 index exch put 15 and 17 mul Str1 \
+exch 3 index 1 add exch put
+\t\t\t\t2 sub dup 0 le{0 lt Wid exch{exch 1 sub exch}if}if exch 2 add exch
+\t\t\t\t}forall/Lim exch def Str1 exch 0 exch getinterval
+\t\t\t}def
+\t\t}ifelse
+\t\t/Ops[{.3 mul add 1}{.59 mul add 2}{.11 mul add round cvi Res exch 2 index \
+exch put 1 add 0.0 0}]def/Val 0.0 def/Phase 0 def
+\t\t{0 Val Phase Proc/Res Unpack{exch Ops exch get exec}forall/Phase exch \
+def/Val exch def Res exch 0 exch getinterval}
+\t\timage end restore}ifelse}ifelse
+\t}__NXbdef
+\t/nxsetrgbcolor{setrgbcolor}__NXbdef /nxsetgray{setgray}__NXbdef
+\t/setpattern{pop .5 setgray}__NXbdef
+\t/_NXCalibratedImage{dup 1 eq {pop pop image}{colorimage}ifelse pop}__NXbdef
+} ifelse
+/_NXSetCMYKOrRGB where{pop}{
+\tmark{systemdict /currentwindow get exec}stopped
+\t{{pop pop pop setcmykcolor}}{{nxsetrgbcolor pop pop pop pop}}ifelse \
+/_NXSetCMYKOrRGB exch def cleartomark
+}ifelse
+%%EndProcSet
+
+_NXLevel2{/_NXsethsb where{pop}{/_NXsethsb /sethsbcolor load def}ifelse \
+/sethsbcolor{_NXsethsb currentrgbcolor nxsetrgbcolor}def \
+/setrgbcolor{nxsetrgbcolor}bind def /setgray{nxsetgray}bind def
+}if
+gsave
+ /__NXbasematrix matrix currentmatrix def
+grestore
+%%EndProlog
+%%BeginSetup
+/DIAGRAMline {
+    moveto rlineto stroke
+} def /DIAGRAMarrow {
+    [] 0 setdash newpath moveto dup rotate 0 currentlinewidth sub 1.2 mul 0 \
+rmoveto -9 3 rlineto 2 -3 rlineto -2 -3 rlineto closepath gsave 0 setlinejoin \
+stroke grestore fill neg rotate
+} def /DIAGRAMpreparelines {
+    /DIAGRAMlinetype exch def setlinewidth setrgbcolor 2 setlinejoin \
+DIAGRAMlinetype 0 eq {
+        [] 0 setdash
+    } if DIAGRAMlinetype 1 eq {
+        [ 5 currentlinewidth add dup ] 0 currentlinewidth add setdash
+    } if DIAGRAMlinetype 2 eq {
+        [ 0 currentlinewidth add 5 currentlinewidth add ] 0 currentlinewidth \
+add setdash
+    } if DIAGRAMlinetype 3 eq {
+        [ 5 currentlinewidth add 4 currentlinewidth add 0 currentlinewidth \
+add 4 currentlinewidth add ] 0 currentlinewidth add setdash
+    } if
+} def
+%%EndSetup
+0 0 564 659 rectclip
+14.483734 87.5 549.016235 570.694946 rectclip
+gsave
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+/Helvetica findfont 18 scalefont [1 0 0 -1 0 0] makefont
+496
+exch
+defineuserobject
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 1283.194946] concat
+gsave
+22.483734 631 37.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+22.483734 648 moveto (Line) show
+grestore
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 1179.389893] concat
+496 execuserobject setfont
+0 nxsetgray
+28.483734 594.194946 moveto (2) show
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 86.999985 576 67.000015 28 rectfill
+0 0 0 setrgbcolor 86.999985 576 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 1180] concat
+/Helvetica findfont 14 scalefont [1 0 0 -1 0 0] makefont
+495
+exch
+defineuserobject
+495 execuserobject setfont
+0 nxsetgray
+116.499985 591.5 moveto (x) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 1235.194946] concat
+gsave
+90.483734 607 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+90.483734 624 moveto (R-Reg 0) show
+grestore
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 1045.389893] concat
+496 execuserobject setfont
+0 nxsetgray
+30.483734 527.194946 moveto (3) show
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 88.999985 509 67.000015 28 rectfill
+0 0 0 setrgbcolor 88.999985 509 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 1046] concat
+495 execuserobject setfont
+0 nxsetgray
+118.499985 524.5 moveto (x) show
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 165.999985 509 67.000015 28 rectfill
+0 0 0 setrgbcolor 165.999985 509 67.000015 28 rectstroke
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 1046] concat
+495 execuserobject setfont
+0 nxsetgray
+188.499985 524.5 moveto (x^2) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 911.389893] concat
+496 execuserobject setfont
+0 nxsetgray
+32.483734 460.194946 moveto (4) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 777.389893] concat
+496 execuserobject setfont
+0 nxsetgray
+34.483734 393.194946 moveto (5) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 643.389893] concat
+496 execuserobject setfont
+0 nxsetgray
+36.483734 326.194946 moveto (6) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 509.389893] concat
+496 execuserobject setfont
+0 nxsetgray
+38.483734 259.194946 moveto (7) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 375.389893] concat
+496 execuserobject setfont
+0 nxsetgray
+40.483734 192.194946 moveto (8) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 239.389893] concat
+496 execuserobject setfont
+0 nxsetgray
+43.483734 124.194946 moveto (9) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 1100.052124] concat
+gsave
+90.483734 539.428589 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+90.483734 556.428589 moveto (R-Reg 0) show
+grestore
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 1100.052124] concat
+gsave
+167.483734 539.428589 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+167.483734 556.428589 moveto (R-Reg 1) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 89.999985 444 67.000015 28 rectfill
+0 0 0 setrgbcolor 89.999985 444 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 916] concat
+495 execuserobject setfont
+0 nxsetgray
+119.499985 459.5 moveto (x) show
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 166.999985 444 67.000015 28 rectfill
+0 0 0 setrgbcolor 166.999985 444 67.000015 28 rectstroke
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 916] concat
+495 execuserobject setfont
+0 nxsetgray
+189.499985 459.5 moveto (x^2) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 964.909302] concat
+gsave
+90.483734 471.857178 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+90.483734 488.857178 moveto (R-Reg 0) show
+grestore
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 964.909302] concat
+gsave
+167.483734 471.857178 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+167.483734 488.857178 moveto (R-Reg 1) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 487.5 444 67.000015 28 rectfill
+0 0 0 setrgbcolor 487.5 444 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 916] concat
+495 execuserobject setfont
+0 nxsetgray
+517 459.5 moveto (4) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 975.194946] concat
+gsave
+485.983734 477 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+485.983734 494 moveto (I-Reg 0) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 88.999985 376 67.000015 28 rectfill
+0 0 0 setrgbcolor 88.999985 376 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 780] concat
+495 execuserobject setfont
+0 nxsetgray
+118.499985 391.5 moveto (x) show
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 165.999985 376 67.000015 28 rectfill
+0 0 0 setrgbcolor 165.999985 376 67.000015 28 rectstroke
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 780] concat
+495 execuserobject setfont
+0 nxsetgray
+188.499985 391.5 moveto (x^2) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 829.766418] concat
+gsave
+90.483734 404.285736 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+90.483734 421.285736 moveto (R-Reg 0) show
+grestore
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 829.766418] concat
+gsave
+167.483734 404.285736 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+167.483734 421.285736 moveto (R-Reg 1) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 242.999985 376 67.000015 28 rectfill
+0 0 0 setrgbcolor 242.999985 376 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 780] concat
+495 execuserobject setfont
+0 nxsetgray
+258.5 391.5 moveto (Sin[x]) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 829.766418] concat
+gsave
+244.483734 404.285736 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+244.483734 421.285736 moveto (R-Reg 2) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 487.5 375.5 67.000015 28 rectfill
+0 0 0 setrgbcolor 487.5 375.5 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 779] concat
+495 execuserobject setfont
+0 nxsetgray
+517 391 moveto (4) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 838.194946] concat
+gsave
+485.983734 408.5 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+485.983734 425.5 moveto (I-Reg 0) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 90.999985 307 67.000015 28 rectfill
+0 0 0 setrgbcolor 90.999985 307 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 642] concat
+495 execuserobject setfont
+0 nxsetgray
+120.499985 322.5 moveto (x) show
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 166.999985 307 67.000015 28 rectfill
+0 0 0 setrgbcolor 166.999985 307 67.000015 28 rectstroke
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 642] concat
+495 execuserobject setfont
+0 nxsetgray
+189.499985 322.5 moveto (x^2) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 694.623535] concat
+gsave
+90.483734 336.714294 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+90.483734 353.714294 moveto (R-Reg 0) show
+grestore
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 694.623535] concat
+gsave
+167.483734 336.714294 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+167.483734 353.714294 moveto (R-Reg 1) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 242.999985 307 67.000015 28 rectfill
+0 0 0 setrgbcolor 242.999985 307 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 642] concat
+495 execuserobject setfont
+0 nxsetgray
+258.5 322.5 moveto (Sin[x]) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 694.623535] concat
+gsave
+244.483734 336.714294 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+244.483734 353.714294 moveto (R-Reg 2) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 487.5 307 67.000015 28 rectfill
+0 0 0 setrgbcolor 487.5 307 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 642] concat
+495 execuserobject setfont
+0 nxsetgray
+517 322.5 moveto (4) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 701.194946] concat
+gsave
+485.983734 340 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+485.983734 357 moveto (I-Reg 0) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 319 307 67.000015 28 rectfill
+0 0 0 setrgbcolor 319 307 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 642] concat
+495 execuserobject setfont
+0 nxsetgray
+342.5 322.5 moveto (4.0) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 694.623535] concat
+gsave
+321.483734 336.714294 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+321.483734 353.714294 moveto (R-Reg 3) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 90.999985 241 67.000015 28 rectfill
+0 0 0 setrgbcolor 90.999985 241 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 510] concat
+495 execuserobject setfont
+0 nxsetgray
+120.499985 256.5 moveto (x) show
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 166.499985 241 67.000015 28 rectfill
+0 0 0 setrgbcolor 166.499985 241 67.000015 28 rectstroke
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 510] concat
+495 execuserobject setfont
+0 nxsetgray
+188.999985 256.5 moveto (x^2) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 559.480652] concat
+gsave
+90.483734 269.142853 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+90.483734 286.142853 moveto (R-Reg 0) show
+grestore
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 559.480652] concat
+gsave
+167.483734 269.142853 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+167.483734 286.142853 moveto (R-Reg 1) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 241.999985 241 67.000015 28 rectfill
+0 0 0 setrgbcolor 241.999985 241 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 510] concat
+495 execuserobject setfont
+0 nxsetgray
+257.5 256.5 moveto (Sin[x]) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 559.480652] concat
+gsave
+244.483734 269.142853 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+244.483734 286.142853 moveto (R-Reg 2) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 317.5 241 67.000015 28 rectfill
+0 0 0 setrgbcolor 317.5 241 67.000015 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 510] concat
+495 execuserobject setfont
+0 nxsetgray
+341 256.5 moveto (4.0) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 559.480652] concat
+gsave
+321.483734 269.142853 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+321.483734 286.142853 moveto (R-Reg 3) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 393 241 76 28 rectfill
+0 0 0 setrgbcolor 393 241 76 28 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 510] concat
+495 execuserobject setfont
+0 nxsetgray
+399.5 256.5 moveto (4.0+Sin[x]) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 559.480652] concat
+gsave
+398.483734 269.142853 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+398.483734 286.142853 moveto (R-Reg 4) show
+grestore
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 424.337799] concat
+gsave
+90.483734 201.571426 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+90.483734 218.571426 moveto (R-Reg 0) show
+grestore
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 424.337799] concat
+gsave
+167.483734 201.571426 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+167.483734 218.571426 moveto (R-Reg 1) show
+grestore
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 424.337799] concat
+gsave
+244.483734 201.571426 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+244.483734 218.571426 moveto (R-Reg 2) show
+grestore
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 424.337799] concat
+gsave
+321.483734 201.571426 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+321.483734 218.571426 moveto (R-Reg 3) show
+grestore
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 424.337799] concat
+gsave
+398.483734 201.571426 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+398.483734 218.571426 moveto (R-Reg 4) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 474.999969 164.5 76 35.5 rectfill
+0 0 0 setrgbcolor 474.999969 164.5 76 35.5 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 364.5] concat
+/Helvetica findfont 12 scalefont [1 0 0 -1 0 0] makefont
+8
+exch
+defineuserobject
+8 execuserobject setfont
+0 nxsetgray
+482.499969 178 moveto (        1____) show
+482.499969 179 60.048004 1 rectfill
+485.499969 193 moveto (4.0+Sin[x]) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+8 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 424.337799] concat
+gsave
+475.483734 201.571426 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+475.483734 218.571426 moveto (R-Reg 5) show
+grestore
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 94 165 59 34.5 rectfill
+0 0 0 setrgbcolor 94 165 59 34.5 rectstroke
+gsave
+496 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 364.5] concat
+495 execuserobject setfont
+0 nxsetgray
+119.5 180.5 moveto (x) show
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 162.399994 165.75 60 33 rectfill
+0 0 0 setrgbcolor 162.399994 165.75 60 33 rectstroke
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 364.5] concat
+495 execuserobject setfont
+0 nxsetgray
+180.899994 181.25 moveto (x^2) show
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 231.799988 165.75 63 33 rectfill
+0 0 0 setrgbcolor 231.799988 165.75 63 33 rectstroke
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 364.5] concat
+495 execuserobject setfont
+0 nxsetgray
+245.299988 181.25 moveto (Sin[x]) show
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 304.199982 165.75 76 33 rectfill
+0 0 0 setrgbcolor 304.199982 165.75 76 33 rectstroke
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 364.5] concat
+495 execuserobject setfont
+0 nxsetgray
+331.699982 181.25 moveto (4.0) show
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 389.599976 164.5 76 35.5 rectfill
+0 0 0 setrgbcolor 389.599976 164.5 76 35.5 rectstroke
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 364.5] concat
+495 execuserobject setfont
+0 nxsetgray
+396.099976 180 moveto (4.0+Sin[x]) show
+grestore
+0 0 0 1 2 DIAGRAMpreparelines
+1 1 1 setrgbcolor 89.999969 93.5 76 35.5 rectfill
+0 0 0 setrgbcolor 89.999969 93.5 76 35.5 rectstroke
+gsave
+495 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 222.5] concat
+8 execuserobject setfont
+0 nxsetgray
+96.499969 107 moveto (       x^2___) show
+96.499969 108 61.667999 1 rectfill
+100.499969 122 moveto (4.0+Sin[x]) show
+grestore
+0 0 0 0 0 DIAGRAMpreparelines
+gsave
+8 execuserobject setfont
+0 nxsetgray
+[1 0 0 -1 0 289.194946] concat
+gsave
+90.483734 134 69.516266 21.194946 rectclip
+496 execuserobject setfont
+0 nxsetgray
+90.483734 151 moveto (R-Reg 6) show
+grestore
+grestore
+grestore
+gsave
+0 0 564 659 rectclip
+[1 0 0 -1 0 659] concat
+grestore
+%%Trailer
+%%DocumentFonts: Helvetica
+
+%End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  ImageSize->{392, 408},
+  ImageMargins->{{26, Inherited}, {Inherited, 3}},
+  ImageCacheValid->False]}, Open]]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Programming"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Function Programming"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"TaylorSeriesSolution[f_,{t0_,y0_},order_][t_,y_] :=\n\tModule[{d,u},\n\t \td \
+= Join[{y0},NestList[Dt[#,t] /. \n\t  \t\tDt[y,t] -> f[t,y]&,f[t,y],order-1] \
+/. \n\t   \t\t{t -> t0 , y -> y0}];\n\t \tu = Table[(t-t0)^n/n!,{n,0,order}];\
+\n\t \td.u\n\t]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["f[t_,y_] := y\nTaylorSeriesSolution[f,{0,1},5][t,y]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Using Trace to Debug Your Functions"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"prog[x_,y_] :=\n\tModule[{a = 0,i},\n\t\tFor[i = 0 , i < 2 , i++ ,\n\t\t\ta \
+= i*x + i/y;\n\t\t\tb = Sin[a]\n\t\t];\n\t\tb\n\t]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["prog[2,3]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Trace[prog[2,3],i]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Trace[prog[2,3],_=_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Trace[prog[2,3],b=_]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Trace[prog[2,3],_ + Rational[_,_]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"fib[0] = fib[1] = 1;\nfib[n_Integer?Positive] := fib[n-1] + fib[n-2]"], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Trace[fib[3],fib[_],TraceForward -> True]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Trace[fib[5],8,TraceBackward -> All]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Trace[fib[5],3,TraceAbove -> True]"], "Input",
+  AspectRatioFixed->True]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["MathLink"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Calling Mathematica from C-routine"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The following C-code \n\n\t1) opens a link to Mathematica's kernel\n\t2) \
+sends the command Expand[(1+x)^5]\n\t3) receives the result from Mathematica \
+\n\t4) closes the link to the kernel"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Calling a C-routine from Mathematica "], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["The Template File"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+":Begin:\n:Function: spectral\n:Pattern:  \
+Spectral[x:{___Real},window_Integer]\n:Arguments: {x,window}\n:ArgumentTypes: \
+{RealList,Integer}\n:ReturnType: Manual\n:End:\n\n:Evaluate: Spectral::usage \
+= \"Spectral[data,window] computes the correlation\nmatrix of dimensions \
+window x window from a data set.\""], "Message",
+  Evaluatable->False,
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["The C-code File"], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"#import \"/LocalApps/Mathematica.app/Source/Includes/mathlink.h\"\n\nint \
+main(argc,argv)\nint argc;\nchar *argv[];\n{\n\treturn MLMain(argc,argv);\n}\n\
+\nvoid spectral(list,len,winlength)\ndouble *list;\nint len,winlength;\n{\n\t\
+int dataloop,loopout,loopin;\n\tdouble current;\n\n\t\
+MLPutFunction(stdlink,\"List\",winlength);\n\tfor (loopin = 0 ; loopin < \
+winlength ; loopin++)\n\t{\n\t\tMLPutFunction(stdlink,\"List\",winlength);\n\t\
+\tfor (loopout = 0 ; loopout < winlength ; loopout++)\n\t\t{\n\t\t\tcurrent = \
+0.0;\n\t\t\tfor (dataloop = 0 ; dataloop < len - winlength + 1 ; dataloop++)\n\
+\t\t\t{\n\t\t\t\tcurrent += list[dataloop+loopin]*list[dataloop+loopout];\n\t\
+\t\t}\n\t\t\tMLPutReal(stdlink,current);\n\t\t}\n\t}\n}"], "Message",
+  Evaluatable->False,
+  AspectRatioFixed->True]}, Open]]}, Open]]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Implementation"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["SetDirectory[\"/LocalUsers/Mezzino/AdvMma\"];"], "Input",
+  InitializationCell->True,
+  AspectRatioFixed->True],
+
+Cell[TextData["Needs[\"Graphics`Graphics`\"]"], "Input",
+  InitializationCell->True,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData["Data File Routines"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Jan = 0/12;\nFeb = 1/12;\nMar = 2/12;\nApr = 3/12;\nMay = 4/12;\nJun = 5/12;\
+\nJul = 6/12;\nAug = 7/12;\nSep = 8/12;\nOct = 9/12;\nNov = 10/12;\nDec = \
+11/12;"], "Input",
+  InitializationCell->True,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"BPRatePlot[data_List,{a_,b_},title_String] :=\n\t\
+Module[{dataplot,linearfit,expplot,sol,expr,hyperplot,\n\t\t\t\
+i,start,tmp,a0,q0,nn=n,a00,q00,t,t0,a0e,q0e,nh,a0h,q0h},\n\t\t\
+Off[ParametricPlot::pptr];\n\t\tstart = First[First[data]];\n\t\tdataplot = \
+LogListPlot[data,PlotJoined->True,\n\t\t\t\tPlotRange->{.1,100},\n\t\t\t\t\
+PlotStyle->GrayLevel[0],\n\t\t\t\tDisplayFunction->Identity];\n\t\ttmp = \
+Map[{First[#],Log[Last[#]]}&,data];\n\t\tIf[ a > 0 && b > 0 ,\n\t\t\ttmp = \
+Select[tmp,(First[#] >= a && First[#] <= b)&]\n\t\t];\n\t\tt0 = \
+First[First[tmp]];\n\t\tlinearfit[t_] = Fit[tmp,{1,t},t];\n\t\ta0e = \
+linearfit'[t0]/linearfit[t0];\n\t\tq0e = linearfit[t0];\n\t\texpplot = \
+LogPlot[Exp[linearfit[t]],{t,start,99},\n\t\t\t\tFrame->True,\n\t\t\t\t\
+FrameLabel->{\n\t\t\t\t\tFontForm[\"Date\",{\"Courier\",18}],\n\t\t\t\t\t\
+FontForm[\"Volume (MSTB/D)\",{\"Courier\",18}],\n\t\t\t\t\t\
+FontForm[title,{\"Times-Bold\",30}],\n\t\t\t\t\t\t\t\"\"},\n\t\t\t\t\
+FrameTicks->{Table[{i,\n\t\t\t\t\t\t\
+StringJoin[\"Jan-\",ToString[i]]},{i,Floor[start],99}],\n\t\t\t\t\t\
+Automatic},\n\t\t\t\tPlotRange->{.1,100},\n\t\t\t\t\
+PlotStyle->{{GrayLevel[.4],Dashing[{.01}]}},\n\t\t\t\tGridLines \
+->{Table[i,{i,Floor[start],99}],LogGridMinor[1,100]},\n\t\t\t\t\
+DisplayFunction->Identity];\n\tPrint[\"Exponential Model: q0 = \",q0e,\" , a  \
+= \",a0e];\n\tShow[{expplot,dataplot},DisplayFunction->$DisplayFunction] \n\
+]"], "Input",
+  InitializationCell->True,
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Disassembler"], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"opCodes={\"NOP\",\"VERSION\",\"LDARG_BOOL\",\"LDARG_INT\",\"LDARG_REAL\",\n\
+\"LDARG_CX\",\"RET_BOOL\",\"RET_INT\",\"RET_REAL\",\"RET_CX\",\"RET_NULL\",\n\
+\"LDCONST_BOOL\",\"LDCONST_INT\",\"LDCONST_REAL\",\"LDCONST_CX\",\n\
+\"COPY_BOOL\",\"COPY_INT\",\"COPY_REAL\",\"COPY_CX\",\"CVT_BOOL_TO_INT\",\n\
+\"CVT_INT_TO_REAL\",\"CVT_REAL_TO__CX\",\"EVALARG_BOOL\",\"EVALARG_INT\",\n\
+\"EVALARG_REAL\",\"EVALARG_CX\",\"EVALARG\",\"EVALREG_BOOL\",\"EVALREG_INT\",\
+\n\"EVALREG_REAL\",\"EVALREG_CX\",\"EVALREG\",\"PLUS_INT\",\"PLUS_REAL\",\n\
+\"PLUS_CX\",\"TIMES_INT\",\"TIMES_REAL\",\"TIMES_CX\",\"MINUS_INT\",\n\
+\"MINUS_REAL\",\"MINUS_CX\",\"RECIP_REAL\",\"RECIP_CX\",\"POWER_REAL_INT\",\n\
+\"POWER_RRR\",\"POWER_CX_CX\",\"SRT\",\"EXP\",\"LOG\",\"SIN\",\"COS\",\"TAN\",\
+\n\"ARCSIN\",\"ARCCOS\",\"ARCTAN\",\"EXP_CX\",\"LOG_CX\",\"SIN_CX\",\"COS_CX\"\
+,\n\"TAN_CX\",\"ARCSIN_CX\",\"ARS_CX\",\"ARCTAN_CX\",\"FLOOR\",\"RE\",\"IM\",\
+\"CONJ\",\n\
+\"ABS_CX\",\"MOD\",\"BRANCH\",\"JUMP\",\"SWITCH\",\"E_INT\",\"E_REAL\",\"LT_\
+INT\",\n\"LT_REAL\",\"LE_INT\",\"LE_REAL\",\"AND\",\"OR\",\"NOT\",\"ERR\"};\n\
+\nDisassemble[fun_CompiledFunction] :=\n\t\
+Print[TableForm[dccNumberLines[dccOpsToStrings[fun[[3]]]],\n\t\t\
+TableSpacing->{0,4}]]\n\t\t\ndccOpsToStrings[instlist_] := dccOpCodeToString \
+/@ instlist\n\ndccOpCodeToString[inst_] := MapAt[opCodes[[1+#]]&,inst,{1}]\n\n\
+dccNumberLines[instlist_] := Table[Prepend[instlist[[i]],i],\n\t\t\t\t\t\t\t\t\
+{i,Length[instlist]}]"], "Input",
+  AspectRatioFixed->True]}, Open]]}, Open]]}, Open]]}, Open]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+AutoGeneratedPackage->None,
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{237, Automatic}, {Automatic, 57}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"NeXTAutomaticEncoding",
+Magnification->2
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 201, 9, 70, "Title"],
+Cell[1935, 62, 83, 2, 70, "Subsubtitle"],
+
+Cell[CellGroupData[{
+Cell[2041, 66, 101, 2, 70, "Subtitle"],
+Cell[2145, 70, 114, 2, 70, "Subtitle"],
+
+Cell[CellGroupData[{
+Cell[2282, 74, 85, 2, 70, "Section"],
+
+Cell[CellGroupData[{
+Cell[2390, 78, 109, 2, 70, "Subsection"],
+Cell[2502, 82, 74, 1, 70, "Input"],
+Cell[2579, 85, 74, 1, 70, "Input"],
+Cell[2656, 88, 70, 1, 70, "Input"],
+Cell[2729, 91, 70, 1, 70, "Input"],
+Cell[2802, 94, 66, 1, 70, "Input"],
+Cell[2871, 97, 75, 1, 70, "Input"],
+Cell[2949, 100, 70, 1, 70, "Input"],
+Cell[3022, 103, 75, 1, 70, "Input"],
+Cell[3100, 106, 74, 1, 70, "Input"],
+Cell[3177, 109, 66, 1, 70, "Input"],
+Cell[3246, 112, 70, 1, 70, "Input"],
+Cell[3319, 115, 74, 1, 70, "Input"],
+Cell[3396, 118, 75, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3503, 121, 98, 2, 70, "Subsection"],
+Cell[3604, 125, 68, 1, 70, "Input"],
+Cell[3675, 128, 75, 1, 70, "Input"],
+Cell[3753, 131, 72, 1, 70, "Input"],
+Cell[3828, 134, 68, 1, 70, "Input"],
+Cell[3899, 137, 69, 1, 70, "Input"],
+Cell[3971, 140, 74, 1, 70, "Input"],
+Cell[4048, 143, 81, 1, 70, "Input"],
+Cell[4132, 146, 68, 1, 70, "Input"],
+Cell[4203, 149, 71, 1, 70, "Input"],
+Cell[4277, 152, 66, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4375, 155, 97, 2, 70, "Subsection"],
+Cell[4475, 159, 67, 1, 70, "Input"],
+Cell[4545, 162, 68, 1, 70, "Input"],
+Cell[4616, 165, 71, 1, 70, "Input"],
+Cell[4690, 168, 74, 1, 70, "Input"],
+Cell[4767, 171, 72, 1, 70, "Input"],
+Cell[4842, 174, 75, 1, 70, "Input"],
+Cell[4920, 177, 102, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5054, 180, 108, 2, 70, "Subsection"],
+Cell[5165, 184, 76, 1, 70, "Input"],
+Cell[5244, 187, 78, 1, 70, "Input"],
+Cell[5325, 190, 91, 1, 70, "Input"],
+Cell[5419, 193, 91, 1, 70, "Input"],
+Cell[5513, 196, 81, 1, 70, "Input"],
+Cell[5597, 199, 80, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5709, 202, 90, 2, 70, "Subsection"],
+Cell[5802, 206, 144, 4, 70, "Text"],
+Cell[5949, 212, 88, 1, 70, "Input"],
+Cell[6040, 215, 91, 1, 70, "Input"],
+Cell[6134, 218, 89, 1, 70, "Input"],
+Cell[6226, 221, 77, 1, 70, "Input"],
+Cell[6306, 224, 81, 1, 70, "Input"],
+Cell[6390, 227, 71, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6493, 230, 92, 2, 70, "Subsection"],
+Cell[6588, 234, 86, 1, 70, "Input"],
+Cell[6677, 237, 86, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6795, 240, 95, 2, 70, "Subsection"],
+Cell[6893, 244, 83, 1, 70, "Input"],
+Cell[6979, 247, 69, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7080, 250, 92, 2, 70, "Subsection"],
+Cell[7175, 254, 121, 3, 70, "Input"],
+
+Cell[CellGroupData[{
+Cell[7319, 259, 57, 1, 70, "Input"],
+Cell[7379, 262, 108, 10, 70, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7519, 274, 58, 1, 70, "Input"],
+Cell[7580, 277, 116, 10, 70, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7728, 289, 58, 1, 70, "Input"],
+Cell[7789, 292, 116, 10, 70, "Output"]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7955, 304, 97, 2, 70, "Section"],
+
+Cell[CellGroupData[{
+Cell[8075, 308, 105, 2, 70, "Subsection"],
+
+Cell[CellGroupData[{
+Cell[8203, 312, 102, 2, 70, "Subsubsection"],
+Cell[8308, 316, 385, 12, 70, "Text"],
+Cell[8696, 330, 111, 2, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[8839, 334, 102, 2, 70, "Subsubsection"],
+Cell[8944, 338, 181, 4, 70, "Input"],
+Cell[9128, 344, 58, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9218, 347, 103, 2, 70, "Subsubsection"],
+Cell[9324, 351, 250, 5, 70, "Input"],
+Cell[9577, 358, 58, 1, 70, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9676, 361, 134, 3, 70, "Subsection"],
+Cell[9813, 366, 129, 3, 70, "Input"],
+Cell[9945, 371, 148, 3, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[10125, 376, 133, 3, 70, "Subsection"],
+Cell[10261, 381, 161, 4, 70, "SmallText"],
+Cell[10425, 387, 98, 2, 70, "Text"],
+Cell[10526, 391, 107, 2, 70, "Input"],
+Cell[10636, 395, 121, 2, 70, "Text"],
+Cell[10760, 399, 160, 3, 70, "Input"],
+Cell[10923, 404, 113, 2, 70, "Text"],
+Cell[11039, 408, 92, 1, 70, "Input"],
+Cell[11134, 411, 111, 2, 70, "Text"],
+Cell[11248, 415, 148, 3, 70, "Input"],
+Cell[11399, 420, 95, 2, 70, "Text"],
+Cell[11497, 424, 124, 3, 70, "Input"],
+Cell[11624, 429, 87, 2, 70, "Text"],
+Cell[11714, 433, 82, 1, 70, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[11837, 436, 105, 2, 70, "Section"],
+
+Cell[CellGroupData[{
+Cell[11965, 440, 105, 2, 70, "Subsection"],
+Cell[12073, 444, 103, 2, 70, "Text"],
+Cell[12179, 448, 58, 1, 70, "Input"],
+Cell[12240, 451, 212, 4, 70, "Text"],
+Cell[12455, 457, 65, 1, 70, "Input"],
+Cell[12523, 460, 57, 1, 70, "Input"],
+Cell[12583, 463, 185, 4, 70, "Text"],
+Cell[12771, 469, 67, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[12870, 472, 98, 2, 70, "Subsection"],
+Cell[12971, 476, 98, 1, 70, "Input"],
+Cell[13072, 479, 60, 1, 70, "Input"],
+Cell[13135, 482, 60, 1, 70, "Input"],
+Cell[13198, 485, 284, 5, 70, "Text"],
+Cell[13485, 492, 100, 1, 70, "Input"],
+Cell[13588, 495, 63, 1, 70, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[13692, 498, 87, 2, 70, "Section"],
+
+Cell[CellGroupData[{
+Cell[13802, 502, 100, 2, 70, "Subsection"],
+
+Cell[CellGroupData[{
+Cell[13925, 506, 122, 2, 70, "Subsubsection"],
+Cell[14050, 510, 78, 1, 70, "Input"],
+Cell[14131, 513, 70, 1, 70, "Input"],
+Cell[14204, 516, 69, 1, 70, "Input"],
+Cell[14276, 519, 80, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[14388, 522, 126, 2, 70, "Subsubsection"],
+Cell[14517, 526, 87, 1, 70, "Input"],
+Cell[14607, 529, 76, 1, 70, "Input"],
+Cell[14686, 532, 86, 1, 70, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[14813, 535, 96, 2, 70, "Subsection"],
+Cell[14912, 539, 172, 4, 70, "Text"],
+Cell[15087, 545, 96, 1, 70, "Input"],
+Cell[15186, 548, 169, 4, 70, "Text"],
+Cell[15358, 554, 116, 2, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[15506, 558, 99, 2, 70, "Subsection"],
+Cell[15608, 562, 171, 4, 70, "Text"],
+Cell[15782, 568, 93, 1, 70, "Input"],
+Cell[15878, 571, 119, 2, 70, "Text"],
+Cell[16000, 575, 102, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[16134, 578, 103, 2, 70, "Subsection"],
+Cell[16240, 582, 163, 4, 70, "Text"],
+Cell[16406, 588, 86, 1, 70, "Input"],
+Cell[16495, 591, 57, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[16584, 594, 108, 2, 70, "Subsection"],
+Cell[16695, 598, 163, 4, 70, "Text"],
+Cell[16861, 604, 151, 3, 70, "Input"],
+Cell[17015, 609, 87, 1, 70, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[17143, 612, 98, 2, 70, "Section"],
+
+Cell[CellGroupData[{
+Cell[17264, 616, 103, 2, 70, "Subsection"],
+Cell[17370, 620, 181, 4, 70, "SmallText"],
+Cell[17554, 626, 80, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[17666, 629, 104, 2, 70, "Subsection"],
+Cell[17773, 633, 74, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[17879, 636, 98, 2, 70, "Subsection"],
+Cell[17980, 640, 79, 1, 70, "Input"],
+Cell[18062, 643, 65, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[18159, 646, 103, 2, 70, "Subsection"],
+Cell[18265, 650, 100, 1, 70, "Input"],
+Cell[18368, 653, 70, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[18470, 656, 104, 2, 70, "Subsection"],
+Cell[18577, 660, 101, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[18710, 663, 92, 2, 70, "Subsection"],
+Cell[18805, 667, 168, 4, 70, "Input"],
+Cell[18976, 673, 158, 3, 70, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[19175, 678, 98, 2, 70, "Section"],
+
+Cell[CellGroupData[{
+Cell[19296, 682, 109, 2, 70, "Subsection"],
+Cell[19408, 686, 229, 5, 70, "Text"],
+Cell[19640, 693, 59, 1, 70, "Input"],
+Cell[19702, 696, 63, 1, 70, "Input"],
+Cell[19768, 699, 61, 1, 70, "Input"],
+Cell[19832, 702, 65, 1, 70, "Input"],
+Cell[19900, 705, 69, 1, 70, "Input"],
+Cell[19972, 708, 65, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[20069, 711, 98, 2, 70, "Subsection"],
+Cell[20170, 715, 311, 6, 70, "Text"],
+Cell[20484, 723, 76, 1, 70, "Input"],
+Cell[20563, 726, 87, 1, 70, "Input"],
+Cell[20653, 729, 76, 1, 70, "Input"],
+Cell[20732, 732, 153, 3, 70, "Input"],
+Cell[20888, 737, 77, 1, 70, "Input"],
+Cell[20968, 740, 75, 1, 70, "Input"],
+Cell[21046, 743, 76, 1, 70, "Input"],
+Cell[21125, 746, 182, 3, 70, "Input"],
+Cell[21310, 751, 92, 1, 70, "Input"],
+Cell[21405, 754, 76, 1, 70, "Input"],
+Cell[21484, 757, 87, 1, 70, "Input"],
+Cell[21574, 760, 76, 1, 70, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[21691, 763, 100, 2, 70, "Section"],
+
+Cell[CellGroupData[{
+Cell[21814, 767, 96, 2, 70, "Subsection"],
+Cell[21913, 771, 64, 1, 70, "Input"],
+Cell[21980, 774, 107, 2, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[22119, 778, 120, 2, 70, "Subsection"],
+Cell[22242, 782, 180, 3, 70, "Input"],
+Cell[22425, 787, 69, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[22526, 790, 121, 2, 70, "Subsection"],
+Cell[22650, 794, 157, 3, 70, "Input"],
+Cell[22810, 799, 67, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[22909, 802, 151, 4, 70, "Subsection"],
+Cell[23063, 808, 104, 1, 70, "Input"],
+Cell[23170, 811, 101, 1, 70, "Input"],
+Cell[23274, 814, 71, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[23377, 817, 107, 2, 70, "Subsection"],
+Cell[23487, 821, 139, 3, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[23658, 826, 119, 2, 70, "Subsection"],
+Cell[23780, 830, 116, 2, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[23928, 834, 96, 2, 70, "Subsection"],
+Cell[24027, 838, 126, 3, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[24185, 843, 95, 2, 70, "Subsection"],
+Cell[24283, 847, 288, 5, 70, "Input"],
+Cell[24574, 854, 172, 3, 70, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[24787, 859, 94, 2, 70, "Section"],
+
+Cell[CellGroupData[{
+Cell[24904, 863, 95, 2, 70, "Subsection"],
+Cell[25002, 867, 114, 2, 70, "Input"],
+Cell[25119, 871, 58, 1, 70, "Input"],
+Cell[25180, 874, 66, 1, 70, "Input"],
+Cell[25249, 877, 72, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[25353, 880, 108, 2, 70, "Subsection"],
+Cell[25464, 884, 88, 1, 70, "Input"],
+Cell[25555, 887, 61, 1, 70, "Input"],
+Cell[25619, 890, 88, 1, 70, "Input"],
+Cell[25710, 893, 59, 1, 70, "Input"],
+Cell[25772, 896, 76, 1, 70, "Input"],
+Cell[25851, 899, 78, 1, 70, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[25970, 902, 97, 2, 70, "Section"],
+
+Cell[CellGroupData[{
+Cell[26090, 906, 93, 2, 70, "Subsection"],
+Cell[26186, 910, 83, 1, 70, "Input"],
+Cell[26272, 913, 73, 1, 70, "Input"],
+Cell[26348, 916, 73, 1, 70, "Input"],
+Cell[26424, 919, 79, 1, 70, "Input"],
+Cell[26506, 922, 55, 1, 70, "Input"],
+Cell[26564, 925, 73, 1, 70, "Input"],
+Cell[26640, 928, 72, 1, 70, "Input"],
+Cell[26715, 931, 66, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[26813, 934, 106, 2, 70, "Subsection"],
+Cell[26922, 938, 285, 5, 70, "Input"],
+
+Cell[CellGroupData[{
+Cell[27230, 945, 149, 3, 70, "Input"],
+Cell[27382, 950, 82566, 1847, 70, 82408, 1842, "GraphicsData", 
+"PostScript", "Graphics"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[109989, 2799, 116, 2, 70, "Subsection"],
+
+Cell[CellGroupData[{
+Cell[110128, 2803, 120, 2, 70, "Subsubsection"],
+Cell[110251, 2807, 107, 2, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[110390, 2811, 100, 2, 70, "Subsubsection"],
+Cell[110493, 2815, 82, 1, 70, "Input"],
+Cell[110578, 2818, 55, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[110665, 2821, 120, 2, 70, "Subsubsection"],
+Cell[110788, 2825, 67, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[110887, 2828, 132, 3, 70, "Subsubsection"],
+Cell[111022, 2833, 27221, 1000, 70, 27071, 995, "GraphicsData", 
+"PostScript", "Graphics"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[138293, 3835, 88, 2, 70, "Section"],
+
+Cell[CellGroupData[{
+Cell[138404, 3839, 100, 2, 70, "Subsection"],
+Cell[138507, 3843, 306, 5, 70, "Input"],
+Cell[138816, 3850, 104, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[138952, 3853, 115, 2, 70, "Subsection"],
+Cell[139070, 3857, 182, 3, 70, "Input"],
+Cell[139255, 3862, 62, 1, 70, "Input"],
+Cell[139320, 3865, 71, 1, 70, "Input"],
+Cell[139394, 3868, 73, 1, 70, "Input"],
+Cell[139470, 3871, 73, 1, 70, "Input"],
+Cell[139546, 3874, 87, 1, 70, "Input"],
+Cell[139636, 3877, 125, 3, 70, "Input"],
+Cell[139764, 3882, 94, 1, 70, "Input"],
+Cell[139861, 3885, 89, 1, 70, "Input"],
+Cell[139953, 3888, 87, 1, 70, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[140081, 3891, 85, 2, 70, "Section"],
+
+Cell[CellGroupData[{
+Cell[140189, 3895, 114, 2, 70, "Subsection"],
+Cell[140306, 3899, 265, 5, 70, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[140603, 3906, 117, 2, 70, "Subsection"],
+
+Cell[CellGroupData[{
+Cell[140743, 3910, 100, 2, 70, "Subsubsection"],
+Cell[140846, 3914, 389, 7, 70, "Message"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[141267, 3923, 98, 2, 70, "Subsubsection"],
+Cell[141368, 3927, 816, 12, 70, "Message"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[142234, 3941, 91, 2, 70, "Section"],
+Cell[142328, 3945, 126, 2, 70, "Input",
+  InitializationCell->True],
+Cell[142457, 3949, 110, 2, 70, "Input",
+  InitializationCell->True],
+
+Cell[CellGroupData[{
+Cell[142590, 3953, 98, 2, 70, "Subsection"],
+Cell[142691, 3957, 242, 5, 70, "Input",
+  InitializationCell->True],
+Cell[142936, 3964, 1505, 24, 70, "Input",
+  InitializationCell->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[144473, 3990, 92, 2, 70, "Subsection"],
+Cell[144568, 3994, 1519, 22, 70, "Input"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

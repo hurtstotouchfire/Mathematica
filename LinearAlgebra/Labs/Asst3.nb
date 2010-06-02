@@ -1,0 +1,819 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     18397,        728]*)
+(*NotebookOutlinePosition[     19372,        761]*)
+(*  CellTagsIndexPosition[     19328,        757]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Linear Algebra", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[" Assignment #3", "Title",
+  Evaluatable->False,
+  TextAlignment->Center,
+  TextJustification->0,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Reminder"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Don't forget the Notebooks  for Linear Algebra, found in"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["\\\\math\\Courseware\\LinearAlgebra\\Notebooks",
+  FontSize->14,
+  FontWeight->"Bold"]], "Text",
+  Evaluatable->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"In particular, the one for Chapter 3 has some helpful hints."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Review"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Definition",
+    FontFamily->"Times"],
+  StyleBox[": A vector ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["w",
+    FontFamily->"Times"],
+  StyleBox[" is called a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox[" linear combination ",
+    FontFamily->"Times"],
+  StyleBox["of the vectors ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["v",
+    FontFamily->"Times"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[", ..., ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["v",
+    FontFamily->"Times"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" if \nthere are numbers a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[", ..., a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" such that  ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["w",
+    FontFamily->"Times"],
+  StyleBox[" = a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["v",
+    FontFamily->"Times"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" + ... + a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["v",
+    FontFamily->"Times"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}]
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Definition",
+    FontFamily->"Times"],
+  StyleBox[": The vectors",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox[" v",
+    FontFamily->"Times"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[", ...,",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox[" v",
+    FontFamily->"Times"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" are said to ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["span",
+    FontFamily->"Times"],
+  StyleBox[" the space ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["V ",
+    FontFamily->"Times"],
+  StyleBox["if for any ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["w",
+    FontFamily->"Times"],
+  StyleBox[" in V\nthere are numbers a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[", ..., a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" such that  ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["w",
+    FontFamily->"Times"],
+  StyleBox[" = a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["v",
+    FontFamily->"Times"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" + ... + a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["v",
+    FontFamily->"Times"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}]
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Definition",
+    FontFamily->"Times"],
+  StyleBox[": The vectors",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox[" v",
+    FontFamily->"Times"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[", ...,",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox[" v",
+    FontFamily->"Times"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" are said to be",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox[" linearly dependent ",
+    FontFamily->"Times"],
+  StyleBox["if \nthere are numbers a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[", ..., a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" , not all 0, such that a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["v",
+    FontFamily->"Times"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" + ... + a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["v",
+    FontFamily->"Times"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" =",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain"],
+  StyleBox[" ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["o",
+    FontFamily->"Times",
+    FontSize->14],
+  StyleBox[".",
+    FontFamily->"Times",
+    FontSize->18]
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Definition",
+    FontFamily->"Times"],
+  StyleBox[": The vectors",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox[" v",
+    FontFamily->"Times"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[", ...,",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox[" v",
+    FontFamily->"Times"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" are said to be",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox[" linearly independent ",
+    FontFamily->"Times"],
+  StyleBox["if \na",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["v",
+    FontFamily->"Times"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" + ... + a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["v",
+    FontFamily->"Times"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" =",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain"],
+  StyleBox[" ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["o",
+    FontFamily->"Times",
+    FontSize->16],
+  StyleBox[" ",
+    FontFamily->"Times",
+    FontSize->14],
+  StyleBox["only when a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["1",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["=0",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain"],
+  StyleBox[", ..., a",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["k",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["=0",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain"],
+  StyleBox[".",
+    FontFamily->"Times",
+    FontWeight->"Plain"]
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Definition",
+    FontFamily->"Times"],
+  StyleBox[": A basis for a vector space ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["V",
+    FontFamily->"Times"],
+  StyleBox[" is a set ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["S",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontSlant->"Italic"],
+  StyleBox[" of vectors of ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["V",
+    FontFamily->"Times"],
+  StyleBox[" such that\n                   a.) ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["S",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontSlant->"Italic"],
+  StyleBox[" is linearly independent, and\n                   b.) ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["S",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontSlant->"Italic"],
+  StyleBox[" spans ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["V",
+    FontFamily->"Times"]
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Definition",
+    FontFamily->"Times"],
+  StyleBox[": Let ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["A",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontSlant->"Italic"],
+  StyleBox[" be an ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["m ",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontSlant->"Italic"],
+  StyleBox["x",
+    FontFamily->"Times",
+    FontSize->11,
+    FontWeight->"Plain"],
+  StyleBox[" n",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontSlant->"Italic"],
+  StyleBox[" matrix.  The set {",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["x ",
+    FontFamily->"Times"],
+  StyleBox["| ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["A",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontSlant->"Italic"],
+  StyleBox["x",
+    FontFamily->"Times"],
+  StyleBox["=",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["0 ",
+    FontFamily->"Times"],
+  StyleBox["} is called the ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["null space ",
+    FontFamily->"Times"],
+  StyleBox["of ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["A\n",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontSlant->"Italic"],
+  StyleBox["and is denoted by",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox[" NS",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontSlant->"Italic"],
+  StyleBox["(",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["A",
+    FontFamily->"Times",
+    FontWeight->"Plain",
+    FontSlant->"Italic"],
+  StyleBox["). Note that ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["x",
+    FontFamily->"Times"],
+  StyleBox[" = ",
+    FontFamily->"Times",
+    FontWeight->"Plain"],
+  StyleBox["O",
+    FontFamily->"Times"],
+  StyleBox[" is always a solution.",
+    FontFamily->"Times",
+    FontWeight->"Plain"]
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"Remark: All questions regarding the above concepts are resolved by solving \
+the appropriate systems of equations and interpreting the solution.",
+  FontSize->18,
+  FontWeight->"Bold"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Exercise", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Suppose that we define the following four vectors in 5-space by"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"v1 = {2,4,1,2,2};\nv2 = {4,2,3,2,2};\nv3 = {2,-2,2,0,1};\nv4 = {6,6,4,4,3};\n\
+v5 = {6,6,4,5,3};"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"and also use them as rows to construct a matrix, say a"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["a = {v1,v2,v3,v4,v5}"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Then, an arbitrary linear combination of them is given by"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["a1 v1 + a2 v2 + a3 v3 + a4 v4 + a5 v5"], "Input",
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+{2*a1 + 4*a2 + 2*a3 + 6*a4 + 6*a5, 
+ 
+  4*a1 + 2*a2 - 2*a3 + 6*a4 + 6*a5, 
+ 
+  a1 + 3*a2 + 2*a3 + 4*a4 + 4*a5, 
+ 
+  2*a1 + 2*a2 + 4*a4 + 5*a5, 
+ 
+  2*a1 + 2*a2 + a3 + 3*a4 + 3*a5}\
+\>", 
+"\<\
+{2 a1 + 4 a2 + 2 a3 + 6 a4 + 6 a5, 
+ 
+  4 a1 + 2 a2 - 2 a3 + 6 a4 + 6 a5, 
+ 
+  a1 + 3 a2 + 2 a3 + 4 a4 + 4 a5, 
+ 
+  2 a1 + 2 a2 + 4 a4 + 5 a5, 
+ 
+  2 a1 + 2 a2 + a3 + 3 a4 + 3 a5}\
+\>"], "Output",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData["or in matrix form,"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Transpose[a].{a1,a2,a3,a4,a5}"], "Input",
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+{2*a1 + 4*a2 + 2*a3 + 6*a4 + 6*a5, 
+ 
+  4*a1 + 2*a2 - 2*a3 + 6*a4 + 6*a5, 
+ 
+  a1 + 3*a2 + 2*a3 + 4*a4 + 4*a5, 
+ 
+  2*a1 + 2*a2 + 4*a4 + 5*a5, 
+ 
+  2*a1 + 2*a2 + a3 + 3*a4 + 3*a5}\
+\>", 
+"\<\
+{2 a1 + 4 a2 + 2 a3 + 6 a4 + 6 a5, 
+ 
+  4 a1 + 2 a2 - 2 a3 + 6 a4 + 6 a5, 
+ 
+  a1 + 3 a2 + 2 a3 + 4 a4 + 4 a5, 
+ 
+  2 a1 + 2 a2 + 4 a4 + 5 a5, 
+ 
+  2 a1 + 2 a2 + a3 + 3 a4 + 3 a5}\
+\>"], "Output",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData[{
+  "Determine whether or not these vectors\n\n\t1) span 5-space\n\t2) are \
+linearly independent or linearly dependent\n\t\nIf they are linerarly \
+dependent, write one of them as a linear combination of the others.\n[Hint:: \
+the ",
+  StyleBox["RowReduce",
+    FontWeight->"Bold"],
+  " function is useful.]"
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Now, use the techniques you learned from the previous assignment to find \
+the null space of ",
+  StyleBox["a",
+    FontWeight->"Bold"],
+  ".\n[Hint:: the ",
+  StyleBox["NullSpace",
+    FontWeight->"Bold"],
+  " function is very useful.] \n\n\t3) Find a basis for, and the dimension \
+of, the null space of this matrix. "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Is there a numerical message lurking in this analysis?"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{"RulerBar", "EditBar"},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 233}, {Automatic, 38}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+CharacterEncoding->"NeXTAutomaticEncoding",
+Magnification->1,
+StyleDefinitions -> "Classroom.nb"
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 128, 4, 50, "Title"],
+Cell[1862, 57, 128, 4, 50, "Title"],
+
+Cell[CellGroupData[{
+Cell[2015, 65, 85, 2, 55, "Section"],
+Cell[2103, 69, 131, 3, 26, "Text"],
+Cell[2237, 74, 193, 5, 27, "Text"],
+Cell[2433, 81, 135, 3, 26, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2605, 89, 83, 2, 35, "Section"],
+Cell[2691, 93, 2243, 85, 76, "Input"],
+Cell[4937, 180, 2348, 90, 76, "Input"],
+Cell[7288, 272, 2299, 88, 76, "Input"],
+Cell[9590, 362, 2508, 99, 76, "Input"],
+Cell[12101, 463, 1052, 40, 74, "Input"],
+Cell[13156, 505, 2005, 84, 41, "Input"],
+Cell[15164, 591, 267, 6, 77, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[15468, 602, 75, 2, 35, "Section"],
+Cell[15546, 606, 138, 3, 26, "Text"],
+Cell[15687, 611, 150, 3, 92, "Input"],
+Cell[15840, 616, 129, 3, 26, "Text"],
+Cell[15972, 621, 73, 1, 44, "Input"],
+Cell[16048, 624, 132, 3, 26, "Text"],
+
+Cell[CellGroupData[{
+Cell[16205, 631, 90, 1, 44, "Input"],
+Cell[16298, 634, 461, 23, 83, "Output"]
+}, Open  ]],
+Cell[16774, 660, 92, 2, 30, "Text"],
+
+Cell[CellGroupData[{
+Cell[16891, 666, 82, 1, 24, "Input"],
+Cell[16976, 669, 461, 23, 63, "Output"]
+}, Open  ]],
+Cell[17452, 695, 383, 10, 126, "Text"],
+Cell[17838, 707, 399, 12, 78, "Text"],
+Cell[18240, 721, 129, 3, 30, "Text"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

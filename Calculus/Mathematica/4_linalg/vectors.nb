@@ -1,0 +1,472 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7326,        357]*)
+(*NotebookOutlinePosition[      8177,        387]*)
+(*  CellTagsIndexPosition[      8133,        383]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Vectors"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  Background->GrayLevel[1]],
+
+Cell[CellGroupData[{
+
+Cell[TextData["Tutorial"], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Arial",
+  FontSize->24,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On NEXTSTEP (NeXT computer):
+   /LocalLibrary/Mathematica/Notebooks/LinearAlgebra.ma
+\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On Windows NT:
+   \\\\BIRD\\mathematica\\notebook\\LinearAl.ma
+\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSlant->"Italic",
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Vector Definition", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData["A vector is defined as a list."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+u={1,2,3}
+v={2,1,2}\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData[
+"Two vectors are equal if corresponding elements are equal."], "Text",
+  Evaluatable->False],
+
+Cell["{1,2,3}=={1,2,3}", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["The zero vector has all elements zero."], "Text",
+  Evaluatable->False],
+
+Cell["{0,0,0}", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Elements of a Vector", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+u
+v
+u[[1]]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["v[[3]]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Vector Addition & Subtraction", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData["In general..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+x={a,b,c}; y={d,e,f};
+x+y\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Example..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+u
+v
+u+v\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell["u-v", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Scalar Multiplication", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData["In general..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["k x", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Example..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+u
+2 u
+k u\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Dot Product", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData["In general..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+x
+y
+x.y\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Example..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+u
+v
+u.v\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Magnitude (Euclidean Norm)", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData["In general..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["Sqrt[x.x]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Example..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+Sqrt[u.u]
+N[%]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Length[ ] is # of elements..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["Length[x]", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Distance between two Points 
+(Vector Endpoints)\
+\>", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData["In general..."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontSlant->"Italic",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["\<\
+diff=x-y
+Sqrt[diff.diff]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]],
+
+Cell[TextData["Example..."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+diff=u-v
+Sqrt[diff.diff]
+N[%]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Angle between Vectors", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+r={1,1};
+s={1,0};
+theta = ArcCos[r.s/(Sqrt[r.r] Sqrt[s.s])]/
+ Degree
+N[%]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 143}, {Automatic, 5}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 115, 3, 98, "Title"],
+Cell[2080, 65, 138, 4, 51, "Subtitle"],
+
+Cell[CellGroupData[{
+Cell[2243, 73, 201, 7, 57, "Section"],
+Cell[2447, 82, 208, 8, 62, "Text"],
+Cell[2658, 92, 186, 8, 62, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2881, 105, 97, 3, 37, "Section"],
+Cell[2981, 110, 78, 1, 30, "Text"],
+Cell[3062, 113, 95, 5, 36, "Input"],
+Cell[3160, 120, 107, 2, 30, "Text"],
+Cell[3270, 124, 84, 2, 24, "Input"],
+Cell[3357, 128, 86, 1, 30, "Text"],
+Cell[3446, 131, 75, 2, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3558, 138, 100, 3, 37, "Section"],
+Cell[3661, 143, 86, 6, 48, "Input"],
+Cell[3750, 151, 74, 2, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3861, 158, 109, 3, 37, "Section"],
+Cell[3973, 163, 178, 6, 40, "Text"],
+Cell[4154, 171, 101, 5, 36, "Input"],
+Cell[4258, 178, 58, 1, 30, "Text"],
+Cell[4319, 181, 83, 6, 48, "Input"],
+Cell[4405, 189, 71, 2, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4513, 196, 101, 3, 37, "Section"],
+Cell[4617, 201, 178, 6, 40, "Text"],
+Cell[4798, 209, 71, 2, 24, "Input"],
+Cell[4872, 213, 58, 1, 30, "Text"],
+Cell[4933, 216, 85, 6, 48, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5055, 227, 91, 3, 37, "Section"],
+Cell[5149, 232, 178, 6, 40, "Text"],
+Cell[5330, 240, 83, 6, 48, "Input"],
+Cell[5416, 248, 58, 1, 30, "Text"],
+Cell[5477, 251, 83, 6, 48, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5597, 262, 106, 3, 37, "Section"],
+Cell[5706, 267, 178, 6, 40, "Text"],
+Cell[5887, 275, 77, 2, 24, "Input"],
+Cell[5967, 279, 58, 1, 30, "Text"],
+Cell[6028, 282, 90, 5, 36, "Input"],
+Cell[6121, 289, 194, 6, 40, "Text"],
+Cell[6318, 297, 77, 2, 24, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6432, 304, 135, 6, 62, "Section"],
+Cell[6570, 312, 178, 6, 40, "Text"],
+Cell[6751, 320, 100, 5, 36, "Input"],
+Cell[6854, 327, 58, 1, 30, "Text"],
+Cell[6915, 330, 105, 6, 48, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[7057, 341, 101, 3, 37, "Section"],
+Cell[7161, 346, 149, 8, 72, "Input"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

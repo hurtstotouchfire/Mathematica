@@ -1,0 +1,384 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7762,        295]*)
+(*NotebookOutlinePosition[      8613,        325]*)
+(*  CellTagsIndexPosition[      8569,        321]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Mathematica", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  Background->GrayLevel[1]],
+
+Cell[TextData["Loop Structures"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center,
+  FontFamily->"Arial",
+  FontSize->36,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]],
+
+Cell["MATH 5037", "Subtitle",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell[TextData["Clear[\"Global`*\"]"], "Input",
+  PageWidth->Infinity],
+
+Cell[CellGroupData[{
+
+Cell["Tutorial", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+On NEXTSTEP:
+   /LocalLibrary/Mathematica/Notebooks/Programming.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]],
+
+Cell["\<\
+On Windows NT:
+  \\\\BIRD\\mathematica\\notebook\\Programm.ma\
+\>", "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Do", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["Do is another iterator", "Section",
+  Evaluatable->False],
+
+Cell[TextData[
+"We have already seen these iterators:  \nSum, Product, Table"], "Text",
+  Evaluatable->False],
+
+Cell[TextData[
+"Do provides a general loop structure:\n     Do[body,{i, imin, imax, \
+iincr}]"], "Text",
+  Evaluatable->False],
+
+Cell[TextData["Do[Print[i],{i,2,10,2}]"], "Input",
+  PageWidth->Infinity],
+
+Cell["Body can be multiple statements", "Section",
+  Evaluatable->False],
+
+Cell[TextData[
+"The body of the Do can be several commands terminated by semicolons.  A \
+comma separates the body from the list at the end.\n\nExample:  Search a list \
+of numbers, counting the number of positive and negative values."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+data=Table[Random[Integer,{-5.,+5}],{5}];
+Print[\"The table is:\",data];
+(* Search the table *)
+numPos=numNeg=0;
+Do[  If[data[[i]]>0,numPos++,
+       If[data[[i]]<0,numNeg++,
+         Print[\"ZERO!\"]]],
+     {i,5}
+]
+Print[\"Total number positive:\",numPos];
+Print[\"Total number negative:\",numNeg];\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["While", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+While provides the simplest form of a loop structure.  The body of \
+the loop is repeated as long as a test evaluates True:
+      While[test,body]
+
+While evaluates 'test' first, then executes 'body' if the test returns True.
+
+The body must include something that will eventually cause the test to fail \
+so that the loop is exited.
+
+Initialization to get the loop started must be performed before executing the \
+While.
+
+Example:  Print the squares of 1 to 10.\
+\>", "Text",
+  Evaluatable->False],
+
+Cell["\<\
+x=1; xsq=1;
+While[ x <= 10,
+\t(Print[\"Square of \",x,\" 
+\t\t\tis \",xsq,\".\"];
+\t x++;
+\t xsq = x*x)
+]\
+\>", "Input",
+  PageWidth->Infinity],
+
+Cell["Or, it would be cleaner to write it like this:", "Text",
+  Evaluatable->False],
+
+Cell["\<\
+x=1;
+While[ xsq = x*x ; x <= 10,
+\t(Print[\"Square of \",x,\" 
+\t\t\tis \",xsq,\".\"];
+\t x++)
+]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Example Program #1", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24,
+  Background->GrayLevel[1]],
+
+Cell[TextData["This partial program sums the values in a list."], "Text",
+  Evaluatable->False,
+  FontFamily->"Arial",
+  FontSize->22,
+  FontWeight->"Plain",
+  FontSlant->"Plain",
+  FontTracking->"Plain",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1],
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell["\<\
+data = {1,5,3,0,6};
+total = 0;
+Do[total = total + data[[i]],
+\t   {i,1,Length[data]}
+];
+Print[\"The sum of the values is: \", total]\
+\>", "Input",
+  PageWidth->Infinity,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Example Program #2", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell[TextData[
+"This partial program finds the next prime number following a starting \
+number."], "Text",
+  Evaluatable->False],
+
+Cell["\<\
+k = 14;
+While[!PrimeQ[k],k++];
+Print[\"The next prime is \", k]\
+\>", "Input",
+  PageWidth->Infinity,
+  AspectRatioFixed->True,
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Example Program #3", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+
+In this \"program\" we perform a series of Mathematica commands, in proper \
+order, to do numerical integration of a function.\
+\>", "Text"],
+
+Cell[BoxData[{
+    \( (*\ \nThe\ \(Task : \ \ To\ numerically\ integrate\ the\)\ \n
+      function\ f[x]\ from\ x = 
+        \(xlo\ to\ x = 
+          xhi.\n\n\(Method : \ \ A\ Riemann\ sum\ using\ a\ trapezoidal\)\)\n
+      approximation\ with\ delta\ x\ of\ 0.1.\n\nAdded\ 
+        \(Feature : \ a\ plot\ of\ the\ integral\)\ \n
+      function\ is\ \(presented.\)\n*) \n\n
+     (*\ The\ function\ and\ integration\ limits...\n
+      \ \ \ Change\ these\ as\ desired...*) \nf[x_]\  := \ Cos[x]; \n
+    xlo\  = \ 0; \ \nxhi\  = \ 2  Pi; \ndx\ \  = \ 0.1; \ \n\n
+     (*\ Some\ initializations...*) \nintegral = 0.; \ \nxyPts = {}; \n\n
+     (*The\ main\ integration\ loop...*) \n
+    Do[\ \((integral\  += \ \((f[x] + f[x + dx])\)/2.\ dx; \n\ \ \ \ 
+        AppendTo[xyPts, {x, integral}])\), \n
+      \ \ \ \ {x, \ N[xlo], \ N[xhi], \ N[dx]}\n]\n\n
+     (*Present\ the\ results...*) \), 
+    \(Print["\<Integral = \>", integral]; \n
+    ListPlot[xyPts, PlotJoined -> True, \n\t
+      PlotLabel -> "\<Trapezoid Rule\>", \n\t
+      AxesLabel -> {"\<x\>", "\<Integral of f(x)\>"}]; \)}], "Input"]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 123}, {Automatic, 9}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 250, 9, 63, "Subtitle"],
+Cell[1962, 60, 239, 8, 97, "Title"],
+Cell[2204, 70, 110, 3, 51, "Subtitle"],
+Cell[2317, 75, 69, 1, 24, "Input"],
+
+Cell[CellGroupData[{
+Cell[2411, 80, 114, 4, 57, "Section"],
+Cell[2528, 86, 166, 6, 46, "Text"],
+Cell[2697, 94, 161, 6, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2895, 105, 82, 3, 37, "Section"],
+Cell[2980, 110, 63, 1, 52, "Section"],
+Cell[3046, 113, 109, 2, 46, "Text"],
+Cell[3158, 117, 126, 3, 46, "Text"],
+Cell[3287, 122, 73, 1, 24, "Input"],
+Cell[3363, 125, 72, 1, 52, "Section"],
+Cell[3438, 128, 267, 4, 78, "Text"],
+Cell[3708, 134, 376, 14, 144, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[4121, 153, 85, 3, 37, "Section"],
+Cell[4209, 158, 506, 15, 206, "Text"],
+Cell[4718, 175, 153, 9, 96, "Input"],
+Cell[4874, 186, 84, 1, 30, "Text"],
+Cell[4961, 189, 172, 9, 84, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5170, 203, 152, 5, 37, "Section"],
+Cell[5325, 210, 338, 11, 40, "Text"],
+Cell[5666, 223, 208, 9, 84, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[5911, 237, 124, 4, 37, "Section"],
+Cell[6038, 243, 128, 3, 30, "Text"],
+Cell[6169, 248, 165, 7, 48, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6371, 260, 124, 4, 37, "Section"],
+Cell[6498, 266, 151, 4, 62, "Text"],
+Cell[6652, 272, 1094, 20, 456, "Input"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

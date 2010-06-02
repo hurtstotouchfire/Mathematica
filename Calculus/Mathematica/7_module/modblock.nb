@@ -1,0 +1,216 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4175,        159]*)
+(*NotebookOutlinePosition[      5033,        189]*)
+(*  CellTagsIndexPosition[      4989,        185]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " "
+}], "Title",
+  TextAlignment->Center,
+  TextJustification->0],
+
+Cell[TextData["Module and Block"], "Title",
+  Evaluatable->False,
+  CellHorizontalScrolling->False,
+  TextAlignment->Center],
+
+Cell[BoxData[
+    \(MATH\ 5037\)], "Input",
+  TextAlignment->Center,
+  TextJustification->0,
+  FontFamily->"Helvetica",
+  FontSize->24,
+  FontWeight->"Roman"],
+
+Cell["Clear[\"Global`*\"]", "Input",
+  PageWidth->Infinity],
+
+Cell[TextData[
+"The examples below illustrate the difference between using Module and using \
+Block when defining functions.   Yes, the difference is a little (?) \
+confusing.  You'll just have to study the examples carefully if you want to \
+understand it.  In most cases, Module is the one you want to use."], "Text",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+
+Cell["Module", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+
+test[x_]:=Module[{bb=44},
+\tPrint[\"In module...\"];
+\tPrint[\"aa=\",aa,\"    bb=\",bb];
+\taa=11;bb=22;
+\tPrint[\"aa=\",aa,\"    bb=\",bb];
+\ttest2[aa];
+\tPrint[\"Back in module...\"];
+\tPrint[\"aa=\",aa,\"    bb=\",bb];
+];
+test2[x_]:=Module[{aa=55},
+\tPrint[\"In nested module...\"];
+\tPrint[\"aa=\",aa,\"    bb=\",bb];
+\taa=66;bb=77;
+\tPrint[\"aa=\",aa,\"    bb=\",bb];
+];
+
+aa=1;bb=2;
+Print[\"Starting in main...\"];
+Print[\"aa=\",aa,\"    bb=\",bb];
+test[1];
+Print[\"Back in main...\"];
+Print[\"aa=\",aa,\"    bb=\",bb];\
+\>", "Input",
+  PageWidth->Infinity,
+  FontFamily->"Courier New",
+  FontSize->12,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Block", "Section",
+  Evaluatable->False,
+  FontFamily->"Times",
+  FontSize->24],
+
+Cell["\<\
+test[x_]:=Block[{bb=44},
+\tPrint[\"In block...\"];
+\tPrint[\"aa=\",aa,\"    bb=\",bb];
+\taa=11;bb=22;
+\tPrint[\"aa=\",aa,\"    bb=\",bb];
+\ttest2[aa];
+\tPrint[\"Back in block...\"];
+\tPrint[\"aa=\",aa,\"    bb=\",bb];
+];
+test2[x_]:=Block[{aa=55},
+\tPrint[\"In nested block...\"];
+\tPrint[\"aa=\",aa,\"    bb=\",bb];
+\taa=66;bb=77;
+\tPrint[\"aa=\",aa,\"    bb=\",bb];
+];
+
+aa=1;bb=2;
+Print[\"Starting in main...\"];
+Print[\"aa=\",aa,\"    bb=\",bb];
+test[1];
+Print[\"Back in main...\"];
+Print[\"aa=\",aa,\"    bb=\",bb];\
+\>", "Input",
+  PageWidth->Infinity,
+  FontFamily->"Courier New",
+  FontSize->12,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->GrayLevel[1]]
+}, Closed]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->"EditBar",
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 133}, {Automatic, 8}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 135, 6, 98, "Title"],
+Cell[1847, 57, 124, 3, 98, "Title"],
+Cell[1974, 62, 158, 6, 39, "Input"],
+Cell[2135, 70, 59, 1, 24, "Input"],
+Cell[2197, 73, 341, 5, 78, "Text"],
+
+Cell[CellGroupData[{
+Cell[2563, 82, 86, 3, 57, "Section"],
+Cell[2652, 87, 694, 30, 288, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3383, 122, 85, 3, 37, "Section"],
+Cell[3471, 127, 688, 29, 276, "Input"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+
